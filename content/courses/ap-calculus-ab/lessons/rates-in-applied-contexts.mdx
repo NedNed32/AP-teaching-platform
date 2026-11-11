@@ -1,0 +1,93 @@
+---
+objectives:
+  - Use derivatives to analyze rates of change in contexts such as economics, biology and physics.
+keyTerms:
+  - term: Marginal cost
+    definition: '$$C''(x)$$, approximately the cost of producing one more item when $$x$$ items have been made.'
+  - term: Rate of change
+    definition: 'The derivative of a quantity with respect to the variable it depends on, usually time.'
+checks:
+  - q: 'The volume of a balloon is $$V(t)$$ cubic centimeters. What does $$V''(t) < 0$$ mean?'
+    a: 'The balloon is losing volume (deflating) at time $$t$$.'
+  - q: 'If $$C(x) = 500 + 2x + 0.01x^2$$, estimate the cost of the 101st item.'
+    a: '$$C''(100) = 2 + 0.02(100) = 4$$ dollars.'
+sources:
+  - title: Calculus Volume 1, section 3.4 "Derivatives as Rates of Change"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Motion is just one context. The same tools apply to any quantity that changes: water in a tank, people in a line, temperature, cost, or concentration of a drug in the blood.
+
+## Same mathematics, new words
+
+| Context | Function | Derivative means |
+| --- | --- | --- |
+| Tank | gallons $$W(t)$$ | rate water level changes, gal/hr |
+| Population | people $$P(t)$$ | growth rate, people/yr |
+| Economics | cost $$C(x)$$ | marginal cost, dollars/item |
+| Medicine | concentration $$D(t)$$ | rate drug level changes, mg/L per hr |
+
+## Net rates
+
+Many exam questions describe a quantity with an inflow and an outflow. If water enters at $$E(t)$$ and leaves at $$L(t)$$, the amount $$W(t)$$ in the tank satisfies
+
+$$
+W'(t) = E(t) - L(t).
+$$
+
+The amount is increasing when $$E(t) > L(t)$$ and decreasing when $$E(t) < L(t)$$.
+
+<Note title="Rate of a rate">
+If $$R(t)$$ is already a rate (gallons per hour), then $$R'(t)$$ has units of gallons per hour per hour. Interpret it as how fast the rate itself is changing.
+</Note>
+
+<WorkedExample title="Inflow and outflow">
+Sand enters a pile at $$E(t) = 10 + \sin t$$ and erodes at $$L(t) = 2t$$ cubic feet per hour. Is the pile growing or shrinking at $$t = 6$$?
+
+1. $$E(6) = 10 + \sin 6 \approx 9.721$$.
+2. $$L(6) = 12$$.
+3. Net rate: $$E(6) - L(6) \approx -2.279$$.
+
+**Answer:** the pile is shrinking at about 2.279 cubic feet per hour.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$C(x)$$ be the cost, in dollars, of producing x items. Which of the following is the best interpretation of $$C'(2) = -2$$?
+
+**Answer:** The cost is decreasing at a rate of 2 dollars per item when 2 items have been produced.
+
+**Why:** A derivative at a point is an instantaneous rate of change, with units of output per unit of input.
+
+**Working:** $$C'(2)$$ is the instantaneous rate of change of $$C$$ when 2 items have been produced. Its sign (negative) says the cost is decreasing, and its units are dollars per item.
+
+**Mistakes to avoid**
+
+- The cost when 2 items have been produced is -2.: This describes $$C(2)$$, the value of the function, not its rate of change.
+- The cost changes by -2 over the first 2 items.: This describes a total change over an interval, which is an integral of the rate, not the derivative at one point.
+- The average rate of change of the cost over the first 2 items is -2 dollars per item.: The derivative is an instantaneous rate at one input, not an average over an interval.
+
+### Worked exam question 2
+
+The temperature of a room, in degrees Fahrenheit, is modeled by $$H(t) = 53 + 14\sin\left(\frac{t}{5}\right)e^{-t/20}$$, where $$t$$ is measured in hours. What is the instantaneous rate of change of the temperature at $$t = 8$$, in degrees Fahrenheit per hour?
+
+**Answer:** $$-0.524$$
+
+**Why:** The calculator's numerical derivative of $$H$$ at $$t = 8$$ gives -0.524; the temperature is decreasing.
+
+**Working:** The instantaneous rate of change is $$H'(8) \approx -0.524$$ degrees Fahrenheit per hour, from the calculator's numerical derivative.
+
+**Mistakes to avoid**
+
+- $$62.380$$: This is the temperature itself, not its rate of change.
+- $$1.173$$: This is the average rate of change over $$0 \leq t \leq 8$$, not the instantaneous rate.
+- $$-4.191$$: This multiplies the rate by the time, which is not a rate.

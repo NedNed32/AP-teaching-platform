@@ -1,0 +1,110 @@
+---
+objectives:
+  - Find volumes of solids with triangular or semicircular cross sections.
+keyTerms:
+  - term: Equilateral triangle area
+    definition: '$$\frac{\sqrt{3}}{4}s^2$$ for side $$s$$.'
+  - term: Semicircle area
+    definition: '$$\frac{1}{2}\pi r^2 = \frac{\pi}{8}d^2$$ for diameter $$d$$.'
+checks:
+  - q: 'Cross sections are semicircles with diameter $$s(x)$$. What is $$A(x)$$?'
+    a: '$$\frac{\pi}{8}s(x)^2$$.'
+  - q: 'Cross sections are isosceles right triangles with a leg on the base. What is $$A(x)$$?'
+    a: '$$\frac{1}{2}s(x)^2$$.'
+sources:
+  - title: Calculus Volume 1, section 6.2 "Determining Volumes by Slicing"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The slicing method works for any cross-section shape. Only the area formula changes, so the key skill is writing $$A(x)$$ in terms of the base length $$s(x)$$.
+
+## Area formulas in terms of the base
+
+| Cross section | Area $$A$$ |
+| --- | --- |
+| square, side $$s$$ | $$s^2$$ |
+| equilateral triangle, side $$s$$ | $$\frac{\sqrt{3}}{4}s^2$$ |
+| isosceles right triangle, leg $$s$$ | $$\frac{1}{2}s^2$$ |
+| isosceles right triangle, hypotenuse $$s$$ | $$\frac{1}{4}s^2$$ |
+| semicircle, diameter $$s$$ | $$\frac{\pi}{8}s^2$$ |
+
+Each is a constant times $$s^2$$, so the volume is that constant times $$\int_a^b s(x)^2\,dx$$.
+
+## Slices perpendicular to the y-axis
+
+If cross sections are perpendicular to the **y-axis**, the base length is right minus left, written in terms of $$y$$, and you integrate with respect to $$y$$.
+
+<Note title="Diameter versus radius">
+In semicircle problems the base of the region is usually the **diameter**, so the radius is $$\frac{s}{2}$$ and the area is $$\frac{1}{2}\pi\left(\frac{s}{2}\right)^2 = \frac{\pi}{8}s^2$$. Using $$s$$ as the radius makes the answer four times too big.
+</Note>
+
+<WorkedExample title="Semicircles on a triangular base">
+The base of a solid is the triangle with vertices $$(0, 0)$$, $$(4, 0)$$ and $$(0, 2)$$. Cross sections perpendicular to the x-axis are semicircles. Find the volume.
+
+1. The hypotenuse is $$y = 2 - \frac{x}{2}$$, so $$s(x) = 2 - \frac{x}{2}$$ for $$0 \leq x \leq 4$$.
+2. $$V = \frac{\pi}{8}\int_0^4 \left(2 - \frac{x}{2}\right)^2 dx$$.
+3. With $$u = 2 - \frac{x}{2}$$, $$dx = -2\,du$$: $$\frac{\pi}{8} \cdot 2\int_0^2 u^2\,du = \frac{\pi}{4} \cdot \frac{8}{3}$$.
+
+**Answer:** $$\frac{2\pi}{3} \approx 2.094$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$8$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 4. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 4 gives $8$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$\frac{9}{2}\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 6. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 6 gives $\frac\{9\}\{2\}\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$2$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 2. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 2 gives $2$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$9$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 6. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 6 gives $9$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\pi$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 4. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 4 gives $\pi$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$1$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 2. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 2 gives $1$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\frac{\pi}{4}$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 2. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 2 gives $\frac\{\pi\}\{4\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$\frac{1}{2}\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 2. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 2 gives $\frac\{1\}\{2\}\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$18$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 6. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 6 gives $18$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$2\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 4. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 4 gives $2\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\frac{9\pi}{4}$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 6. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 6 gives $\frac\{9\pi\}\{4\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$4$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 4. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 4 gives $4$.

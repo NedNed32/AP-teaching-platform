@@ -1,0 +1,182 @@
+---
+objectives:
+  - Describe the social and ethical impacts of software and program design decisions.
+  - Explain system reliability and intellectual property considerations.
+keyTerms:
+  - term: System reliability
+    definition: 'How well a program performs as intended under all conditions; improved by testing and careful design.'
+  - term: Intellectual property
+    definition: 'Creations of the mind, such as code, protected by copyright and licenses.'
+checks:
+  - q: 'Name one way to improve system reliability.'
+    a: 'Testing with many inputs, including edge cases.'
+  - q: 'Can you freely copy open-source code into your project?'
+    a: 'Only according to its license terms, which may require attribution or sharing.'
+sources:
+  - title: CSAwesome, "Writing Classes" (ethical and social implications)
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Software runs hospitals, banks and cars. Design decisions programmers make affect people far beyond the code.
+
+## Reliability
+
+A reliable program behaves correctly for all valid inputs and fails safely for invalid ones. Ways to improve it:
+
+- test **typical**, **boundary** and **unusual** inputs;
+- state and respect **preconditions**;
+- keep methods small and focused, so each can be tested on its own.
+
+## Impact and responsibility
+
+- **Unintended consequences:** an algorithm that works for its designers may fail for others (for example, facial recognition trained on unrepresentative data).
+- **Privacy and security:** programs that store personal data must protect it.
+- **Accessibility:** design for users with different abilities.
+
+## Intellectual property
+
+Code is protected by **copyright**. Open-source licenses grant permission to use code under conditions such as attribution. Using code without permission, or presenting it as your own, is unethical and may be illegal.
+
+<Note title="On the exam">
+Expect conceptual questions on reliability, testing and responsible use of code, often paired with a short scenario.
+</Note>
+
+<WorkedExample title="Testing for reliability">
+A method returns the letter grade for a score from 0 to 100. Which test inputs best check it?
+
+1. Typical values in each range, such as 85.
+2. Boundaries, such as 89, 90, 0 and 100.
+
+**Answer:** a mix of typical and boundary scores, since off-by-one errors usually appear at the edges.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following class.
+
+```java
+public class Account {
+    private int balance;
+    public Account(int start) {
+        balance = start;
+    }
+    public void deposit(int amt) {
+        balance += amt;
+    }
+    public void withdraw(int amt) {
+        if (amt <= balance) {
+            balance -= amt;
+        }
+    }
+    public int getBalance() {
+        return balance;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Account a = new Account(50);
+a.withdraw(80);
+a.deposit(5);
+a.withdraw(55);
+System.out.println(a.getBalance());
+```
+
+**Answer:** `0`
+
+**Why:** The first withdrawal is refused because 80 is more than 50.
+
+**Working:** Balance: 50; withdraw 80 refused; deposit 5 gives 55; withdraw 55 gives 0.
+
+**Mistakes to avoid**
+
+- `-80`: withdraw only subtracts when there is enough money.
+- `55`: The second withdrawal is allowed.
+- `-25`: Trace every call, and check each withdrawal against the current balance.
+
+### Worked exam question 2
+
+Consider the following class.
+
+```java
+public class Visitor {
+    private static int count = 0;
+    private int id;
+    public Visitor() {
+        count++;
+        id = count;
+    }
+    public int getId() {
+        return id;
+    }
+    public static int getCount() {
+        return count;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Visitor t1 = new Visitor();
+Visitor t2 = new Visitor();
+Visitor t3 = new Visitor();
+Visitor t4 = new Visitor();
+Visitor t5 = new Visitor();
+System.out.println(t3.getId() + " " + Visitor.getCount());
+```
+
+**Answer:** `3 5`
+
+**Why:** count is shared by all objects; each id records count when that object was made.
+
+**Working:** Each constructor call increments the shared count, so t3 gets id 3, and after 5 objects count is 5.
+
+**Mistakes to avoid**
+
+- `3 3`: count is static: it keeps increasing after t3 is created.
+- `5 5`: id is an instance variable set once, when that object is constructed.
+- `1 1`: A static variable is not reset for each new object.
+
+### Worked exam question 3
+
+Consider the following method.
+
+```java
+public static void change(int x, int[] arr) {
+    x = x + 2;
+    arr[0] = arr[0] + 2;
+}
+```
+
+What is printed by the following code segment?
+
+```java
+int n = 17;
+int[] nums = {6, 3};
+change(n, nums);
+System.out.println(n + " " + nums[0]);
+```
+
+**Answer:** `17 8`
+
+**Why:** The int is copied, but the array parameter refers to the same array object.
+
+**Working:** Java passes copies of values. For an int, the copy is independent. For an array, the copy is a reference to the same array, so element changes persist.
+
+**Mistakes to avoid**
+
+- `19 8`: x is a copy of n; changing x does not change n.
+- `17 6`: arr refers to the same array as nums, so the change to arr[0] is visible.
+- `19 6`: Primitives are passed by value; arrays are passed as references to the same object.

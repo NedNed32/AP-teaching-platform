@@ -1,0 +1,67 @@
+---
+objectives:
+  - 'Calculate conditional probabilities from tables, tree diagrams and the multiplication rule.'
+keyTerms:
+  - term: 'Conditional probability'
+    definition: 'P(A | B) = P(A and B) / P(B): the probability of A given that B occurred.'
+checks:
+  - q: 'Is P(A | B) the same as P(B | A)?'
+    a: 'Not in general.'
+  - q: 'What is the general multiplication rule?'
+    a: 'P(A and B) = P(A) · P(B | A).'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)} \qquad P(A \cap B) = P(A)\,P(B \mid A)$$
+
+**Tree diagrams** organize multistage processes: multiply along branches, add across branches that lead to the same event.
+
+A classic application: a medical test's chance of a positive result given disease differs from the chance of disease given a positive result.
+
+<Note title="Given means restrict">
+'Given B' means look only at the B row or column of the table.
+</Note>
+
+<WorkedExample title="Tree diagram">
+1% of people have a condition. A test is positive for 95% of those with it and 8% of those without. Find P(condition | positive).
+
+1. P(positive and condition) = 0.01 × 0.95 = 0.0095.
+2. P(positive) = 0.0095 + 0.99 × 0.08 = 0.0887.
+3. 0.0095 ÷ 0.0887.
+
+**Answer:** about 0.107.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+*Survey of students*
+
+| Grade | Drives to school | Does not drive |
+| --- | --- | --- |
+| Juniors | 23 | 77 |
+| Seniors | 65 | 52 |
+
+A student is chosen at random from those who drive to school. What is the probability the student is a junior?
+
+**Answer:** 0.261
+
+**Why:** P(junior | drives) = juniors who drive ÷ all who drive.
+
+**Working:** 23 ÷ (23 + 65) = 0.261.
+
+**Mistakes to avoid**
+
+- 0.106: That is P(junior and drives); divide by drivers only.
+- 0.23: That is P(drives | junior).
+- 0.461: That is P(junior) overall.

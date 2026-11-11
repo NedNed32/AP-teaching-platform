@@ -1,0 +1,346 @@
+---
+objectives:
+  - Implement ArrayList algorithms that filter, insert in order and build new lists.
+keyTerms:
+  - term: Filtering
+    definition: 'Building a new list of only the elements that meet a condition, or removing the ones that do not.'
+checks:
+  - q: 'How do you insert a value into a sorted ArrayList and keep it sorted?'
+    a: 'Find the first index whose element is greater than the value, then `add(index, value)`; if none, add at the end.'
+  - q: 'Is it safe to add to a new list while traversing the old one?'
+    a: 'Yes, because the list being traversed does not change.'
+sources:
+  - title: CSAwesome, "ArrayList"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+The ArrayList free-response question usually asks you to analyze a list of objects: total a field, filter by a condition, or update elements.
+
+## Building a filtered list
+
+```java
+public static ArrayList<String> longWords(ArrayList<String> words, int min) {
+    ArrayList<String> result = new ArrayList<String>();
+    for (String w : words) {
+        if (w.length() >= min) {
+            result.add(w);
+        }
+    }
+    return result;
+}
+```
+
+## Working with objects in a list
+
+```java
+double total = 0;
+for (Item it : cart) {
+    total += it.getPrice() * it.getQuantity();
+}
+```
+
+## Insert in sorted order
+
+```java
+int i = 0;
+while (i < list.size() && list.get(i) < value) {
+    i++;
+}
+list.add(i, value);
+```
+
+<Note title="Use the class's methods">
+In free-response questions, objects in the list have private data. Call their accessor methods (as given in the question) rather than referring to their instance variables.
+</Note>
+
+<WorkedExample title="Sorted insert trace">
+Insert 7 into [2, 5, 9, 12] using the code above.
+
+1. i = 0: 2 is less than 7, so i becomes 1.
+2. 5 is less than 7, so i becomes 2.
+3. 9 is not less than 7: stop.
+4. `add(2, 7)`.
+
+**Answer:** [2, 5, 7, 9, 12].
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int[] a = {1, 3, 3, 1};
+a[3] = a[3] + a[0];
+a[a[2]] = 20;
+for (int x : a) {
+    System.out.print(x + " ");
+}
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `1 3 3 20`
+
+**Why:** After the first assignment, a[2] is 3, so that index is set to 20.
+
+**Working:** After `a[3] = a[3] + a[0]`, the array is \{1, 3, 3, 2\}. Then a[2] is 3, so index 3 becomes 20.
+
+**Mistakes to avoid**
+
+- `1 3 20 2`: a[a[2]] uses the value stored at index 2 as the index.
+- `1 3 3 2`: The second assignment also changes the array.
+- `1 3 3 21`: Statements run in order; the first assignment happens before a[2] is read.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int[] a = {3, 6, 4, 1, 4};
+for (int x : a) {
+    x = x * 2;
+}
+for (int i = 1; i < a.length; i += 2) {
+    a[i] = a[i] + 1;
+}
+for (int x : a) {
+    System.out.print(x + " ");
+}
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3 7 4 2 4`
+
+**Why:** The enhanced for loop changes only copies; the indexed loop changes the array.
+
+**Working:** The first loop has no effect on a. The second adds 1 at indexes 1, 3, …, giving \{3, 7, 4, 2, 4\}.
+
+**Mistakes to avoid**
+
+- `6 13 8 3 8`: Assigning to the enhanced-for variable does not change the array.
+- `4 6 5 1 5`: The indexed loop starts at 1.
+- `4 7 5 2 5`: The index increases by 2.
+
+### Worked exam question 3
+
+Consider the following method.
+
+```java
+public static int mystery(int[] arr) {
+    int k = 0;
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > arr[k]) {
+            k = i;
+        }
+    }
+    return k;
+}
+```
+
+What is returned by `mystery(new int[] {1, 1, 3, 8, 2, 8})`?
+
+**Answer:** `3`
+
+**Why:** The method returns the index of the first occurrence of the maximum.
+
+**Working:** The maximum 8 occurs at indexes 3 and 5. Using `>`, k ends at 3.
+
+**Mistakes to avoid**
+
+- `5`: With >, a later equal value does not replace k.
+- `8`: k stores an index, not a value.
+- `4`: Indexes start at 0.
+
+### Free-response practice: Playlist
+
+A `Song` has a title, an artist and a length in seconds.
+
+```java
+public class Song {
+    public String getTitle() { /* implementation not shown */ }
+    public String getArtist() { /* implementation not shown */ }
+    public int getSeconds() { /* implementation not shown */ }
+}
+public class Playlist {
+    private ArrayList<Song> songs;
+    /** Returns the total length, in seconds, of the songs by the given artist. */
+    public int totalTime(String artist) { /* part (a) */ }
+    /** Removes every song shorter than min seconds and returns the number removed. */
+    public int removeShort(int min) { /* part (b) */ }
+}
+```
+
+Suppose `songs` contains, in order: "Northbound" by Nova (118 s); "River Road" by Nova (242 s); "Morning Light" by Nova (118 s); "Afterglow" by Kai (213 s); "Echoes" by Nova (230 s); "Blue Hour" by Nova (225 s). Then `totalTime("Kai")` returns 213, and `removeShort(230)` returns 4, leaving "River Road", "Echoes" in their original order.
+
+**(a)** Write the method `totalTime`.
+
+To earn the point: Traverses every song in the list. Model answer: `for (Song s : songs)`
+
+To earn the point: Compares artists with equals, not ==. Model answer: `s.getArtist().equals(artist)`
+
+To earn the point: Adds getSeconds for matching songs and returns the total. Model answer:
+
+```java
+public int totalTime(String artist) {
+    int total = 0;
+    for (Song s : songs) {
+        if (s.getArtist().equals(artist)) {
+            total += s.getSeconds();
+        }
+    }
+    return total;
+}
+```
+
+**(b)** Write the method `removeShort`.
+
+To earn the point: Traverses the list in a way that does not skip elements when one is removed (backward, or not advancing after a removal). Model answer: `for (int i = songs.size() - 1; i >= 0; i--)`
+
+To earn the point: Identifies songs shorter than min. Model answer: `songs.get(i).getSeconds() < min`
+
+To earn the point: Removes them with remove(i) and does not use an enhanced for loop while removing. Model answer: `songs.remove(i);`
+
+To earn the point: Counts and returns the number removed. Model answer:
+
+```java
+public int removeShort(int min) {
+    int removed = 0;
+    for (int i = songs.size() - 1; i >= 0; i--) {
+        if (songs.get(i).getSeconds() < min) {
+            songs.remove(i);
+            removed++;
+        }
+    }
+    return removed;
+}
+```
+
+### Free-response practice: Sensor log
+
+A `Reading` stores the day of the month and a temperature. A `SensorLog` keeps readings in increasing order of day, with no two readings on the same day.
+
+```java
+public class Reading {
+    public Reading(int day, int temp) { /* not shown */ }
+    public int getDay() { /* not shown */ }
+    public int getTemp() { /* not shown */ }
+}
+public class SensorLog {
+    private ArrayList<Reading> readings;
+    /** Returns the number of readings with a temperature greater than t. */
+    public int countAbove(int t) { /* part (a) */ }
+    /** Inserts r so the list stays in increasing order of day.
+        Precondition: no reading in the list has the same day as r. */
+    public void addReading(Reading r) { /* part (b) */ }
+}
+```
+
+If the readings are (day, temp) (6, 16), (9, 35), (13, 35), (18, 26), (21, 26), (29, 15), then `countAbove(21)` returns 4. Adding a reading for day 2 gives the days [2, 6, 9, 13, 18, 21, 29].
+
+**(a)** Write the method `countAbove`.
+
+To earn the point: Traverses all readings. Model answer: `for (Reading rd : readings)`
+
+To earn the point: Compares getTemp() with t using a strict inequality. Model answer: `if (rd.getTemp() > t)`
+
+To earn the point: Counts and returns the result. Model answer:
+
+```java
+public int countAbove(int t) {
+    int count = 0;
+    for (Reading rd : readings) {
+        if (rd.getTemp() > t) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+**(b)** Write the method `addReading`.
+
+To earn the point: Finds the first index whose day is greater than r's day, without going out of bounds. Model answer: `while (i < readings.size() && readings.get(i).getDay() < r.getDay()) i++;`
+
+To earn the point: Inserts with add(index, r). Model answer: `readings.add(i, r);`
+
+To earn the point: Handles inserting at the front and at the end (including an empty list). Model answer:
+
+```java
+public void addReading(Reading r) {
+    int i = 0;
+    while (i < readings.size() && readings.get(i).getDay() < r.getDay()) {
+        i++;
+    }
+    readings.add(i, r);
+}
+```
+
+### Free-response practice: Store orders
+
+An `Order` has an item name, a quantity and a price per unit in dollars.
+
+```java
+public class Order {
+    public String getItem() { /* not shown */ }
+    public int getQuantity() { /* not shown */ }
+    public int getPrice() { /* not shown */ }
+}
+public class OrderBook {
+    private ArrayList<Order> orders;
+    /** Returns the total revenue: the sum of quantity times price for all orders. */
+    public int revenue() { /* part (a) */ }
+    /** Returns a new list of the item names of orders with quantity at least minQty,
+        in the same order. The orders list is not changed. */
+    public ArrayList<String> bigOrders(int minQty) { /* part (b) */ }
+}
+```
+
+With the orders (markers, 21, 6), (notebooks, 10, 6), (erasers, 4, 9), (glue, 10, 2), (pencils, 5, 9), `revenue()` returns 287 and `bigOrders(19)` returns `["markers"]`.
+
+**(a)** Write the method `revenue`.
+
+To earn the point: Traverses all orders. Model answer: `for (Order o : orders)`
+
+To earn the point: Multiplies quantity by price for each order. Model answer: `o.getQuantity() * o.getPrice()`
+
+To earn the point: Accumulates and returns the total. Model answer:
+
+```java
+public int revenue() {
+    int total = 0;
+    for (Order o : orders) {
+        total += o.getQuantity() * o.getPrice();
+    }
+    return total;
+}
+```
+
+**(b)** Write the method `bigOrders`.
+
+To earn the point: Creates a new ArrayList of String. Model answer: `ArrayList<String> result = new ArrayList<String>();`
+
+To earn the point: Checks each order's quantity against minQty (at least). Model answer: `if (o.getQuantity() >= minQty)`
+
+To earn the point: Adds the item name, keeps the order, does not change orders, and returns the new list. Model answer:
+
+```java
+public ArrayList<String> bigOrders(int minQty) {
+    ArrayList<String> result = new ArrayList<String>();
+    for (Order o : orders) {
+        if (o.getQuantity() >= minQty) {
+            result.add(o.getItem());
+        }
+    }
+    return result;
+}
+```

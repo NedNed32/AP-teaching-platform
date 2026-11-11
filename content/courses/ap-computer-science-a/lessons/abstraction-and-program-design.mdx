@@ -1,0 +1,187 @@
+---
+objectives:
+  - Use abstraction to break a problem into classes and methods.
+  - Identify the attributes and behaviors a class should have from a description.
+keyTerms:
+  - term: Abstraction
+    definition: 'Hiding details so a component can be used through a simple interface.'
+  - term: Data abstraction
+    definition: 'Representing information with variables and objects so the rest of the program does not depend on how it is stored.'
+  - term: Procedural abstraction
+    definition: 'Naming a process as a method so callers use it without knowing how it works.'
+checks:
+  - q: 'Why put a calculation in its own method?'
+    a: 'It can be reused, tested separately and changed without affecting callers.'
+  - q: 'In "A library tracks books, each with a title, author and whether it is checked out," what are likely instance variables of Book?'
+    a: 'title, author and a boolean checkedOut.'
+sources:
+  - title: CSAwesome, "Writing Classes"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Large programs are manageable only because of **abstraction**: each piece exposes what it does and hides how it does it.
+
+## Designing a class from a description
+
+Read the description and look for:
+
+- **Nouns** that describe data each object needs: instance variables.
+- **Verbs** describing actions: methods.
+
+"A parking meter has a rate per hour and the time remaining. Drivers add coins, and the meter reports whether it has expired."
+
+| Element | Becomes |
+| --- | --- |
+| rate per hour, time remaining | instance variables |
+| add coins | `void addCoins(int cents)` |
+| report whether expired | `boolean isExpired()` |
+
+## Why abstraction helps
+
+- **Reuse:** one method, called from many places.
+- **Readability:** names like `isExpired()` say what code means.
+- **Change:** you can rewrite a method's internals without breaking its callers.
+
+<Note title="Free-response class design">
+The class-design free-response question gives a description and sample calls. Instance variables, constructors and methods must match the sample code exactly in name and type.
+</Note>
+
+<WorkedExample title="From description to header">
+"A Ticket has a price and a seat number. It can report its price after applying a percentage discount." Write the method header for the discount behavior.
+
+1. It needs the discount percentage as a parameter.
+2. It returns a price (with decimals).
+
+**Answer:** `public double discountedPrice(double percent)`.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following class.
+
+```java
+public class Account {
+    private int balance;
+    public Account(int start) {
+        balance = start;
+    }
+    public void deposit(int amt) {
+        balance += amt;
+    }
+    public void withdraw(int amt) {
+        if (amt <= balance) {
+            balance -= amt;
+        }
+    }
+    public int getBalance() {
+        return balance;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Account a = new Account(50);
+a.withdraw(80);
+a.deposit(5);
+a.withdraw(55);
+System.out.println(a.getBalance());
+```
+
+**Answer:** `0`
+
+**Why:** The first withdrawal is refused because 80 is more than 50.
+
+**Working:** Balance: 50; withdraw 80 refused; deposit 5 gives 55; withdraw 55 gives 0.
+
+**Mistakes to avoid**
+
+- `-80`: withdraw only subtracts when there is enough money.
+- `55`: The second withdrawal is allowed.
+- `-25`: Trace every call, and check each withdrawal against the current balance.
+
+### Worked exam question 2
+
+Consider the following class.
+
+```java
+public class Visitor {
+    private static int count = 0;
+    private int id;
+    public Visitor() {
+        count++;
+        id = count;
+    }
+    public int getId() {
+        return id;
+    }
+    public static int getCount() {
+        return count;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Visitor t1 = new Visitor();
+Visitor t2 = new Visitor();
+Visitor t3 = new Visitor();
+Visitor t4 = new Visitor();
+Visitor t5 = new Visitor();
+System.out.println(t3.getId() + " " + Visitor.getCount());
+```
+
+**Answer:** `3 5`
+
+**Why:** count is shared by all objects; each id records count when that object was made.
+
+**Working:** Each constructor call increments the shared count, so t3 gets id 3, and after 5 objects count is 5.
+
+**Mistakes to avoid**
+
+- `3 3`: count is static: it keeps increasing after t3 is created.
+- `5 5`: id is an instance variable set once, when that object is constructed.
+- `1 1`: A static variable is not reset for each new object.
+
+### Worked exam question 3
+
+Consider the following method.
+
+```java
+public static void change(int x, int[] arr) {
+    x = x + 2;
+    arr[0] = arr[0] + 2;
+}
+```
+
+What is printed by the following code segment?
+
+```java
+int n = 17;
+int[] nums = {6, 3};
+change(n, nums);
+System.out.println(n + " " + nums[0]);
+```
+
+**Answer:** `17 8`
+
+**Why:** The int is copied, but the array parameter refers to the same array object.
+
+**Working:** Java passes copies of values. For an int, the copy is independent. For an array, the copy is a reference to the same array, so element changes persist.
+
+**Mistakes to avoid**
+
+- `19 8`: x is a copy of n; changing x does not change n.
+- `17 6`: arr refers to the same array as nums, so the change to arr[0] is visible.
+- `19 6`: Primitives are passed by value; arrays are passed as references to the same object.

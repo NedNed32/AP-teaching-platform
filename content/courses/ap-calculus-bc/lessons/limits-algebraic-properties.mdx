@@ -1,0 +1,111 @@
+---
+objectives:
+  - Use the limit laws for sums, differences, products, quotients, constant multiples and powers.
+  - Evaluate limits of polynomial and rational functions by direct substitution when it applies.
+keyTerms:
+  - term: Limit laws
+    definition: 'Rules that let you split the limit of a combination of functions into a combination of their limits, provided those limits exist.'
+  - term: Direct substitution
+    definition: 'Evaluating $$\lim_{x \to a} f(x)$$ as $$f(a)$$; valid when $$f$$ is continuous at $$a$$, for example any polynomial.'
+checks:
+  - q: 'If $$\lim_{x \to 2} f(x) = 3$$ and $$\lim_{x \to 2} g(x) = -1$$, find $$\lim_{x \to 2} \left[2f(x) - g(x)^2\right]$$.'
+    a: '$$2(3) - (-1)^2 = 5$$.'
+  - q: 'When does the quotient law fail?'
+    a: 'When the limit of the denominator is 0. Then the law gives no answer and you must use another method.'
+sources:
+  - title: Calculus Volume 1, section 2.3 "The Limit Laws"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Limits behave politely with arithmetic. If you know the limits of two functions, you can find the limit of their sum, product or quotient without looking at a graph or table.
+
+## The limit laws
+
+Suppose $$\lim_{x \to a} f(x) = L$$ and $$\lim_{x \to a} g(x) = M$$, and $$c$$ is a constant. Then:
+
+| Law | Statement |
+| --- | --- |
+| Sum and difference | $$\lim_{x \to a} [f(x) \pm g(x)] = L \pm M$$ |
+| Constant multiple | $$\lim_{x \to a} c\,f(x) = cL$$ |
+| Product | $$\lim_{x \to a} f(x)g(x) = LM$$ |
+| Quotient | $$\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}$$, if $$M \neq 0$$ |
+| Power | $$\lim_{x \to a} [f(x)]^n = L^n$$ |
+| Composition | $$\lim_{x \to a} f(g(x)) = f(M)$$ when $$f$$ is continuous at $$M$$ |
+
+## Direct substitution
+
+The laws imply that for any polynomial $$p$$, $$\lim_{x \to a} p(x) = p(a)$$. The same is true for rational functions whenever the denominator is not zero at $$a$$, and for $$\sin x$$, $$\cos x$$, $$e^x$$, $$\ln x$$ and roots at every point of their domains:
+
+$$
+\lim_{x \to 3} \frac{x^2 + 1}{x - 1} = \frac{10}{2} = 5.
+$$
+
+<Note title="Laws need the pieces to exist">
+The laws only work when each individual limit exists. $$\lim_{x \to 0} \left(x \cdot \frac{1}{x}\right) = 1$$, but you cannot split it as $$\lim x \cdot \lim \frac{1}{x}$$, because $$\lim_{x \to 0} \frac{1}{x}$$ does not exist.
+</Note>
+
+<WorkedExample title="Combining given limits">
+Given $$\lim_{x \to 4} f(x) = 6$$ and $$\lim_{x \to 4} g(x) = 2$$, find $$\lim_{x \to 4} \frac{f(x) + 3g(x)}{\sqrt{g(x) + 7}}$$.
+
+1. Numerator: $$6 + 3(2) = 12$$.
+2. Denominator: $$\sqrt{2 + 7} = 3$$, which is not 0, so the quotient law applies.
+
+**Answer:** $$\frac{12}{3} = 4$$.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+What is $$\lim_{x \to 2} \frac{x^{2} - 7x + 10}{x - 2}$$?
+
+**Answer:** $$-3$$
+
+**Why:** The numerator factors as $$(x - 2)(x - 5)$$. Cancel $$x - 2$$ and substitute: $$2 - (5) = -3$$.
+
+**Working:** Direct substitution gives $$\frac{0}{0}$$, so factor: $$x^{2} - 7x + 10 = (x - 2)(x - 5)$$. For $$x \neq 2$$ the expression equals $$x - 5$$, so the limit is $$2 - (5) = -3$$.
+
+**Mistakes to avoid**
+
+- $$0$$: Substituting gives $$\frac{0}{0}$$, an indeterminate form, not the value 0.
+- $$7$$: This adds the roots. After cancelling, the expression is $$x - 5$$, which approaches $$-3$$.
+- The limit does not exist.: The expression is undefined at the point, but its outputs nearby approach a single number, so the limit exists.
+
+### Worked exam question 2
+
+What is $$\lim_{x \to \infty} \frac{-6x - 2}{2x^{2} + 6}$$?
+
+**Answer:** $$0$$
+
+**Why:** The denominator has the higher degree, so it outgrows the numerator and the fraction approaches 0.
+
+**Working:** Dividing by $$x^2$$ gives $$\frac{-6/x - 2/x^2}{2 + 6/x^2}$$. The numerator approaches 0 and the denominator approaches $$2$$, so the limit is 0.
+
+**Mistakes to avoid**
+
+- $$-3$$: Comparing leading coefficients only gives the limit when the degrees are equal.
+- $$-\frac{1}{3}$$: This is the ratio of the constant terms, which only matters as x approaches 0.
+- $$\infty$$: The denominator grows faster than the numerator, so the fraction shrinks toward 0.
+
+### Worked exam question 3
+
+Let $$f(x) = \begin{cases} 3x - 2 & x < 1 \\ -3x - 6 & x \geq 1 \end{cases}$$. What is $$\lim_{x \to 1} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** The left-hand limit is $$1$$ and the right-hand limit is $$-9$$. They differ, so the two-sided limit does not exist.
+
+**Working:** From the left, $$f(x) = 3x - 2 \to 1$$. From the right, $$f(x) = -3x - 6 \to -9$$. Since $$1 \neq -9$$, $$\lim_{x \to 1} f(x)$$ does not exist.
+
+**Mistakes to avoid**
+
+- $$-9$$: This is $$f(1)$$ and the right-hand limit only. The left-hand limit is $$1$$.
+- $$1$$: This is the left-hand limit only. The right-hand limit is $$-9$$.
+- $$-4$$: A limit is never the average of the one-sided limits. When they differ, the limit does not exist.

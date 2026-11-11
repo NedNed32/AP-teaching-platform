@@ -1,0 +1,90 @@
+---
+objectives:
+  - Compare lossless and lossy compression and choose between them.
+keyTerms:
+  - term: Lossless compression
+    definition: 'Reduces the number of bits while allowing the original data to be completely restored.'
+  - term: Lossy compression
+    definition: 'Reduces the number of bits further by removing some information; the original cannot be fully restored.'
+checks:
+  - q: 'Which compression must be used for a text document or a program file?'
+    a: 'Lossless, because every bit must be restored exactly.'
+  - q: 'Why do streaming services use lossy compression?'
+    a: 'It makes files much smaller, and the lost detail is hard to notice.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Compression reduces the number of bits needed to store or send data.
+
+## Lossless
+
+Patterns and repetition are encoded more efficiently, and the original can be reconstructed exactly. Example: run-length encoding turns AAAAABBB into 5A3B.
+
+## Lossy
+
+Some information is discarded, usually detail people barely notice. Files become much smaller, but the original cannot be restored.
+
+| | Lossless | Lossy |
+| --- | --- | --- |
+| Restores the original exactly | yes | no |
+| Typical size reduction | smaller | much larger |
+| Good for | text, code, medical images | photos, music, streaming video |
+
+<Note title="The trade-off">
+How much a file shrinks depends on the data and the method. Choose lossless when exact reconstruction matters; choose lossy when minimizing size or transmission time matters most.
+</Note>
+
+<WorkedExample title="Run-length encoding">
+Compress WWWWWWBBWWWW with run-length encoding.
+
+1. Runs: six W, two B, four W.
+
+**Answer:** 6W2B4W, which can be expanded back exactly, so it is lossless.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Run-length encoding replaces each run of a repeated character with its count followed by the character, so AAAB becomes 3A1B. What is the encoding of `WWWWWWWBBWWWWWBBBBWWWW`?
+
+**Answer:** `7W2B5W4B4W`
+
+**Why:** Each run is replaced by its length and character, in order.
+
+**Working:** The runs are 7 W, 2 B, 5 W, 4 B, 4 W, so the encoding is 7W2B5W4B4W. It is lossless: the original can be rebuilt exactly.
+
+**Mistakes to avoid**
+
+- `W7B2W5B4W4`: The count comes before the character.
+- `16W6B`: Each run is encoded separately, in order; runs are not merged.
+- `8W2B5W4B4W`: Recount the first run.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A video streaming service wants to send video quickly over slow connections, and viewers will not notice small losses in detail. Which approach is most appropriate?
+
+**A.** Lossy compression. Lossy compression gives much smaller files when exact reconstruction is not needed.
+
+**Q.** A program must transmit a spreadsheet of financial records as quickly as possible. Why should it use lossless rather than lossy compression?
+
+**A.** Every value must arrive exactly as it was stored. Financial data cannot tolerate lost information.
+
+**Q.** Which statement about lossless compression is true?
+
+**A.** The original data can be completely restored. That is the defining property of lossless compression.
+
+**Q.** A hospital stores X-ray images that doctors use for diagnosis and wants to reduce storage space. Which approach is most appropriate?
+
+**A.** Lossless compression, because every detail must be recoverable. Medical images must be restored exactly.

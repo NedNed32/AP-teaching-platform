@@ -1,0 +1,319 @@
+---
+objectives:
+  - 'Solve motion problems in the plane: speed, distance travelled, position, and direction of motion.'
+keyTerms:
+  - term: Speed in the plane
+    definition: '$$\sqrt{[x''(t)]^2 + [y''(t)]^2}$$, the magnitude of the velocity vector.'
+  - term: Total distance in the plane
+    definition: '$$\int_a^b \sqrt{[x''(t)]^2 + [y''(t)]^2}\,dt$$.'
+checks:
+  - q: 'A particle has $$x''(t) = 3$$ and $$y''(t) = 4$$. What is its speed?'
+    a: '5.'
+  - q: 'When is a planar particle at rest?'
+    a: 'When both $$x''(t) = 0$$ and $$y''(t) = 0$$ at the same time.'
+sources:
+  - title: Calculus Volume 3, section 3.4 "Motion in Space"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-3
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Free-response Question 2 on the BC exam is often a particle moving in the plane, given by $$\frac{dx}{dt}$$ and $$\frac{dy}{dt}$$. Every part draws on a small set of formulas.
+
+## The toolkit
+
+| Question | Compute |
+| --- | --- |
+| Slope of the path | $$\frac{dy}{dx} = \frac{y'(t)}{x'(t)}$$ |
+| Speed | $$\sqrt{x'(t)^2 + y'(t)^2}$$ |
+| Acceleration vector | $$\langle x''(t), y''(t) \rangle$$ |
+| Position at time $$b$$ | $$x(a) + \int_a^b x'\,dt$$ and $$y(a) + \int_a^b y'\,dt$$ |
+| Total distance | $$\int_a^b \sqrt{x'^2 + y'^2}\,dt$$ |
+| Moving left or right | sign of $$x'(t)$$ |
+| Moving up or down | sign of $$y'(t)$$ |
+
+## Speeding up in the plane
+
+Speed is increasing when the derivative of speed is positive. With a calculator, evaluate the derivative of $$\sqrt{x'^2 + y'^2}$$ numerically, or check whether the velocity and acceleration vectors point in roughly the same direction (positive dot product).
+
+<Note title="Displacement versus distance">
+The change in position is the vector $$\left\langle \int x'\,dt, \int y'\,dt \right\rangle$$. The distance travelled integrates the **speed**. They are different questions with different answers.
+</Note>
+
+<WorkedExample title="A calculator motion problem">
+A particle has $$x'(t) = \cos(t^2)$$ and $$y'(t) = e^{0.5t}$$, with $$(x(0), y(0)) = (2, 1)$$. Find its speed at $$t = 1$$ and its total distance for $$0 \leq t \leq 1$$.
+
+1. Speed: $$\sqrt{\cos^2 1 + e^{1}} \approx \sqrt{0.2919 + 2.7183} \approx 1.735$$.
+2. Distance: $$\int_0^1 \sqrt{\cos^2(t^2) + e^{t}}\,dt$$, evaluated on a calculator.
+
+**Answer:** speed $$\approx 1.735$$; distance $$\approx 1.595$$ (calculator).
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A particle has velocity $$\vec{v}(t) = \langle 2t - 2, 3t^{2} \rangle$$ and position $$(-2, 2)$$ at $$t = 0$$. Where is the particle at $$t = 3$$?
+
+**Answer:** $$(1, 29)$$
+
+**Why:** Add the integral of each velocity component to the starting coordinate.
+
+**Working:** $$x(3) = -2 + \int_0^{3} (2t - 2)\,dt = 1$$ and $$y(3) = 2 + \int_0^{3} (3t^{2})\,dt = 29$$.
+
+**Mistakes to avoid**
+
+- $$(3, 27)$$: This is the displacement; add the starting position.
+- $$(4, 27)$$: This is the velocity at the final time, not the position.
+- $$(2, 29)$$: This adds the final velocity instead of the accumulated change in position.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A particle moves in the plane with $$x'(t) = \frac{5}{2}t$$ and $$y'(t) = 3t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$13$$. $$\sqrt{5^2 + 12^2} = 13$$. At $$t = 2$$, $$\vec{v} = \langle 5, 12 \rangle$$, so the speed is $$\sqrt{25 + 144} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3t$$ and $$y'(t) = 2t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$10$$. $$\sqrt{6^2 + 8^2} = 10$$. At $$t = 2$$, $$\vec{v} = \langle 6, 8 \rangle$$, so the speed is $$\sqrt{36 + 64} = 10$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 12t$$ and $$y'(t) = 5t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$13$$. $$\sqrt{12^2 + 5^2} = 13$$. At $$t = 1$$, $$\vec{v} = \langle 12, 5 \rangle$$, so the speed is $$\sqrt{144 + 25} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3t$$ and $$y'(t) = 4t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$5$$. $$\sqrt{3^2 + 4^2} = 5$$. At $$t = 1$$, $$\vec{v} = \langle 3, 4 \rangle$$, so the speed is $$\sqrt{9 + 16} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \frac{8}{3}t$$ and $$y'(t) = \frac{5}{3}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$17$$. $$\sqrt{8^2 + 15^2} = 17$$. At $$t = 3$$, $$\vec{v} = \langle 8, 15 \rangle$$, so the speed is $$\sqrt{64 + 225} = 17$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 4t$$ and $$y'(t) = 3t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$5$$. $$\sqrt{4^2 + 3^2} = 5$$. At $$t = 1$$, $$\vec{v} = \langle 4, 3 \rangle$$, so the speed is $$\sqrt{16 + 9} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 6t$$ and $$y'(t) = \frac{5}{4}t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$13$$. $$\sqrt{12^2 + 5^2} = 13$$. At $$t = 2$$, $$\vec{v} = \langle 12, 5 \rangle$$, so the speed is $$\sqrt{144 + 25} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = t$$ and $$y'(t) = \frac{4}{9}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$5$$. $$\sqrt{3^2 + 4^2} = 5$$. At $$t = 3$$, $$\vec{v} = \langle 3, 4 \rangle$$, so the speed is $$\sqrt{9 + 16} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \frac{3}{2}t$$ and $$y'(t) = t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$5$$. $$\sqrt{3^2 + 4^2} = 5$$. At $$t = 2$$, $$\vec{v} = \langle 3, 4 \rangle$$, so the speed is $$\sqrt{9 + 16} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 6t$$ and $$y'(t) = 8t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$10$$. $$\sqrt{6^2 + 8^2} = 10$$. At $$t = 1$$, $$\vec{v} = \langle 6, 8 \rangle$$, so the speed is $$\sqrt{36 + 64} = 10$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 8t$$ and $$y'(t) = 15t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$17$$. $$\sqrt{8^2 + 15^2} = 17$$. At $$t = 1$$, $$\vec{v} = \langle 8, 15 \rangle$$, so the speed is $$\sqrt{64 + 225} = 17$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 5t$$ and $$y'(t) = 12t^2$$. What is the speed of the particle at $$t = 1$$?
+
+**A.** $$13$$. $$\sqrt{5^2 + 12^2} = 13$$. At $$t = 1$$, $$\vec{v} = \langle 5, 12 \rangle$$, so the speed is $$\sqrt{25 + 144} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2t$$ and $$y'(t) = \frac{8}{9}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$10$$. $$\sqrt{6^2 + 8^2} = 10$$. At $$t = 3$$, $$\vec{v} = \langle 6, 8 \rangle$$, so the speed is $$\sqrt{36 + 64} = 10$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2t$$ and $$y'(t) = \frac{3}{4}t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$5$$. $$\sqrt{4^2 + 3^2} = 5$$. At $$t = 2$$, $$\vec{v} = \langle 4, 3 \rangle$$, so the speed is $$\sqrt{16 + 9} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 4t$$ and $$y'(t) = \frac{5}{9}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$13$$. $$\sqrt{12^2 + 5^2} = 13$$. At $$t = 3$$, $$\vec{v} = \langle 12, 5 \rangle$$, so the speed is $$\sqrt{144 + 25} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \frac{5}{3}t$$ and $$y'(t) = \frac{4}{3}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$13$$. $$\sqrt{5^2 + 12^2} = 13$$. At $$t = 3$$, $$\vec{v} = \langle 5, 12 \rangle$$, so the speed is $$\sqrt{25 + 144} = 13$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 4t$$ and $$y'(t) = \frac{15}{4}t^2$$. What is the speed of the particle at $$t = 2$$?
+
+**A.** $$17$$. $$\sqrt{8^2 + 15^2} = 17$$. At $$t = 2$$, $$\vec{v} = \langle 8, 15 \rangle$$, so the speed is $$\sqrt{64 + 225} = 17$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \frac{4}{3}t$$ and $$y'(t) = \frac{1}{3}t^2$$. What is the speed of the particle at $$t = 3$$?
+
+**A.** $$5$$. $$\sqrt{4^2 + 3^2} = 5$$. At $$t = 3$$, $$\vec{v} = \langle 4, 3 \rangle$$, so the speed is $$\sqrt{16 + 9} = 5$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$8.619$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 8.619$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$1.499$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 1.499$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$6.490$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 6.490$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$3.840$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.840$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$8.000$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 8.000$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$5.876$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.876$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$2.260$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 2.260$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$2.350$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 2.350$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$3.130$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.130$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$3.141$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.141$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$3.161$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.161$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$5.155$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.155$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$8.712$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 8.712$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$4.052$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 4.052$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$3.054$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.054$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$10.123$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 10.123$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$2.244$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 2.244$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$8.233$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 8.233$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$5.085$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.085$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$7.046$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 7.046$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$4.759$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 4.759$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$4.252$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 4.252$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$4.752$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 4.752$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$1.629$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 1.629$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/4}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$5.248$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.248$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$3.207$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.207$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$5.725$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.725$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$3.946$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.946$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$3.282$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 3.282$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$2.287$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 2.287$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/2}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$7.455$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 7.455$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$1.477$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 1.477$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 2\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 3$$?
+
+**A.** $$6.215$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{3} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 6.215$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 1$$?
+
+**A.** $$1.539$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{1} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 1.539$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = 3\cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$5.425$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 5.425$$.
+
+**Q.** A particle moves in the plane with $$x'(t) = \cos\left(\frac{t^2}{2}\right)$$ and $$y'(t) = e^{t/5}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?
+
+**A.** $$2.930$$. Integrate the speed $$\sqrt{x'(t)^2 + y'(t)^2}$$. $$\int_0^{2} \sqrt{x'(t)^2 + y'(t)^2}\,dt \approx 2.930$$.
+
+### Free-response practice: Motion in the plane
+
+A particle moves in the xy-plane so that for $$0 \leq t \leq 4$$, $$\frac{dx}{dt} = 3\sin\left(\frac{t^2}{3}\right) + 1$$ and $$\frac{dy}{dt} = \cos(t)\,e^{t/4}$$. At $$t = 0$$ the particle is at $$(-2, -1)$$.
+
+**(a)** Find the speed of the particle and its acceleration vector at $$t = 3.5$$.
+
+To earn the point: Gives the speed. Model answer: $$\sqrt{x'(3.5)^2 + y'(3.5)^2} \approx 2.661$$
+
+To earn the point: Gives the acceleration vector. Model answer: $$\langle x''(3.5), y''(3.5) \rangle \approx \langle -4.119, 0.280 \rangle$$
+
+**(b)** Find the slope of the line tangent to the path of the particle at $$t = 3.5$$.
+
+To earn the point: Divides the velocity components. Model answer: $$\frac{dy/dt}{dx/dt} \approx 1.576$$
+
+**(c)** Find the position of the particle at $$t = 4$$.
+
+To earn the point: Uses the initial position with the integral of each component. Model answer: $$x(4) = -2 + \int_0^{4} x'(t)\,dt$$
+
+To earn the point: Gives both coordinates. Model answer: $$(4.693, -3.590)$$
+
+**(d)** Find the total distance traveled by the particle over $$0 \leq t \leq 4$$.
+
+To earn the point: Integrates the speed. Model answer: $$\int_0^{4} \sqrt{x'(t)^2 + y'(t)^2}\,dt$$
+
+To earn the point: Gives the distance. Model answer: $$10.928$$

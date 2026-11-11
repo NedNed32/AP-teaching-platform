@@ -1,0 +1,86 @@
+---
+objectives:
+  - Evaluate boolean expressions using relational operators.
+keyTerms:
+  - term: Relational operators
+    definition: '`==`, `!=`, `<`, `>`, `<=`, `>=`, which compare values and produce true or false.'
+  - term: Boolean expression
+    definition: 'An expression that evaluates to true or false.'
+checks:
+  - q: 'What is `7 % 3 == 1`?'
+    a: 'true.'
+  - q: 'Is `=` or `==` used to compare two ints?'
+    a: '`==`. A single `=` is assignment.'
+sources:
+  - title: CSAwesome, "Boolean Expressions and if Statements"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Decisions in a program depend on questions with yes-or-no answers. In Java those questions are **boolean expressions**.
+
+## Relational operators
+
+| Operator | Meaning | Example (`x = 5`) |
+| --- | --- | --- |
+| `==` | equal to | `x == 5` is true |
+| `!=` | not equal to | `x != 5` is false |
+| `<`, `>` | less, greater | `x > 2` is true |
+| `<=`, `>=` | at most, at least | `x <= 4` is false |
+
+Arithmetic is done before comparison: `x + 1 > 2 * 3` compares 6 with 6 and is false.
+
+## Comparing objects
+
+For objects, `==` checks whether two references point to the **same object**. To compare contents, use `equals`:
+
+```java
+String a = "hi";
+String b = new String("hi");
+a == b         // false: different objects
+a.equals(b)    // true: same characters
+```
+
+<Note title="Doubles and equality">
+Floating-point arithmetic can produce tiny rounding errors, so `0.1 + 0.2 == 0.3` is false. Compare doubles with a tolerance when exact equality matters.
+</Note>
+
+<WorkedExample title="Evaluate">
+With `int a = 9, b = 4;`, evaluate `a / b == 2`, `a % b != 1`, and `a - b >= b + 1`.
+
+1. `9 / 4` is 2, so the first is true.
+2. `9 % 4` is 1, so `1 != 1` is false.
+3. `5 >= 5` is true.
+
+**Answer:** true, false, true.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following Boolean expression.
+
+```java
+(x > 6 && y < 7) || x == y
+```
+
+For which of the following values is the expression `true`?
+
+**Answer:** `x = 7, y = 0`
+
+**Why:** Substituting these values makes the whole expression true.
+
+**Working:** With x = 7 and y = 0, evaluating `(x > 6 && y < 7) || x == y` step by step gives true; each other pair gives false.
+
+**Mistakes to avoid**
+
+- `x = 12, y = 11`: Substitute and evaluate each part: this pair makes the expression false.
+- `x = 4, y = 10`: Substitute and evaluate each part: this pair makes the expression false.
+- `x = 9, y = 11`: Substitute and evaluate each part: this pair makes the expression false.

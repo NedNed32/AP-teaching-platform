@@ -1,0 +1,345 @@
+---
+objectives:
+  - Identify the parts of a class (instance variables, constructors and methods).
+  - Explain encapsulation with private instance variables and public methods.
+keyTerms:
+  - term: Instance variable
+    definition: 'A variable declared in a class, outside any method, that each object has its own copy of.'
+  - term: Encapsulation
+    definition: 'Keeping data private inside a class and allowing access only through methods.'
+checks:
+  - q: 'Should instance variables be public or private?'
+    a: 'private, to protect the object''s data.'
+  - q: 'Can code in another class read a private instance variable directly?'
+    a: 'No. It must use a public accessor method.'
+sources:
+  - title: CSAwesome, "Writing Classes"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A class bundles data with the methods that work on it. A well-designed class keeps its data **private**.
+
+## The parts of a class
+
+```java
+public class Student {
+    // instance variables (state)
+    private String name;
+    private int credits;
+
+    // constructor
+    public Student(String n) {
+        name = n;
+        credits = 0;
+    }
+
+    // methods (behavior)
+    public void addCredits(int c) {
+        credits += c;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+}
+```
+
+## Access modifiers
+
+| Modifier | Accessible from |
+| --- | --- |
+| `private` | only inside this class |
+| `public` | any class |
+
+Instance variables are `private`; methods other classes need are `public`. Helper methods used only inside the class can be `private`.
+
+<Note title="Why private?">
+If outside code could set `credits = -50`, the object could enter an invalid state. A method can check values before changing them, keeping objects consistent.
+</Note>
+
+<WorkedExample title="What compiles?">
+In a different class, which compiles: (I) `s.credits = 10;` (II) `s.addCredits(10);` (III) `int c = s.getCredits();`?
+
+1. (I) `credits` is private: compile error.
+2. (II) public method: compiles.
+3. (III) public accessor: compiles.
+
+**Answer:** II and III.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following class.
+
+```java
+public class Account {
+    private int balance;
+    public Account(int start) {
+        balance = start;
+    }
+    public void deposit(int amt) {
+        balance += amt;
+    }
+    public void withdraw(int amt) {
+        if (amt <= balance) {
+            balance -= amt;
+        }
+    }
+    public int getBalance() {
+        return balance;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Account a = new Account(50);
+a.withdraw(80);
+a.deposit(5);
+a.withdraw(55);
+System.out.println(a.getBalance());
+```
+
+**Answer:** `0`
+
+**Why:** The first withdrawal is refused because 80 is more than 50.
+
+**Working:** Balance: 50; withdraw 80 refused; deposit 5 gives 55; withdraw 55 gives 0.
+
+**Mistakes to avoid**
+
+- `-80`: withdraw only subtracts when there is enough money.
+- `55`: The second withdrawal is allowed.
+- `-25`: Trace every call, and check each withdrawal against the current balance.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The class `Student` has a private instance variable `int grade` and a public, non-static method `int getGrade()` that returns it. A client class declares `Student s = new Student();`. Which statement in the client class compiles without error?
+
+**A.** `int v = s.getGrade();`. Clients use public methods on an object to read private data. Private members are visible only inside Student. The client must call the public instance method `getGrade()` on an object.
+
+**Q.** The class `Car` has a private instance variable `int speed` and a public, non-static method `int getSpeed()` that returns it. A client class declares `Car c = new Car();`. Which statement in the client class compiles without error?
+
+**A.** `int v = c.getSpeed();`. Clients use public methods on an object to read private data. Private members are visible only inside Car. The client must call the public instance method `getSpeed()` on an object.
+
+**Q.** The class `Player` has a private instance variable `int score` and a public, non-static method `int getScore()` that returns it. A client class declares `Player p = new Player();`. Which statement in the client class compiles without error?
+
+**A.** `int v = p.getScore();`. Clients use public methods on an object to read private data. Private members are visible only inside Player. The client must call the public instance method `getScore()` on an object.
+
+**Q.** The class `Plant` has a private instance variable `int height` and a public, non-static method `int getHeight()` that returns it. A client class declares `Plant p = new Plant();`. Which statement in the client class compiles without error?
+
+**A.** `int v = p.getHeight();`. Clients use public methods on an object to read private data. Private members are visible only inside Plant. The client must call the public instance method `getHeight()` on an object.
+
+**Q.** The class `Room` has a private instance variable `int capacity` and a public, non-static method `int getCapacity()` that returns it. A client class declares `Room r = new Room();`. Which statement in the client class compiles without error?
+
+**A.** `int v = r.getCapacity();`. Clients use public methods on an object to read private data. Private members are visible only inside Room. The client must call the public instance method `getCapacity()` on an object.
+
+### Free-response practice: Punch card
+
+A `PunchCard` represents a prepaid card for a number of visits. Each successful `punch` uses one visit. After every 4 successful punches, the card earns one free visit.
+
+• `PunchCard(int visits)` creates a card with the given number of visits.
+
+• `boolean punch()` uses a visit and returns true if one is available; otherwise it changes nothing and returns false.
+
+• `int getRemaining()` returns the number of visits left.
+
+For example, after `PunchCard c = new PunchCard(4);`, calling `c.punch()` 6 times returns true, true, true, true, true, false, and then `c.getRemaining()` returns 0.
+
+**(a)** Write the complete `PunchCard` class, including any instance variables, the constructor and both methods. Your implementation must meet all specifications and match the example.
+
+To earn the point: Declares private instance variables for the remaining visits and the number of successful punches. Model answer: `private int remaining; private int punches;`
+
+To earn the point: Constructor initializes the instance variables from the parameter. Model answer: `remaining = visits; punches = 0;`
+
+To earn the point: punch checks availability and returns false without changes when none remain. Model answer: `if (remaining == 0) return false;`
+
+To earn the point: punch decrements remaining and counts the punch. Model answer: `remaining--; punches++;`
+
+To earn the point: Adds a free visit after every 4 successful punches. Model answer: `if (punches % 4 == 0) remaining++;`
+
+To earn the point: getRemaining returns the remaining visits; all methods have the correct headers. Model answer:
+
+```java
+public class PunchCard {
+    private int remaining;
+    private int punches;
+    public PunchCard(int visits) {
+        remaining = visits;
+        punches = 0;
+    }
+    public boolean punch() {
+        if (remaining == 0) {
+            return false;
+        }
+        remaining--;
+        punches++;
+        if (punches % 4 == 0) {
+            remaining++;
+        }
+        return true;
+    }
+    public int getRemaining() {
+        return remaining;
+    }
+}
+```
+
+### Free-response practice: Thermostat
+
+A `Thermostat` keeps a temperature setting between a minimum and a maximum, inclusive.
+
+• `Thermostat(int min, int max, int start)` creates a thermostat. Precondition: min &lt;= start &lt;= max.
+
+• `void raise(int amount)` and `void lower(int amount)` change the setting by amount, but never past max or min.
+
+• `int getSetting()` returns the current setting.
+
+• `int getChanges()` returns how many calls to raise or lower actually changed the setting.
+
+Example:
+
+```java
+Thermostat t = new Thermostat(15, 30, 26);
+t.raise(8);      // setting is 30
+t.raise(1);      // still 30: no change
+t.lower(4);      // setting is 26
+t.getSetting();  // returns 26
+t.getChanges();  // returns 2
+```
+
+**(a)** Write the complete `Thermostat` class.
+
+To earn the point: Private instance variables for the minimum, maximum, setting and change count. Model answer: `private int min, max, setting, changes;`
+
+To earn the point: Constructor initializes all instance variables. Model answer: `this.min = min; this.max = max; setting = start; changes = 0;`
+
+To earn the point: raise limits the setting to max. Model answer: `int next = Math.min(max, setting + amount);`
+
+To earn the point: lower limits the setting to min. Model answer: `int next = Math.max(min, setting - amount);`
+
+To earn the point: Counts a change only when the setting actually changes. Model answer: `if (next != setting) changes++;`
+
+To earn the point: Accessors return the correct values with correct headers. Model answer:
+
+```java
+public class Thermostat {
+    private int min;
+    private int max;
+    private int setting;
+    private int changes;
+    public Thermostat(int min, int max, int start) {
+        this.min = min;
+        this.max = max;
+        setting = start;
+        changes = 0;
+    }
+    public void raise(int amount) {
+        update(Math.min(max, setting + amount));
+    }
+    public void lower(int amount) {
+        update(Math.max(min, setting - amount));
+    }
+    private void update(int next) {
+        if (next != setting) {
+            changes++;
+        }
+        setting = next;
+    }
+    public int getSetting() {
+        return setting;
+    }
+    public int getChanges() {
+        return changes;
+    }
+}
+```
+
+### Free-response practice: Score keeper
+
+A `ScoreKeeper` records the scores of one player. The class also tracks the total number of scores recorded by all ScoreKeeper objects.
+
+• `ScoreKeeper(String name)` creates a keeper with no scores.
+
+• `void addScore(int s)` records a score.
+
+• `double getAverage()` returns the average score, or 0.0 if there are none.
+
+• `int getBest()` returns the highest score, or -1 if there are none.
+
+• `static int getTotalScores()` returns the number of scores recorded by all keepers.
+
+Example:
+
+```java
+ScoreKeeper a = new ScoreKeeper("Chen");
+ScoreKeeper b = new ScoreKeeper("Eli");
+a.addScore(93);
+a.addScore(60);
+a.addScore(61);
+b.addScore(99);
+b.addScore(95);
+a.getAverage();               // returns 71.333
+a.getBest();                  // returns 93
+ScoreKeeper.getTotalScores(); // returns 5
+```
+
+**(a)** Write the complete `ScoreKeeper` class. You do not need to store every score.
+
+To earn the point: Private instance variables for the name, the sum, the count and the best score. Model answer: `private String name; private int sum, count, best;`
+
+To earn the point: A private static variable counting scores across all objects. Model answer: `private static int totalScores = 0;`
+
+To earn the point: Constructor sets the name and initial values (best starts at -1). Model answer: `this.name = name; best = -1;`
+
+To earn the point: addScore updates the sum, count, best and the static total. Model answer: `sum += s; count++; totalScores++; if (s > best) best = s;`
+
+To earn the point: getAverage returns a double without integer division and handles no scores. Model answer: `return count == 0 ? 0.0 : (double) sum / count;`
+
+To earn the point: getBest and the static getTotalScores return the correct values. Model answer:
+
+```java
+public class ScoreKeeper {
+    private static int totalScores = 0;
+    private String name;
+    private int sum;
+    private int count;
+    private int best;
+    public ScoreKeeper(String name) {
+        this.name = name;
+        best = -1;
+    }
+    public void addScore(int s) {
+        sum += s;
+        count++;
+        totalScores++;
+        if (s > best) {
+            best = s;
+        }
+    }
+    public double getAverage() {
+        if (count == 0) {
+            return 0.0;
+        }
+        return (double) sum / count;
+    }
+    public int getBest() {
+        return best;
+    }
+    public static int getTotalScores() {
+        return totalScores;
+    }
+}
+```

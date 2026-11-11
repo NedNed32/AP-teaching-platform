@@ -1,0 +1,76 @@
+---
+objectives:
+  - Use L'Hospital's Rule to evaluate limits of the indeterminate forms $$\frac{0}{0}$$ and $$\frac{\infty}{\infty}$$.
+  - Verify the conditions for applying the rule.
+keyTerms:
+  - term: L'Hospital's Rule
+    definition: 'If $$\lim f(x) = \lim g(x) = 0$$ (or both are $$\pm\infty$$), then $$\lim \frac{f(x)}{g(x)} = \lim \frac{f''(x)}{g''(x)}$$, if the second limit exists.'
+checks:
+  - q: 'Evaluate $$\lim_{x \to 0} \frac{e^{2x} - 1}{x}$$.'
+    a: 'Form $$\frac{0}{0}$$; derivatives give $$\lim_{x \to 0} \frac{2e^{2x}}{1} = 2$$.'
+  - q: 'Can you apply the rule to $$\lim_{x \to 1} \frac{x + 1}{x - 2}$$?'
+    a: 'No. Substitution gives $$-2$$, which is not indeterminate, and the rule would give the wrong answer, 1.'
+sources:
+  - title: Calculus Volume 1, section 4.8 "L'Hôpital's Rule"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Some indeterminate limits resist algebra, like $$\lim_{x \to 0} \frac{e^x - 1}{x}$$. L'Hospital's Rule replaces the top and bottom with their derivatives, which usually makes the limit easy.
+
+## The rule
+
+If $$\lim_{x \to a} f(x) = 0$$ and $$\lim_{x \to a} g(x) = 0$$, or both limits are infinite, then
+
+$$
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)},
+$$
+
+provided the right-hand limit exists. The same holds for $$x \to \pm\infty$$.
+
+## Why it works
+
+Near $$a$$, each function is close to its tangent line: $$f(x) \approx f'(a)(x - a)$$ and $$g(x) \approx g'(a)(x - a)$$ when both are 0 at $$a$$. The factors $$(x - a)$$ cancel, leaving $$\frac{f'(a)}{g'(a)}$$.
+
+## Applying it
+
+- Take derivatives of the numerator and denominator **separately**. This is not the quotient rule.
+- If the new limit is still $$\frac{0}{0}$$ or $$\frac{\infty}{\infty}$$, apply the rule again.
+
+<Note title="Show the indeterminate form">
+The AP exam requires you to show that the limit has an indeterminate form before using L'Hospital's Rule, for example "$$\lim_{x \to 0} (1 - \cos x) = 0$$ and $$\lim_{x \to 0} x^2 = 0$$". Without that statement, the point is not earned.
+</Note>
+
+<WorkedExample title="Applying the rule twice">
+Evaluate $$\lim_{x \to 0} \frac{1 - \cos 3x}{x^2}$$.
+
+1. Numerator and denominator both approach 0, so the form is $$\frac{0}{0}$$.
+2. First application: $$\lim_{x \to 0} \frac{3\sin 3x}{2x}$$, still $$\frac{0}{0}$$.
+3. Second application: $$\lim_{x \to 0} \frac{9\cos 3x}{2} = \frac{9}{2}$$.
+
+**Answer:** $$\frac{9}{2}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is $$\lim_{x \to 0} \frac{e^{3x} - 1}{4x}$$?
+
+**Answer:** $$\frac{3}{4}$$
+
+**Why:** The limit has the form $$\frac{0}{0}$$, so L'Hospital's Rule applies: $$\frac{3e^{3x}}{4}$$.
+
+**Working:** Direct substitution gives $$\frac{0}{0}$$. Differentiate the numerator and denominator separately (L'Hospital's Rule): $$\frac{3e^{3x}}{4}$$, which gives $$\frac{3}{4}$$.
+
+**Mistakes to avoid**
+
+- $$\frac{1}{4}$$: This leaves out the chain-rule factor when differentiating the numerator.
+- $$\frac{4}{3}$$: This differentiates the numerator and denominator but then inverts the ratio, or applies the rule incorrectly.
+- $$0$$: $$\frac{0}{0}$$ is indeterminate; it does not mean the limit is 0.

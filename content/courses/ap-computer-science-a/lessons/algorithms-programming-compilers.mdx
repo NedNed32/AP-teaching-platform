@@ -1,0 +1,146 @@
+---
+objectives:
+  - Describe what an algorithm is and how a Java program is compiled and run.
+  - Distinguish syntax errors, run-time errors and logic errors.
+keyTerms:
+  - term: Algorithm
+    definition: 'A step-by-step process for solving a problem.'
+  - term: Compiler
+    definition: 'A program that checks source code for syntax errors and translates it into bytecode that the Java virtual machine runs.'
+  - term: Logic error
+    definition: 'A mistake that lets the program run but produces wrong results.'
+checks:
+  - q: 'A program compiles but divides by zero while running. What kind of error is this?'
+    a: 'A run-time error (an exception).'
+  - q: 'A missing semicolon is what kind of error?'
+    a: 'A syntax (compile-time) error.'
+sources:
+  - title: CSAwesome, "Getting Started and Primitive Types"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Programming is writing algorithms in a language a computer can execute. In AP Computer Science A that language is Java.
+
+## From source code to running program
+
+1. You write **source code** in a `.java` file.
+2. The **compiler** checks the syntax and translates it into **bytecode**.
+3. The **Java Virtual Machine** runs the bytecode.
+
+Every Java program starts in a `main` method inside a class:
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, AP!");
+    }
+}
+```
+
+## Three kinds of errors
+
+| Error | When found | Example |
+| --- | --- | --- |
+| Syntax (compile-time) | by the compiler | missing semicolon, misspelled keyword |
+| Run-time (exception) | while running | dividing an `int` by zero, an index out of bounds |
+| Logic | by testing | using `<` where `<=` was needed |
+
+<Note title="The compiler cannot catch logic errors">
+A program can compile and run without crashing and still be wrong. Testing with carefully chosen inputs is how logic errors are found.
+</Note>
+
+<WorkedExample title="Classifying errors">
+Classify: (I) `System.out.printn("Hi");` (II) `int x = 5 / 0;` (III) computing an average by dividing by the wrong count.
+
+1. (I) The method name is misspelled: the compiler reports it. Syntax error.
+2. (II) Integer division by zero throws an `ArithmeticException` while running. Run-time error.
+3. (III) Runs but gives a wrong answer. Logic error.
+
+**Answer:** syntax, run-time, logic.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int a = 39;
+int b = 4;
+System.out.println(a / b + a % b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `12`
+
+**Why:** 39 / 4 is 9 (integer division) and 39 % 4 is 3.
+
+**Working:** With two int operands, `/` gives the truncated quotient 9 and `%` gives the remainder 3, so the sum is 12.
+
+**Mistakes to avoid**
+
+- `93`: The + is between two ints, so it adds; it does not concatenate.
+- `13`: Integer division truncates; it does not round.
+- `9`: The remainder is added as well.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int total = 47;
+int count = 5;
+double avg1 = total / count;
+double avg2 = (double) total / count;
+System.out.println(avg1 + " " + avg2);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `9.0 9.4`
+
+**Why:** avg1 divides two ints before converting; avg2 casts first.
+
+**Working:** `total / count` is integer division (9), then widened to 9.0. `(double) total / count` casts first, giving 9.4.
+
+**Mistakes to avoid**
+
+- `9.4 9.4`: In avg1 the division happens between two ints, so the decimal part is lost before the result is stored.
+- `9.0 9.0`: The cast in avg2 applies to total before dividing, so the division is done with doubles.
+- `9 9.4`: avg1 is a double, so it prints with a decimal point.
+
+### Worked exam question 3
+
+Consider the following code segment.
+
+```java
+int x = 8;
+x *= 3;
+x /= 4;
+x -= 7;
+x += 4;
+System.out.println(x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3`
+
+**Why:** Apply each statement in order, using integer division.
+
+**Working:** Starting from 8, the statements give 24, 6, -1, 3.
+
+**Mistakes to avoid**
+
+- `-1`: Every statement runs, including the last one.
+- `-3`: /= keeps the quotient and %= keeps the remainder.
+- `4`: Recheck each step.

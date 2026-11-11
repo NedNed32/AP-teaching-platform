@@ -1,0 +1,234 @@
+---
+objectives:
+  - Traverse an ArrayList with indexed and enhanced for loops.
+  - Remove elements during traversal without skipping any.
+keyTerms:
+  - term: ConcurrentModificationException
+    definition: 'An exception thrown when a list is structurally changed (add or remove) inside an enhanced for loop over it.'
+checks:
+  - q: 'Why does removing items in a forward indexed loop skip elements?'
+    a: 'After a removal, the next element shifts into the current index, but i still increases.'
+  - q: 'Name two safe ways to remove matching elements.'
+    a: 'Traverse backward, or decrement i after each removal.'
+sources:
+  - title: CSAwesome, "ArrayList"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Traversing an ArrayList looks like traversing an array, with `size()` and `get(i)`. Removing during a traversal needs care.
+
+## Traversal
+
+```java
+for (int i = 0; i < list.size(); i++) {
+    System.out.println(list.get(i));
+}
+
+for (String s : list) {
+    System.out.println(s);
+}
+```
+
+## Removing while traversing
+
+A forward loop that removes skips the element that slides into the removed spot:
+
+```java
+// Buggy: skips elements
+for (int i = 0; i < list.size(); i++) {
+    if (list.get(i) < 0) list.remove(i);
+}
+```
+
+Two fixes:
+
+```java
+// Fix 1: go backward
+for (int i = list.size() - 1; i >= 0; i--) {
+    if (list.get(i) < 0) list.remove(i);
+}
+
+// Fix 2: only advance when nothing was removed
+int i = 0;
+while (i < list.size()) {
+    if (list.get(i) < 0) list.remove(i);
+    else i++;
+}
+```
+
+Never add or remove inside an enhanced for loop over the same list.
+
+<Note title="Exam favourite">
+The skipping bug appears often: the list [-1, -2, 3] becomes [-2, 3] after the buggy loop, because -2 slides into index 0 after i has moved on.
+</Note>
+
+<WorkedExample title="Trace the buggy loop">
+Apply the buggy forward loop to [4, -1, -2, 5, -3].
+
+1. i = 0: 4 stays.
+2. i = 1: -1 removed: [4, -2, 5, -3]; i becomes 2.
+3. i = 2: 5 stays. i = 3: -3 removed: [4, -2, 5].
+
+**Answer:** [4, -2, 5]; the -2 was skipped.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+// list contains [-9, -4, -8, 4, 1, 4]
+for (int i = 0; i < list.size(); i++) {
+    if (list.get(i) < 0) {
+        list.remove(i);
+    }
+}
+System.out.println(list);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `[-4, 4, 1, 4]`
+
+**Why:** After a removal, the next element shifts into index i but i still increases, so it is skipped.
+
+**Working:** Removing at index i shifts the rest left. The element that moves into index i is never checked, so the result is [-4, 4, 1, 4].
+
+**Mistakes to avoid**
+
+- `[4, 1, 4]`: This is the intended result, but adjacent negatives cause one to be skipped.
+- `[-9, -4, -8, 4, 1, 4]`: Negative values are removed.
+- `[-4, -8, 4, 1, 4]`: The loop continues after the first removal.
+
+### Free-response practice: Playlist
+
+A `Song` has a title, an artist and a length in seconds.
+
+```java
+public class Song {
+    public String getTitle() { /* implementation not shown */ }
+    public String getArtist() { /* implementation not shown */ }
+    public int getSeconds() { /* implementation not shown */ }
+}
+public class Playlist {
+    private ArrayList<Song> songs;
+    /** Returns the total length, in seconds, of the songs by the given artist. */
+    public int totalTime(String artist) { /* part (a) */ }
+    /** Removes every song shorter than min seconds and returns the number removed. */
+    public int removeShort(int min) { /* part (b) */ }
+}
+```
+
+Suppose `songs` contains, in order: "Northbound" by Nova (118 s); "River Road" by Nova (242 s); "Morning Light" by Nova (118 s); "Afterglow" by Kai (213 s); "Echoes" by Nova (230 s); "Blue Hour" by Nova (225 s). Then `totalTime("Kai")` returns 213, and `removeShort(230)` returns 4, leaving "River Road", "Echoes" in their original order.
+
+**(a)** Write the method `totalTime`.
+
+To earn the point: Traverses every song in the list. Model answer: `for (Song s : songs)`
+
+To earn the point: Compares artists with equals, not ==. Model answer: `s.getArtist().equals(artist)`
+
+To earn the point: Adds getSeconds for matching songs and returns the total. Model answer:
+
+```java
+public int totalTime(String artist) {
+    int total = 0;
+    for (Song s : songs) {
+        if (s.getArtist().equals(artist)) {
+            total += s.getSeconds();
+        }
+    }
+    return total;
+}
+```
+
+**(b)** Write the method `removeShort`.
+
+To earn the point: Traverses the list in a way that does not skip elements when one is removed (backward, or not advancing after a removal). Model answer: `for (int i = songs.size() - 1; i >= 0; i--)`
+
+To earn the point: Identifies songs shorter than min. Model answer: `songs.get(i).getSeconds() < min`
+
+To earn the point: Removes them with remove(i) and does not use an enhanced for loop while removing. Model answer: `songs.remove(i);`
+
+To earn the point: Counts and returns the number removed. Model answer:
+
+```java
+public int removeShort(int min) {
+    int removed = 0;
+    for (int i = songs.size() - 1; i >= 0; i--) {
+        if (songs.get(i).getSeconds() < min) {
+            songs.remove(i);
+            removed++;
+        }
+    }
+    return removed;
+}
+```
+
+### Free-response practice: Store orders
+
+An `Order` has an item name, a quantity and a price per unit in dollars.
+
+```java
+public class Order {
+    public String getItem() { /* not shown */ }
+    public int getQuantity() { /* not shown */ }
+    public int getPrice() { /* not shown */ }
+}
+public class OrderBook {
+    private ArrayList<Order> orders;
+    /** Returns the total revenue: the sum of quantity times price for all orders. */
+    public int revenue() { /* part (a) */ }
+    /** Returns a new list of the item names of orders with quantity at least minQty,
+        in the same order. The orders list is not changed. */
+    public ArrayList<String> bigOrders(int minQty) { /* part (b) */ }
+}
+```
+
+With the orders (markers, 21, 6), (notebooks, 10, 6), (erasers, 4, 9), (glue, 10, 2), (pencils, 5, 9), `revenue()` returns 287 and `bigOrders(19)` returns `["markers"]`.
+
+**(a)** Write the method `revenue`.
+
+To earn the point: Traverses all orders. Model answer: `for (Order o : orders)`
+
+To earn the point: Multiplies quantity by price for each order. Model answer: `o.getQuantity() * o.getPrice()`
+
+To earn the point: Accumulates and returns the total. Model answer:
+
+```java
+public int revenue() {
+    int total = 0;
+    for (Order o : orders) {
+        total += o.getQuantity() * o.getPrice();
+    }
+    return total;
+}
+```
+
+**(b)** Write the method `bigOrders`.
+
+To earn the point: Creates a new ArrayList of String. Model answer: `ArrayList<String> result = new ArrayList<String>();`
+
+To earn the point: Checks each order's quantity against minQty (at least). Model answer: `if (o.getQuantity() >= minQty)`
+
+To earn the point: Adds the item name, keeps the order, does not change orders, and returns the new list. Model answer:
+
+```java
+public ArrayList<String> bigOrders(int minQty) {
+    ArrayList<String> result = new ArrayList<String>();
+    for (Order o : orders) {
+        if (o.getQuantity() >= minQty) {
+            result.add(o.getItem());
+        }
+    }
+    return result;
+}
+```

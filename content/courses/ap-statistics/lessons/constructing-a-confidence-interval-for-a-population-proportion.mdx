@@ -1,0 +1,172 @@
+---
+objectives:
+  - 'Construct a one-sample z interval for a proportion.'
+keyTerms:
+  - term: 'Confidence interval'
+    definition: 'A range of plausible values for a parameter: statistic ± margin of error.'
+  - term: 'Margin of error'
+    definition: 'Critical value × standard error.'
+checks:
+  - q: 'What is z* for 95% confidence?'
+    a: 'About 1.96.'
+  - q: 'How does increasing the confidence level affect the interval?'
+    a: 'It makes it wider.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$\hat p \pm z^*\sqrt{\frac{\hat p(1-\hat p)}{n}}$$
+
+| Confidence | z* |
+| --- | --- |
+| 90% | 1.645 |
+| 95% | 1.960 |
+| 99% | 2.576 |
+
+## Four steps
+
+1. **State** the parameter and confidence level.
+2. **Plan**: name the procedure (one-sample z interval for p) and check conditions (random, 10%, large counts with $$n\hat p$$ and $$n(1-\hat p)$$).
+3. **Do** the calculation.
+4. **Conclude** in context.
+
+The margin of error shrinks with larger n and lower confidence.
+
+<Note title="Sample size for a margin">
+To get margin of error m, solve n ≥ (z*/m)² p̂(1 − p̂); use p̂ = 0.5 if no estimate is available.
+</Note>
+
+<WorkedExample title="Construct">
+In a random sample of 500 teens, 310 say they read for fun weekly. Construct a 95% confidence interval for p.
+
+1. $$\hat p = 0.62$$; SE = $$\sqrt{0.62(0.38)/500} = 0.0217$$.
+2. $$0.62 \pm 1.96(0.0217) = 0.62 \pm 0.0425$$.
+
+**Answer:** (0.577, 0.663).
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+In a random sample of 210 adults in a city, 82 use public transit weekly. Which is a 95% confidence interval for the proportion of all adults in a city who use public transit weekly?
+
+**Answer:** (0.324, 0.456)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.39, SE = 0.0337, margin = 0.066.
+
+**Mistakes to avoid**
+
+- (0.139, 0.642): Divide by n inside the square root.
+- (-0.076, 0.857): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.357, 0.424): Multiply the standard error by z*.
+
+### Worked exam question 2
+
+In a random sample of 170 teenagers in a state, 92 get at least 8 hours of sleep. Which is a 90% confidence interval for the proportion of all teenagers in a state who get at least 8 hours of sleep?
+
+**Answer:** (0.478, 0.604)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.645.
+
+**Working:** p̂ = 0.541, SE = 0.0382, margin = 0.0629.
+
+**Mistakes to avoid**
+
+- (0.314, 0.768): Divide by n inside the square root.
+- (0.466, 0.616): Use z* for 90%, not 1.96.
+- (0.133, 0.95): Use the standard error, √(p̂(1 − p̂)/n).
+
+### Worked exam question 3
+
+In a random sample of 570 customers of an online store, 365 would recommend it to a friend. Which is a 95% confidence interval for the proportion of all customers of an online store who would recommend it to a friend?
+
+**Answer:** (0.601, 0.68)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.64, SE = 0.0201, margin = 0.0394.
+
+**Mistakes to avoid**
+
+- (0.448, 0.833): Divide by n inside the square root.
+- (0.189, 1.092): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.62, 0.66): Multiply the standard error by z*.
+
+### Worked exam question 4
+
+In a random sample of 360 students at a large high school, 277 have a part-time job. Which is a 95% confidence interval for the proportion of all students at a large high school who have a part-time job?
+
+**Answer:** (0.726, 0.813)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.769, SE = 0.0222, margin = 0.0435.
+
+**Mistakes to avoid**
+
+- (0.58, 0.959): Divide by n inside the square root.
+- (0.422, 1.117): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.747, 0.792): Multiply the standard error by z*.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 99% confidence, with no prior estimate of p?
+
+**A.** 1037. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.04)² × 0.25 = 1036.7, so n = 1037.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 99% confidence, with no prior estimate of p?
+
+**A.** 4147. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.02)² × 0.25 = 4146.8, so n = 4147.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 90% confidence, with no prior estimate of p?
+
+**A.** 271. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.05)² × 0.25 = 270.6, so n = 271.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 90% confidence, with no prior estimate of p?
+
+**A.** 752. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.03)² × 0.25 = 751.5, so n = 752.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 95% confidence, with no prior estimate of p?
+
+**A.** 601. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.04)² × 0.25 = 600.2, so n = 601.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 90% confidence, with no prior estimate of p?
+
+**A.** 423. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.04)² × 0.25 = 422.7, so n = 423.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 95% confidence, with no prior estimate of p?
+
+**A.** 2401. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.02)² × 0.25 = 2400.9, so n = 2401.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 99% confidence, with no prior estimate of p?
+
+**A.** 1844. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.03)² × 0.25 = 1843, so n = 1844.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 95% confidence, with no prior estimate of p?
+
+**A.** 1068. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.03)² × 0.25 = 1067.1, so n = 1068.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 90% confidence, with no prior estimate of p?
+
+**A.** 1691. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.02)² × 0.25 = 1691, so n = 1691.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 95% confidence, with no prior estimate of p?
+
+**A.** 385. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.05)² × 0.25 = 384.1, so n = 385.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 99% confidence, with no prior estimate of p?
+
+**A.** 664. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.05)² × 0.25 = 663.5, so n = 664.

@@ -1,0 +1,82 @@
+---
+objectives:
+  - 'Use physical access logs and sensor data to detect intrusions.'
+keyTerms:
+  - term: 'Access log'
+    definition: 'A record of who entered where and when, from badge or door systems.'
+  - term: 'Indicator of compromise'
+    definition: 'Evidence that an attack may have occurred.'
+checks:
+  - q: 'What does a badge used at two distant doors within one minute suggest?'
+    a: 'A cloned or shared badge.'
+  - q: 'What does a door-held-open alarm detect?'
+    a: 'A door propped open, often a sign of tailgating or bypass.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+Detective controls produce evidence; someone must review it.
+
+## Sources
+
+- **Badge logs**: user, door, time, granted or denied.
+- **Cameras** and motion sensors.
+- **Door alarms** (forced open, held open).
+- **Visitor logs**.
+
+## Signs of an attack
+
+- Access outside a person's normal hours or areas.
+- Repeated denied attempts at a door.
+- One badge used in two places impossibly close in time.
+- Entries without a matching badge record (tailgating, seen on camera).
+- Physical evidence: tampered locks, unknown devices plugged into ports.
+
+<Note title="Correlate">
+The strongest evidence combines sources: a badge entry at 2:14 a.m. plus camera footage plus a new device on the network.
+</Note>
+
+<WorkedExample title="Read the log">
+A log shows badge 4471 denied at the server room 5 times between 23:10 and 23:14, then granted at 23:16. What should an analyst do?
+
+1. Repeated failures followed by success is suspicious.
+2. Check camera footage and confirm with the badge owner.
+
+**Answer:** treat it as a possible intrusion: verify identity and review video.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A security analyst reviews this door access log.
+
+```text
+08:16  badge 4471  Office 2      GRANTED
+08:17  badge 6603  Lab B      GRANTED
+08:18  badge 1042  Office 2      GRANTED
+08:19  badge 2217  North Gate   GRANTED
+08:19  badge 2217  South Gate   GRANTED
+```
+
+Which entry is most suspicious, and why?
+
+**Answer:** Badge 2217, because it was used at two distant gates in the same minute, suggesting a cloned badge
+
+**Why:** One badge cannot physically be in two distant places at once.
+
+**Working:** Badge 2217 shows use at two distant gates at the same time; investigate with camera footage and the badge holder.
+
+**Mistakes to avoid**
+
+- Badge 4471, because it was granted access: Single, normal granted entries are expected.
+- Badge 6603, because it was granted access: Single, normal granted entries are expected.
+- Badge 1042, because it was granted access: Single, normal granted entries are expected.

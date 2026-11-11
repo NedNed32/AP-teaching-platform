@@ -1,0 +1,140 @@
+---
+objectives:
+  - Explain how libraries and APIs let programmers reuse existing code.
+  - Read API documentation to learn how to use a class.
+keyTerms:
+  - term: Library
+    definition: 'A collection of classes that provide reusable functionality, such as java.util.'
+  - term: API (application program interface)
+    definition: 'The documented set of classes, methods and fields that tells you how to use a library without seeing its code.'
+  - term: Package
+    definition: 'A group of related classes; java.lang is imported automatically.'
+checks:
+  - q: 'Do you need to import String or Math?'
+    a: 'No. They are in java.lang, which is imported automatically.'
+  - q: 'What does API documentation tell you about a method?'
+    a: 'Its name, parameters, return type and what it does.'
+sources:
+  - title: Java Platform API documentation
+    publisher: Oracle
+    url: https://docs.oracle.com/en/java/javase/17/docs/api/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Programmers rarely start from scratch. Java comes with thousands of ready-made classes, organized into **libraries**, and each one is described by its **API**.
+
+## Using a library class
+
+1. Import it if needed: `import java.util.ArrayList;`
+2. Read its API to learn its constructors and methods.
+3. Create objects or call methods according to that documentation.
+
+Classes in `java.lang` (such as `String`, `Math` and `Integer`) are available without an import.
+
+## Reading documentation
+
+API documentation lists each method's **signature** and behavior:
+
+| Method | Returns | Description |
+| --- | --- | --- |
+| `int length()` | `int` | number of characters in the string |
+| `String substring(int from, int to)` | `String` | characters from index `from` to `to - 1` |
+
+You can use a method correctly knowing only this information. That is **abstraction**: the details of how it works are hidden.
+
+<Note title="The Java Quick Reference">
+On the AP exam you receive a Java Quick Reference listing the String, Math, Integer, Double, ArrayList and Object methods you may use. Learn what is on it.
+</Note>
+
+<WorkedExample title="Using documentation">
+The API says `int indexOf(String str)` returns the index of the first occurrence of `str`, or -1 if it is not found. What does `"banana".indexOf("na")` return?
+
+1. Indexes: b=0, a=1, n=2, a=3, n=4, a=5.
+2. "na" first starts at index 2.
+
+**Answer:** `2`.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int a = 39;
+int b = 4;
+System.out.println(a / b + a % b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `12`
+
+**Why:** 39 / 4 is 9 (integer division) and 39 % 4 is 3.
+
+**Working:** With two int operands, `/` gives the truncated quotient 9 and `%` gives the remainder 3, so the sum is 12.
+
+**Mistakes to avoid**
+
+- `93`: The + is between two ints, so it adds; it does not concatenate.
+- `13`: Integer division truncates; it does not round.
+- `9`: The remainder is added as well.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int total = 47;
+int count = 5;
+double avg1 = total / count;
+double avg2 = (double) total / count;
+System.out.println(avg1 + " " + avg2);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `9.0 9.4`
+
+**Why:** avg1 divides two ints before converting; avg2 casts first.
+
+**Working:** `total / count` is integer division (9), then widened to 9.0. `(double) total / count` casts first, giving 9.4.
+
+**Mistakes to avoid**
+
+- `9.4 9.4`: In avg1 the division happens between two ints, so the decimal part is lost before the result is stored.
+- `9.0 9.0`: The cast in avg2 applies to total before dividing, so the division is done with doubles.
+- `9 9.4`: avg1 is a double, so it prints with a decimal point.
+
+### Worked exam question 3
+
+Consider the following code segment.
+
+```java
+int x = 8;
+x *= 3;
+x /= 4;
+x -= 7;
+x += 4;
+System.out.println(x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3`
+
+**Why:** Apply each statement in order, using integer division.
+
+**Working:** Starting from 8, the statements give 24, 6, -1, 3.
+
+**Mistakes to avoid**
+
+- `-1`: Every statement runs, including the last one.
+- `-3`: /= keeps the quotient and %= keeps the remainder.
+- `4`: Recheck each step.

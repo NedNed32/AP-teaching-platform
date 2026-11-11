@@ -1,0 +1,137 @@
+---
+objectives:
+  - Explain how redundancy makes networks fault tolerant.
+  - Determine whether two devices can still communicate after connections fail.
+keyTerms:
+  - term: Fault tolerance
+    definition: 'The ability of a system to keep working when some of its components fail.'
+  - term: Redundancy
+    definition: 'Including extra components or paths so a failure does not stop the system.'
+checks:
+  - q: 'Why does the Internet have many paths between devices?'
+    a: 'If one connection fails, data can be rerouted along another.'
+  - q: 'What is a cost of redundancy?'
+    a: 'Extra hardware and connections cost money and resources.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Connections and devices fail. The Internet is designed so that a failure in one place does not stop communication everywhere.
+
+## Redundancy
+
+When there are several paths between two devices, packets can be **rerouted** around a broken connection. The more independent paths, the more failures the network can survive.
+
+## Reading network diagrams
+
+Exam questions show devices as letters and connections as lines. To check whether two devices can communicate after failures, remove the failed connections and look for any remaining path.
+
+- A device with a single connection has no redundancy: if that link fails, it is cut off.
+- The minimum number of connections whose failure separates two devices measures how fault tolerant their link is.
+
+<Note title="Trade-off">
+Redundancy improves reliability but costs more: extra cables, routers and maintenance.
+</Note>
+
+<WorkedExample title="Can they still talk?">
+Devices are connected A–B, B–C, A–D and D–C. The connection B–C fails. Can A reach C?
+
+1. Remaining links: A–B, A–D, D–C.
+2. Path A → D → C still exists.
+
+**Answer:** yes; the redundant path through D keeps them connected.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A network has computers P, Q, R, S, T, U. The direct connections are: P–Q, P–R, P–S, Q–R, Q–S, Q–U, R–U, T–U. What is the minimum number of connections that must fail for computer Q to be unable to communicate with computer S?
+
+**Answer:** `2`
+
+**Why:** Removing 2 well-chosen connections separates Q from S; removing fewer always leaves a path.
+
+**Working:** Q has 4 connections and S has 2. Checking failures systematically shows that 2 is the fewest that leaves no path between them.
+
+**Mistakes to avoid**
+
+- `3`: Some set of 2 connections already disconnects them.
+- `4`: Look for the fewest connections whose failure leaves no path.
+- `1`: After that many failures a path still remains.
+
+### Worked exam question 2
+
+A network has computers P, Q, R, S, T, U. The direct connections are: P–Q, P–S, P–U, Q–R, R–S, R–U, T–U. What is the minimum number of connections that must fail for computer T to be unable to communicate with computer P?
+
+**Answer:** `1`
+
+**Why:** Removing 1 well-chosen connection separates T from P; removing fewer always leaves a path.
+
+**Working:** T has 1 connection and P has 3. Checking failures systematically shows that 1 is the fewest that leaves no path between them.
+
+**Mistakes to avoid**
+
+- `2`: Some set of 1 connection already disconnects them.
+- `3`: Look for the fewest connections whose failure leaves no path.
+- `0`: After that many failures a path still remains.
+
+### Worked exam question 3
+
+A network has computers P, Q, R, S, T, U. The direct connections are: P–Q, P–R, P–T, P–U, Q–U, S–U, T–U. What is the minimum number of connections that must fail for computer S to be unable to communicate with computer U?
+
+**Answer:** `1`
+
+**Why:** Removing 1 well-chosen connection separates S from U; removing fewer always leaves a path.
+
+**Working:** S has 1 connection and U has 4. Checking failures systematically shows that 1 is the fewest that leaves no path between them.
+
+**Mistakes to avoid**
+
+- `2`: Some set of 1 connection already disconnects them.
+- `4`: Look for the fewest connections whose failure leaves no path.
+- `0`: After that many failures a path still remains.
+
+### Worked exam question 4
+
+A network has computers P, Q, R, S, T, U. The direct connections are: P–Q, P–S, P–U, Q–R, Q–T, R–S. What is the minimum number of connections that must fail for computer P to be unable to communicate with computer S?
+
+**Answer:** `2`
+
+**Why:** Removing 2 well-chosen connections separates P from S; removing fewer always leaves a path.
+
+**Working:** P has 3 connections and S has 2. Checking failures systematically shows that 2 is the fewest that leaves no path between them.
+
+**Mistakes to avoid**
+
+- `3`: Some set of 2 connections already disconnects them.
+- `1`: After that many failures a path still remains.
+- `6`: Not every connection needs to fail.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A task takes 100 seconds sequentially. A parallel version takes 40 seconds. What is the speedup?
+
+**A.** 2.5. Speedup is sequential time divided by parallel time: 100 ÷ 40.
+
+**Q.** Which situation best illustrates distributed computing?
+
+**A.** Thousands of volunteers' computers each analyze part of a large scientific data set. Multiple devices running one program is distributed computing.
+
+**Q.** Adding more processors to a parallel program eventually stops reducing its run time. What is the most likely reason?
+
+**A.** Some parts of the program must run sequentially and cannot be shared. Sequential portions limit speedup.
+
+**Q.** Why is redundancy built into the Internet?
+
+**A.** So data can be rerouted when a connection or device fails. Redundant paths provide fault tolerance.

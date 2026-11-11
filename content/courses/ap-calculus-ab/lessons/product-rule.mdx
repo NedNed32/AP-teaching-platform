@@ -1,0 +1,171 @@
+---
+objectives:
+  - Differentiate products of functions using the product rule.
+keyTerms:
+  - term: Product rule
+    definition: '$$\frac{d}{dx}[f(x)g(x)] = f''(x)g(x) + f(x)g''(x)$$.'
+checks:
+  - q: 'Differentiate $$x^2 \sin x$$.'
+    a: '$$2x\sin x + x^2\cos x$$.'
+  - q: 'If $$f(2) = 3$$, $$f''(2) = -1$$, $$g(2) = 4$$, $$g''(2) = 5$$, find $$(fg)''(2)$$.'
+    a: '$$(-1)(4) + (3)(5) = 11$$.'
+sources:
+  - title: Calculus Volume 1, section 3.3 "Differentiation Rules"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When two changing quantities are multiplied, both of them contribute to how fast the product changes. The product rule accounts for each contribution.
+
+## The rule
+
+$$
+(fg)' = f'g + fg'
+$$
+
+In words: *derivative of the first times the second, plus the first times derivative of the second.*
+
+## Why it works
+
+Think of $$f(x)g(x)$$ as the area of a rectangle with sides $$f$$ and $$g$$. When $$x$$ increases a little, the area gains a strip $$\Delta f \cdot g$$ along one side, a strip $$f \cdot \Delta g$$ along the other, and a tiny corner $$\Delta f \cdot \Delta g$$. Dividing by $$\Delta x$$ and letting $$\Delta x \to 0$$, the corner vanishes, leaving $$f'g + fg'$$.
+
+## Three factors
+
+Apply the rule twice: $$(fgh)' = f'gh + fg'h + fgh'$$. Each term differentiates one factor and keeps the others.
+
+<Note title="Product rule with tables">
+Free-response questions often give a table of $$f$$, $$f'$$, $$g$$, $$g'$$ values. Write the rule first, then substitute; graders look for the correct structure as much as the final number.
+</Note>
+
+<WorkedExample title="A product with an exponential">
+Find $$\frac{d}{dx}\left(x^3 e^x\right)$$ and simplify.
+
+1. $$f = x^3$$, $$f' = 3x^2$$; $$g = e^x$$, $$g' = e^x$$.
+2. $$3x^2 e^x + x^3 e^x$$.
+
+**Answer:** $$x^2 e^x(3 + x)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** If $$f(x) = x^{2} e^{x}$$, what is $$f'(1)$$?
+
+**A.** $$3e$$. $$f'(x) = 2x^{1}e^x + x^{2}e^x$$, so $$f'(1) = 2e + e = 3e$$. By the product rule, $$f'(x) = 2x^{1}e^x + x^{2}e^x = x^{1}e^x(x + 2)$$. At $$x = 1$$, $$f'(1) = e(1 + 2) = 3e$$.
+
+**Q.** If $$f(x) = x^{4} e^{x}$$, what is $$f'(1)$$?
+
+**A.** $$5e$$. $$f'(x) = 4x^{3}e^x + x^{4}e^x$$, so $$f'(1) = 4e + e = 5e$$. By the product rule, $$f'(x) = 4x^{3}e^x + x^{4}e^x = x^{3}e^x(x + 4)$$. At $$x = 1$$, $$f'(1) = e(1 + 4) = 5e$$.
+
+**Q.** If $$f(x) = x^{5} e^{x}$$, what is $$f'(1)$$?
+
+**A.** $$6e$$. $$f'(x) = 5x^{4}e^x + x^{5}e^x$$, so $$f'(1) = 5e + e = 6e$$. By the product rule, $$f'(x) = 5x^{4}e^x + x^{5}e^x = x^{4}e^x(x + 5)$$. At $$x = 1$$, $$f'(1) = e(1 + 5) = 6e$$.
+
+**Q.** If $$f(x) = x^{3} e^{x}$$, what is $$f'(1)$$?
+
+**A.** $$4e$$. $$f'(x) = 3x^{2}e^x + x^{3}e^x$$, so $$f'(1) = 3e + e = 4e$$. By the product rule, $$f'(x) = 3x^{2}e^x + x^{3}e^x = x^{2}e^x(x + 3)$$. At $$x = 1$$, $$f'(1) = e(1 + 3) = 4e$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$0.690$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 2.5} \approx 0.690$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$-0.856$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 1.2} \approx -0.856$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.923$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 1.5} \approx 0.923$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.106$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 1.5} \approx 0.106$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.296$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 2} \approx 0.296$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.800$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 2} \approx 0.800$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.077$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 2} \approx 0.077$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.264$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 0.5} \approx 0.264$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.918$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 0.5} \approx 0.918$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.022$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 1.2} \approx 0.022$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.289$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 1.2} \approx 0.289$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$0.521$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 2.5} \approx 0.521$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$-1.193$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 1.5} \approx -1.193$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$1.104$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 1.5} \approx 1.104$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.455$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 0.5} \approx 0.455$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-0.103$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 2.5} \approx -0.103$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.984$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 1.2} \approx 0.984$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-1.404$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 2.5} \approx -1.404$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.000$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 2} \approx 0.000$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-1.200$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 2.5} \approx -1.200$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$1.367$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 1.2} \approx 1.367$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(2)$$?
+
+**A.** $$-1.433$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 2} \approx -1.433$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.282$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 0.5} \approx 0.282$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.167$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 1.5} \approx 0.167$$.

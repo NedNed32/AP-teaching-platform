@@ -1,0 +1,83 @@
+---
+objectives:
+  - Use the direct comparison and limit comparison tests.
+keyTerms:
+  - term: Direct comparison test
+    definition: 'If $$0 \leq a_n \leq b_n$$: $$\sum b_n$$ converges implies $$\sum a_n$$ converges; $$\sum a_n$$ diverges implies $$\sum b_n$$ diverges.'
+  - term: Limit comparison test
+    definition: 'If $$a_n, b_n > 0$$ and $$\lim \frac{a_n}{b_n} = c$$ with $$0 < c < \infty$$, then both series converge or both diverge.'
+checks:
+  - q: 'Use a comparison to decide $$\sum \frac{1}{n^2 + 5}$$.'
+    a: '$$\frac{1}{n^2 + 5} < \frac{1}{n^2}$$ and $$\sum \frac{1}{n^2}$$ converges, so it converges.'
+  - q: 'What should $$b_n$$ be for $$\sum \frac{3n + 1}{n^3 - 2}$$?'
+    a: '$$\frac{1}{n^2}$$, from the leading terms $$\frac{3n}{n^3}$$.'
+sources:
+  - title: Calculus Volume 2, section 5.4 "Comparison Tests"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Many series look almost like a p-series or a geometric series. Comparison tests make "almost like" precise.
+
+## Direct comparison
+
+For positive terms with $$a_n \leq b_n$$:
+
+- smaller than a convergent series: **converges**;
+- bigger than a divergent series: **diverges**.
+
+The inequality must point the right way. Being smaller than a divergent series tells you nothing.
+
+## Limit comparison
+
+When the inequality is awkward, compare the **ratio**:
+
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n} = c, \quad 0 < c < \infty \quad\Longrightarrow\quad \sum a_n \text{ and } \sum b_n \text{ behave the same.}
+$$
+
+Choose $$b_n$$ by keeping only the dominant terms of the numerator and denominator.
+
+<Note title="Finite and positive">
+The limit comparison test needs $$c$$ to be a positive finite number. If the limit is 0 or $$\infty$$, the test as stated gives no conclusion.
+</Note>
+
+<WorkedExample title="Limit comparison">
+Does $$\sum_{n=1}^{\infty} \frac{2n^2 + 1}{n^4 + n}$$ converge?
+
+1. Dominant terms: $$\frac{2n^2}{n^4} = \frac{2}{n^2}$$, so compare with $$b_n = \frac{1}{n^2}$$.
+2. $$\lim \frac{a_n}{b_n} = \lim \frac{(2n^2 + 1)n^2}{n^4 + n} = 2$$, positive and finite.
+3. $$\sum \frac{1}{n^2}$$ converges ($$p = 2$$).
+
+**Answer:** the series converges by the limit comparison test.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Which of the following series converge?
+
+I. $$\sum_{n=1}^{\infty} \cos\left(\frac{1}{n}\right)$$
+
+II. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}$$
+
+III. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$
+
+**Answer:** II and III only
+
+**Why:** I: diverges (terms approach 1 (nth term test)). II: converges (absolute values form a p-series with p = 3). III: converges (alternating series test, but the harmonic series diverges).
+
+**Working:** Series I diverges: terms approach 1 (nth term test). Series II converges: absolute values form a p-series with p = 3. Series III converges: alternating series test, but the harmonic series diverges.
+
+**Mistakes to avoid**
+
+- I and III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- None of them: Check each series with an appropriate test: I diverges, II converges, III converges.

@@ -1,0 +1,92 @@
+---
+objectives:
+  - Verify that a function is a solution to a differential equation.
+keyTerms:
+  - term: Solution of a differential equation
+    definition: 'A function that makes the equation true for every value of the variable when it and its derivatives are substituted in.'
+checks:
+  - q: 'Is $$y = e^{-2x}$$ a solution of $$y'' + 2y = 0$$?'
+    a: 'Yes: $$y'' = -2e^{-2x}$$, and $$-2e^{-2x} + 2e^{-2x} = 0$$.'
+  - q: 'Is $$y = x^2$$ a solution of $$y'' = 2y$$?'
+    a: 'No: $$2x \neq 2x^2$$ for most $$x$$.'
+sources:
+  - title: Calculus Volume 2, section 4.1 "Basics of Differential Equations"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Checking a proposed solution is much easier than finding one: compute the derivatives the equation needs, substitute, and see whether both sides agree for **every** $$x$$.
+
+## The procedure
+
+1. Compute the derivatives that appear in the equation ($$y'$$, maybe $$y''$$).
+2. Substitute the function and its derivatives into the equation.
+3. Simplify both sides. If they are identical for all $$x$$ in the domain, the function is a solution.
+
+## Families of solutions
+
+A differential equation usually has infinitely many solutions. For $$y' = 3y$$, every function $$y = Ce^{3x}$$ works:
+
+$$
+y' = 3Ce^{3x} = 3y. \checkmark
+$$
+
+An **initial condition** such as $$y(0) = 5$$ selects one member: $$C = 5$$.
+
+<Note title="One point is not enough">
+A function that satisfies the equation at a single point is not a solution. The equation must hold for all $$x$$ in an interval.
+</Note>
+
+<WorkedExample title="Checking a second-order equation">
+Show that $$y = 3\cos(2x)$$ satisfies $$y'' + 4y = 0$$.
+
+1. $$y' = -6\sin(2x)$$.
+2. $$y'' = -12\cos(2x)$$.
+3. $$y'' + 4y = -12\cos(2x) + 12\cos(2x) = 0$$.
+
+**Answer:** it is a solution, since the equation holds for every $$x$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 25y = 0$$?
+
+**A.** $$y = \sin(5x)$$. $$y'' = -25\sin(5x)$$, so $$y'' + 25y = 0$$. Substitute each candidate. For $$y = \sin(5x)$$: $$y' = 5\cos(5x)$$, $$y'' = -25\sin(5x) = -25y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 9y = 0$$?
+
+**A.** $$y = \sin(3x)$$. $$y'' = -9\sin(3x)$$, so $$y'' + 9y = 0$$. Substitute each candidate. For $$y = \sin(3x)$$: $$y' = 3\cos(3x)$$, $$y'' = -9\sin(3x) = -9y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 5y$$?
+
+**A.** $$y = 7e^{5x}$$. $$y' = 35e^{5x} = 5y$$. Substitute each candidate into $$y' = 5y$$. Only a constant multiple of $$e^{5x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 2y$$?
+
+**A.** $$y = 7e^{2x}$$. $$y' = 14e^{2x} = 2y$$. Substitute each candidate into $$y' = 2y$$. Only a constant multiple of $$e^{2x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 4y$$?
+
+**A.** $$y = 7e^{4x}$$. $$y' = 28e^{4x} = 4y$$. Substitute each candidate into $$y' = 4y$$. Only a constant multiple of $$e^{4x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 4y = 0$$?
+
+**A.** $$y = \sin(2x)$$. $$y'' = -4\sin(2x)$$, so $$y'' + 4y = 0$$. Substitute each candidate. For $$y = \sin(2x)$$: $$y' = 2\cos(2x)$$, $$y'' = -4\sin(2x) = -4y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 16y = 0$$?
+
+**A.** $$y = \sin(4x)$$. $$y'' = -16\sin(4x)$$, so $$y'' + 16y = 0$$. Substitute each candidate. For $$y = \sin(4x)$$: $$y' = 4\cos(4x)$$, $$y'' = -16\sin(4x) = -16y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 3y$$?
+
+**A.** $$y = 7e^{3x}$$. $$y' = 21e^{3x} = 3y$$. Substitute each candidate into $$y' = 3y$$. Only a constant multiple of $$e^{3x}$$ works.

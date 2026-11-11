@@ -1,0 +1,88 @@
+---
+objectives:
+  - Evaluate arithmetic expressions, including MOD, in AP pseudocode.
+  - Describe sequencing as running statements in order.
+keyTerms:
+  - term: MOD
+    definition: '`a MOD b` is the remainder when a is divided by b.'
+  - term: Sequencing
+    definition: 'Running statements one after another in the order they are written.'
+checks:
+  - q: 'What is 17 MOD 5?'
+    a: '2.'
+  - q: 'What is 4 + 6 * 2?'
+    a: '16; multiplication happens first.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+An **algorithm** is a finite set of instructions. Every algorithm can be built from three parts: **sequencing**, **selection** and **iteration**. This lesson covers sequencing and arithmetic.
+
+## Operators
+
+| Operator | Meaning | Example |
+| --- | --- | --- |
+| + − * / | arithmetic | 7 / 2 is 3.5 |
+| MOD | remainder | 17 MOD 5 is 2 |
+
+MOD has the same precedence as * and /. Parentheses come first, then *, /, MOD, then + and −.
+
+## Uses of MOD
+
+- `n MOD 2 = 0` tests whether n is even.
+- `n MOD 10` gives the last digit.
+- Wrapping around: `(day + 3) MOD 7`.
+
+<WorkedExample title="Evaluate in order">
+What is displayed?
+
+```text
+a ← 14
+b ← a MOD 4 + 3 * 2
+a ← b - a / 7
+DISPLAY (a)
+```
+
+1. 14 MOD 4 is 2; 3 * 2 is 6; b is 8.
+2. a / 7 is 2; a becomes 8 − 2 = 6.
+
+**Answer:** 6.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```text
+x ← 72
+result ← x MOD 9 * 2
+DISPLAY (result)
+```
+
+What is displayed as a result of running the code segment?
+
+**Answer:** `0`
+
+**Why:** 72 MOD 9 is 0, then multiplied by 2.
+
+**Working:** 72 MOD 9 = 0; 0 × 2 = 0.
+
+**Mistakes to avoid**
+
+- `16`: MOD gives the remainder, not the quotient.
+- `1`: Recheck the remainder.
+- `7`: Only the given expression is evaluated.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.

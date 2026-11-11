@@ -1,0 +1,136 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "graph-with-hole-and-jump",
+      "text": "The graph of the function $$f$$ is shown. Open circles mark points not on the graph; closed dots mark function values.",
+      "image": {
+        "src": "assets/lessons/limits-from-graph.svg",
+        "alt": "A line rising to an open circle at (1, 3.5) with a hole at (-2, 2); a closed dot at (1, 1); a downward parabola from x = 1 to 5 with an open circle at (3, 3) and a closed dot at (3, 0)."
+      }
+    },
+    {
+      "id": "falling-ball",
+      "text": "A ball is dropped from a tall building. After $$t$$ seconds it has fallen $$s(t) = 16t^2$$ feet."
+    }
+  ],
+  "questions": [
+    {
+      "id": "p1-graph-limit-at-3",
+      "type": "mcq",
+      "topics": ["limits-from-graphs"],
+      "skills": ["2"],
+      "difficulty": 1,
+      "stimuli": ["graph-with-hole-and-jump"],
+      "stem": "What is $$\\lim_{x \\to 3} f(x)$$?",
+      "options": [
+        { "id": "a", "text": "$$0$$", "why": "This is $$f(3)$$, the closed dot. The limit uses the values near 3, which approach 3." },
+        { "id": "b", "text": "$$3$$", "why": "Correct. The parabola approaches height 3 from both sides of $$x = 3$$." },
+        { "id": "c", "text": "$$1$$", "why": "This is $$f(1)$$, at a different input." },
+        { "id": "d", "text": "The limit does not exist.", "why": "Both one-sided limits are 3, so the limit exists even though it differs from $$f(3)$$." }
+      ],
+      "answer": "b",
+      "explanation": "Trace the curve toward $$x = 3$$ from each side: both approach the open circle at height 3. The closed dot at $$(3, 0)$$ gives $$f(3) = 0$$, which does not affect the limit."
+    },
+    {
+      "id": "p1-graph-one-sided-at-1",
+      "type": "mcq",
+      "topics": ["limits-from-graphs"],
+      "skills": ["2"],
+      "difficulty": 2,
+      "stimuli": ["graph-with-hole-and-jump"],
+      "stem": "Which of the following statements about $$f$$ at $$x = 1$$ is true?",
+      "options": [
+        { "id": "a", "text": "$$\\lim_{x \\to 1} f(x) = 1$$", "why": "The right-hand limit is 1, but the left-hand limit is 3.5, so the two-sided limit does not exist." },
+        { "id": "b", "text": "$$\\lim_{x \\to 1^-} f(x) = 1$$", "why": "From the left the line approaches the open circle at 3.5." },
+        { "id": "c", "text": "$$\\lim_{x \\to 1^-} f(x) = 3.5$$ and $$\\lim_{x \\to 1^+} f(x) = 1$$", "why": "Correct. The left piece heads to 3.5 and the right piece starts at the closed dot, height 1." },
+        { "id": "d", "text": "$$f(1) = 3.5$$", "why": "The point at height 3.5 is an open circle, so it is not on the graph. The closed dot shows $$f(1) = 1$$." }
+      ],
+      "answer": "c",
+      "explanation": "Approaching 1 from the left, the line rises toward 3.5. From the right, the parabola starts at height 1. The one-sided limits differ, so $$\\lim_{x \\to 1} f(x)$$ does not exist."
+    },
+    {
+      "id": "p1-graph-hole-at-minus-2",
+      "type": "mcq",
+      "topics": ["limits-from-graphs", "types-of-discontinuities"],
+      "skills": ["2"],
+      "difficulty": 2,
+      "stimuli": ["graph-with-hole-and-jump"],
+      "stem": "Which of the following is true at $$x = -2$$?",
+      "options": [
+        { "id": "a", "text": "$$\\lim_{x \\to -2} f(x) = 2$$ and $$f(-2)$$ is undefined.", "why": "Correct. Both sides approach the open circle at height 2, and there is no closed dot at $$x = -2$$." },
+        { "id": "b", "text": "$$\\lim_{x \\to -2} f(x)$$ does not exist.", "why": "Both sides approach the same height, so the limit exists." },
+        { "id": "c", "text": "$$f$$ is continuous at $$x = -2$$.", "why": "$$f(-2)$$ is undefined, so $$f$$ cannot be continuous there." },
+        { "id": "d", "text": "$$f(-2) = 2$$", "why": "The open circle means the point is missing from the graph." }
+      ],
+      "answer": "a",
+      "explanation": "The graph has a hole at $$(-2, 2)$$: the limit is 2, but $$f(-2)$$ is undefined. This is a removable discontinuity."
+    },
+    {
+      "id": "p1-average-speed",
+      "type": "mcq",
+      "topics": ["introducing-calculus"],
+      "skills": ["1"],
+      "difficulty": 1,
+      "stimuli": ["falling-ball"],
+      "stem": "What is the average speed of the ball, in feet per second, from $$t = 1$$ to $$t = 3$$?",
+      "options": [
+        { "id": "a", "text": "$$128$$", "why": "This is the distance fallen during the interval; divide by the 2 seconds that passed." },
+        { "id": "b", "text": "$$64$$", "why": "Correct. $$\\frac{s(3) - s(1)}{3 - 1} = \\frac{144 - 16}{2} = 64$$." },
+        { "id": "c", "text": "$$48$$", "why": "This is $$\\frac{s(3)}{3}$$, which measures from $$t = 0$$, not from $$t = 1$$." },
+        { "id": "d", "text": "$$96$$", "why": "This is the instantaneous speed at $$t = 3$$, not the average over the interval." }
+      ],
+      "answer": "b",
+      "explanation": "Average speed is change in distance over change in time: $$\\frac{16(9) - 16(1)}{2} = 64$$ feet per second."
+    },
+    {
+      "id": "p1-instantaneous-speed",
+      "type": "mcq",
+      "topics": ["introducing-calculus", "defining-limits"],
+      "skills": ["2"],
+      "difficulty": 2,
+      "stimuli": ["falling-ball"],
+      "stem": "Average speeds over $$[2, 2.1]$$, $$[2, 2.01]$$ and $$[2, 2.001]$$ are 65.6, 64.16 and 64.016 feet per second. What is the best estimate of the ball's speed at the instant $$t = 2$$?",
+      "options": [
+        { "id": "a", "text": "$$65.6$$", "why": "This is the average over the widest interval, the least accurate estimate." },
+        { "id": "b", "text": "$$32$$", "why": "This is the average speed from $$t = 0$$ to $$t = 2$$." },
+        { "id": "c", "text": "$$64$$", "why": "Correct. As the interval shrinks, the averages approach 64." },
+        { "id": "d", "text": "It cannot be found, because no time passes in an instant.", "why": "A limit of average speeds over shrinking intervals gives the instantaneous speed." }
+      ],
+      "answer": "c",
+      "explanation": "The instantaneous speed is the limit of the average speeds as the interval shrinks. The values 65.6, 64.16, 64.016 approach 64 feet per second."
+    },
+    {
+      "id": "p1-limit-laws",
+      "type": "mcq",
+      "topics": ["limits-algebraic-properties"],
+      "skills": ["1"],
+      "difficulty": 1,
+      "stem": "If $$\\lim_{x \\to 2} f(x) = 5$$ and $$\\lim_{x \\to 2} g(x) = -3$$, what is $$\\lim_{x \\to 2} \\left[f(x)g(x) + 2f(x)\\right]$$?",
+      "options": [
+        { "id": "a", "text": "$$-5$$", "why": "Correct. By the product, sum and constant multiple laws: $$5(-3) + 2(5) = -5$$." },
+        { "id": "b", "text": "$$-15$$", "why": "This leaves out the $$2f(x)$$ term." },
+        { "id": "c", "text": "$$7$$", "why": "This adds the limits instead of multiplying them for the product term." },
+        { "id": "d", "text": "$$-25$$", "why": "Sign error: $$2f(x)$$ contributes $$+10$$, not $$-10$$." }
+      ],
+      "answer": "a",
+      "explanation": "Apply the limit laws term by term: $$\\lim f(x)g(x) = 5 \\cdot (-3) = -15$$ and $$\\lim 2f(x) = 10$$, so the limit is $$-5$$."
+    },
+    {
+      "id": "p1-limit-quotient",
+      "type": "mcq",
+      "topics": ["limits-algebraic-properties"],
+      "skills": ["1", "3"],
+      "difficulty": 2,
+      "stem": "If $$\\lim_{x \\to 4} f(x) = 6$$ and $$\\lim_{x \\to 4} g(x) = 0$$, which of the following must be true about $$\\lim_{x \\to 4} \\frac{f(x)}{g(x)}$$?",
+      "options": [
+        { "id": "a", "text": "It equals 0.", "why": "The denominator, not the numerator, approaches 0." },
+        { "id": "b", "text": "It equals 6.", "why": "Dividing by something approaching 0 does not leave the numerator unchanged." },
+        { "id": "c", "text": "It does not exist as a finite number.", "why": "Correct. A nonzero number divided by something approaching 0 grows without bound, so there is no finite limit." },
+        { "id": "d", "text": "It equals $$\\frac{6}{0}$$, which is infinity.", "why": "The sign depends on how $$g$$ approaches 0, so the limit could be $$\\infty$$, $$-\\infty$$, or neither. It is certainly not finite." }
+      ],
+      "answer": "c",
+      "explanation": "The quotient law needs a nonzero denominator limit. Here the numerator approaches 6 and the denominator approaches 0, so the quotient is unbounded near 4 and has no finite limit."
+    }
+  ]
+}

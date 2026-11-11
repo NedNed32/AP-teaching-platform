@@ -1,0 +1,84 @@
+---
+objectives:
+  - 'Integrate to find the field of continuous charge distributions such as rods and rings.'
+keyTerms:
+  - term: 'Linear charge density'
+    definition: 'λ = dq/dx, charge per unit length.'
+  - term: 'Surface charge density'
+    definition: 'σ, charge per unit area.'
+checks:
+  - q: 'What is the field at the center of a uniformly charged ring?'
+    a: 'Zero, by symmetry.'
+  - q: 'How does the field of a long line of charge depend on distance?'
+    a: 'E = λ/(2πε0r), proportional to 1/r.'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+Break the distribution into elements $$dq$$ and integrate:
+
+$$\vec E = \int \frac{1}{4\pi\varepsilon_0}\frac{dq}{r^2}\hat r$$
+
+Use symmetry to cancel components first.
+
+| Distribution | Field |
+| --- | --- |
+| ring (radius a) on its axis at x | $$\frac{1}{4\pi\varepsilon_0}\frac{Qx}{(x^2 + a^2)^{3/2}}$$ |
+| infinite line | $$\frac{\lambda}{2\pi\varepsilon_0 r}$$ |
+| infinite sheet | $$\frac{\sigma}{2\varepsilon_0}$$ |
+| rod on its axis, distance d from end | $$\frac{1}{4\pi\varepsilon_0}\frac{Q}{d(d + L)}$$ |
+
+<Note title="Check limits">
+Far from any distribution, its field should look like a point charge's. For a ring, when x is much larger than a, E approaches kQ/x².
+</Note>
+
+<WorkedExample title="Rod on its axis">
+A rod of length L and charge Q lies from x = 0 to x = L. Find E at x = L + d.
+
+1. $$dE = \frac{k\lambda\,dx}{(L + d - x)^2}$$.
+2. $$E = k\lambda\left[\frac{1}{d} - \frac{1}{L + d}\right] = \frac{kQ}{d(L + d)}$$.
+
+**Answer:** $$\frac{kQ}{d(L+d)}$$, pointing away from the rod for positive Q.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A ring of radius 0.14 m carries 3 µC spread uniformly. What is the field magnitude on its axis 0.3 m from the center?
+
+**Answer:** $$2.23 \times 10^{5}\ \mathrm{N/C}$$
+
+**Why:** E = kQx/(x² + a²)^(3/2).
+
+**Working:** E = kQx/(x² + a²)^(3/2) = 2.23 \times 10^\{5\} N/C.
+
+**Mistakes to avoid**
+
+- $$2.46 \times 10^{5}\ \mathrm{N/C}$$: Only the axial components add; the others cancel.
+- $$3 \times 10^{5}\ \mathrm{N/C}$$: The charge is not at the center.
+- $$7.38 \times 10^{4}\ \mathrm{N/C}$$: The denominator has a 3/2 power.
+
+### Worked exam question 2
+
+A long straight wire carries a uniform charge of 9 µC/m. What is the field 0.21 m from it?
+
+**Answer:** $$7.71 \times 10^{5}\ \mathrm{N/C}$$
+
+**Why:** E = λ/(2πε₀r), from Gauss's law with a cylinder.
+
+**Working:** E = λ/(2πε₀r) = 7.71 \times 10^\{5\} N/C.
+
+**Mistakes to avoid**
+
+- $$1.83 \times 10^{6}\ \mathrm{N/C}$$: A line charge's field falls off as 1/r.
+- $$3.85 \times 10^{5}\ \mathrm{N/C}$$: The cylinder gives 2πrL, not 4πr².
+- $$5.08 \times 10^{5}\ \mathrm{N/C}$$: That is a sheet's field.

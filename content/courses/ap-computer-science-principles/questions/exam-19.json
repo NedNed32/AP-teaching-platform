@@ -1,0 +1,2741 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e19-frq1-s",
+      "text": "A student wrote a program called **Recipe Scaler**. Its purpose is to let cooks make larger batches of a recipe without doing arithmetic by hand. In the program, the user enters the ingredient amounts and how many batches they want, and the program displays the new amount of each ingredient. The list `amounts` stores the amount of each ingredient in the original recipe. The program's main procedure is shown below.\n\n```text\nPROCEDURE scale(amounts, factor)\n{\n   result ← []\n   FOR EACH a IN amounts\n   {\n      IF (a > 0)\n      {\n         APPEND(result, a * factor)\n      }\n      ELSE\n      {\n         APPEND(result, 0)\n      }\n   }\n   RETURN (result)\n}\n```\n\nOn the actual exam, these questions refer to your own Create performance task program. Answer them here for the sample program."
+    },
+    {
+      "id": "e19-frq2-s",
+      "text": "A student wrote a program called **Step Streak**. Its purpose is to encourage regular exercise by rewarding streaks of active days. In the program, the user types their step count for each day, and the app displays the longest streak of days that met the daily goal. The list `steps` stores the step counts the user has entered, one per day. The program's main procedure is shown below.\n\n```text\nPROCEDURE longestStreak(steps, goal)\n{\n   best ← 0\n   current ← 0\n   FOR EACH s IN steps\n   {\n      IF (s ≥ goal)\n      {\n         current ← current + 1\n         IF (current > best)\n         {\n            best ← current\n         }\n      }\n      ELSE\n      {\n         current ← 0\n      }\n   }\n   RETURN (best)\n}\n```\n\nOn the actual exam, these questions refer to your own Create performance task program. Answer them here for the sample program."
+    }
+  ],
+  "questions": [
+    {
+      "id": "e19-q01",
+      "type": "mcq",
+      "topics": [
+        "data-compression"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "A video streaming service wants to send video quickly over slow connections, and viewers will not notice small losses in detail. Which approach is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lossy compression",
+          "why": "Correct. Lossy compression gives much smaller files when exact reconstruction is not needed."
+        },
+        {
+          "id": "b",
+          "text": "Lossless compression, because it always gives smaller files than lossy",
+          "why": "Lossy usually gives smaller files."
+        },
+        {
+          "id": "c",
+          "text": "Sending the video uncompressed",
+          "why": "That is the slowest option."
+        },
+        {
+          "id": "d",
+          "text": "Encrypting the video",
+          "why": "Encryption protects data; it does not reduce size."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Lossy compression gives much smaller files when exact reconstruction is not needed."
+    },
+    {
+      "id": "e19-q02",
+      "type": "mcq",
+      "topics": [
+        "data-compression"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Run-length encoding replaces each run of a repeated character with its count followed by the character, so AAAB becomes 3A1B. What is the encoding of `XCCCCXXCC`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`2X4C2X2C`",
+          "why": "Recount the first run."
+        },
+        {
+          "id": "b",
+          "text": "`3X6C`",
+          "why": "Each run is encoded separately, in order; runs are not merged."
+        },
+        {
+          "id": "c",
+          "text": "`1X4C2X2C`",
+          "why": "Correct. Each run is replaced by its length and character, in order."
+        },
+        {
+          "id": "d",
+          "text": "`X1C4X2C2`",
+          "why": "The count comes before the character."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The runs are 1 X, 4 C, 2 X, 2 C, so the encoding is 1X4C2X2C. It is lossless: the original can be rebuilt exactly."
+    },
+    {
+      "id": "e19-q03",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A grade calculator runs without stopping but reports an average that is too high for every student. Which type of error is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A overflow error",
+          "why": "That would mean the value is larger than the fixed number of bits can represent."
+        },
+        {
+          "id": "b",
+          "text": "A run-time error",
+          "why": "That would mean the error occurs while the program is running and stops it."
+        },
+        {
+          "id": "c",
+          "text": "A logic error",
+          "why": "Correct. The program runs, but the algorithm produces incorrect results."
+        },
+        {
+          "id": "d",
+          "text": "A syntax error",
+          "why": "That would mean the rules of the language are broken, so the program cannot run at all."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The program runs, but the algorithm produces incorrect results."
+    },
+    {
+      "id": "e19-q04",
+      "type": "mcq",
+      "topics": [
+        "simulations",
+        "libraries",
+        "developing-procedures",
+        "data-abstraction"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "Which is the best reason to use a simulation to study how a disease spreads?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It removes the need for any real data",
+          "why": "Models should be checked against real data."
+        },
+        {
+          "id": "b",
+          "text": "It never contains bias",
+          "why": "Assumptions can introduce bias."
+        },
+        {
+          "id": "c",
+          "text": "It is guaranteed to predict the future exactly",
+          "why": "Simulations simplify reality."
+        },
+        {
+          "id": "d",
+          "text": "It can test different scenarios safely and quickly without exposing people to disease",
+          "why": "Correct. Simulations study situations that are dangerous or impractical to test directly."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Simulations study situations that are dangerous or impractical to test directly."
+    },
+    {
+      "id": "e19-q05",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A program stores whole numbers using 6 bits, with no sign bit. What is the largest number it can store before an overflow error occurs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`12`",
+          "why": "Each bit doubles the number of values."
+        },
+        {
+          "id": "b",
+          "text": "`32`",
+          "why": "All bits are used for the value."
+        },
+        {
+          "id": "c",
+          "text": "`63`",
+          "why": "Correct. 6 bits give 64 values, from 0 to 63."
+        },
+        {
+          "id": "d",
+          "text": "`64`",
+          "why": "The values start at 0, so the largest is one less than the count."
+        }
+      ],
+      "answer": "c",
+      "explanation": "With 6 bits there are 2^6 = 64 patterns, representing 0 through 63."
+    },
+    {
+      "id": "e19-q06",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors",
+        "program-design-and-development"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A procedure `countAbove(list)` should return how many values in list are greater than 20, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[14, 15, 13, 18]`",
+          "why": "No value is 20 or above, so both versions return 0."
+        },
+        {
+          "id": "b",
+          "text": "`[33, 27, 42, 52]`",
+          "why": "Every value is above 20, so both versions return the same count."
+        },
+        {
+          "id": "c",
+          "text": "`[7, 4, 44, 49]`",
+          "why": "No value equals 20, so both versions agree."
+        },
+        {
+          "id": "d",
+          "text": "`[35, 42, 20, 45]`",
+          "why": "Correct. It contains 20, which ≥ counts but > does not, so the two versions give different results."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Only an input containing the boundary value 20 makes ≥ and > behave differently."
+    },
+    {
+      "id": "e19-q07",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A program crashes when a user enters 0 because it divides by the number entered. Which type of error is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A logic error",
+          "why": "That would mean the program runs, but the algorithm produces incorrect results."
+        },
+        {
+          "id": "b",
+          "text": "A overflow error",
+          "why": "That would mean the value is larger than the fixed number of bits can represent."
+        },
+        {
+          "id": "c",
+          "text": "A run-time error",
+          "why": "Correct. The error occurs while the program is running and stops it."
+        },
+        {
+          "id": "d",
+          "text": "A syntax error",
+          "why": "That would mean the rules of the language are broken, so the program cannot run at all."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The error occurs while the program is running and stops it."
+    },
+    {
+      "id": "e19-q08",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance",
+        "parallel-and-distributed-computing"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "Adding more processors to a parallel program eventually stops reducing its run time. What is the most likely reason?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Some parts of the program must run sequentially and cannot be shared",
+          "why": "Correct. Sequential portions limit speedup."
+        },
+        {
+          "id": "b",
+          "text": "Parallel programs cannot use more than two processors",
+          "why": "They can use many."
+        },
+        {
+          "id": "c",
+          "text": "Processors slow down when more are added",
+          "why": "Each processor keeps its speed."
+        },
+        {
+          "id": "d",
+          "text": "The program becomes undecidable",
+          "why": "Decidability does not change."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Sequential portions limit speedup."
+    },
+    {
+      "id": "e19-q09",
+      "type": "mcq",
+      "topics": [
+        "beneficial-and-harmful-effects",
+        "digital-divide"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Machine learning finds patterns in medical data that help detect disease early, but the same data could reveal private health details. What does this illustrate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Medical data cannot be analyzed by computers",
+          "why": "It can."
+        },
+        {
+          "id": "b",
+          "text": "Data analysis can have both beneficial and harmful effects",
+          "why": "Correct. The same innovation can help and harm."
+        },
+        {
+          "id": "c",
+          "text": "Machine learning always protects privacy",
+          "why": "It can create privacy risks."
+        },
+        {
+          "id": "d",
+          "text": "Pattern finding is an undecidable problem",
+          "why": "It is not."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The same innovation can help and harm."
+    },
+    {
+      "id": "e19-q10",
+      "type": "mcq",
+      "topics": [
+        "program-design-and-development",
+        "collaboration",
+        "program-function-and-purpose"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "Which of the following is the best reason to include people with diverse backgrounds on a team designing an app?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It guarantees the app will have no errors",
+          "why": "No team composition guarantees that."
+        },
+        {
+          "id": "b",
+          "text": "It makes the program run faster",
+          "why": "Team makeup does not change run time."
+        },
+        {
+          "id": "c",
+          "text": "It removes the need for user testing",
+          "why": "Testing is still needed."
+        },
+        {
+          "id": "d",
+          "text": "They can identify needs and possible biases that a less diverse team might miss",
+          "why": "Correct. Diverse perspectives improve computing innovations."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Diverse perspectives improve computing innovations."
+    },
+    {
+      "id": "e19-q11",
+      "type": "mcq",
+      "topics": [
+        "data-compression"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "A hospital stores X-ray images that doctors use for diagnosis and wants to reduce storage space. Which approach is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lossy compression, because it can be fully reversed",
+          "why": "Lossy compression cannot be fully reversed."
+        },
+        {
+          "id": "b",
+          "text": "Lossy compression, because the files become smallest",
+          "why": "Losing detail could affect diagnosis."
+        },
+        {
+          "id": "c",
+          "text": "Lossless compression, because every detail must be recoverable",
+          "why": "Correct. Medical images must be restored exactly."
+        },
+        {
+          "id": "d",
+          "text": "No compression is possible for images",
+          "why": "Images can be compressed."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Medical images must be restored exactly."
+    },
+    {
+      "id": "e19-q12",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance",
+        "parallel-and-distributed-computing"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "Why is redundancy built into the Internet?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To make every packet travel the shortest path",
+          "why": "Redundancy is about reliability."
+        },
+        {
+          "id": "b",
+          "text": "To encrypt data",
+          "why": "Redundancy does not encrypt."
+        },
+        {
+          "id": "c",
+          "text": "To reduce the cost of the network",
+          "why": "Redundancy adds cost."
+        },
+        {
+          "id": "d",
+          "text": "So data can be rerouted when a connection or device fails",
+          "why": "Correct. Redundant paths provide fault tolerance."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Redundant paths provide fault tolerance."
+    },
+    {
+      "id": "e19-q13",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Which of the following is the 8-bit binary representation of the decimal number 151?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`10010101`",
+          "why": "That is 149."
+        },
+        {
+          "id": "b",
+          "text": "`11101001`",
+          "why": "The bits are in reverse order."
+        },
+        {
+          "id": "c",
+          "text": "`10010111`",
+          "why": "Correct. 151 = 128 + 16 + 4 + 2 + 1."
+        },
+        {
+          "id": "d",
+          "text": "`10011000`",
+          "why": "That is 152."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Subtract the largest powers of 2 that fit: 151 = 128 + 16 + 4 + 2 + 1, giving 10010111."
+    },
+    {
+      "id": "e19-q14",
+      "type": "mcq",
+      "topics": [
+        "computing-bias",
+        "crowdsourcing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A hiring algorithm learns from ten years of past hiring decisions in which some groups were rarely hired. What is the risk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The algorithm will run too slowly",
+          "why": "Speed is not the concern."
+        },
+        {
+          "id": "b",
+          "text": "The algorithm may repeat the bias in those past decisions",
+          "why": "Correct. Algorithms reflect biases in their data."
+        },
+        {
+          "id": "c",
+          "text": "The data will overflow",
+          "why": "Overflow is unrelated."
+        },
+        {
+          "id": "d",
+          "text": "The algorithm will remove all bias automatically",
+          "why": "Algorithms do not fix biased data on their own."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Algorithms reflect biases in their data."
+    },
+    {
+      "id": "e19-q15",
+      "type": "mcq",
+      "topics": [
+        "legal-and-ethical-concerns"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "What is open source software?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Software that cannot be modified",
+          "why": "It is meant to be modified."
+        },
+        {
+          "id": "b",
+          "text": "Software that has no copyright",
+          "why": "Open source software is licensed."
+        },
+        {
+          "id": "c",
+          "text": "Software that is always free of errors",
+          "why": "It can contain errors."
+        },
+        {
+          "id": "d",
+          "text": "Software whose source code is freely available for others to use and modify",
+          "why": "Correct. That is the definition of open source."
+        }
+      ],
+      "answer": "d",
+      "explanation": "That is the definition of open source."
+    },
+    {
+      "id": "e19-q16",
+      "type": "mcq",
+      "topics": [
+        "binary-search",
+        "algorithmic-efficiency"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A sorted list contains 1,005 elements. What is the maximum number of elements that binary search must examine to find a value or determine it is not in the list?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`10`",
+          "why": "Correct. Each check halves the remaining elements; about 10 checks reduce 1,005 to none."
+        },
+        {
+          "id": "b",
+          "text": "`30`",
+          "why": "2 to the power 10 is already more than 1005."
+        },
+        {
+          "id": "c",
+          "text": "`503`",
+          "why": "Binary search halves the remaining range at every step."
+        },
+        {
+          "id": "d",
+          "text": "`1005`",
+          "why": "That is the worst case for linear search."
+        }
+      ],
+      "answer": "a",
+      "explanation": "2^9 = 512 is less than 1005 but 2^10 = 1024 is not, so at most 10 checks are needed."
+    },
+    {
+      "id": "e19-q17",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance",
+        "parallel-and-distributed-computing"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "Which situation best illustrates distributed computing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "One laptop running a word processor",
+          "why": "That is a single device."
+        },
+        {
+          "id": "b",
+          "text": "Thousands of volunteers' computers each analyze part of a large scientific data set",
+          "why": "Correct. Multiple devices running one program is distributed computing."
+        },
+        {
+          "id": "c",
+          "text": "Compressing a file before emailing it",
+          "why": "That is data compression."
+        },
+        {
+          "id": "d",
+          "text": "A program running one instruction at a time",
+          "why": "That is sequential computing."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Multiple devices running one program is distributed computing."
+    },
+    {
+      "id": "e19-q18",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "What is the decimal value of the binary number `01101101`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Each 1 bit is worth its place value, not 1."
+        },
+        {
+          "id": "b",
+          "text": "`109`",
+          "why": "Correct. Add the place values of the 1 bits."
+        },
+        {
+          "id": "c",
+          "text": "`182`",
+          "why": "The rightmost bit is the 1s place, not the leftmost."
+        },
+        {
+          "id": "d",
+          "text": "`218`",
+          "why": "The places are 1, 2, 4, …, starting from the rightmost bit."
+        }
+      ],
+      "answer": "b",
+      "explanation": "01101101 = 64 + 32 + 8 + 4 + 1 = 109."
+    },
+    {
+      "id": "e19-q19",
+      "type": "mcq",
+      "topics": [
+        "beneficial-and-harmful-effects",
+        "digital-divide"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A social media platform built to help friends share photos is also used to spread false news quickly. This is an example of what?",
+      "options": [
+        {
+          "id": "a",
+          "text": "An unintended harmful effect of a computing innovation",
+          "why": "Correct. Creators did not plan this use."
+        },
+        {
+          "id": "b",
+          "text": "Lossless compression",
+          "why": "That is unrelated."
+        },
+        {
+          "id": "c",
+          "text": "The digital divide",
+          "why": "That concerns access to technology."
+        },
+        {
+          "id": "d",
+          "text": "A syntax error",
+          "why": "That is a programming error."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Creators did not plan this use."
+    },
+    {
+      "id": "e19-q20",
+      "type": "mcq",
+      "topics": [
+        "beneficial-and-harmful-effects",
+        "digital-divide"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Ride-sharing apps let drivers earn money on flexible schedules but may reduce income for traditional taxi drivers. What does this show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The innovation has no harmful effects",
+          "why": "Taxi drivers are harmed."
+        },
+        {
+          "id": "b",
+          "text": "Ride-sharing apps are undecidable",
+          "why": "Decidability is unrelated."
+        },
+        {
+          "id": "c",
+          "text": "The innovation has only harmful effects",
+          "why": "Drivers gain flexibility."
+        },
+        {
+          "id": "d",
+          "text": "An effect can be beneficial for some people and harmful for others",
+          "why": "Correct. Effects of innovations are rarely only good or only bad."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Effects of innovations are rarely only good or only bad."
+    },
+    {
+      "id": "e19-q21",
+      "type": "mcq",
+      "topics": [
+        "iteration",
+        "developing-algorithms"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A robot is on a 6-by-6 grid of squares. Rows are numbered 1 to 6 from top to bottom and columns 1 to 6 from left to right. The robot starts in row 3, column 3, facing up. `MOVE_FORWARD()` moves it one square in the direction it faces; `ROTATE_LEFT()` and `ROTATE_RIGHT()` turn it 90 degrees in place.\n\n```text\nREPEAT 2 TIMES\n{\n   MOVE_FORWARD()\n   MOVE_FORWARD()\n   ROTATE_RIGHT()\n}\n```\n\nWhere does the robot end, and which way does it face?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Row 1, column 1, facing down",
+          "why": "ROTATE_RIGHT turns the robot clockwise."
+        },
+        {
+          "id": "b",
+          "text": "Row 3, column 3, facing down",
+          "why": "The robot moves forward in each pass."
+        },
+        {
+          "id": "c",
+          "text": "Row 1, column 5, facing down",
+          "why": "Correct. Trace each move and turn in order."
+        },
+        {
+          "id": "d",
+          "text": "Row 1, column 5, facing up",
+          "why": "The robot turns in every pass, including the last."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Tracing 2 passes of 2 moves then ROTATE_RIGHT ends at row 1, column 5, facing down."
+    },
+    {
+      "id": "e19-q22",
+      "type": "mcq",
+      "topics": [
+        "computing-bias",
+        "crowdsourcing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Which is a concern with information gathered by crowdsourcing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires no Internet connection",
+          "why": "It usually depends on the Internet."
+        },
+        {
+          "id": "b",
+          "text": "It cannot involve people from different countries",
+          "why": "It often does."
+        },
+        {
+          "id": "c",
+          "text": "It can only collect small amounts of data",
+          "why": "It often collects very large amounts."
+        },
+        {
+          "id": "d",
+          "text": "Some contributions may be inaccurate or deliberately false",
+          "why": "Correct. Crowdsourced data needs quality checks."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Crowdsourced data needs quality checks."
+    },
+    {
+      "id": "e19-q23",
+      "type": "mcq",
+      "topics": [
+        "beneficial-and-harmful-effects",
+        "digital-divide"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Which action would most help reduce the digital divide?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Providing free public Wi-Fi and devices at libraries",
+          "why": "Correct. That increases access for people without it."
+        },
+        {
+          "id": "b",
+          "text": "Increasing the price of broadband service",
+          "why": "That reduces access."
+        },
+        {
+          "id": "c",
+          "text": "Moving services online and closing in-person offices",
+          "why": "That can widen the divide."
+        },
+        {
+          "id": "d",
+          "text": "Requiring faster computers for government websites",
+          "why": "That increases barriers."
+        }
+      ],
+      "answer": "a",
+      "explanation": "That increases access for people without it."
+    },
+    {
+      "id": "e19-q24",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A program will not start because a closing parenthesis is missing on one line. Which type of error is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A overflow error",
+          "why": "That would mean the value is larger than the fixed number of bits can represent."
+        },
+        {
+          "id": "b",
+          "text": "A run-time error",
+          "why": "That would mean the error occurs while the program is running and stops it."
+        },
+        {
+          "id": "c",
+          "text": "A syntax error",
+          "why": "Correct. The rules of the language are broken, so the program cannot run at all."
+        },
+        {
+          "id": "d",
+          "text": "A logic error",
+          "why": "That would mean the program runs, but the algorithm produces incorrect results."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The rules of the language are broken, so the program cannot run at all."
+    },
+    {
+      "id": "e19-q25",
+      "type": "mcq",
+      "topics": [
+        "the-internet"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "What is bandwidth?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The time a packet takes to cross the network",
+          "why": "That is latency."
+        },
+        {
+          "id": "b",
+          "text": "The maximum amount of data that can be sent in a fixed amount of time",
+          "why": "Correct. Bandwidth is usually measured in bits per second."
+        },
+        {
+          "id": "c",
+          "text": "The number of devices on a network",
+          "why": "That is network size."
+        },
+        {
+          "id": "d",
+          "text": "The physical length of a network cable",
+          "why": "That is not bandwidth."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Bandwidth is usually measured in bits per second."
+    },
+    {
+      "id": "e19-q26",
+      "type": "mcq",
+      "topics": [
+        "mathematical-expressions"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```text\nx ← 24\nresult ← x MOD 6 * 2\nDISPLAY (result)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`2`",
+          "why": "Only the given expression is evaluated."
+        },
+        {
+          "id": "b",
+          "text": "`0`",
+          "why": "Correct. 24 MOD 6 is 0, then multiplied by 2."
+        },
+        {
+          "id": "c",
+          "text": "`1`",
+          "why": "Recheck the remainder."
+        },
+        {
+          "id": "d",
+          "text": "`8`",
+          "why": "MOD gives the remainder, not the quotient."
+        }
+      ],
+      "answer": "b",
+      "explanation": "24 MOD 6 = 0; 0 × 2 = 0."
+    },
+    {
+      "id": "e19-q27",
+      "type": "mcq",
+      "topics": [
+        "computing-bias",
+        "crowdsourcing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Volunteers around the world classify millions of telescope images for an astronomy project. What is this called?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Citizen science",
+          "why": "Correct. Public participation in scientific research is citizen science."
+        },
+        {
+          "id": "b",
+          "text": "Encryption",
+          "why": "That protects data."
+        },
+        {
+          "id": "c",
+          "text": "Pair programming",
+          "why": "That is two programmers at one computer."
+        },
+        {
+          "id": "d",
+          "text": "Data compression",
+          "why": "That reduces size."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Public participation in scientific research is citizen science."
+    },
+    {
+      "id": "e19-q28",
+      "type": "mcq",
+      "topics": [
+        "iteration",
+        "developing-algorithms"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A robot is on a 6-by-6 grid of squares. Rows are numbered 1 to 6 from top to bottom and columns 1 to 6 from left to right. The robot starts in row 2, column 4, facing down. `MOVE_FORWARD()` moves it one square in the direction it faces; `ROTATE_LEFT()` and `ROTATE_RIGHT()` turn it 90 degrees in place.\n\n```text\nREPEAT 3 TIMES\n{\n   MOVE_FORWARD()\n   MOVE_FORWARD()\n   ROTATE_RIGHT()\n}\n```\n\nWhere does the robot end, and which way does it face?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Row 2, column 2, facing right",
+          "why": "Correct. Trace each move and turn in order."
+        },
+        {
+          "id": "b",
+          "text": "Row 2, column 2, facing down",
+          "why": "The robot turns in every pass, including the last."
+        },
+        {
+          "id": "c",
+          "text": "Row 2, column 4, facing right",
+          "why": "The robot moves forward in each pass."
+        },
+        {
+          "id": "d",
+          "text": "Row 2, column 6, facing left",
+          "why": "ROTATE_RIGHT turns the robot clockwise."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Tracing 3 passes of 2 moves then ROTATE_RIGHT ends at row 2, column 2, facing right."
+    },
+    {
+      "id": "e19-q29",
+      "type": "mcq",
+      "topics": [
+        "beneficial-and-harmful-effects",
+        "digital-divide"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Which is an example of the digital divide?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Two apps that use different protocols",
+          "why": "That is not about access."
+        },
+        {
+          "id": "b",
+          "text": "A program with a logic error",
+          "why": "That is a bug."
+        },
+        {
+          "id": "c",
+          "text": "A website that loads slowly for everyone",
+          "why": "Everyone is affected equally."
+        },
+        {
+          "id": "d",
+          "text": "Students in a rural area cannot complete online homework because they lack reliable Internet access",
+          "why": "Correct. Unequal access to technology is the digital divide."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Unequal access to technology is the digital divide."
+    },
+    {
+      "id": "e19-q30",
+      "type": "mcq",
+      "topics": [
+        "safe-computing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "Why is multifactor authentication more secure than a password alone?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It encrypts the password",
+          "why": "That is not what multifactor means."
+        },
+        {
+          "id": "b",
+          "text": "An attacker who steals the password still needs another factor, such as a code on the user's phone",
+          "why": "Correct. Multiple kinds of evidence are required."
+        },
+        {
+          "id": "c",
+          "text": "It prevents all malware",
+          "why": "It protects logins, not against all malware."
+        },
+        {
+          "id": "d",
+          "text": "It makes passwords unnecessary",
+          "why": "A password is usually one of the factors."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Multiple kinds of evidence are required."
+    },
+    {
+      "id": "e19-q31",
+      "type": "mcq",
+      "topics": [
+        "safe-computing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A user receives an email that looks like it is from their bank, asking them to click a link and enter their password. What is this attack called?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Phishing",
+          "why": "Correct. Phishing tricks people into revealing information."
+        },
+        {
+          "id": "b",
+          "text": "Overflow",
+          "why": "That is a numeric error."
+        },
+        {
+          "id": "c",
+          "text": "A rogue access point",
+          "why": "That is a fake wireless network."
+        },
+        {
+          "id": "d",
+          "text": "Keylogging",
+          "why": "That records keystrokes."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Phishing tricks people into revealing information."
+    },
+    {
+      "id": "e19-q32",
+      "type": "mcq",
+      "topics": [
+        "using-programs-with-data",
+        "extracting-information-from-data"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 3,
+      "stem": "A data set from a school library contains one row per transaction with these fields: book title, genre, checkout date, return date. Which question can be answered using only this data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Which grade level borrows the most books?",
+          "why": "The data does not include borrower grade."
+        },
+        {
+          "id": "b",
+          "text": "Which teacher recommended each book?",
+          "why": "The data does not include recommender."
+        },
+        {
+          "id": "c",
+          "text": "How much did each book cost the library?",
+          "why": "The data does not include purchase price."
+        },
+        {
+          "id": "d",
+          "text": "What is the average number of days a book is kept?",
+          "why": "Correct. Every field it needs is in the data set."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Only \"What is the average number of days a book is kept?\" can be answered from the listed fields; each other question needs data that was not collected."
+    },
+    {
+      "id": "e19-q33",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following numbers is the greatest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "decimal `36`",
+          "why": "Its value is 36."
+        },
+        {
+          "id": "b",
+          "text": "binary `001111`",
+          "why": "Its value is 15."
+        },
+        {
+          "id": "c",
+          "text": "decimal `33`",
+          "why": "Its value is 33."
+        },
+        {
+          "id": "d",
+          "text": "binary `111000`",
+          "why": "Correct. Its value is 56, the largest."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Converting each to decimal gives 15, 33, 36, 56; the greatest is 56."
+    },
+    {
+      "id": "e19-q34",
+      "type": "mcq",
+      "topics": [
+        "iteration",
+        "conditionals"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nx ← 3\ntotal ← 0\nREPEAT 4 TIMES\n{\n   x ← x + 1\n   IF (x MOD 3 = 0)\n   {\n      total ← total + x\n   }\n}\nDISPLAY (total)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`6`",
+          "why": "Correct. x goes from 4 to 7; the multiples of 3 among them are added."
+        },
+        {
+          "id": "b",
+          "text": "`9`",
+          "why": "x is increased before the check in each pass."
+        },
+        {
+          "id": "c",
+          "text": "`1`",
+          "why": "total adds the values, not 1 each time."
+        },
+        {
+          "id": "d",
+          "text": "`22`",
+          "why": "Only values divisible by 3 are added."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The values of x are 4, 5, 6, 7; the multiples of 3 add to 6."
+    },
+    {
+      "id": "e19-q35",
+      "type": "mcq",
+      "topics": [
+        "computing-bias",
+        "crowdsourcing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A navigation app improves its traffic estimates using location reports from millions of drivers. This is an example of what?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Crowdsourcing",
+          "why": "Correct. Many people contribute data through the Internet."
+        },
+        {
+          "id": "b",
+          "text": "The digital divide",
+          "why": "That is about access."
+        },
+        {
+          "id": "c",
+          "text": "Sequential computing",
+          "why": "That is about how operations run."
+        },
+        {
+          "id": "d",
+          "text": "Phishing",
+          "why": "That is a scam."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Many people contribute data through the Internet."
+    },
+    {
+      "id": "e19-q36",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "What is the decimal value of the binary number `10011110`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Each 1 bit is worth its place value, not 1."
+        },
+        {
+          "id": "b",
+          "text": "`121`",
+          "why": "The rightmost bit is the 1s place, not the leftmost."
+        },
+        {
+          "id": "c",
+          "text": "`158`",
+          "why": "Correct. Add the place values of the 1 bits."
+        },
+        {
+          "id": "d",
+          "text": "`316`",
+          "why": "The places are 1, 2, 4, …, starting from the rightmost bit."
+        }
+      ],
+      "answer": "c",
+      "explanation": "10011110 = 128 + 16 + 8 + 4 + 2 = 158."
+    },
+    {
+      "id": "e19-q37",
+      "type": "mcq",
+      "topics": [
+        "computing-bias",
+        "crowdsourcing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A face recognition system works well for some groups but poorly for others. What is the most likely cause?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The computer's processor is too slow",
+          "why": "Speed does not cause unequal accuracy."
+        },
+        {
+          "id": "b",
+          "text": "Face recognition is undecidable",
+          "why": "It is not."
+        },
+        {
+          "id": "c",
+          "text": "The training data did not include enough images of some groups",
+          "why": "Correct. Unrepresentative data creates biased results."
+        },
+        {
+          "id": "d",
+          "text": "The program has a syntax error",
+          "why": "Syntax errors stop programs from running."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Unrepresentative data creates biased results."
+    },
+    {
+      "id": "e19-q38",
+      "type": "mcq",
+      "topics": [
+        "mathematical-expressions"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```text\nx ← 38\nresult ← x MOD 3 * 2\nDISPLAY (result)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Recheck the remainder."
+        },
+        {
+          "id": "b",
+          "text": "`2`",
+          "why": "MOD and * have equal precedence and are evaluated left to right."
+        },
+        {
+          "id": "c",
+          "text": "`4`",
+          "why": "Correct. 38 MOD 3 is 2, then multiplied by 2."
+        },
+        {
+          "id": "d",
+          "text": "`24`",
+          "why": "MOD gives the remainder, not the quotient."
+        }
+      ],
+      "answer": "c",
+      "explanation": "38 MOD 3 = 2; 2 × 2 = 4."
+    },
+    {
+      "id": "e19-q39",
+      "type": "mcq",
+      "topics": [
+        "safe-computing"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "What does a certificate authority do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Verifies that a website's public key belongs to that website",
+          "why": "Correct. This lets users trust encrypted connections."
+        },
+        {
+          "id": "b",
+          "text": "Creates computer viruses",
+          "why": "It is a trusted security organization."
+        },
+        {
+          "id": "c",
+          "text": "Compresses web pages",
+          "why": "That is unrelated."
+        },
+        {
+          "id": "d",
+          "text": "Stores users' passwords",
+          "why": "That is not its role."
+        }
+      ],
+      "answer": "a",
+      "explanation": "This lets users trust encrypted connections."
+    },
+    {
+      "id": "e19-q40",
+      "type": "mcq",
+      "topics": [
+        "legal-and-ethical-concerns"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A student wants to use a song in an app. The song is published with a Creative Commons license that allows reuse with attribution. What should the student do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Avoid the song, because licensed content can never be reused",
+          "why": "The license allows reuse."
+        },
+        {
+          "id": "b",
+          "text": "Use the song and credit the creator as the license requires",
+          "why": "Correct. The license grants permission with attribution."
+        },
+        {
+          "id": "c",
+          "text": "Pay the creator, because Creative Commons always requires payment",
+          "why": "Many Creative Commons licenses are free."
+        },
+        {
+          "id": "d",
+          "text": "Use the song without credit, since it is online",
+          "why": "Online content is still protected."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The license grants permission with attribution."
+    },
+    {
+      "id": "e19-q41",
+      "type": "mcq",
+      "topics": [
+        "developing-procedures",
+        "calling-procedures"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following procedure.\n\n```text\nPROCEDURE find(list, limit)\n{\n   FOR EACH item IN list\n   {\n      IF (item > limit)\n      {\n         RETURN (item)\n      }\n   }\n   RETURN (-1)\n}\n```\n\nWhat is returned by `find([20, 26, 22, 8, 20, 28], 15)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`",
+          "why": "The procedure returns the item, not its index."
+        },
+        {
+          "id": "b",
+          "text": "`-1`",
+          "why": "20 is greater than 15, so -1 is never reached."
+        },
+        {
+          "id": "c",
+          "text": "`28`",
+          "why": "RETURN stops the procedure immediately; later values are not checked."
+        },
+        {
+          "id": "d",
+          "text": "`20`",
+          "why": "Correct. RETURN ends the procedure at the first value greater than the limit."
+        }
+      ],
+      "answer": "d",
+      "explanation": "20 is the first element greater than 15, so RETURN (20) runs and the procedure ends."
+    },
+    {
+      "id": "e19-q42",
+      "type": "mcq",
+      "topics": [
+        "boolean-expressions"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "For which of the following values does the expression `(x = y) OR ((x > 9) AND (y > 9))` evaluate to true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`x = 2, y = 2`",
+          "why": "Correct. Substituting gives true."
+        },
+        {
+          "id": "b",
+          "text": "`x = 10, y = 0`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "c",
+          "text": "`x = 9, y = 8`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "d",
+          "text": "`x = 0, y = 2`",
+          "why": "Substituting these values gives false."
+        }
+      ],
+      "answer": "a",
+      "explanation": "With x = 2 and y = 2, each part of `(x = y) OR ((x > 9) AND (y > 9))` evaluates so that the whole expression is true."
+    },
+    {
+      "id": "e19-q43",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A program stores whole numbers using 12 bits, with no sign bit. What is the largest number it can store before an overflow error occurs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`24`",
+          "why": "Each bit doubles the number of values."
+        },
+        {
+          "id": "b",
+          "text": "`2048`",
+          "why": "All bits are used for the value."
+        },
+        {
+          "id": "c",
+          "text": "`4095`",
+          "why": "Correct. 12 bits give 4096 values, from 0 to 4095."
+        },
+        {
+          "id": "d",
+          "text": "`4096`",
+          "why": "The values start at 0, so the largest is one less than the count."
+        }
+      ],
+      "answer": "c",
+      "explanation": "With 12 bits there are 2^12 = 4096 patterns, representing 0 through 4095."
+    },
+    {
+      "id": "e19-q44",
+      "type": "mcq",
+      "topics": [
+        "strings"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "The procedure `substring(str, start, length)` returns `length` characters of `str` beginning at position `start`; the first character is at position 1. The procedure `concat(a, b)` returns `a` joined to `b`. What is displayed?\n\n```text\nword ← \"variable\"\nother ← \"computer\"\nDISPLAY (concat(substring(word, 1, 4), substring(other, 7, 2)))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`ervari`",
+          "why": "concat joins its arguments in the order given."
+        },
+        {
+          "id": "b",
+          "text": "`variaer`",
+          "why": "length is 4, so 4 characters are taken."
+        },
+        {
+          "id": "c",
+          "text": "`varier`",
+          "why": "Correct. Positions start at 1 in AP pseudocode."
+        },
+        {
+          "id": "d",
+          "text": "`ariar`",
+          "why": "The first character is at position 1, not 0."
+        }
+      ],
+      "answer": "c",
+      "explanation": "substring(\"variable\", 1, 4) is \"vari\" and substring(\"computer\", 7, 2) is \"er\", so the result is \"varier\"."
+    },
+    {
+      "id": "e19-q45",
+      "type": "mcq",
+      "topics": [
+        "simulations",
+        "libraries",
+        "developing-procedures",
+        "data-abstraction"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "What does an API provide to programmers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A list of all bugs in the language",
+          "why": "That is not what an API is."
+        },
+        {
+          "id": "b",
+          "text": "A specification of how a library's procedures behave and how to use them",
+          "why": "Correct. An API documents a library's procedures."
+        },
+        {
+          "id": "c",
+          "text": "A way to compress data",
+          "why": "That is not what an API is."
+        },
+        {
+          "id": "d",
+          "text": "A guarantee that programs have no errors",
+          "why": "APIs do not guarantee correctness of your program."
+        }
+      ],
+      "answer": "b",
+      "explanation": "An API documents a library's procedures."
+    },
+    {
+      "id": "e19-q46",
+      "type": "mcq",
+      "topics": [
+        "legal-and-ethical-concerns"
+      ],
+      "skills": [
+        "6"
+      ],
+      "difficulty": 2,
+      "stem": "A company collects far more personal data than its app needs, which is legal in its country. Why might this still be a concern?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Collecting unnecessary data can be unethical and increases privacy risks",
+          "why": "Correct. Legal and ethical are not the same."
+        },
+        {
+          "id": "b",
+          "text": "Legal actions can never be unethical",
+          "why": "Some legal actions raise ethical issues."
+        },
+        {
+          "id": "c",
+          "text": "More data always makes an app run faster",
+          "why": "It does not."
+        },
+        {
+          "id": "d",
+          "text": "Personal data cannot be stolen",
+          "why": "It can."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Legal and ethical are not the same."
+    },
+    {
+      "id": "e19-q47",
+      "type": "mcq",
+      "topics": [
+        "lists",
+        "developing-algorithms"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nnums ← [10, 17, 10, 1, 13, 5]\nresult ← nums[1]\nFOR EACH n IN nums\n{\n   IF (n < result)\n   {\n      result ← n\n   }\n}\nDISPLAY (result)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`2`",
+          "why": "Recheck each element."
+        },
+        {
+          "id": "b",
+          "text": "`10`",
+          "why": "result changes when a smaller value appears."
+        },
+        {
+          "id": "c",
+          "text": "`17`",
+          "why": "The code keeps the smaller value each time."
+        },
+        {
+          "id": "d",
+          "text": "`1`",
+          "why": "Correct. Apply the condition to every element of the list."
+        }
+      ],
+      "answer": "d",
+      "explanation": "The smallest value is 1."
+    },
+    {
+      "id": "e19-q48",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors",
+        "program-design-and-development"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A procedure `countAbove(list)` should return how many values in list are greater than 31, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[26, 9, 53, 49]`",
+          "why": "No value equals 31, so both versions agree."
+        },
+        {
+          "id": "b",
+          "text": "`[34, 46, 64, 55]`",
+          "why": "Every value is above 31, so both versions return the same count."
+        },
+        {
+          "id": "c",
+          "text": "`[4, 22, 28, 10]`",
+          "why": "No value is 31 or above, so both versions return 0."
+        },
+        {
+          "id": "d",
+          "text": "`[46, 38, 43, 31]`",
+          "why": "Correct. It contains 31, which ≥ counts but > does not, so the two versions give different results."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Only an input containing the boundary value 31 makes ≥ and > behave differently."
+    },
+    {
+      "id": "e19-q49",
+      "type": "mcq",
+      "topics": [
+        "data-compression"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Run-length encoding replaces each run of a repeated character with its count followed by the character, so AAAB becomes 3A1B. What is the encoding of `WWWWWXXXXWWWW`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`W5X4W4`",
+          "why": "The count comes before the character."
+        },
+        {
+          "id": "b",
+          "text": "`9W4X`",
+          "why": "Each run is encoded separately, in order; runs are not merged."
+        },
+        {
+          "id": "c",
+          "text": "`5W4X4W`",
+          "why": "Correct. Each run is replaced by its length and character, in order."
+        },
+        {
+          "id": "d",
+          "text": "`6W4X4W`",
+          "why": "Recount the first run."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The runs are 5 W, 4 X, 4 W, so the encoding is 5W4X4W. It is lossless: the original can be rebuilt exactly."
+    },
+    {
+      "id": "e19-q50",
+      "type": "mcq",
+      "topics": [
+        "extracting-information-from-data",
+        "binary-numbers"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 2,
+      "stem": "A survey collected only from people who use a particular app is used to describe the whole population. What is the main problem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Survey data cannot be analyzed by programs",
+          "why": "It can be."
+        },
+        {
+          "id": "b",
+          "text": "The data needs to be converted to binary first",
+          "why": "All digital data is already binary."
+        },
+        {
+          "id": "c",
+          "text": "The sample may be biased, so the results may not represent everyone",
+          "why": "Correct. Data collected from one group may not apply to others."
+        },
+        {
+          "id": "d",
+          "text": "The data set is too small to store",
+          "why": "Size is not the issue."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Data collected from one group may not apply to others."
+    },
+    {
+      "id": "e19-q51",
+      "type": "mcq",
+      "topics": [
+        "developing-procedures",
+        "calling-procedures"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following procedure.\n\n```text\nPROCEDURE find(list, limit)\n{\n   FOR EACH item IN list\n   {\n      IF (item > limit)\n      {\n         RETURN (item)\n      }\n   }\n   RETURN (-1)\n}\n```\n\nWhat is returned by `find([4, 7, 17, 13, 24, 8], 16)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`17`",
+          "why": "Correct. RETURN ends the procedure at the first value greater than the limit."
+        },
+        {
+          "id": "b",
+          "text": "`-1`",
+          "why": "17 is greater than 16, so -1 is never reached."
+        },
+        {
+          "id": "c",
+          "text": "`24`",
+          "why": "RETURN stops the procedure immediately; later values are not checked."
+        },
+        {
+          "id": "d",
+          "text": "`3`",
+          "why": "The procedure returns the item, not its index."
+        }
+      ],
+      "answer": "a",
+      "explanation": "17 is the first element greater than 16, so RETURN (17) runs and the procedure ends."
+    },
+    {
+      "id": "e19-q52",
+      "type": "mcq",
+      "topics": [
+        "iteration"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nn ← 5\ncount ← 0\nREPEAT UNTIL (n > 58)\n{\n   n ← n * 3 + 1\n   count ← count + 1\n}\nDISPLAY (count)\nDISPLAY (n)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`2 49`",
+          "why": "The loop runs once more, because the condition is still false at that point."
+        },
+        {
+          "id": "b",
+          "text": "`4 445`",
+          "why": "The loop stops as soon as the condition is true."
+        },
+        {
+          "id": "c",
+          "text": "`3 148`",
+          "why": "Correct. The condition is checked before each pass, and the loop stops once n exceeds the limit."
+        },
+        {
+          "id": "d",
+          "text": "`3 49`",
+          "why": "n is updated in the last pass too."
+        }
+      ],
+      "answer": "c",
+      "explanation": "n takes the values 5, 16, 49, 148; the loop body runs 3 times."
+    },
+    {
+      "id": "e19-q53",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "The following code segment is intended to display the number of elements in `nums` that are greater than 20.\n\n```text\ncount ← 0\nFOR EACH n IN nums\n{\n   IF (n ≥ 20)\n   {\n      count ← count + 1\n   }\n}\nDISPLAY (count)\n```\n\nWhen `nums` is `[20, 10, 15, 21, 12]`, the code displays 2 instead of 1. Which change corrects the error?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Change `n ≥ 20` to `n > 20`",
+          "why": "Correct. The value 20 itself is counted but should not be."
+        },
+        {
+          "id": "b",
+          "text": "Move `DISPLAY (count)` inside the loop",
+          "why": "That displays partial counts but does not fix the comparison."
+        },
+        {
+          "id": "c",
+          "text": "Change `n ≥ 20` to `n ≤ 20`",
+          "why": "That counts the small values instead."
+        },
+        {
+          "id": "d",
+          "text": "Change `count ← 0` to `count ← 1`",
+          "why": "That would add 1 to every result."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The list contains 20, which ≥ counts but > does not. Using a strict comparison gives 1."
+    },
+    {
+      "id": "e19-q54",
+      "type": "mcq",
+      "topics": [
+        "algorithmic-efficiency",
+        "undecidable-problems"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "What does it mean for a problem to be undecidable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires parallel computing",
+          "why": "Hardware does not change decidability."
+        },
+        {
+          "id": "b",
+          "text": "No algorithm can give a correct yes-or-no answer for every input",
+          "why": "Correct. That is the definition of undecidable."
+        },
+        {
+          "id": "c",
+          "text": "It has no correct answer for any input",
+          "why": "Specific instances may be solvable."
+        },
+        {
+          "id": "d",
+          "text": "Its algorithm takes exponential time",
+          "why": "Slow is not the same as impossible."
+        }
+      ],
+      "answer": "b",
+      "explanation": "That is the definition of undecidable."
+    },
+    {
+      "id": "e19-q55",
+      "type": "mcq",
+      "topics": [
+        "parallel-and-distributed-computing"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 3,
+      "stem": "A program has 4 independent tasks that take 36, 19, 30, 25 seconds. The tasks can run in parallel on two processors, and each task runs entirely on one processor. What is the minimum time to complete all the tasks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`36 seconds`",
+          "why": "The longest task cannot run at the same time as all the others on just two processors."
+        },
+        {
+          "id": "b",
+          "text": "`55 seconds`",
+          "why": "Correct. Split the tasks between the processors as evenly as possible; the time is the busier processor's total."
+        },
+        {
+          "id": "c",
+          "text": "`65 seconds`",
+          "why": "A better split exists."
+        },
+        {
+          "id": "d",
+          "text": "`110 seconds`",
+          "why": "That is the sequential time with one processor."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The best split puts 55 seconds of work on one processor and 55 on the other, so all tasks finish in 55 seconds (speedup 2.00)."
+    },
+    {
+      "id": "e19-q56",
+      "type": "mcq",
+      "topics": [
+        "parallel-and-distributed-computing"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 3,
+      "stem": "A program has 3 independent tasks that take 30, 38, 24 seconds. The tasks can run in parallel on two processors, and each task runs entirely on one processor. What is the minimum time to complete all the tasks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`38 seconds`",
+          "why": "The longest task cannot run at the same time as all the others on just two processors."
+        },
+        {
+          "id": "b",
+          "text": "`46 seconds`",
+          "why": "Tasks cannot be split in half, so a perfectly even split is not possible."
+        },
+        {
+          "id": "c",
+          "text": "`54 seconds`",
+          "why": "Correct. Split the tasks between the processors as evenly as possible; the time is the busier processor's total."
+        },
+        {
+          "id": "d",
+          "text": "`92 seconds`",
+          "why": "That is the sequential time with one processor."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The best split puts 54 seconds of work on one processor and 38 on the other, so all tasks finish in 54 seconds (speedup 1.70)."
+    },
+    {
+      "id": "e19-q57",
+      "type": "mcq",
+      "topics": [
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "The following code segment is intended to display the sum of the values in `nums`.\n\n```text\nFOR EACH n IN nums\n{\n   total ← 0\n   total ← total + n\n}\nDISPLAY (total)\n```\n\nWhat is displayed when `nums` is `[13, 2, 10, 3]`, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0, because total is reset after the loop",
+          "why": "The reset happens before the addition in each pass."
+        },
+        {
+          "id": "b",
+          "text": "3, because total is reset to 0 on every pass",
+          "why": "Correct. The reset inside the loop discards the earlier values."
+        },
+        {
+          "id": "c",
+          "text": "13, because the loop stops after one pass",
+          "why": "FOR EACH visits every element."
+        },
+        {
+          "id": "d",
+          "text": "28, because every value is added",
+          "why": "total is set back to 0 before each addition."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Each pass sets total to 0 and then adds n, so only the last value, 3, remains. Moving `total ← 0` before the loop fixes it."
+    },
+    {
+      "id": "e19-q58",
+      "type": "mcq",
+      "topics": [
+        "nested-conditionals"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nIF (age < 10)\n{\n   price ← 5\n}\nELSE\n{\n   IF (member)\n   {\n      price ← 8\n   }\n   ELSE\n   {\n      IF (age ≥ 25)\n      {\n         price ← 7\n      }\n      ELSE\n      {\n         price ← 12\n      }\n   }\n}\nDISPLAY (price)\n```\n\nWhat is displayed when age is 22 and member is false?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Check each condition in order with the given values."
+        },
+        {
+          "id": "b",
+          "text": "`7`",
+          "why": "Check each condition in order with the given values."
+        },
+        {
+          "id": "c",
+          "text": "`12`",
+          "why": "Correct. Follow the outer condition first, then the nested ones."
+        },
+        {
+          "id": "d",
+          "text": "`8`",
+          "why": "Check each condition in order with the given values."
+        }
+      ],
+      "answer": "c",
+      "explanation": "age < 10 is false; member is false; age ≥ 25 is false. So price is 12."
+    },
+    {
+      "id": "e19-q59",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 4,
+      "stem": "A network has computers P, Q, R, S, T, U. The direct connections are: P–R, P–S, P–T, Q–S, Q–T, R–S, T–U. What is the minimum number of connections that must fail for computer Q to be unable to communicate with computer S?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`",
+          "why": "After that many failures a path still remains."
+        },
+        {
+          "id": "b",
+          "text": "`2`",
+          "why": "Correct. Removing 2 well-chosen connections separates Q from S; removing fewer always leaves a path."
+        },
+        {
+          "id": "c",
+          "text": "`3`",
+          "why": "Some set of 2 connections already disconnects them."
+        },
+        {
+          "id": "d",
+          "text": "`7`",
+          "why": "Not every connection needs to fail."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Q has 2 connections and S has 3. Checking failures systematically shows that 2 is the fewest that leaves no path between them."
+    },
+    {
+      "id": "e19-q60",
+      "type": "mcq",
+      "topics": [
+        "random-values"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following describes all possible values of `RANDOM(1, 7) * 2 + 1`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every integer from 2 to 8",
+          "why": "The result is doubled before adding."
+        },
+        {
+          "id": "b",
+          "text": "The 7 numbers 3, 5, …, 15",
+          "why": "Correct. RANDOM gives 1 to 7; doubling and adding 1 gives every second number from 3 to 15."
+        },
+        {
+          "id": "c",
+          "text": "The 7 numbers 1, 3, …, 13",
+          "why": "RANDOM(1, n) starts at 1, not 0."
+        },
+        {
+          "id": "d",
+          "text": "Every integer from 3 to 15",
+          "why": "Doubling skips every other number."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The random value r is 1 to 7, so 2r + 1 ranges over 3, 5, …, 15."
+    },
+    {
+      "id": "e19-q61",
+      "type": "mcq",
+      "topics": [
+        "binary-search",
+        "algorithmic-efficiency"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A sorted list contains 67 elements. What is the maximum number of elements that binary search must examine to find a value or determine it is not in the list?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`7`",
+          "why": "Correct. Each check halves the remaining elements; about 7 checks reduce 67 to none."
+        },
+        {
+          "id": "b",
+          "text": "`21`",
+          "why": "2 to the power 7 is already more than 67."
+        },
+        {
+          "id": "c",
+          "text": "`34`",
+          "why": "Binary search halves the remaining range at every step."
+        },
+        {
+          "id": "d",
+          "text": "`67`",
+          "why": "That is the worst case for linear search."
+        }
+      ],
+      "answer": "a",
+      "explanation": "2^6 = 64 is less than 67 but 2^7 = 128 is not, so at most 7 checks are needed."
+    },
+    {
+      "id": "e19-q62",
+      "type": "mcq",
+      "topics": [
+        "binary-numbers"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A system assigns each of 860 songs in a library a unique ID number stored in binary. What is the minimum number of bits needed for each ID?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`9`",
+          "why": "9 bits represent only 512 different values."
+        },
+        {
+          "id": "b",
+          "text": "`10`",
+          "why": "Correct. 9 bits give only 512 values, but 10 bits give 1024, which is enough."
+        },
+        {
+          "id": "c",
+          "text": "`11`",
+          "why": "Fewer bits are enough."
+        },
+        {
+          "id": "d",
+          "text": "`108`",
+          "why": "Each bit doubles the number of values; this divides by 8 instead."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Find the smallest n with 2 to the n at least 860: 2^9 = 512 is too small and 2^10 = 1024 is enough."
+    },
+    {
+      "id": "e19-q63",
+      "type": "mcq",
+      "topics": [
+        "boolean-expressions"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "For which of the following values does the expression `(x = y) OR ((x > 7) AND (y > 5))` evaluate to true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`x = 6, y = 11`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "b",
+          "text": "`x = 10, y = 11`",
+          "why": "Correct. Substituting gives true."
+        },
+        {
+          "id": "c",
+          "text": "`x = 0, y = 5`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "d",
+          "text": "`x = 7, y = 8`",
+          "why": "Substituting these values gives false."
+        }
+      ],
+      "answer": "b",
+      "explanation": "With x = 10 and y = 11, each part of `(x = y) OR ((x > 7) AND (y > 5))` evaluates so that the whole expression is true."
+    },
+    {
+      "id": "e19-q64",
+      "type": "mcq",
+      "topics": [
+        "algorithmic-efficiency",
+        "undecidable-problems"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following is an example of a decision problem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "What is the shortest route between two cities?",
+          "why": "That is an optimization problem."
+        },
+        {
+          "id": "b",
+          "text": "How long does the shortest route take to compute?",
+          "why": "That asks about efficiency."
+        },
+        {
+          "id": "c",
+          "text": "Is there a route between two cities that is shorter than 300 miles?",
+          "why": "Correct. A decision problem has a yes-or-no answer."
+        },
+        {
+          "id": "d",
+          "text": "List every route between two cities.",
+          "why": "That asks for a list, not yes or no."
+        }
+      ],
+      "answer": "c",
+      "explanation": "A decision problem has a yes-or-no answer."
+    },
+    {
+      "id": "e19-q65",
+      "type": "mcq",
+      "topics": [
+        "iteration"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nn ← 4\ncount ← 0\nREPEAT UNTIL (n > 80)\n{\n   n ← n * 2 + 3\n   count ← count + 1\n}\nDISPLAY (count)\nDISPLAY (n)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`3 53`",
+          "why": "The loop runs once more, because the condition is still false at that point."
+        },
+        {
+          "id": "b",
+          "text": "`5 221`",
+          "why": "The loop stops as soon as the condition is true."
+        },
+        {
+          "id": "c",
+          "text": "`4 109`",
+          "why": "Correct. The condition is checked before each pass, and the loop stops once n exceeds the limit."
+        },
+        {
+          "id": "d",
+          "text": "`4 53`",
+          "why": "n is updated in the last pass too."
+        }
+      ],
+      "answer": "c",
+      "explanation": "n takes the values 4, 11, 25, 53, 109; the loop body runs 4 times."
+    },
+    {
+      "id": "e19-q66",
+      "type": "mcq",
+      "topics": [
+        "lists",
+        "developing-algorithms"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nnums ← [20, 19, 10, 12, 20, 16]\nevens ← []\nFOR EACH n IN nums\n{\n   IF (n MOD 2 = 0)\n   {\n      APPEND(evens, n)\n   }\n}\nDISPLAY (LENGTH(evens))\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Correct. Apply the condition to every element of the list."
+        },
+        {
+          "id": "b",
+          "text": "`78`",
+          "why": "LENGTH counts elements; it does not add them."
+        },
+        {
+          "id": "c",
+          "text": "`1`",
+          "why": "Even numbers have remainder 0."
+        },
+        {
+          "id": "d",
+          "text": "`6`",
+          "why": "Recheck each element."
+        }
+      ],
+      "answer": "a",
+      "explanation": "5 values are even."
+    },
+    {
+      "id": "e19-q67",
+      "type": "mcq",
+      "topics": [
+        "lists"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```text\nnums ← [4, 11, 21, 13]\nAPPEND(nums, 39)\nINSERT(nums, 2, 65)\nREMOVE(nums, 4)\nDISPLAY (nums)\n```\n\nWhat is displayed as a result of running the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[4, 11, 21, 13, 39]`",
+          "why": "INSERT and REMOVE also change the list."
+        },
+        {
+          "id": "b",
+          "text": "`[4, 65, 21, 39]`",
+          "why": "INSERT adds a new element; it does not replace one."
+        },
+        {
+          "id": "c",
+          "text": "`[4, 11, 65, 21, 39]`",
+          "why": "AP pseudocode lists start at index 1, not 0."
+        },
+        {
+          "id": "d",
+          "text": "`[4, 65, 11, 13, 39]`",
+          "why": "Correct. List indexes start at 1; INSERT shifts later elements right and REMOVE shifts them left."
+        }
+      ],
+      "answer": "d",
+      "explanation": "After APPEND: [4, 11, 21, 13, 39]. INSERT at 2 and REMOVE at 4 give [4, 65, 11, 13, 39]."
+    },
+    {
+      "id": "e19-q68",
+      "type": "mcq",
+      "topics": [
+        "boolean-expressions"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "For which of the following values does the expression `(x = y) OR ((x > 3) AND (y > 6))` evaluate to true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`x = 2, y = 7`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "b",
+          "text": "`x = 11, y = 7`",
+          "why": "Correct. Substituting gives true."
+        },
+        {
+          "id": "c",
+          "text": "`x = 10, y = 3`",
+          "why": "Substituting these values gives false."
+        },
+        {
+          "id": "d",
+          "text": "`x = 2, y = 10`",
+          "why": "Substituting these values gives false."
+        }
+      ],
+      "answer": "b",
+      "explanation": "With x = 11 and y = 7, each part of `(x = y) OR ((x > 3) AND (y > 6))` evaluates so that the whole expression is true."
+    },
+    {
+      "id": "e19-q69",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 4,
+      "stem": "A network has computers P, Q, R, S, T, U. The direct connections are: P–R, P–U, Q–R, Q–U, R–T, R–U, S–T, S–U, T–U. What is the minimum number of connections that must fail for computer R to be unable to communicate with computer P?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`",
+          "why": "After that many failures a path still remains."
+        },
+        {
+          "id": "b",
+          "text": "`2`",
+          "why": "Correct. Removing 2 well-chosen connections separates R from P; removing fewer always leaves a path."
+        },
+        {
+          "id": "c",
+          "text": "`3`",
+          "why": "Some set of 2 connections already disconnects them."
+        },
+        {
+          "id": "d",
+          "text": "`4`",
+          "why": "Look for the fewest connections whose failure leaves no path."
+        }
+      ],
+      "answer": "b",
+      "explanation": "R has 4 connections and P has 2. Checking failures systematically shows that 2 is the fewest that leaves no path between them."
+    },
+    {
+      "id": "e19-q70",
+      "type": "mcq",
+      "topics": [
+        "fault-tolerance"
+      ],
+      "skills": [
+        "5"
+      ],
+      "difficulty": 4,
+      "stem": "A network has computers P, Q, R, S, T, U. The direct connections are: P–R, P–U, Q–T, Q–U, R–T, S–T, T–U. What is the minimum number of connections that must fail for computer S to be unable to communicate with computer Q?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0`",
+          "why": "After that many failures a path still remains."
+        },
+        {
+          "id": "b",
+          "text": "`1`",
+          "why": "Correct. Removing 1 well-chosen connection separates S from Q; removing fewer always leaves a path."
+        },
+        {
+          "id": "c",
+          "text": "`2`",
+          "why": "Some set of 1 connection already disconnects them."
+        },
+        {
+          "id": "d",
+          "text": "`7`",
+          "why": "Not every connection needs to fail."
+        }
+      ],
+      "answer": "b",
+      "explanation": "S has 1 connection and Q has 2. Checking failures systematically shows that 1 is the fewest that leaves no path between them."
+    },
+    {
+      "id": "e19-frq1",
+      "type": "frq",
+      "format": "wr1",
+      "title": "Written response 1: program design, function and purpose",
+      "topics": [
+        "program-function-and-purpose",
+        "program-design-and-development",
+        "collaboration"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 2,
+      "minutes": 20,
+      "stimuli": [
+        "e19-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Identify the expected users of the program and describe one way the program's design meets the needs of those users.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Identifies a specific group of users.",
+              "example": "Home cooks preparing food for more people than a recipe serves."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Describes a design feature and connects it to a need of those users.",
+              "example": "The program asks only for simple input (the user enters the ingredient amounts and how many batches they want) and gives a clear result (the program displays the new amount of each ingredient), which helps them let cooks make larger batches of a recipe without doing arithmetic by hand."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Describe one input to the program and the output it produces. Explain how the output relates to the program's purpose.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Describes an input and the corresponding output.",
+              "example": "For example, scale([8, 2, 3, 3], 3) returns [24, 6, 9, 9]."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Explains how the output serves the purpose.",
+              "example": "The result shows the user the information they need to let cooks make larger batches of a recipe without doing arithmetic by hand."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Describe how a programmer could use iterative or incremental development, including testing, while creating this program.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Describes building or refining the program in stages.",
+              "example": "First write and test scale on its own with known lists, then add the input screen, then the display of results."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Describes testing with specific inputs and using the results to revise the program.",
+              "example": "Test scale([0, 2], 3), which should give [0, 6], because the ELSE branch appends 0 for an amount that is not positive; if it does not, fix the procedure before adding features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e19-frq2",
+      "type": "frq",
+      "format": "wr2",
+      "title": "Written response 2: algorithms, testing and abstraction",
+      "topics": [
+        "developing-procedures",
+        "data-abstraction",
+        "iteration",
+        "conditionals",
+        "identifying-and-correcting-errors"
+      ],
+      "skills": [
+        "2",
+        "3",
+        "4"
+      ],
+      "difficulty": 3,
+      "minutes": 40,
+      "stimuli": [
+        "e19-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "(Algorithm development) Explain in detailed steps how the algorithm in `longestStreak` uses sequencing, selection and iteration to produce its result.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Describes iteration in the algorithm.",
+              "example": "The FOR EACH loop visits every day's step count in order."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Describes selection in the algorithm.",
+              "example": "The IF statement checks whether each day's steps meet the goal; if so the current streak grows, otherwise it resets to 0."
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Describes how the steps in sequence produce the returned value.",
+              "example": "The variables are initialized first, updated inside the loop, and the result is returned after the loop ends. For example, longestStreak([9000, 6000, 12000, 4000, 11000, 3000, 8000], 10000) returns 1."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "(Errors and testing) Describe a call to `longestStreak` that tests a different condition than `longestStreak([9000, 6000, 12000, 4000, 11000, 3000, 8000], 10000)`. Identify the result the call should produce and explain why that test is useful.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Gives a specific call with different arguments.",
+              "example": "longestStreak([], 10000)"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "States the correct expected result.",
+              "example": "0, because the loop never runs and best keeps its starting value"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Explains what condition the test checks.",
+              "example": "It checks a boundary or special case that a typical input does not, which could reveal an error the first test would miss."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "(Data and procedural abstraction) Explain how the list `steps` manages complexity in the program. Then explain how the parameters of `longestStreak` make the procedure more useful.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Explains how the list manages complexity.",
+              "example": "Without the list, the program would need a separate variable for each day and could only handle a fixed number of days; the procedure could not loop over them."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Explains how parameters generalize the procedure.",
+              "example": "Because the list and the threshold are parameters, the same procedure works for any data and setting, so it can be reused without copying code. To find the longest streak of days that missed the goal, change the condition to s < goal."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

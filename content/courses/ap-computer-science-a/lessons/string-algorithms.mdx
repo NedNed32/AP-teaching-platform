@@ -1,0 +1,172 @@
+---
+objectives:
+  - Traverse a string character by character with a loop.
+  - Implement string algorithms such as counting, reversing and finding substrings.
+keyTerms:
+  - term: String traversal
+    definition: 'Looping over index 0 to length() - 1, examining `s.substring(i, i + 1)` at each step.'
+checks:
+  - q: 'What loop header visits every index of s?'
+    a: '`for (int i = 0; i < s.length(); i++)`.'
+  - q: 'How do you check every two-letter substring of s?'
+    a: 'Loop i from 0 to s.length() - 2 and use `s.substring(i, i + 2)`.'
+sources:
+  - title: CSAwesome, "Iteration" (string loops)
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Strings are sequences of characters, so loops and `substring` let you examine or build them one character at a time.
+
+## Traversal
+
+```java
+String s = "banana";
+int count = 0;
+for (int i = 0; i < s.length(); i++) {
+    if (s.substring(i, i + 1).equals("a")) {
+        count++;
+    }
+}
+// count is 3
+```
+
+## Reversing
+
+```java
+String rev = "";
+for (int i = s.length() - 1; i >= 0; i--) {
+    rev += s.substring(i, i + 1);
+}
+```
+
+Or build forward by adding each character to the **front**: `rev = s.substring(i, i + 1) + rev;`.
+
+## Counting occurrences of a longer substring
+
+```java
+int n = 0;
+for (int i = 0; i <= s.length() - 2; i++) {
+    if (s.substring(i, i + 2).equals("an")) n++;
+}
+// "banana" contains "an" twice
+```
+
+<Note title="Stay in bounds">
+When examining substrings of length `k`, the last start index is `s.length() - k`. Going one further throws a `StringIndexOutOfBoundsException`.
+</Note>
+
+<WorkedExample title="Removing vowels">
+What does this return for "education"?
+
+```java
+String result = "";
+for (int i = 0; i < w.length(); i++) {
+    String c = w.substring(i, i + 1);
+    if ("aeiou".indexOf(c) == -1) {
+        result += c;
+    }
+}
+return result;
+```
+
+1. Keep only characters not found in "aeiou": d, c, t, n.
+
+**Answer:** `"dctn"`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+String s = "mountain";
+String result = "";
+for (int i = 0; i < s.length(); i += 3) {
+    result += s.substring(i, i + 1);
+}
+System.out.println(result);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `mni`
+
+**Why:** Collect the characters at the visited indexes, in order.
+
+**Working:** The loop visits indexes from 0 up in steps of 3 and appends each character: "mni".
+
+**Mistakes to avoid**
+
+- `otn`: Check the starting index.
+- `mt`: i changes by 3 each time.
+- `inm`: Characters are appended in the order they are visited.
+
+### Free-response practice: Letter runs
+
+The class `LetterTools` contains static methods that analyze strings of lowercase letters.
+
+```java
+public class LetterTools {
+    /** Returns the number of indexes i where the character at i equals the character at i + 1. */
+    public static int countDoubles(String s) { /* to be implemented in part (a) */ }
+    /** Returns the length of the longest run of identical adjacent characters. */
+    public static int longestRun(String s) { /* to be implemented in part (b) */ }
+}
+```
+
+Examples: `countDoubles("nnnmmmmnm")` returns 5 and `longestRun("nnnmmmmnm")` returns 4; `countDoubles("mnnnmmnm")` returns 3 and `longestRun("mnnnmmnm")` returns 3; `countDoubles("nnmmmmmm")` returns 6 and `longestRun("nnmmmmmm")` returns 6.
+
+**(a)** Write the method `countDoubles`. Assume `s` is not null.
+
+To earn the point: Loops over adjacent pairs without going out of bounds. Model answer: `for (int i = 0; i < s.length() - 1; i++)`
+
+To earn the point: Compares the characters at i and i + 1 correctly (substring with equals, or charAt with ==). Model answer: `s.substring(i, i + 1).equals(s.substring(i + 1, i + 2))`
+
+To earn the point: Counts and returns the number of matching pairs. Model answer:
+
+```java
+public static int countDoubles(String s) {
+    int count = 0;
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s.substring(i, i + 1).equals(s.substring(i + 1, i + 2))) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+**(b)** Write the method `longestRun`. Assume `s` has at least one character.
+
+To earn the point: Tracks the length of the current run, extending it when a character matches the previous one. Model answer: cur++ when s.charAt(i) == s.charAt(i - 1)
+
+To earn the point: Resets the current run to 1 when a character differs. Model answer: `cur = 1;`
+
+To earn the point: Keeps and returns the maximum run length, including a run that ends at the last character. Model answer:
+
+```java
+public static int longestRun(String s) {
+    int best = 1;
+    int cur = 1;
+    for (int i = 1; i < s.length(); i++) {
+        if (s.charAt(i) == s.charAt(i - 1)) {
+            cur++;
+        } else {
+            cur = 1;
+        }
+        if (cur > best) {
+            best = cur;
+        }
+    }
+    return best;
+}
+```

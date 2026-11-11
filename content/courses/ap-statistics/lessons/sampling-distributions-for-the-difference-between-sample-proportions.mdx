@@ -1,0 +1,172 @@
+---
+objectives:
+  - 'Describe the sampling distribution of a difference between two sample proportions.'
+keyTerms:
+  - term: 'Difference of proportions'
+    definition: 'p̂₁ − p̂₂, which estimates p₁ − p₂.'
+checks:
+  - q: 'What is the mean of the sampling distribution of p̂₁ − p̂₂?'
+    a: 'p₁ − p₂.'
+  - q: 'Why do variances add even for a difference?'
+    a: 'Variability from both independent samples contributes.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$\mu_{\hat p_1 - \hat p_2} = p_1 - p_2 \qquad \sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}$$
+
+**Conditions**: two independent random samples (or random assignment), 10% for each sample, and large counts in both samples.
+
+<Note title="Independence">
+The two samples must be independent of each other. Paired data (the same people measured twice) need a different method.
+</Note>
+
+<WorkedExample title="Standard deviation">
+p₁ = 0.5 with n₁ = 100; p₂ = 0.4 with n₂ = 150. Find the SD of p̂₁ − p̂₂.
+
+1. $$\sqrt{0.25/100 + 0.24/150} = \sqrt{0.0025 + 0.0016}$$.
+
+**Answer:** about 0.064.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+In a random sample of 210 adults in a city, 82 use public transit weekly. Which is a 95% confidence interval for the proportion of all adults in a city who use public transit weekly?
+
+**Answer:** (0.324, 0.456)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.39, SE = 0.0337, margin = 0.066.
+
+**Mistakes to avoid**
+
+- (0.139, 0.642): Divide by n inside the square root.
+- (-0.076, 0.857): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.357, 0.424): Multiply the standard error by z*.
+
+### Worked exam question 2
+
+In a random sample of 170 teenagers in a state, 92 get at least 8 hours of sleep. Which is a 90% confidence interval for the proportion of all teenagers in a state who get at least 8 hours of sleep?
+
+**Answer:** (0.478, 0.604)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.645.
+
+**Working:** p̂ = 0.541, SE = 0.0382, margin = 0.0629.
+
+**Mistakes to avoid**
+
+- (0.314, 0.768): Divide by n inside the square root.
+- (0.466, 0.616): Use z* for 90%, not 1.96.
+- (0.133, 0.95): Use the standard error, √(p̂(1 − p̂)/n).
+
+### Worked exam question 3
+
+In a random sample of 570 customers of an online store, 365 would recommend it to a friend. Which is a 95% confidence interval for the proportion of all customers of an online store who would recommend it to a friend?
+
+**Answer:** (0.601, 0.68)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.64, SE = 0.0201, margin = 0.0394.
+
+**Mistakes to avoid**
+
+- (0.448, 0.833): Divide by n inside the square root.
+- (0.189, 1.092): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.62, 0.66): Multiply the standard error by z*.
+
+### Worked exam question 4
+
+In a random sample of 360 students at a large high school, 277 have a part-time job. Which is a 95% confidence interval for the proportion of all students at a large high school who have a part-time job?
+
+**Answer:** (0.726, 0.813)
+
+**Why:** p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96.
+
+**Working:** p̂ = 0.769, SE = 0.0222, margin = 0.0435.
+
+**Mistakes to avoid**
+
+- (0.58, 0.959): Divide by n inside the square root.
+- (0.422, 1.117): Use the standard error, √(p̂(1 − p̂)/n).
+- (0.747, 0.792): Multiply the standard error by z*.
+
+### Worked exam question 5
+
+To test H₀: p = 0.3 versus Hₐ: p > 0.3, a random sample of 150 gives p̂ = 0.38. What are the test statistic and p-value?
+
+**Answer:** z = 2.14, p-value = 0.0163
+
+**Why:** z = (p̂ − p₀)/√(p₀(1 − p₀)/n); one-sided p-value.
+
+**Working:** SD = √(0.3·0.7/150) = 0.0374; z = 2.14; p-value = 0.0163.
+
+**Mistakes to avoid**
+
+- z = 2.02, p-value = 0.0218: The test's standard deviation uses p₀, not p̂.
+- z = 2.14, p-value = 0.0325: The alternative is one-sided.
+- z = 2.14, p-value = 0.9837: Find the area in the direction of Hₐ.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 99% confidence, with no prior estimate of p?
+
+**A.** 1037. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.04)² × 0.25 = 1036.7, so n = 1037.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 99% confidence, with no prior estimate of p?
+
+**A.** 4147. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.02)² × 0.25 = 4146.8, so n = 4147.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 90% confidence, with no prior estimate of p?
+
+**A.** 271. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.05)² × 0.25 = 270.6, so n = 271.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 90% confidence, with no prior estimate of p?
+
+**A.** 752. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.03)² × 0.25 = 751.5, so n = 752.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 95% confidence, with no prior estimate of p?
+
+**A.** 601. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.04)² × 0.25 = 600.2, so n = 601.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 90% confidence, with no prior estimate of p?
+
+**A.** 423. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.04)² × 0.25 = 422.7, so n = 423.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 95% confidence, with no prior estimate of p?
+
+**A.** 2401. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.02)² × 0.25 = 2400.9, so n = 2401.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 99% confidence, with no prior estimate of p?
+
+**A.** 1844. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.03)² × 0.25 = 1843, so n = 1844.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.03 at 95% confidence, with no prior estimate of p?
+
+**A.** 1068. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.03)² × 0.25 = 1067.1, so n = 1068.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.02 at 90% confidence, with no prior estimate of p?
+
+**A.** 1691. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.645, rounded up. (1.645/0.02)² × 0.25 = 1691, so n = 1691.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 95% confidence, with no prior estimate of p?
+
+**A.** 385. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up. (1.96/0.05)² × 0.25 = 384.1, so n = 385.
+
+**Q.** What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 99% confidence, with no prior estimate of p?
+
+**A.** 664. n ≥ (z*/m)²(0.5)(0.5) with z* = 2.576, rounded up. (2.576/0.05)² × 0.25 = 663.5, so n = 664.

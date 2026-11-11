@@ -1,0 +1,93 @@
+---
+objectives:
+  - Use the Lagrange error bound to bound the error of a Taylor polynomial approximation.
+keyTerms:
+  - term: Lagrange error bound
+    definition: '$$|f(x) - P_n(x)| \leq \frac{M}{(n + 1)!}|x - a|^{n+1}$$, where $$M$$ bounds $$|f^{(n+1)}|$$ between $$a$$ and $$x$$.'
+checks:
+  - q: 'Bound the error of $$P_2(0.1)$$ for $$e^x$$ about 0, using $$M = e^{0.1} < 2$$.'
+    a: '$$\frac{2}{3!}(0.1)^3 \approx 0.00033$$.'
+  - q: 'What does $$M$$ bound?'
+    a: 'The absolute value of the $$(n + 1)$$st derivative on the interval between the center and $$x$$.'
+sources:
+  - title: Calculus Volume 2, section 6.3 "Taylor and Maclaurin Series"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+A Taylor polynomial is an approximation, so how good is it? The Lagrange error bound gives a guaranteed ceiling on the error, based on how large the next derivative can be.
+
+## The bound
+
+If $$|f^{(n+1)}(t)| \leq M$$ for every $$t$$ between $$a$$ and $$x$$, then
+
+$$
+|f(x) - P_n(x)| \leq \frac{M}{(n + 1)!}\,|x - a|^{n+1}.
+$$
+
+It looks like the next term of the Taylor polynomial, with the unknown derivative replaced by its maximum $$M$$.
+
+## Finding M
+
+- For $$\sin$$ and $$\cos$$, every derivative is bounded by 1, so $$M = 1$$ works.
+- For $$e^x$$ on $$[0, x]$$, $$M = e^x$$ (often rounded up, like $$e^{0.5} < 2$$).
+- On free-response questions, $$M$$ is often given, for example "$$|f^{(4)}(x)| \leq 6$$ for all $$x$$".
+
+<Note title="Which is which">
+Use the **alternating series error bound** when the Taylor series at the point is alternating with decreasing terms. Use the **Lagrange bound** otherwise, or when the question gives a bound on a derivative.
+</Note>
+
+<WorkedExample title="Bounding the error">
+$$P_3(x)$$ is the third-degree Taylor polynomial for $$f$$ about $$x = 1$$, and $$|f^{(4)}(x)| \leq 12$$ for all $$x$$. Bound the error in using $$P_3(1.5)$$ to approximate $$f(1.5)$$.
+
+1. $$n = 3$$, so use the 4th derivative: $$M = 12$$.
+2. $$\frac{12}{4!}(0.5)^4 = \frac{12}{24} \cdot \frac{1}{16}$$.
+
+**Answer:** the error is at most $$\frac{1}{32} = 0.03125$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$P_{3}(x)$$ be the degree-3 Taylor polynomial for $$f$$ about $$x = 0$$, and suppose $$|f^{(4)}(x)| \leq 30$$ for all $$x$$. What is the Lagrange error bound for $$|f(\frac{3}{2}) - P_{3}(\frac{3}{2})|$$?
+
+**Answer:** $$\frac{405}{64}$$
+
+**Why:** $$\frac{30}{4!}\left(\frac{3}{2}\right)^{4}$$.
+
+**Working:** $$|f(x) - P_{3}(x)| \leq \frac{M}{(3 + 1)!}|x - 0|^{4} = \frac{30}{24}\left(\frac{3}{2}\right)^{4} = \frac{405}{64}$$.
+
+**Mistakes to avoid**
+
+- $$\frac{135}{8}$$: This uses the degree n instead of n + 1 for the factorial and power.
+- $$\frac{1215}{8}$$: This forgets to divide by $$(n + 1)!$$.
+- $$\frac{15}{8}$$: The distance from the center must be raised to the power n + 1.
+
+### Free-response practice: A Taylor polynomial
+
+A function $$f$$ has derivatives of all orders. Selected values are $$f(2) = -3$$, $$f'(2) = 4$$, $$f''(2) = -1$$ and $$f'''(2) = 12$$. For all $$x$$, $$|f^{(4)}(x)| \leq 18$$.
+
+**(a)** Write the third-degree Taylor polynomial for $$f$$ about $$x = 2$$.
+
+To earn the point: Uses the correct coefficients, including factorials. Model answer: $$P_3(x) = -3 + 4(x - 2) - \frac{1}{2}(x - 2)^2 + 2(x - 2)^3$$
+
+To earn the point: Writes powers of $$(x - a)$$ correctly. Model answer: Each term uses $$(x - 2)^k$$.
+
+**(b)** Use $$P_3$$ to approximate $$f(2.5)$$.
+
+To earn the point: Evaluates the polynomial. Model answer: $$P_3(2.5) = -\frac{7}{8}$$
+
+**(c)** Use the Lagrange error bound to show that the approximation in part (b) differs from $$f(2.5)$$ by at most $$\frac{3}{64}$$.
+
+To earn the point: Writes the Lagrange bound with the given M. Model answer: $$\frac{18}{4!}\left(\frac{1}{2}\right)^4 = \frac{3}{64}$$
+
+**(d)** Write the second-degree Taylor polynomial for $$f'$$ about $$x = 2$$.
+
+To earn the point: Differentiates $$P_3$$ (or uses the derivative values directly). Model answer: $$4 - (x - 2) + 6(x - 2)^2$$

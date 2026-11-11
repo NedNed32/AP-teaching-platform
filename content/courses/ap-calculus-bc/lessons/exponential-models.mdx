@@ -1,0 +1,99 @@
+---
+objectives:
+  - Model growth and decay with $$\frac{dy}{dt} = ky$$.
+  - Use given information to find the constant $$k$$ and make predictions.
+keyTerms:
+  - term: Exponential growth or decay
+    definition: 'Change at a rate proportional to the current amount: $$\frac{dy}{dt} = ky$$, solved by $$y = y_0e^{kt}$$.'
+  - term: Half-life
+    definition: 'The time for a decaying quantity to halve: $$t = \frac{\ln 2}{|k|}$$.'
+checks:
+  - q: 'A culture grows from 100 to 300 cells in 4 hours under exponential growth. Find $$k$$.'
+    a: '$$300 = 100e^{4k}$$, so $$k = \frac{\ln 3}{4} \approx 0.275$$.'
+  - q: 'Is $$k$$ positive or negative for radioactive decay?'
+    a: 'Negative.'
+sources:
+  - title: Calculus Volume 1, section 6.8 "Exponential Growth and Decay"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When a quantity grows (or shrinks) at a rate proportional to its own size, it follows the most important differential equation in applied mathematics.
+
+## The model
+
+$$
+\frac{dy}{dt} = ky \quad\Longrightarrow\quad y = y_0 e^{kt},
+$$
+
+where $$y_0 = y(0)$$ is the initial amount.
+
+- $$k > 0$$: exponential **growth** (populations, compound interest).
+- $$k < 0$$: exponential **decay** (radioactivity, drug elimination).
+
+## Finding k from data
+
+Two pieces of information determine the model: the initial value and one other value. Substitute and solve with a logarithm.
+
+| Given | Equation for $$k$$ |
+| --- | --- |
+| doubles every $$T$$ | $$e^{kT} = 2$$, $$k = \frac{\ln 2}{T}$$ |
+| half-life $$T$$ | $$e^{kT} = \frac{1}{2}$$, $$k = -\frac{\ln 2}{T}$$ |
+| $$y(t_1) = y_1$$ | $$k = \frac{1}{t_1}\ln\frac{y_1}{y_0}$$ |
+
+## Shifted models
+
+Newton's law of cooling, $$\frac{dT}{dt} = k(T - A)$$, is exponential in the *difference* from room temperature $$A$$: $$T - A = (T_0 - A)e^{kt}$$.
+
+<Note title="Rate depends on the amount">
+In an exponential model, a larger amount changes faster. That is why the rate $$\frac{dy}{dt}$$ is greatest when $$y$$ is greatest, a fact often used in multiple-choice questions.
+</Note>
+
+<WorkedExample title="Radioactive decay">
+A substance has a half-life of 10 years. How much of a 50-gram sample remains after 25 years?
+
+1. $$k = -\frac{\ln 2}{10}$$.
+2. $$y(25) = 50e^{-25\ln 2/10} = 50 \cdot 2^{-2.5}$$.
+
+**Answer:** about $$8.839$$ grams.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A population $$P$$ grows according to $$\frac{dP}{dt} = kP$$, and it doubles every 3 years. If $$P(0) = 1000$$, what is $$P(12)$$?
+
+**Answer:** $$16000$$
+
+**Why:** $$12$$ years is 4 doubling periods, so the population is multiplied by $$2^{4}$$.
+
+**Working:** The solution is $$P(t) = 1000 \cdot 2^{t/3}$$. So $$P(12) = 1000 \cdot 2^{4} = 16000$$.
+
+**Mistakes to avoid**
+
+- $$5000$$: This adds the original amount once per period (linear growth); exponential growth multiplies by 2 each period.
+- $$2000$$: This counts only one doubling period.
+- $$4096000$$: This treats each year as a doubling period.
+
+### Worked exam question 2
+
+A quantity $$y$$ satisfies $$\frac{dy}{dt} = ky$$ and doubles every 3 hours. What is the value of $$k$$?
+
+**Answer:** $$\frac{\ln 2}{3}$$
+
+**Why:** $$y = y_0e^{kt}$$ and $$e^{3k} = 2$$.
+
+**Working:** $$y(3) = 2y_0$$ means $$e^{3k} = 2$$, so $$k = \frac{\ln 2}{3}$$.
+
+**Mistakes to avoid**
+
+- $$\frac{2}{3}$$: Doubling means e^\{kT\} = 2; solve with a logarithm.
+- $$3\ln 2$$: Solving $$3k = \ln 2$$ requires dividing by $$3$$.
+- $$\frac{1}{6}$$: This is not a solution of e^\{kT\} = 2.

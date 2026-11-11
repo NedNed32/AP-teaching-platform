@@ -1,0 +1,98 @@
+---
+objectives:
+  - Compare algorithms by how their number of steps grows.
+  - Distinguish reasonable and unreasonable time, and explain heuristics.
+keyTerms:
+  - term: Reasonable time
+    definition: 'Run time that grows at a polynomial rate or slower (constant, linear, quadratic and so on).'
+  - term: Unreasonable time
+    definition: 'Run time that grows exponentially or factorially.'
+  - term: Heuristic
+    definition: 'An approach that finds a solution that is good enough when an exact solution is impractical.'
+checks:
+  - q: 'An algorithm checks every pair of items in a list of n items. How does its step count grow?'
+    a: 'About n squared: polynomial, so reasonable.'
+  - q: 'Why use a heuristic?'
+    a: 'When finding the best solution would take unreasonable time.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+**Efficiency** describes how much time or memory an algorithm uses as the input grows. It is measured by counting steps, not by timing one run.
+
+## Growth rates
+
+| Growth | Example | n = 10 | n = 100 |
+| --- | --- | --- | --- |
+| logarithmic | binary search | about 4 | about 7 |
+| linear | linear search | 10 | 100 |
+| quadratic | compare every pair | 100 | 10,000 |
+| exponential | try every subset | 1,024 | astronomically large |
+
+Polynomial growth (linear, quadratic and so on) is **reasonable**. Exponential or factorial growth is **unreasonable**: even fast computers cannot finish for moderately large inputs.
+
+## Heuristics
+
+Some problems, such as finding the shortest route through many cities, have no known reasonable-time exact solution. A **heuristic** (for example, "always visit the nearest unvisited city") gives a good-enough answer quickly.
+
+<Note title="Decision and optimization problems">
+A decision problem has a yes or no answer ("Is there a route under 500 miles?"). An optimization problem asks for the best solution ("What is the shortest route?").
+</Note>
+
+<WorkedExample title="Classify">
+An algorithm tries every possible ordering of n songs to find the best playlist. Is it reasonable?
+
+1. There are n × (n − 1) × ... × 1 orderings: factorial growth.
+
+**Answer:** no, unreasonable time; a heuristic would be needed for long playlists.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A sorted list contains 1,003 elements. What is the maximum number of elements that binary search must examine to find a value or determine it is not in the list?
+
+**Answer:** `10`
+
+**Why:** Each check halves the remaining elements; about 10 checks reduce 1,003 to none.
+
+**Working:** 2^9 = 512 is less than 1003 but 2^10 = 1024 is not, so at most 10 checks are needed.
+
+**Mistakes to avoid**
+
+- `1003`: That is the worst case for linear search.
+- `502`: Binary search halves the remaining range at every step.
+- `30`: 2 to the power 10 is already more than 1003.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Why might a programmer use a heuristic to plan delivery routes through hundreds of stops?
+
+**A.** Finding the guaranteed best route would take unreasonable time, so a good-enough route found quickly is preferred. Heuristics trade optimality for speed.
+
+**Q.** An algorithm compares every element of a list with every other element. For a list of n elements, its number of steps grows like which expression?
+
+**A.** n squared, which is reasonable time. Polynomial growth is considered reasonable.
+
+**Q.** An algorithm checks every possible subset of n items to find the best combination. How does its run time grow?
+
+**A.** Exponentially, so it does not run in reasonable time. There are 2 to the n subsets.
+
+**Q.** What does it mean for a problem to be undecidable?
+
+**A.** No algorithm can give a correct yes-or-no answer for every input. That is the definition of undecidable.
+
+**Q.** Which of the following is an example of a decision problem?
+
+**A.** Is there a route between two cities that is shorter than 300 miles?. A decision problem has a yes-or-no answer.

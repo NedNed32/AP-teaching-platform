@@ -1,0 +1,290 @@
+---
+objectives:
+  - Relate position, velocity and acceleration through derivatives.
+  - Determine when a particle is at rest, changes direction, or speeds up.
+keyTerms:
+  - term: Velocity
+    definition: '$$v(t) = x''(t)$$, the rate of change of position. Its sign gives the direction of motion.'
+  - term: Speed
+    definition: '$$|v(t)|$$, the magnitude of velocity.'
+  - term: Acceleration
+    definition: '$$a(t) = v''(t) = x''''(t)$$, the rate of change of velocity.'
+checks:
+  - q: 'If $$v(3) = -4$$ and $$a(3) = 2$$, is the particle speeding up or slowing down at $$t = 3$$?'
+    a: 'Slowing down: velocity and acceleration have opposite signs.'
+  - q: 'When does a particle change direction?'
+    a: 'When its velocity changes sign, not merely when it equals zero.'
+sources:
+  - title: Calculus Volume 1, section 3.4 "Derivatives as Rates of Change"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+A particle moving along a line is the AP exam's favorite context for derivatives. The whole topic rests on one chain: position, then velocity, then acceleration, each the derivative of the one before.
+
+## The chain of derivatives
+
+$$
+x(t) \xrightarrow{\;d/dt\;} v(t) \xrightarrow{\;d/dt\;} a(t)
+$$
+
+## Reading the signs
+
+| Condition | Meaning |
+| --- | --- |
+| $$v(t) > 0$$ | moving right (or up) |
+| $$v(t) < 0$$ | moving left (or down) |
+| $$v(t) = 0$$ | at rest at that instant |
+| $$v$$ changes sign | changes direction |
+| $$v$$ and $$a$$ same sign | speeding up |
+| $$v$$ and $$a$$ opposite signs | slowing down |
+
+## Speeding up is about both signs
+
+Acceleration alone does not tell you whether a particle is speeding up. A particle moving left ($$v < 0$$) with negative acceleration is going *faster* to the left. Compare signs every time.
+
+<Note title="At rest versus changing direction">
+A particle with $$v(t) = (t - 2)^2$$ is at rest at $$t = 2$$ but never changes direction, because $$v$$ does not change sign there. Justify a change of direction with a sign change.
+</Note>
+
+<WorkedExample title="A full motion analysis">
+A particle has position $$x(t) = t^3 - 6t^2 + 9t$$ for $$t \geq 0$$. When does it change direction, and is it speeding up or slowing down at $$t = 2.5$$?
+
+1. $$v(t) = 3t^2 - 12t + 9 = 3(t - 1)(t - 3)$$. It changes sign at $$t = 1$$ and $$t = 3$$, so the particle changes direction at both times.
+2. $$v(2.5) = 3(1.5)(-0.5) = -2.25$$, so it is moving left.
+3. $$a(t) = 6t - 12$$, so $$a(2.5) = 3 > 0$$.
+
+**Answer:** it changes direction at $$t = 1$$ and $$t = 3$$. At $$t = 2.5$$ velocity and acceleration have opposite signs, so the particle is slowing down.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A particle moves along the x-axis so that its position at time $$t \geq 0$$ is $$x(t) = t^{3} - 15t^{2} + 63t$$. What is the acceleration of the particle at $$t = 0$$?
+
+**Answer:** $$-30$$
+
+**Why:** $$a(t) = x''(t) = 6t - 30$$.
+
+**Working:** $$v(t) = 3t^2 - 30t + 63$$ and $$a(t) = 6t - 30$$, so $$a(0) = -30$$.
+
+**Mistakes to avoid**
+
+- $$63$$: This is the velocity $$v(0)$$, the first derivative.
+- $$0$$: This drops the constant term of the second derivative.
+- $$30$$: Sign error in the constant term of the acceleration.
+
+### Worked exam question 2
+
+A particle moves along the x-axis so that its position at time $$t \geq 0$$ is $$x(t) = t^{3} - 18t^{2} + 81t$$. At what times is the particle at rest?
+
+**Answer:** $$t = 3$$ and $$t = 9$$ only
+
+**Why:** $$v(t) = 3t^2 - 36t + 81 = 3(t - 3)(t - 9)$$, which is zero at $$t = 3$$ and $$t = 9$$.
+
+**Working:** The particle is at rest when $$v(t) = x'(t) = 0$$. $$v(t) = 3(t - 3)(t - 9)$$, so $$t = 3$$ and $$t = 9$$.
+
+**Mistakes to avoid**
+
+- $$t = 6$$ only: This is where the acceleration is zero, not the velocity.
+- $$t = 0$$ only: This is where the position is zero, not the velocity.
+- $$t = 0$$, $$t = 3$$, and $$t = 9$$: At $$t = 0$$ the position is 0, but the velocity is $$81$$, so the particle is moving.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 1)(t - 5)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$1 < t < 3$$ and $$t > 5$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 18$$ changes sign at $$t = 3$$. $$v$$ is negative on $$(1, 5)$$ and positive elsewhere. Both are negative on $$(1, 3)$$ and both positive for $$t > 5$$.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 3)(t - 7)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$3 < t < 5$$ and $$t > 7$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 30$$ changes sign at $$t = 5$$. $$v$$ is negative on $$(3, 7)$$ and positive elsewhere. Both are negative on $$(3, 5)$$ and both positive for $$t > 7$$.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 3)(t - 5)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$3 < t < 4$$ and $$t > 5$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 24$$ changes sign at $$t = 4$$. $$v$$ is negative on $$(3, 5)$$ and positive elsewhere. Both are negative on $$(3, 4)$$ and both positive for $$t > 5$$.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 2)(t - 4)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$2 < t < 3$$ and $$t > 4$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 18$$ changes sign at $$t = 3$$. $$v$$ is negative on $$(2, 4)$$ and positive elsewhere. Both are negative on $$(2, 3)$$ and both positive for $$t > 4$$.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 2)(t - 6)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$2 < t < 4$$ and $$t > 6$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 24$$ changes sign at $$t = 4$$. $$v$$ is negative on $$(2, 6)$$ and positive elsewhere. Both are negative on $$(2, 4)$$ and both positive for $$t > 6$$.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3(t - 1)(t - 3)$$ for $$t \geq 0$$. For which values of $$t$$ is the particle speeding up?
+
+**A.** $$1 < t < 2$$ and $$t > 3$$. The particle speeds up when velocity and acceleration have the same sign. $$a(t) = 6t - 12$$ changes sign at $$t = 2$$. $$v$$ is negative on $$(1, 3)$$ and positive elsewhere. Both are negative on $$(1, 2)$$ and both positive for $$t > 3$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.296$$. The velocity first changes sign at $$t \approx 2.296$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.296$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.296$$. The velocity first changes sign at $$t \approx 2.296$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.296$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 2$$. At what time does the particle first change direction?
+
+**A.** $$1.675$$. The velocity first changes sign at $$t \approx 1.675$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.675$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.405$$. The velocity first changes sign at $$t \approx 2.405$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.405$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.688$$. The velocity first changes sign at $$t \approx 2.688$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.688$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.082$$. The velocity first changes sign at $$t \approx 2.082$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.082$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$1.700$$. The velocity first changes sign at $$t \approx 1.700$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.700$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.567$$. The velocity first changes sign at $$t \approx 2.567$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.567$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.567$$. The velocity first changes sign at $$t \approx 2.567$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.567$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$1.700$$. The velocity first changes sign at $$t \approx 1.700$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.700$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.052$$. The velocity first changes sign at $$t \approx 2.052$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.052$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.052$$. The velocity first changes sign at $$t \approx 2.052$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.052$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$1.624$$. The velocity first changes sign at $$t \approx 1.624$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.624$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$1.675$$. The velocity first changes sign at $$t \approx 1.675$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.675$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$1.675$$. The velocity first changes sign at $$t \approx 1.675$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.675$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$1.989$$. The velocity first changes sign at $$t \approx 1.989$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.989$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$1.989$$. The velocity first changes sign at $$t \approx 1.989$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.989$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.649$$. The velocity first changes sign at $$t \approx 2.649$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.649$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.082$$. The velocity first changes sign at $$t \approx 2.082$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.082$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.688$$. The velocity first changes sign at $$t \approx 2.688$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.688$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$1.624$$. The velocity first changes sign at $$t \approx 1.624$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.624$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 3$$. At what time does the particle first change direction?
+
+**A.** $$2.369$$. The velocity first changes sign at $$t \approx 2.369$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.369$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{5}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.649$$. The velocity first changes sign at $$t \approx 2.649$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.649$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 2$$. At what time does the particle first change direction?
+
+**A.** $$1.700$$. The velocity first changes sign at $$t \approx 1.700$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.700$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{2}\right) - 0.5$$ for $$0 \leq t \leq 2$$. At what time does the particle first change direction?
+
+**A.** $$1.624$$. The velocity first changes sign at $$t \approx 1.624$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.624$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 2\cos\left(\frac{t^2}{3}\right) - 0.5$$ for $$0 \leq t \leq 2$$. At what time does the particle first change direction?
+
+**A.** $$1.989$$. The velocity first changes sign at $$t \approx 1.989$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 1.989$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 3\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.369$$. The velocity first changes sign at $$t \approx 2.369$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.369$$.
+
+**Q.** A particle moves along the x-axis with velocity $$v(t) = 4\cos\left(\frac{t^2}{4}\right) - 0.5$$ for $$0 \leq t \leq 4$$. At what time does the particle first change direction?
+
+**A.** $$2.405$$. The velocity first changes sign at $$t \approx 2.405$$, found by solving $$v(t) = 0$$ on the calculator. A particle changes direction where $$v(t)$$ changes sign. Graphing $$v$$ on the calculator, the first sign change is at $$t \approx 2.405$$.
+
+### Free-response practice: A particle in motion
+
+A particle moves along the x-axis. Its velocity is given by $$v(t) = 3\sin\left(\frac{t^2}{5}\right) - 1.5$$ for $$0 \leq t \leq 6$$. At time $$t = 0$$ the particle is at position $$x = 3$$.
+
+**(a)** Find the acceleration of the particle at time $$t = 2.5$$. Is the speed of the particle increasing or decreasing at that time? Give a reason.
+
+To earn the point: Gives the correct acceleration. Model answer: $$a(2.5) = v'(2.5) \approx 0.946$$
+
+To earn the point: Concludes about the speed by comparing the signs of velocity and acceleration. Model answer: $$v(2.5) \approx 1.347$$. Velocity and acceleration have the same sign, so the speed is increasing.
+
+**(b)** Find the position of the particle at time $$t = 6$$.
+
+To earn the point: Uses the initial position plus the integral of velocity. Model answer: $$x(6) = 3 + \int_0^{6} v(t)\,dt$$
+
+To earn the point: Gives the correct position. Model answer: $$-2.612$$
+
+**(c)** Find the total distance traveled by the particle over $$0 \leq t \leq 6$$.
+
+To earn the point: Integrates the absolute value of velocity (or splits at the sign changes). Model answer: $$\int_0^{6} |v(t)|\,dt$$
+
+To earn the point: Gives the correct distance. Model answer: $$9.572$$
+
+**(d)** At what times in the interval $$0 < t < 6$$ does the particle change direction? Justify your answer.
+
+To earn the point: Identifies the times where $$v$$ changes sign, with justification. Model answer: $$v(t)$$ changes sign at $$t \approx 1.618$$, $$t \approx 3.618$$ and $$t \approx 5.834$$, so the particle changes direction there.
+
+### Free-response practice: Particle motion without a calculator
+
+A particle moves along the x-axis with velocity $$v(t) = 3t^{2} - 12t + 9$$ for $$t \geq 0$$. At time $$t = 0$$ the particle is at $$x = 2$$.
+
+**(a)** At what times does the particle change direction? Justify your answer.
+
+To earn the point: Gives both times with a sign-change justification. Model answer: $$v(t) = 3(t - 1)(t - 3)$$ changes sign at $$t = 1$$ and $$t = 3$$.
+
+**(b)** Is the speed of the particle increasing or decreasing at time $$t = 4$$? Give a reason.
+
+To earn the point: Finds the velocity and acceleration at the time. Model answer: $$v(4) = 9$$, $$a(4) = 12$$
+
+To earn the point: Concludes from the signs. Model answer: Same signs, so the speed is increasing.
+
+**(c)** Find the position of the particle at time $$t = 5$$.
+
+To earn the point: Uses the initial position and an antiderivative of $$v$$. Model answer: $$x(t) = t^{3} - 6t^{2} + 9t + 2$$
+
+To earn the point: Gives the correct position. Model answer: $$x(5) = 22$$
+
+**(d)** Find the total distance traveled by the particle from $$t = 0$$ to $$t = 5$$.
+
+To earn the point: Splits the motion at the turning points. Model answer: $$|x(1) - x(0)| + |x(3) - x(1)| + |x(5) - x(3)|$$
+
+To earn the point: Gives the correct distance. Model answer: $$28$$

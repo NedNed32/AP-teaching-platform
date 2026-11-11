@@ -1,0 +1,79 @@
+---
+objectives:
+  - 'Apply Ampère''s law to symmetric current distributions.'
+keyTerms:
+  - term: 'Ampère''s law'
+    definition: '∮B·dl = μ0I_enc.'
+checks:
+  - q: 'What is B inside an ideal solenoid?'
+    a: 'B = μ0nI, uniform.'
+  - q: 'What is B inside a long wire of radius R carrying uniform current, at r less than R?'
+    a: 'B = μ0Ir/(2πR²).'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+$$\oint \vec B \cdot d\vec l = \mu_0I_{enc}$$
+
+Like Gauss's law, it is always true but useful only with symmetry.
+
+| Source | Amperian loop | Field |
+| --- | --- | --- |
+| long wire, outside | circle | $$\frac{\mu_0I}{2\pi r}$$ |
+| long solid wire, inside | circle | $$\frac{\mu_0Ir}{2\pi R^2}$$ |
+| solenoid ($$n$$ turns per meter) | rectangle | $$\mu_0nI$$ inside, about 0 outside |
+| toroid | circle | $$\frac{\mu_0NI}{2\pi r}$$ |
+
+<Note title="Enclosed current">
+For a nonuniform current density J(r), find I_enc = ∫J 2πr dr.
+</Note>
+
+<WorkedExample title="Solenoid">
+A solenoid with 2000 turns per meter carries 1.5 A. Find B inside.
+
+1. $$B = (4\pi \times 10^{-7})(2000)(1.5)$$.
+
+**Answer:** about $$3.8 \times 10^{-3}$$ T.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A long straight wire carries 7 A. What is the magnetic field 0.08 m from it?
+
+**Answer:** $$1.75 \times 10^{-5}\ \mathrm{T}$$
+
+**Why:** B = μ₀I/(2πr).
+
+**Working:** B = (4π × 10⁻⁷)(7)/(2π·0.08) = 1.75 \times 10^\{-5\} T.
+
+**Mistakes to avoid**
+
+- $$5.5 \times 10^{-5}\ \mathrm{T}$$: That is the field at the center of a loop.
+- $$1.09 \times 10^{-4}\ \mathrm{T}$$: A long wire's field falls off as 1/r.
+- $$4.42 \times 10^{-6}\ \mathrm{T}$$: B = μ₀I/(2πr).
+
+### Worked exam question 2
+
+A solenoid 0.2 m long has 1200 turns and carries 6 A. What is the magnetic field inside it?
+
+**Answer:** $$0.0452\ \mathrm{T}$$
+
+**Why:** B = μ₀nI with n = N/L.
+
+**Working:** B = μ₀(N/L)I = 0.0452 T.
+
+**Mistakes to avoid**
+
+- $$9.05 \times 10^{-3}\ \mathrm{T}$$: Use turns per meter, N/L.
+- $$7.2 \times 10^{-3}\ \mathrm{T}$$: That resembles a wire's field; use B = μ₀nI.
+- $$3.77 \times 10^{-5}\ \mathrm{T}$$: Include the number of turns.

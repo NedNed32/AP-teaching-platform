@@ -1,0 +1,156 @@
+---
+objectives:
+  - 'Explain the CIA triad, risk, vulnerabilities, threats and defense in depth.'
+keyTerms:
+  - term: 'CIA triad'
+    definition: 'Confidentiality, integrity and availability: the three goals of security.'
+  - term: 'Risk'
+    definition: 'The likelihood that a threat exploits a vulnerability, combined with the impact if it does.'
+  - term: 'Defense in depth'
+    definition: 'Layering multiple security controls so that one failure does not expose an asset.'
+checks:
+  - q: 'A ransomware attack encrypts a hospital''s records. Which part of the CIA triad is most affected?'
+    a: 'Availability.'
+  - q: 'What are the three categories of security controls?'
+    a: 'Managerial (administrative), technical and physical.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+| Goal | Meaning | Example attack |
+| --- | --- | --- |
+| confidentiality | only authorized people can read data | data breach |
+| integrity | data is accurate and unaltered | changing grades in a database |
+| availability | systems and data are usable when needed | denial of service, ransomware |
+
+## Risk
+
+- An **asset** is anything of value; a **vulnerability** is a weakness; a **threat** is something that could exploit it.
+- $$\text{risk} = \text{likelihood} \times \text{impact}$$
+- Responses: **mitigate**, **transfer** (insurance), **avoid**, or **accept**.
+
+## Controls
+
+**Managerial** (policies, training), **technical** (firewalls, encryption), **physical** (locks, guards). Controls can be preventive, detective, deterrent or corrective. **Defense in depth** layers them.
+
+<Note title="Least privilege">
+Give every user and program only the access it needs. It limits the damage any single compromise can do.
+</Note>
+
+<WorkedExample title="Ranking risks">
+Risk A: likelihood 4, impact 2. Risk B: likelihood 2, impact 5 (scale 1–5). Which is higher?
+
+1. A: 4 × 2 = 8.
+2. B: 2 × 5 = 10.
+
+**Answer:** Risk B.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A risk assessment rates each threat's likelihood and impact from 1 (low) to 5 (high).
+
+*Risk assessment*
+
+| Asset at risk | Likelihood | Impact |
+| --- | --- | --- |
+| payroll server | 3 | 3 |
+| point-of-sale terminals | 3 | 2 |
+| backup drives | 2 | 3 |
+| customer database | 3 | 2 |
+
+Using risk = likelihood × impact, which risk should be addressed first?
+
+**Answer:** The payroll server (risk 9)
+
+**Why:** It has the largest product of likelihood and impact.
+
+**Working:** Risk scores: payroll server 9, point-of-sale terminals 6, backup drives 6, customer database 6.
+
+**Mistakes to avoid**
+
+- The point-of-sale terminals (risk 6): Its likelihood × impact is lower.
+- The backup drives (risk 6): Its likelihood × impact is lower.
+- The customer database (risk 6): Its likelihood × impact is lower.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Malware silently modifies financial reports before they are printed. Which security goal is most directly violated?
+
+**A.** Integrity. Data was altered without authorization.
+
+**Q.** A student changes their grade in the gradebook database. Which security goal is most directly violated?
+
+**A.** Integrity. Data was altered without authorization.
+
+**Q.** Ransomware encrypts a city's files and they cannot be used. Which security goal is most directly violated?
+
+**A.** Availability. Authorized users cannot access the system or data.
+
+**Q.** An attacker floods a school's learning platform so students cannot submit work. Which security goal is most directly violated?
+
+**A.** Availability. Authorized users cannot access the system or data.
+
+**Q.** A power failure takes the only web server offline for a day. Which security goal is most directly violated?
+
+**A.** Availability. Authorized users cannot access the system or data.
+
+**Q.** Patient records are posted publicly after a breach. Which security goal is most directly violated?
+
+**A.** Confidentiality. Information is exposed to unauthorized people.
+
+**Q.** An employee emails a spreadsheet of customer Social Security numbers to a personal account. Which security goal is most directly violated?
+
+**A.** Confidentiality. Information is exposed to unauthorized people.
+
+**Q.** A man-in-the-middle alters the account number in a payment request. Which security goal is most directly violated?
+
+**A.** Integrity. Data was altered without authorization.
+
+**Q.** How is a sign warning that the area is under video surveillance best classified, by control category and function?
+
+**A.** Physical, deterrent. It is a physical control whose purpose is to discourage attackers. A sign warning that the area is under video surveillance: physical, deterrent control.
+
+**Q.** How is security cameras in a server room best classified, by control category and function?
+
+**A.** Physical, detective. It is a physical control whose purpose is to discover incidents. Security cameras in a server room: physical, detective control.
+
+**Q.** How is locks on network closets best classified, by control category and function?
+
+**A.** Physical, preventive. It is a physical control whose purpose is to stop incidents. Locks on network closets: physical, preventive control.
+
+**Q.** How is an acceptable use policy employees must sign best classified, by control category and function?
+
+**A.** Managerial, preventive. It is a managerial control whose purpose is to stop incidents. An acceptable use policy employees must sign: managerial, preventive control.
+
+**Q.** How is an intrusion detection system that alerts on suspicious traffic best classified, by control category and function?
+
+**A.** Technical, detective. It is a technical control whose purpose is to discover incidents. An intrusion detection system that alerts on suspicious traffic: technical, detective control.
+
+**Q.** How is annual security awareness training best classified, by control category and function?
+
+**A.** Managerial, preventive. It is a managerial control whose purpose is to stop incidents. Annual security awareness training: managerial, preventive control.
+
+**Q.** How is reviewing badge access logs each week best classified, by control category and function?
+
+**A.** Managerial, detective. It is a managerial control whose purpose is to discover incidents. Reviewing badge access logs each week: managerial, detective control.
+
+**Q.** How is a firewall blocking unused ports best classified, by control category and function?
+
+**A.** Technical, preventive. It is a technical control whose purpose is to stop incidents. A firewall blocking unused ports: technical, preventive control.
+
+**Q.** How is restoring files from backups after a ransomware attack best classified, by control category and function?
+
+**A.** Technical, corrective. It is a technical control whose purpose is to restore after an incident. Restoring files from backups after a ransomware attack: technical, corrective control.

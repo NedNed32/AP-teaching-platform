@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+/* Theme is chosen by the data-theme attribute on <html> (set before first paint). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* ---------------------------------------------------------------------------
+ * Semantic tokens. Components use only these, never raw palette classes.
+ * Text tokens are contrast-checked against --canvas and --surface in
+ * tests/theme-contrast.test.ts, so keep values as oklch(L% C H).
+ * ------------------------------------------------------------------------- */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: oklch(12.9% 0.042 264.695); /* slate-950 */
+  --surface: oklch(20.8% 0.042 265.755); /* slate-900 */
+  --surface-2: oklch(27.9% 0.041 260.031); /* slate-800 */
+  --surface-glass: color-mix(in oklch, oklch(20.8% 0.042 265.755) 60%, transparent);
+  --hairline: color-mix(in oklch, white 10%, transparent);
+  --hairline-strong: color-mix(in oklch, white 18%, transparent);
+
+  --fg: oklch(98.4% 0.003 247.858); /* slate-50 */
+  --fg-muted: oklch(70.4% 0.04 256.788); /* slate-400 */
+  --fg-subtle: oklch(55.4% 0.046 257.417); /* slate-500 */
+
+  --accent: oklch(77.7% 0.152 181.912); /* teal-400: interactive */
+  --accent-fg: oklch(12.9% 0.042 264.695);
+  --success: oklch(76.5% 0.177 163.223); /* emerald-400: correct / done */
+  --danger: oklch(71.2% 0.194 13.428); /* rose-400: wrong / destructive */
+  --warn: oklch(82.8% 0.189 84.429); /* amber-400: caution / common mistake */
+  --info: oklch(74.6% 0.16 232.661); /* sky-400: information */
+  --ring: oklch(77.7% 0.152 181.912);
+
+  /* One accent per College Board subject group (course.json "subject"). */
+  --subject-arts: oklch(70.2% 0.183 293.541); /* violet-400 */
+  --subject-english: oklch(74.6% 0.16 232.661); /* sky-400 */
+  --subject-history: oklch(75% 0.183 55.934); /* orange-400 */
+  --subject-math-cs: oklch(67.3% 0.182 276.935); /* indigo-400 */
+  --subject-sciences: oklch(76.5% 0.177 163.223); /* emerald-400 */
+  --subject-world-languages: oklch(78.9% 0.154 211.53); /* cyan-400 */
+  --subject-capstone: oklch(84.1% 0.238 128.85); /* lime-400 */
+
+  --glow-a: color-mix(in oklch, oklch(76.5% 0.177 163.223) 16%, transparent);
+  --glow-b: color-mix(in oklch, oklch(77.7% 0.152 181.912) 12%, transparent);
+  --grid-line: color-mix(in oklch, white 4%, transparent);
+  --shadow-glass:
+    inset 0 1px 0 0 color-mix(in oklch, white 6%, transparent),
+    0 24px 48px -24px color-mix(in oklch, black 70%, transparent);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: oklch(98.4% 0.003 247.858); /* slate-50 */
+  --surface: oklch(100% 0 0); /* white */
+  --surface-2: oklch(96.8% 0.007 247.896); /* slate-100 */
+  --surface-glass: color-mix(in oklch, white 72%, transparent);
+  --hairline: color-mix(in oklch, oklch(20.8% 0.042 265.755) 10%, transparent);
+  --hairline-strong: color-mix(in oklch, oklch(20.8% 0.042 265.755) 18%, transparent);
+
+  --fg: oklch(20.8% 0.042 265.755); /* slate-900 */
+  --fg-muted: oklch(44.6% 0.043 257.281); /* slate-600 */
+  --fg-subtle: oklch(55.4% 0.046 257.417); /* slate-500 */
+
+  --accent: oklch(51.1% 0.096 186.391); /* teal-700 */
+  --accent-fg: oklch(100% 0 0);
+  --success: oklch(50.8% 0.118 165.612); /* emerald-700 */
+  --danger: oklch(51.4% 0.222 16.935); /* rose-700 */
+  --warn: oklch(55.5% 0.163 48.998); /* amber-700 */
+  --info: oklch(50% 0.134 242.749); /* sky-700 */
+  --ring: oklch(51.1% 0.096 186.391);
+
+  --subject-arts: oklch(49.1% 0.27 292.581); /* violet-700 */
+  --subject-english: oklch(50% 0.134 242.749); /* sky-700 */
+  --subject-history: oklch(55.3% 0.195 38.402); /* orange-700 */
+  --subject-math-cs: oklch(51.1% 0.262 276.966); /* indigo-700 */
+  --subject-sciences: oklch(50.8% 0.118 165.612); /* emerald-700 */
+  --subject-world-languages: oklch(52% 0.105 223.128); /* cyan-700 */
+  --subject-capstone: oklch(53.2% 0.157 131.589); /* lime-700 */
+
+  --glow-a: color-mix(in oklch, oklch(76.5% 0.177 163.223) 14%, transparent);
+  --glow-b: color-mix(in oklch, oklch(77.7% 0.152 181.912) 12%, transparent);
+  --grid-line: color-mix(in oklch, oklch(20.8% 0.042 265.755) 5%, transparent);
+  --shadow-glass:
+    0 1px 2px 0 color-mix(in oklch, oklch(20.8% 0.042 265.755) 6%, transparent),
+    0 16px 40px -20px color-mix(in oklch, oklch(20.8% 0.042 265.755) 22%, transparent);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-glass: var(--surface-glass);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warn: var(--warn);
+  --color-info: var(--info);
+  --color-ring: var(--ring);
+  --color-subject-arts: var(--subject-arts);
+  --color-subject-english: var(--subject-english);
+  --color-subject-history: var(--subject-history);
+  --color-subject-math-cs: var(--subject-math-cs);
+  --color-subject-sciences: var(--subject-sciences);
+  --color-subject-world-languages: var(--subject-world-languages);
+  --color-subject-capstone: var(--subject-capstone);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --shadow-glass: var(--shadow-glass);
+}
+
+@utility glass {
+  background-color: var(--surface-glass);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-glass);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+}
+
+@layer base {
+  html {
+    background-color: var(--canvas);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Page backdrop: soft glows + a faint grid. */
+.backdrop-grid {
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, var(--glow-a), transparent 60%),
+    radial-gradient(50rem 36rem at -10% 110%, var(--glow-b), transparent 60%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+}
+
+/* Lesson lists: accent dots for bullets, numbered circles for ordered steps. */
+.lesson-list > li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.lesson-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0.125rem;
+  top: 0.65em;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: var(--accent);
+}
+
+.lesson-steps {
+  counter-reset: step;
+}
+
+.lesson-steps > li {
+  position: relative;
+  padding-left: 2.25rem;
+  counter-increment: step;
+}
+
+.lesson-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.125rem;
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: color-mix(in oklch, var(--accent) 10%, transparent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Display math scrolls sideways on narrow screens instead of overflowing the page. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

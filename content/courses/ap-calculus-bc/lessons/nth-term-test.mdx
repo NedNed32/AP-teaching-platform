@@ -1,0 +1,79 @@
+---
+objectives:
+  - Use the nth term test to show a series diverges.
+  - Explain why the test can never prove convergence.
+keyTerms:
+  - term: nth term test for divergence
+    definition: 'If $$\lim_{n \to \infty} a_n \neq 0$$ (or does not exist), then $$\sum a_n$$ diverges.'
+checks:
+  - q: 'Does $$\sum \frac{n}{2n + 1}$$ converge?'
+    a: 'No: the terms approach $$\frac{1}{2} \neq 0$$.'
+  - q: 'The terms of a series approach 0. What can you conclude?'
+    a: 'Nothing yet; the series may converge or diverge.'
+sources:
+  - title: Calculus Volume 2, section 5.3 "The Divergence and Integral Tests"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+If you keep adding numbers that do not shrink to zero, the total cannot settle down. That one idea is the quickest test in the unit, and the first thing to check for any series.
+
+## The test
+
+$$
+\lim_{n \to \infty} a_n \neq 0 \quad\Longrightarrow\quad \sum a_n \text{ diverges}.
+$$
+
+**Why:** if $$\sum a_n = S$$ converges, then $$a_n = S_n - S_{n-1} \to S - S = 0$$.
+
+## It is one-directional
+
+$$\lim a_n = 0$$ does **not** imply convergence. The harmonic series $$\sum \frac{1}{n}$$ has terms going to 0 but diverges. When the terms go to 0, move on to another test.
+
+| Result of $$\lim a_n$$ | Conclusion |
+| --- | --- |
+| nonzero or does not exist | diverges |
+| 0 | inconclusive |
+
+<Note title="State the limit">
+A full justification writes the limit explicitly, for example "$$\lim_{n \to \infty} \frac{3n^2}{n^2 + 1} = 3 \neq 0$$, so the series diverges by the nth term test."
+</Note>
+
+<WorkedExample title="Divergence by the nth term test">
+Does $$\sum_{n=1}^{\infty} \cos\left(\frac{1}{n}\right)$$ converge?
+
+1. As $$n \to \infty$$, $$\frac{1}{n} \to 0$$, so $$\cos\left(\frac{1}{n}\right) \to \cos 0 = 1$$.
+2. The terms do not approach 0.
+
+**Answer:** the series diverges by the nth term test.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Which of the following series converge?
+
+I. $$\sum_{n=1}^{\infty} \cos\left(\frac{1}{n}\right)$$
+
+II. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}$$
+
+III. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$
+
+**Answer:** II and III only
+
+**Why:** I: diverges (terms approach 1 (nth term test)). II: converges (absolute values form a p-series with p = 3). III: converges (alternating series test, but the harmonic series diverges).
+
+**Working:** Series I diverges: terms approach 1 (nth term test). Series II converges: absolute values form a p-series with p = 3. Series III converges: alternating series test, but the harmonic series diverges.
+
+**Mistakes to avoid**
+
+- I and III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- None of them: Check each series with an appropriate test: I diverges, II converges, III converges.

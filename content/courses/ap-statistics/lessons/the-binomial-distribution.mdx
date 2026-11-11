@@ -1,0 +1,94 @@
+---
+objectives:
+  - 'Identify binomial settings and calculate binomial probabilities, mean and standard deviation.'
+keyTerms:
+  - term: 'Binomial setting'
+    definition: 'Fixed number n of independent trials, each a success or failure, with the same probability p.'
+  - term: 'Binomial probability'
+    definition: 'P(X = k) = C(n, k) p^k (1 − p)^(n − k).'
+checks:
+  - q: 'What are the conditions for a binomial setting?'
+    a: 'Binary outcomes, Independent trials, fixed Number of trials, Same probability (BINS).'
+  - q: 'What is the mean of a binomial with n = 20, p = 0.3?'
+    a: '6.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$P(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$$
+
+$$\mu_X = np \qquad \sigma_X = \sqrt{np(1-p)}$$
+
+When sampling without replacement, trials are approximately independent if the sample is less than 10% of the population.
+
+A **geometric** setting counts trials until the first success: $$P(X = k) = (1-p)^{k-1}p$$.
+
+<Note title="Use technology">
+For 'at least' or 'at most' questions, use cumulative binomial functions, or the complement.
+</Note>
+
+<WorkedExample title="Binomial probability">
+A quiz has 5 multiple-choice questions with 4 options each. A student guesses. Find P(exactly 2 correct).
+
+1. $$\binom{5}{2}(0.25)^2(0.75)^3 = 10(0.0625)(0.4219)$$.
+
+**Answer:** about 0.264.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Each of 6 independent trials succeeds with probability 0.4. What is the probability of at least 3 successes?
+
+**Answer:** 0.4557
+
+**Why:** Use the binomial distribution with n = 6 and p = 0.4.
+
+**Working:** X ~ Binomial(6, 0.4): P(X ≥ 3) = 0.4557.
+
+**Mistakes to avoid**
+
+- 0.2765: That is only P(X = k).
+- 0.1792: That is P(X > k); 'at least k' includes k.
+- 0.5443: That is the complement.
+
+### Worked exam question 2
+
+Each of 11 independent trials succeeds with probability 0.1. What is the probability of exactly 4 successes?
+
+**Answer:** 0.0158
+
+**Why:** Use the binomial distribution with n = 11 and p = 0.1.
+
+**Working:** X ~ Binomial(11, 0.1): P(X = 4) = 0.0158.
+
+**Mistakes to avoid**
+
+- 0.9972: That is P(X ≤ k); the question asks for exactly k.
+- 0.0001: Include the binomial coefficient and the failures.
+- 0: Use p for successes, not 1 − p.
+
+### Worked exam question 3
+
+Each of 7 independent trials succeeds with probability 0.4. What is the probability of at most 2 successes?
+
+**Answer:** 0.4199
+
+**Why:** Use the binomial distribution with n = 7 and p = 0.4.
+
+**Working:** X ~ Binomial(7, 0.4): P(X ≤ 2) = 0.4199.
+
+**Mistakes to avoid**
+
+- 0.2613: That is only P(X = k).
+- 0.1586: That is P(X &lt; k); 'at most k' includes k.
+- 0.5801: That is the complement.

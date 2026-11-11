@@ -1,0 +1,89 @@
+---
+objectives:
+  - Differentiate powers of $$x$$, including negative and fractional exponents.
+keyTerms:
+  - term: Power rule
+    definition: '$$\frac{d}{dx} x^n = n x^{n - 1}$$ for any real number $$n$$.'
+checks:
+  - q: 'Differentiate $$\frac{1}{x^3}$$.'
+    a: 'Rewrite as $$x^{-3}$$; the derivative is $$-3x^{-4} = -\frac{3}{x^4}$$.'
+  - q: 'Differentiate $$\sqrt[3]{x^2}$$.'
+    a: '$$x^{2/3}$$ gives $$\frac{2}{3}x^{-1/3}$$.'
+sources:
+  - title: Calculus Volume 1, section 3.3 "Differentiation Rules"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Computing every derivative from the limit definition would be exhausting. The power rule is the first shortcut, and it covers a surprising number of functions once you rewrite them as powers.
+
+## The rule
+
+$$
+\frac{d}{dx} x^n = n x^{n - 1}
+$$
+
+Bring the exponent down as a multiplier, then lower the exponent by one. For a positive integer $$n$$ it follows from expanding $$(x + h)^n$$ in the definition: every term except $$n x^{n-1} h$$ has at least $$h^2$$ and disappears in the limit.
+
+## Rewrite first
+
+| Original | Rewritten | Derivative |
+| --- | --- | --- |
+| $$\sqrt{x}$$ | $$x^{1/2}$$ | $$\frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}$$ |
+| $$\frac{1}{x}$$ | $$x^{-1}$$ | $$-x^{-2} = -\frac{1}{x^2}$$ |
+| $$\frac{4}{x^5}$$ | $$4x^{-5}$$ | $$-20x^{-6}$$ |
+| $$x\sqrt{x}$$ | $$x^{3/2}$$ | $$\frac{3}{2}x^{1/2}$$ |
+
+<Note title="Powers of x only">
+The power rule is for a variable raised to a constant. It does not apply to $$2^x$$ (a constant raised to a variable) or directly to $$(3x + 1)^5$$, which needs the chain rule (topic 3.1).
+</Note>
+
+<WorkedExample title="Slope from the power rule">
+Find the slope of $$y = \frac{8}{\sqrt{x}}$$ at $$x = 4$$.
+
+1. Rewrite: $$y = 8x^{-1/2}$$.
+2. Differentiate: $$y' = -4x^{-3/2}$$.
+3. Evaluate: $$-4 \cdot 4^{-3/2} = -4 \cdot \frac{1}{8}$$.
+
+**Answer:** the slope is $$-\frac{1}{2}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+If $$f(x) = -3x^{3} + 3x^{2} - x - 7$$, what is $$f'(-1)$$?
+
+**Answer:** $$-16$$
+
+**Why:** $$f'(x) = -9x^{2} + 6x - 1$$, so $$f'(-1) = -16$$.
+
+**Working:** By the power rule, $$f'(x) = -9x^{2} + 6x - 1$$. Substituting $$x = -1$$ gives $$-16$$.
+
+**Mistakes to avoid**
+
+- $$0$$: This is $$f(-1)$$, the value of the function, not its derivative.
+- $$-15$$: This drops the derivative of the linear term, which is its coefficient.
+- $$-23$$: The derivative of a constant is 0; this keeps the constant term.
+
+### Worked exam question 2
+
+Which of the following is an equation of the line tangent to the graph of $$f(x) = x^{2} + 3x - 1$$ at $$x = 2$$?
+
+**Answer:** $$y - 9 = 7(x - 2)$$
+
+**Why:** The point is $$(2, 9)$$ and the slope is $$f'(2) = 7$$.
+
+**Working:** $$f(2) = 9$$ and $$f'(x) = 2x + 3$$, so $$f'(2) = 7$$. Point-slope form: $$y - 9 = 7(x - 2)$$.
+
+**Mistakes to avoid**
+
+- $$y - 9 = 9(x - 2)$$: This uses the function value $$9$$ as the slope.
+- $$y - 2 = 7(x - 9)$$: This swaps the x- and y-coordinates of the point of tangency.
+- $$y - 9 = 4(x - 2)$$: This slope drops the derivative of $$3x$$.

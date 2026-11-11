@@ -1,0 +1,69 @@
+---
+objectives:
+  - Find the area between curves that cross more than twice, splitting the integral where the top curve changes.
+keyTerms:
+  - term: Absolute difference
+    definition: 'Total area between curves is $$\int_a^b |f(x) - g(x)|\,dx$$, which accounts for the curves switching places.'
+checks:
+  - q: 'Why can $$\int_{-1}^{1} (x^3 - x)\,dx = 0$$ even though the curves enclose area?'
+    a: 'The two enclosed regions have equal area but opposite signs, so they cancel.'
+  - q: 'How do you handle this on a calculator?'
+    a: 'Integrate $$|f(x) - g(x)|$$ over the whole interval.'
+sources:
+  - title: Calculus Volume 1, section 6.1 "Areas between Curves"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When two curves cross several times, they take turns being on top. A single integral of $$f - g$$ would subtract some regions from others. To get the true total area, split at each crossing.
+
+## The method
+
+1. Find **all** intersection points in the interval.
+2. On each subinterval, decide which curve is on top.
+3. Integrate top minus bottom on each subinterval.
+4. Add the results.
+
+Equivalently, $$\text{Area} = \int_a^b |f(x) - g(x)|\,dx$$, which a calculator evaluates directly.
+
+## Symmetry helps
+
+If the region is symmetric, compute one piece and multiply. For $$y = x^3$$ and $$y = x$$, the regions on $$[-1, 0]$$ and $$[0, 1]$$ are mirror images.
+
+<Note title="A zero integral is a warning sign">
+If your "area" comes out as 0 or negative, the curves probably swapped places and you integrated across the crossing. Area is always positive.
+</Note>
+
+<WorkedExample title="Three intersection points">
+Find the total area enclosed by $$y = x^3$$ and $$y = 4x$$.
+
+1. $$x^3 = 4x$$ gives $$x = -2, 0, 2$$.
+2. On $$[-2, 0]$$, $$x^3 \geq 4x$$ (test $$x = -1$$: $$-1 > -4$$). On $$[0, 2]$$, $$4x \geq x^3$$.
+3. $$\int_0^2 (4x - x^3)\,dx = 8 - 4 = 4$$; by symmetry the left region also has area 4.
+
+**Answer:** $$8$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the total area of the regions enclosed by the graphs of $$y = x^3$$ and $$y = 9x$$?
+
+**A.** $$\frac{81}{2}$$. The graphs meet at $$x = -3, 0, 3$$. Each region has area $$\frac{81}{4}$$. On $$[-3, 0]$$, $$x^3$$ is on top; on $$[0, 3]$$, $$9x$$ is on top. By symmetry, total area $$= 2\int_0^{3} (9x - x^3)\,dx = 2 \cdot \frac{81}{4} = \frac{81}{2}$$.
+
+**Q.** What is the total area of the regions enclosed by the graphs of $$y = x^3$$ and $$y = x$$?
+
+**A.** $$\frac{1}{2}$$. The graphs meet at $$x = -1, 0, 1$$. Each region has area $$\frac{1}{4}$$. On $$[-1, 0]$$, $$x^3$$ is on top; on $$[0, 1]$$, $$x$$ is on top. By symmetry, total area $$= 2\int_0^{1} (x - x^3)\,dx = 2 \cdot \frac{1}{4} = \frac{1}{2}$$.
+
+**Q.** What is the total area of the regions enclosed by the graphs of $$y = x^3$$ and $$y = 4x$$?
+
+**A.** $$8$$. The graphs meet at $$x = -2, 0, 2$$. Each region has area $$4$$. On $$[-2, 0]$$, $$x^3$$ is on top; on $$[0, 2]$$, $$4x$$ is on top. By symmetry, total area $$= 2\int_0^{2} (4x - x^3)\,dx = 2 \cdot 4 = 8$$.

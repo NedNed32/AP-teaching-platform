@@ -1,0 +1,98 @@
+---
+objectives:
+  - 'Use z-scores and the normal distribution to find probabilities and percentiles.'
+keyTerms:
+  - term: 'z-score'
+    definition: 'z = (x − μ)/σ: how many standard deviations a value is from the mean.'
+  - term: 'Empirical rule'
+    definition: 'About 68%, 95% and 99.7% of a normal distribution lie within 1, 2 and 3 standard deviations of the mean.'
+checks:
+  - q: 'Heights are normal with mean 66 in and SD 3 in. What z-score does 72 in have?'
+    a: '2.'
+  - q: 'About what percent of a normal distribution is above z = 1?'
+    a: 'About 16%.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$z = \frac{x - \mu}{\sigma}$$
+
+For a normal distribution $$N(\mu, \sigma)$$:
+
+- **Probability from a value**: standardize, then find the area (normalcdf).
+- **Value from a percentile**: find the z with that area (invNorm), then $$x = \mu + z\sigma$$.
+
+Empirical rule: 68–95–99.7.
+
+Show your work: name the distribution, the boundary, the area of interest, and the answer in context.
+
+<Note title="Is it normal?">
+Only use normal calculations when the distribution is approximately normal, or when a sampling distribution is justified to be approximately normal.
+</Note>
+
+<WorkedExample title="Percentile">
+Test scores are N(500, 100). What score is at the 90th percentile?
+
+1. invNorm(0.90) gives z ≈ 1.282.
+2. $$500 + 1.282(100)$$.
+
+**Answer:** about 628.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A variable is approximately normal with mean 118 and standard deviation 5. What proportion of values are greater than 116?
+
+**Answer:** 0.6554
+
+**Why:** z = (116 − 118)/5 = -0.4.
+
+**Working:** z = -0.4; area to the right = 0.6554.
+
+**Mistakes to avoid**
+
+- 0.3446: That is the other side of the boundary.
+- 0.04: Use the normal distribution's area, not the z-score.
+- 0.4207: Divide by σ when standardizing.
+
+### Worked exam question 2
+
+A variable is approximately normal with mean 83 and standard deviation 13. What proportion of values are less than 107.7?
+
+**Answer:** 0.9713
+
+**Why:** z = (107.7 − 83)/13 = 1.9.
+
+**Working:** z = 1.9; area to the left = 0.9713.
+
+**Mistakes to avoid**
+
+- 0.0287: That is the other side of the boundary.
+- 0.19: Use the normal distribution's area, not the z-score.
+- 0.8289: Divide by σ when standardizing.
+
+### Worked exam question 3
+
+A variable is approximately normal with mean 67 and standard deviation 11. What value is at the 90th percentile?
+
+**Answer:** 81.1
+
+**Why:** z = invNorm(0.9) ≈ 1.282; x = μ + zσ.
+
+**Working:** x = 67 + 1.282(11) = 81.1.
+
+**Mistakes to avoid**
+
+- 52.9: Check the sign of z.
+- 76.9: Use the z-score for the percentile, not the percentile itself.
+- 222.07: Multiply z by σ, not σ².

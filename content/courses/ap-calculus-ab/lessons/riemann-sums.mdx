@@ -1,0 +1,197 @@
+---
+objectives:
+  - Approximate the area under a curve with left, right and midpoint Riemann sums and with trapezoidal sums.
+  - Decide whether an approximation is an overestimate or underestimate.
+keyTerms:
+  - term: Left Riemann sum
+    definition: 'Sum of rectangle areas, each using the function value at the left end of its subinterval.'
+  - term: Midpoint sum
+    definition: 'Rectangles with heights taken at the midpoint of each subinterval.'
+  - term: Trapezoidal sum
+    definition: 'Sum of trapezoid areas, $$\frac{\Delta x}{2}[f(x_{i}) + f(x_{i+1})]$$ on each subinterval.'
+checks:
+  - q: 'For an increasing function, is a left Riemann sum an overestimate or underestimate?'
+    a: 'An underestimate: each rectangle uses the lowest height on its subinterval.'
+  - q: 'For a concave-up function, is the trapezoidal sum too high or too low?'
+    a: 'Too high: the chords lie above the curve.'
+sources:
+  - title: Calculus Volume 1, section 5.1 "Approximating Areas"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+To find the area under a curved graph, chop it into thin vertical strips and approximate each strip with a shape whose area you know.
+
+<Figure src="assets/lessons/left-riemann.svg" alt="An increasing curve with five rectangles beneath it, each with height equal to the curve's value at its left edge." caption="A left Riemann sum for an increasing function sits below the curve." />
+
+## Four approximations
+
+Split $$[a, b]$$ into subintervals. On each one, approximate the area by:
+
+| Method | Height or shape |
+| --- | --- |
+| Left | rectangle with height at the left endpoint |
+| Right | rectangle with height at the right endpoint |
+| Midpoint | rectangle with height at the midpoint |
+| Trapezoidal | trapezoid joining the endpoint heights |
+
+With equal widths $$\Delta x$$, the trapezoidal sum is the average of the left and right sums.
+
+## Unequal widths from tables
+
+Free-response tables often have uneven spacing. Compute each piece with its own width: $$\text{width} \times \text{height}$$ for rectangles, or $$\frac{\text{width}}{2}(\text{left} + \text{right})$$ for trapezoids.
+
+## Over or under?
+
+| Function behavior | Left sum | Right sum | Trapezoidal sum |
+| --- | --- | --- | --- |
+| increasing | under | over | depends on concavity |
+| decreasing | over | under | depends on concavity |
+| concave up | depends on direction | depends on direction | over |
+| concave down | depends on direction | depends on direction | under |
+
+<Note title="Midpoints from tables">
+A midpoint sum needs values at the middle of each subinterval. With a table, the subintervals for a midpoint sum are usually twice as wide, so that the table values sit at their centers.
+</Note>
+
+<WorkedExample title="Trapezoids with uneven widths">
+Estimate $$\int_0^{10} r(t)\,dt$$ with a trapezoidal sum, given:
+
+| $$t$$ | 0 | 2 | 7 | 10 |
+| --- | --- | --- | --- | --- |
+| $$r(t)$$ | 4 | 6 | 9 | 5 |
+
+1. $$\frac{2}{2}(4 + 6) = 10$$.
+2. $$\frac{5}{2}(6 + 9) = 37.5$$.
+3. $$\frac{3}{2}(9 + 5) = 21$$.
+
+**Answer:** $$10 + 37.5 + 21 = 68.5$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Water flows into a tank at a rate of $$R(t)$$ gallons per minute, where $$R$$ is a continuous function of time $$t$$ in minutes. Selected values are shown.
+
+*Rate of flow R(t)*
+
+| $$t$$ (minutes) | $$R(t)$$ (gallons per minute) |
+| --- | --- |
+| 0 | 10 |
+| 2 | 6 |
+| 3 | 5 |
+| 7 | 5 |
+| 10 | 1 |
+
+Using a right Riemann sum with the four subintervals indicated by the table, what is the approximation of $$\int_0^{10} R(t)\,dt$$?
+
+**Answer:** $$40$$
+
+**Why:** Multiply each subinterval's width by the appropriate height and add.
+
+**Working:** The widths are 2, 1, 4, 3. Use the right endpoint of each subinterval, multiply by the width and add: $$40$$ gallons.
+
+**Mistakes to avoid**
+
+- $$61$$: This is the left Riemann sum.
+- $$\frac{101}{2}$$: This is the trapezoidal sum.
+- $$52$$: This treats every subinterval as width 2, but the subintervals have unequal widths.
+
+### Worked exam question 2
+
+Water flows into a tank at a rate of $$R(t)$$ gallons per minute, where $$R$$ is a continuous function of time $$t$$ in minutes. Selected values are shown.
+
+*Rate of flow R(t)*
+
+| $$t$$ (minutes) | $$R(t)$$ (gallons per minute) |
+| --- | --- |
+| 0 | 14 |
+| 2 | 14 |
+| 3 | 12 |
+| 7 | 6 |
+| 10 | 6 |
+
+Using a left Riemann sum with the four subintervals indicated by the table, what is the approximation of $$\int_0^{10} R(t)\,dt$$?
+
+**Answer:** $$108$$
+
+**Why:** Multiply each subinterval's width by the appropriate height and add.
+
+**Working:** The widths are 2, 1, 4, 3. Use the left endpoint of each subinterval, multiply by the width and add: $$108$$ gallons.
+
+**Mistakes to avoid**
+
+- $$82$$: This is the right Riemann sum.
+- $$95$$: This is the trapezoidal sum.
+- $$92$$: This treats every subinterval as width 2, but the subintervals have unequal widths.
+
+### Worked exam question 3
+
+Water flows into a tank at a rate of $$R(t)$$ gallons per minute, where $$R$$ is a continuous function of time $$t$$ in minutes. Selected values are shown.
+
+*Rate of flow R(t)*
+
+| $$t$$ (minutes) | $$R(t)$$ (gallons per minute) |
+| --- | --- |
+| 0 | 8 |
+| 2 | 4 |
+| 3 | 7 |
+| 7 | 2 |
+| 10 | 15 |
+
+Using a trapezoidal sum with the four subintervals indicated by the table, what is the approximation of $$\int_0^{10} R(t)\,dt$$?
+
+**Answer:** $$61$$
+
+**Why:** Multiply each subinterval's width by the appropriate height and add.
+
+**Working:** The widths are 2, 1, 4, 3. Average the endpoint heights on each subinterval, multiply by the width and add: $$61$$ gallons.
+
+**Mistakes to avoid**
+
+- $$54$$: This is the left Riemann sum.
+- $$68$$: This is the right Riemann sum.
+- $$42$$: This treats every subinterval as width 2, but the subintervals have unequal widths.
+
+### Free-response practice: Rate of people entering a park
+
+People enter an amusement park at a rate modeled by a differentiable function $$P$$, where $$P(t)$$ is measured in people per minute and $$t$$ is measured in minutes. Selected values are shown.
+
+*Values of P(t)*
+
+| $$t$$ (minutes) | $$P(t)$$ (people per minute) |
+| --- | --- |
+| 0 | 60 |
+| 3 | 71 |
+| 5 | 40 |
+| 9 | 71 |
+| 12 | 77 |
+
+**(a)** Use the data to estimate $$P'(7)$$. Show the computations and indicate units.
+
+To earn the point: Uses a difference quotient on the interval containing the time. Model answer: $$\frac{P(9) - P(5)}{9 - 5} = \frac{31}{4}$$
+
+To earn the point: Gives correct units. Model answer: people per minute per minute
+
+**(b)** Use a trapezoidal sum with the four subintervals shown in the table to approximate $$\int_0^{12} P(t)\,dt$$. Explain the meaning of this integral in the context of the problem.
+
+To earn the point: Sets up the trapezoidal sum with unequal widths. Model answer: $$\frac{3}{2}(60 + 71)$$ + $$\frac{2}{2}(71 + 40)$$ + $$\frac{4}{2}(40 + 71)$$ + $$\frac{3}{2}(71 + 77)$$
+
+To earn the point: Gives the correct value. Model answer: $$\frac{1503}{2}$$
+
+To earn the point: Interprets the integral with units. Model answer: The total number of people who enter the park during the first 12 minutes.
+
+**(c)** Must there be a time $$c$$, for $$3 < c < 9$$, such that $$P'(c) = 0$$? Justify your answer.
+
+To earn the point: Answers yes, citing the Mean Value Theorem (or Rolle's Theorem) with its conditions. Model answer: Yes. $$P$$ is differentiable (so continuous), and $$P(3) = P(9) = 71$$. By the Mean Value Theorem there is a $$c$$ with $$P'(c) = \frac{71 - 71}{6} = 0$$.
+
+**(d)** Must there be a time $$t$$, for $$0 < t < 3$$, at which $$P(t) = 69$$? Justify your answer.
+
+To earn the point: Answers yes, citing the Intermediate Value Theorem and continuity. Model answer: Yes. $$P$$ is continuous, and $$69$$ is between $$P(0) = 60$$ and $$P(3) = 71$$, so the IVT guarantees such a $$t$$.

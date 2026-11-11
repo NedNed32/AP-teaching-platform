@@ -1,0 +1,91 @@
+---
+objectives:
+  - Find the derivative of an inverse function at a point.
+keyTerms:
+  - term: Inverse function derivative
+    definition: 'If $$g = f^{-1}$$ and $$f(a) = b$$, then $$g''(b) = \frac{1}{f''(a)}$$, provided $$f''(a) \neq 0$$.'
+checks:
+  - q: 'If $$f(2) = 7$$ and $$f''(2) = 4$$, and $$g$$ is the inverse of $$f$$, find $$g''(7)$$.'
+    a: '$$\frac{1}{4}$$.'
+  - q: 'Why must you evaluate $$f''$$ at 2 rather than at 7 in that question?'
+    a: 'Because $$g(7) = 2$$: the point on the graph of $$f$$ matching $$(7, 2)$$ on $$g$$ is $$(2, 7)$$.'
+sources:
+  - title: Calculus Volume 1, section 3.7 "Derivatives of Inverse Functions"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The graph of an inverse function is the graph of $$f$$ reflected across $$y = x$$. Reflection swaps rise and run, so the slopes are reciprocals.
+
+## The formula
+
+If $$g$$ is the inverse of $$f$$, then $$f(g(x)) = x$$. Differentiating with the chain rule gives $$f'(g(x)) \cdot g'(x) = 1$$, so
+
+$$
+g'(x) = \frac{1}{f'(g(x))}.
+$$
+
+At a specific point: if $$f(a) = b$$, then
+
+$$
+g'(b) = \frac{1}{f'(a)}.
+$$
+
+## The three-step routine
+
+1. You are asked for $$g'(b)$$. Find the $$a$$ with $$f(a) = b$$ (often by inspection or from a table).
+2. Compute $$f'(a)$$.
+3. Take the reciprocal.
+
+<Note title="Do not evaluate f prime at b">
+The most common mistake is computing $$\frac{1}{f'(b)}$$. The derivative of $$f$$ must be evaluated at the matching input $$a$$, not at $$b$$.
+</Note>
+
+<WorkedExample title="Inverse of a cubic">
+Let $$f(x) = x^3 + 2x + 1$$ and $$g = f^{-1}$$. Find $$g'(4)$$.
+
+1. Solve $$f(a) = 4$$: try $$a = 1$$: $$1 + 2 + 1 = 4$$. So $$a = 1$$.
+2. $$f'(x) = 3x^2 + 2$$, so $$f'(1) = 5$$.
+
+**Answer:** $$g'(4) = \frac{1}{5}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = x^{3} + 4x + 1$$, and let $$g$$ be the inverse function of $$f$$. What is $$g'(6)$$?
+
+**Answer:** $$\frac{1}{7}$$
+
+**Why:** $$f(1) = 6$$, so $$g'(6) = \frac{1}{f'(1)} = \frac{1}{7}$$.
+
+**Working:** If $$f(1) = 6$$, then $$g(6) = 1$$ and $$g'(6) = \frac{1}{f'(g(6))} = \frac{1}{f'(1)}$$. Since $$f'(x) = 3x^{2} + 4$$, $$f'(1) = 7$$.
+
+**Mistakes to avoid**
+
+- $$7$$: This is $$f'(1)$$; the inverse's derivative is its reciprocal.
+- $$\frac{1}{112}$$: This evaluates $$f'$$ at $$6$$ instead of at the input $$1$$ with $$f(1) = 6$$.
+- $$\frac{1}{6}$$: This takes the reciprocal of a function value, not of the derivative.
+
+### Worked exam question 2
+
+Let $$f(x) = x^{3} + 2x + e^{x/2}$$, and let $$g$$ be the inverse of $$f$$. What is the value of $$g'(7)$$?
+
+**Answer:** $$0.120$$
+
+**Why:** Solve $$f(x) = 7$$ to get $$x \approx 1.335$$, then $$g'(7) = \frac{1}{f'(1.335)}$$.
+
+**Working:** Use the calculator to solve $$f(x) = 7$$: $$x \approx 1.335$$, so $$g(7) \approx 1.335$$. Then $$g'(7) = \frac{1}{f'(g(7))} \approx \frac{1}{8.323} \approx 0.120$$.
+
+**Mistakes to avoid**
+
+- $$8.323$$: This is f′ at the matching input; the inverse's derivative is its reciprocal.
+- $$0.006$$: This evaluates $$f'$$ at $$7$$ instead of at the input where $$f(x) = 7$$.
+- $$1.335$$: This is $$g(7)$$, not $$g'(7)$$.

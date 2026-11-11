@@ -1,0 +1,136 @@
+---
+objectives:
+  - 'Predict offspring ratios with Punnett squares and the rules of probability.'
+  - 'Use the chi-square test to compare observed and expected results.'
+keyTerms:
+  - term: 'Law of segregation'
+    definition: 'The two alleles of a gene separate during gamete formation.'
+  - term: 'Law of independent assortment'
+    definition: 'Alleles of genes on different chromosomes are inherited independently.'
+  - term: 'Chi-square test'
+    definition: 'A statistical test comparing observed and expected counts.'
+checks:
+  - q: 'What is the phenotype ratio of an Aa × Aa cross?'
+    a: '3 dominant : 1 recessive.'
+  - q: 'What is the probability of an aabb offspring from AaBb × AaBb?'
+    a: '1/4 × 1/4 = 1/16.'
+sources:
+  - title: Biology 2e
+    publisher: OpenStax
+    url: https://openstax.org/details/books/biology-2e
+  - title: AP Biology course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-biology
+reviewed: false
+---
+
+## Single-gene crosses
+
+| Cross | Genotype ratio | Phenotype ratio |
+| --- | --- | --- |
+| Aa × Aa | 1 AA : 2 Aa : 1 aa | 3 : 1 |
+| Aa × aa (test cross) | 1 Aa : 1 aa | 1 : 1 |
+
+## Probability rules
+
+- **Product rule** (independent events, "and"): multiply.
+- **Sum rule** (mutually exclusive outcomes, "or"): add.
+
+A dihybrid cross AaBb × AaBb gives a 9 : 3 : 3 : 1 phenotype ratio.
+
+## Chi-square
+
+$$\chi^2 = \sum \frac{(o - e)^2}{e}$$
+
+Compare with the critical value for $$df$$ = number of categories − 1 at $$p = 0.05$$ (for example, 3.84 for df 1, 5.99 for df 2, 7.81 for df 3). If $$\chi^2$$ is less than the critical value, fail to reject the null hypothesis: the difference is likely due to chance.
+
+<Note title="Pedigrees">
+Autosomal recessive traits can skip generations and appear in children of unaffected parents. Autosomal dominant traits appear in every generation in which the allele is present.
+</Note>
+
+<WorkedExample title="Chi-square">
+A cross expected to give 3 : 1 produces 290 purple and 110 white flowers. Do the data fit?
+
+1. Expected: 300 and 100.
+2. χ² = 100/300 + 100/100 = 0.33 + 1.00 = 1.33.
+3. df = 1; critical value 3.84.
+
+**Answer:** 1.33 is less than 3.84, so the data are consistent with a 3 : 1 ratio.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A cross is expected to produce offspring in a 1 : 2 : 1 ratio. The observed counts are 141, 159, 100 (total 400). Using a chi-square test at p = 0.05 (critical values: 3.84 for 1 df, 5.99 for 2 df, 7.81 for 3 df), which conclusion is correct?
+
+**Answer:** χ² ≈ 25.21; reject the null hypothesis
+
+**Why:** With 2 df the critical value is 5.99; χ² is greater, so the deviation is unlikely to be due to chance.
+
+**Working:** Expected counts: 100, 200, 100. χ² = Σ(o − e)²/e ≈ 25.21 with 2 df, compared with 5.99.
+
+**Mistakes to avoid**
+
+- χ² ≈ 25.21; fail to reject the null hypothesis: Compare χ² with the critical value 5.99.
+- χ² ≈ 22.5; reject the null hypothesis: Divide by the expected count, not the observed count.
+- χ² ≈ 25.21; the data prove the hypothesis is true: A chi-square test cannot prove a hypothesis.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBb × AaBb produces an offspring with the genotype or phenotype AaBb?
+
+**A.** 1/4. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 1/4.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBb × AaBb produces an offspring with the genotype or phenotype aabb?
+
+**A.** 1/16. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 1/16.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBb × aabb produces an offspring with the genotype or phenotype Aabb?
+
+**A.** 1/4. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 1/4.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBb × Aabb produces an offspring with the genotype or phenotype aabb?
+
+**A.** 1/8. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 1/8.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBbCc × AaBbCc produces an offspring with the genotype or phenotype aabbcc?
+
+**A.** 1/64. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 1/64.
+
+**Q.** Assuming independent assortment, what is the probability that a cross of AaBb × AaBb produces an offspring with the genotype or phenotype A_B_ (both dominant phenotypes)?
+
+**A.** 9/16. Find the probability for each gene, then multiply (product rule). Treat each gene separately, then multiply: the probability is 9/16.
+
+### Free-response practice: A dihybrid cross
+
+Two pea plants heterozygous for height (T, tall, dominant) and flower color (P, purple, dominant) were crossed, producing 320 offspring.
+
+*Offspring phenotypes*
+
+| Phenotype | Observed |
+| --- | --- |
+| tall, purple | 222 |
+| tall, white | 27 |
+| short, purple | 27 |
+| short, white | 44 |
+
+**(a)** State the null hypothesis, and calculate the expected number of offspring in each category.
+
+To earn the point: Null hypothesis: the genes assort independently, giving a 9 : 3 : 3 : 1 ratio. Model answer: Any differences are due to chance.
+
+To earn the point: Expected counts. Model answer: 180, 60, 60, 20
+
+**(b)** Calculate the chi-square value and determine whether to reject the null hypothesis at p = 0.05 (critical value 7.81 for 3 degrees of freedom).
+
+To earn the point: Correct chi-square value. Model answer: χ² ≈ 74.9
+
+To earn the point: Correct conclusion with comparison to the critical value. Model answer: 74.9 is greater than 7.81, so reject the null hypothesis.
+
+**(c)** Propose an explanation for the results.
+
+To earn the point: Explanation consistent with the conclusion. Model answer: The genes are likely linked on the same chromosome, so parental combinations are inherited together more often.

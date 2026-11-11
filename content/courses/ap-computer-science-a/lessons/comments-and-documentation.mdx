@@ -1,0 +1,143 @@
+---
+objectives:
+  - Write single-line, multi-line and Javadoc comments.
+  - Describe preconditions and postconditions.
+keyTerms:
+  - term: Precondition
+    definition: 'A condition that must be true before a method is called; the method is not required to check it.'
+  - term: Postcondition
+    definition: 'A condition guaranteed to be true after the method finishes, such as what it returns.'
+checks:
+  - q: 'A precondition says `n > 0`. Must the method handle n = 0?'
+    a: 'No. The caller is responsible for meeting the precondition.'
+  - q: 'Which comment style is used to generate documentation?'
+    a: 'Javadoc comments, written between /** and */.'
+sources:
+  - title: How to Write Doc Comments for the Javadoc Tool
+    publisher: Oracle
+    url: https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Code is read far more often than it is written. Comments explain intent, and pre- and postconditions define a method's contract.
+
+## Three comment styles
+
+```java
+// single-line comment
+
+/* multi-line
+   comment */
+
+/**
+ * Javadoc comment: describes a class or method.
+ * @param n the number of items, n > 0
+ * @return the average item weight
+ */
+```
+
+The compiler ignores comments.
+
+## Preconditions and postconditions
+
+- **Precondition:** what must be true when the method is called. Example: "`list` is not empty".
+- **Postcondition:** what will be true when the method returns. Example: "returns the largest value in `list`".
+
+On free-response questions, you may **assume** preconditions are met. You do not need code to check them.
+
+<Note title="Reading the contract">
+Free-response prompts state preconditions such as "all values are positive". Use them: they often rule out special cases you would otherwise have to handle.
+</Note>
+
+<WorkedExample title="Writing the contract">
+Write a precondition and postcondition for a method `int countVowels(String word)`.
+
+1. Precondition: `word` is not null and contains only lowercase letters.
+2. Postcondition: returns the number of characters in `word` that are a, e, i, o or u.
+
+**Answer:** as above. The method may assume lowercase input because the precondition guarantees it.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int a = 39;
+int b = 4;
+System.out.println(a / b + a % b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `12`
+
+**Why:** 39 / 4 is 9 (integer division) and 39 % 4 is 3.
+
+**Working:** With two int operands, `/` gives the truncated quotient 9 and `%` gives the remainder 3, so the sum is 12.
+
+**Mistakes to avoid**
+
+- `93`: The + is between two ints, so it adds; it does not concatenate.
+- `13`: Integer division truncates; it does not round.
+- `9`: The remainder is added as well.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int total = 47;
+int count = 5;
+double avg1 = total / count;
+double avg2 = (double) total / count;
+System.out.println(avg1 + " " + avg2);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `9.0 9.4`
+
+**Why:** avg1 divides two ints before converting; avg2 casts first.
+
+**Working:** `total / count` is integer division (9), then widened to 9.0. `(double) total / count` casts first, giving 9.4.
+
+**Mistakes to avoid**
+
+- `9.4 9.4`: In avg1 the division happens between two ints, so the decimal part is lost before the result is stored.
+- `9.0 9.0`: The cast in avg2 applies to total before dividing, so the division is done with doubles.
+- `9 9.4`: avg1 is a double, so it prints with a decimal point.
+
+### Worked exam question 3
+
+Consider the following code segment.
+
+```java
+int x = 8;
+x *= 3;
+x /= 4;
+x -= 7;
+x += 4;
+System.out.println(x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3`
+
+**Why:** Apply each statement in order, using integer division.
+
+**Working:** Starting from 8, the statements give 24, 6, -1, 3.
+
+**Mistakes to avoid**
+
+- `-1`: Every statement runs, including the last one.
+- `-3`: /= keeps the quotient and %= keeps the remainder.
+- `4`: Recheck each step.

@@ -1,0 +1,86 @@
+---
+objectives:
+  - Describe how data travels across the Internet in packets using open protocols.
+keyTerms:
+  - term: Protocol
+    definition: 'An agreed-upon set of rules for how data is sent and received.'
+  - term: Packet
+    definition: 'A small chunk of data plus metadata, such as the destination address, used to route it.'
+  - term: Routing
+    definition: 'Finding a path from sender to receiver across connected devices.'
+  - term: Bandwidth
+    definition: 'The maximum amount of data that can be sent in a fixed amount of time, usually measured in bits per second.'
+checks:
+  - q: 'Do all packets of a message take the same route?'
+    a: 'Not necessarily; they may arrive out of order and are reassembled at the destination.'
+  - q: 'Is the World Wide Web the same as the Internet?'
+    a: 'No; the Web is a system of linked pages and files that uses the Internet (via HTTP).'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+The Internet is a network of networks: computing devices connected so they can send data to each other.
+
+## Key ideas
+
+- A **computing device** can run a program (computer, phone, router). A **computing system** is a group of devices working together. A **network** is a group of devices that can send and receive data.
+- Data is broken into **packets**. Each packet carries metadata such as where it is going. Packets may travel different paths and arrive out of order; they are reassembled at the destination.
+- **Open protocols** (such as IP, TCP, UDP and HTTP) let devices from any manufacturer communicate. Because the protocols are open, anyone can build devices that connect, which helped the Internet **scale**.
+
+| Protocol | Role |
+| --- | --- |
+| IP | addresses and routes packets |
+| TCP | reliable delivery: reorders packets and requests missing ones |
+| UDP | faster delivery without guarantees |
+| HTTP | requests and sends web pages |
+
+<Note title="The Web uses the Internet">
+The World Wide Web is a system of linked pages, programs and files. It is one application that runs on top of the Internet, which also carries email, video calls and more.
+</Note>
+
+<WorkedExample title="Out-of-order packets">
+A video call's packets arrive in the order 3, 1, 2. What happens?
+
+1. The packets' metadata includes their position.
+2. The receiver reorders them (TCP) or, for live audio over UDP, may skip a late packet to stay in real time.
+
+**Answer:** the data can be reassembled because each packet carries metadata.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Why were open protocols important to the growth of the Internet?
+
+**A.** Any manufacturer can build devices that communicate with all others, letting the network scale. Open, shared rules allow anyone to connect.
+
+**Q.** What is bandwidth?
+
+**A.** The maximum amount of data that can be sent in a fixed amount of time. Bandwidth is usually measured in bits per second.
+
+**Q.** A live video call uses a protocol that sends packets quickly without checking that each one arrived. Which protocol is this?
+
+**A.** UDP. UDP trades reliability for speed.
+
+**Q.** What is the relationship between the World Wide Web and the Internet?
+
+**A.** The Web is a system of linked pages and files that uses the Internet to transfer data. The Web runs on top of the Internet.
+
+**Q.** Which protocol is primarily responsible for addressing and routing packets to their destination?
+
+**A.** IP (Internet Protocol). IP handles addresses and routing.
+
+**Q.** Data sent across the Internet is broken into packets. Which statement about packets is true?
+
+**A.** Packets of one message may take different routes and arrive out of order. Each packet is routed independently and reassembled at the destination.

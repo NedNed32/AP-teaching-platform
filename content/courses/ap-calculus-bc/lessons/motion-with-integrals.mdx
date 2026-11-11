@@ -1,0 +1,181 @@
+---
+objectives:
+  - Find displacement, position and total distance from velocity using integrals.
+keyTerms:
+  - term: Displacement
+    definition: '$$\int_a^b v(t)\,dt$$, the net change in position.'
+  - term: Total distance
+    definition: '$$\int_a^b |v(t)|\,dt$$, the distance travelled regardless of direction.'
+checks:
+  - q: 'If $$x(0) = 4$$ and $$\int_0^3 v(t)\,dt = -7$$, find $$x(3)$$.'
+    a: '$$4 - 7 = -3$$.'
+  - q: 'When are displacement and total distance equal?'
+    a: 'When the velocity never changes sign on the interval.'
+sources:
+  - title: Calculus Volume 1, section 5.4 "Integration Formulas and the Net Change Theorem"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+In Unit 4 you differentiated position to get velocity. Now you go backwards: integrate velocity to recover how far a particle moved and where it ends up.
+
+## Three different questions
+
+| Question | Integral |
+| --- | --- |
+| How far did position change (displacement)? | $$\int_a^b v(t)\,dt$$ |
+| Where is the particle at time $$b$$? | $$x(b) = x(a) + \int_a^b v(t)\,dt$$ |
+| How far did it travel in total? | $$\int_a^b \lvert v(t)\rvert\,dt$$ |
+
+Similarly, $$v(b) = v(a) + \int_a^b a(t)\,dt$$.
+
+## Total distance by hand
+
+Without a calculator, split the interval at the times where $$v$$ changes sign, integrate on each piece, and add the absolute values. With a calculator, integrate $$|v(t)|$$ directly.
+
+<Note title="Position needs a starting point">
+The integral of velocity gives a change in position, not the position itself. If a question asks *where* the particle is, add the initial position.
+</Note>
+
+<WorkedExample title="Splitting at a turn">
+A particle has $$v(t) = t^2 - 4t + 3$$ on $$0 \leq t \leq 3$$. Find its displacement and total distance.
+
+1. $$v(t) = (t - 1)(t - 3)$$: positive on $$(0, 1)$$, negative on $$(1, 3)$$.
+2. $$\int_0^1 v\,dt = \left[\frac{t^3}{3} - 2t^2 + 3t\right]_0^1 = \frac{4}{3}$$.
+3. $$\int_1^3 v\,dt = 0 - \frac{4}{3} = -\frac{4}{3}$$.
+4. Displacement: $$\frac{4}{3} - \frac{4}{3} = 0$$. Distance: $$\frac{4}{3} + \frac{4}{3}$$.
+
+**Answer:** displacement 0; total distance $$\frac{8}{3}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A particle moves along a line with velocity $$v(t) = t^{2} - t$$. What is the total distance traveled by the particle from $$t = 0$$ to $$t = 2$$?
+
+**Answer:** $$1$$
+
+**Why:** Total distance is $$\int_0^{2} |v(t)|\,dt$$; split at $$t = 1$$, where $$v$$ changes sign.
+
+**Working:** $$\int_0^{1} -v\,dt = \frac{1}{6}$$ and $$\int_{1}^{2} v\,dt = \frac{5}{6}$$. Total distance $$= 1$$.
+
+**Mistakes to avoid**
+
+- $$\frac{2}{3}$$: This is the displacement; it subtracts the distance traveled backward.
+- $$2$$: This is the velocity at the final time.
+- $$\frac{4}{3}$$: This counts the backward part twice.
+
+### Worked exam question 2
+
+A particle moves along the x-axis with velocity $$v(t) = t^{2} - 2t$$, and its position at $$t = 0$$ is $$x(0) = 4$$. What is the position of the particle at $$t = 3$$?
+
+**Answer:** $$4$$
+
+**Why:** $$x(3) = x(0) + \int_0^{3} v(t)\,dt$$.
+
+**Working:** $$x(3) = 4 + \int_0^{3} (t^{2} - 2t)\,dt = 4 + 0 = 4$$.
+
+**Mistakes to avoid**
+
+- $$0$$: This is the displacement; add the starting position.
+- $$7$$: This adds the velocity at one instant, not the accumulated change in position.
+- $$\frac{20}{3}$$: This adds the total distance, but position uses the signed displacement.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$9.136$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 9.136$$. The displacement $$\int_0^{5} v(t)\,dt \approx 5.182$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$4.236$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 4.236$$. The displacement $$\int_0^{4} v(t)\,dt \approx 3.925$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$6.971$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 6.971$$. The displacement $$\int_0^{5} v(t)\,dt \approx 4.262$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$5.945$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 5.945$$. The displacement $$\int_0^{4} v(t)\,dt \approx 5.288$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$5.081$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 5.081$$. The displacement $$\int_0^{6} v(t)\,dt \approx 3.092$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$4.820$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 4.820$$. The displacement $$\int_0^{5} v(t)\,dt \approx 3.341$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$7.495$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 7.495$$. The displacement $$\int_0^{6} v(t)\,dt \approx 3.738$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$7.668$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 7.668$$. The displacement $$\int_0^{4} v(t)\,dt \approx 6.650$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$9.934$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 9.934$$. The displacement $$\int_0^{6} v(t)\,dt \approx 4.384$$ is smaller because the particle moves backward part of the time.
+
+### Free-response practice: A particle in motion
+
+A particle moves along the x-axis. Its velocity is given by $$v(t) = 3\sin\left(\frac{t^2}{5}\right) - 1.5$$ for $$0 \leq t \leq 6$$. At time $$t = 0$$ the particle is at position $$x = 3$$.
+
+**(a)** Find the acceleration of the particle at time $$t = 2.5$$. Is the speed of the particle increasing or decreasing at that time? Give a reason.
+
+To earn the point: Gives the correct acceleration. Model answer: $$a(2.5) = v'(2.5) \approx 0.946$$
+
+To earn the point: Concludes about the speed by comparing the signs of velocity and acceleration. Model answer: $$v(2.5) \approx 1.347$$. Velocity and acceleration have the same sign, so the speed is increasing.
+
+**(b)** Find the position of the particle at time $$t = 6$$.
+
+To earn the point: Uses the initial position plus the integral of velocity. Model answer: $$x(6) = 3 + \int_0^{6} v(t)\,dt$$
+
+To earn the point: Gives the correct position. Model answer: $$-2.612$$
+
+**(c)** Find the total distance traveled by the particle over $$0 \leq t \leq 6$$.
+
+To earn the point: Integrates the absolute value of velocity (or splits at the sign changes). Model answer: $$\int_0^{6} |v(t)|\,dt$$
+
+To earn the point: Gives the correct distance. Model answer: $$9.572$$
+
+**(d)** At what times in the interval $$0 < t < 6$$ does the particle change direction? Justify your answer.
+
+To earn the point: Identifies the times where $$v$$ changes sign, with justification. Model answer: $$v(t)$$ changes sign at $$t \approx 1.618$$, $$t \approx 3.618$$ and $$t \approx 5.834$$, so the particle changes direction there.
+
+### Free-response practice: Particle motion without a calculator
+
+A particle moves along the x-axis with velocity $$v(t) = 3t^{2} - 12t + 9$$ for $$t \geq 0$$. At time $$t = 0$$ the particle is at $$x = 2$$.
+
+**(a)** At what times does the particle change direction? Justify your answer.
+
+To earn the point: Gives both times with a sign-change justification. Model answer: $$v(t) = 3(t - 1)(t - 3)$$ changes sign at $$t = 1$$ and $$t = 3$$.
+
+**(b)** Is the speed of the particle increasing or decreasing at time $$t = 4$$? Give a reason.
+
+To earn the point: Finds the velocity and acceleration at the time. Model answer: $$v(4) = 9$$, $$a(4) = 12$$
+
+To earn the point: Concludes from the signs. Model answer: Same signs, so the speed is increasing.
+
+**(c)** Find the position of the particle at time $$t = 5$$.
+
+To earn the point: Uses the initial position and an antiderivative of $$v$$. Model answer: $$x(t) = t^{3} - 6t^{2} + 9t + 2$$
+
+To earn the point: Gives the correct position. Model answer: $$x(5) = 22$$
+
+**(d)** Find the total distance traveled by the particle from $$t = 0$$ to $$t = 5$$.
+
+To earn the point: Splits the motion at the turning points. Model answer: $$|x(1) - x(0)| + |x(3) - x(1)| + |x(5) - x(3)|$$
+
+To earn the point: Gives the correct distance. Model answer: $$28$$

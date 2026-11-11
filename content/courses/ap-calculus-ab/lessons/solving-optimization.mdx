@@ -1,0 +1,177 @@
+---
+objectives:
+  - Solve optimization problems and justify that the answer is a maximum or minimum.
+keyTerms:
+  - term: Global justification
+    definition: 'An argument that the critical point gives the absolute extremum, such as the Candidates Test or a single critical point where the derivative changes sign.'
+checks:
+  - q: 'Finish: maximize $$A(x) = x(20 - x)$$ on $$0 < x < 20$$.'
+    a: '$$A''(x) = 20 - 2x = 0$$ at $$x = 10$$; $$A''$$ changes from positive to negative, so the maximum area is 100.'
+  - q: 'Minimize $$S(x) = x^2 + \frac{128}{x}$$ for $$x > 0$$.'
+    a: '$$S''(x) = 2x - \frac{128}{x^2} = 0$$ at $$x = 4$$; $$S''''(4) > 0$$, so the minimum is $$S(4) = 48$$.'
+sources:
+  - title: Calculus Volume 1, section 4.7 "Applied Optimization Problems"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Once the objective is a function of one variable on a known domain, optimization is a short procedure. The part students skip, and lose points on, is justifying that the answer is truly the best.
+
+## The procedure
+
+1. Differentiate the objective function.
+2. Find critical points in the domain.
+3. **Justify** which gives the maximum or minimum:
+   - **Closed domain:** use the Candidates Test.
+   - **Open domain with one critical point:** show $$f'$$ changes sign there (First Derivative Test), or that $$f''$$ has one sign there; with only one critical point, the relative extremum is absolute.
+4. Answer the question asked, with units: the location, the optimal value, or both.
+
+<Note title="One critical point is special">
+If a continuous function on an interval has exactly one critical point and it is a relative maximum, it is the absolute maximum. This fact justifies most textbook optimization answers.
+</Note>
+
+<WorkedExample title="Closest point on a curve">
+Find the point on $$y = \sqrt{x}$$ closest to $$(3, 0)$$.
+
+1. Distance squared (easier to optimize and minimized at the same point): $$D(x) = (x - 3)^2 + (\sqrt{x})^2 = x^2 - 5x + 9$$.
+2. $$D'(x) = 2x - 5 = 0$$ at $$x = \frac{5}{2}$$.
+3. $$D'$$ changes from negative to positive at $$\frac{5}{2}$$, and it is the only critical point, so it gives the absolute minimum.
+
+**Answer:** the closest point is $$\left(\frac{5}{2}, \sqrt{\frac{5}{2}}\right)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A farmer has 208 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$5408$$. With width $$x$$ perpendicular to the river, $$A = x(208 - 2x)$$, maximized at $$x = 52$$. $$A(x) = x(208 - 2x)$$, $$A'(x) = 208 - 4x = 0$$ at $$x = 52$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$52$$ by $$104$$, with area $$5408$$.
+
+**Q.** An open-top box is made from a 24-inch by 24-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$4$$. $$V = x(24 - 2x)^2$$, $$V' = (24 - 2x)(24 - 6x) = 0$$ at $$x = 4$$. $$V'(x) = (24 - 2x)^2 - 4x(24 - 2x) = (24 - 2x)(24 - 6x)$$. On $$0 < x < 12$$, the only critical point is $$x = 4$$, where $$V'$$ changes from positive to negative.
+
+**Q.** An open-top box is made from a 18-inch by 18-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$3$$. $$V = x(18 - 2x)^2$$, $$V' = (18 - 2x)(18 - 6x) = 0$$ at $$x = 3$$. $$V'(x) = (18 - 2x)^2 - 4x(18 - 2x) = (18 - 2x)(18 - 6x)$$. On $$0 < x < 9$$, the only critical point is $$x = 3$$, where $$V'$$ changes from positive to negative.
+
+**Q.** A farmer has 48 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$288$$. With width $$x$$ perpendicular to the river, $$A = x(48 - 2x)$$, maximized at $$x = 12$$. $$A(x) = x(48 - 2x)$$, $$A'(x) = 48 - 4x = 0$$ at $$x = 12$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$12$$ by $$24$$, with area $$288$$.
+
+**Q.** A farmer has 240 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$7200$$. With width $$x$$ perpendicular to the river, $$A = x(240 - 2x)$$, maximized at $$x = 60$$. $$A(x) = x(240 - 2x)$$, $$A'(x) = 240 - 4x = 0$$ at $$x = 60$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$60$$ by $$120$$, with area $$7200$$.
+
+**Q.** An open-top box is made from a 12-inch by 12-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$2$$. $$V = x(12 - 2x)^2$$, $$V' = (12 - 2x)(12 - 6x) = 0$$ at $$x = 2$$. $$V'(x) = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x)$$. On $$0 < x < 6$$, the only critical point is $$x = 2$$, where $$V'$$ changes from positive to negative.
+
+**Q.** A farmer has 136 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$2312$$. With width $$x$$ perpendicular to the river, $$A = x(136 - 2x)$$, maximized at $$x = 34$$. $$A(x) = x(136 - 2x)$$, $$A'(x) = 136 - 4x = 0$$ at $$x = 34$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$34$$ by $$68$$, with area $$2312$$.
+
+**Q.** A farmer has 64 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$512$$. With width $$x$$ perpendicular to the river, $$A = x(64 - 2x)$$, maximized at $$x = 16$$. $$A(x) = x(64 - 2x)$$, $$A'(x) = 64 - 4x = 0$$ at $$x = 16$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$16$$ by $$32$$, with area $$512$$.
+
+**Q.** An open-top box is made from a 6-inch by 6-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$1$$. $$V = x(6 - 2x)^2$$, $$V' = (6 - 2x)(6 - 6x) = 0$$ at $$x = 1$$. $$V'(x) = (6 - 2x)^2 - 4x(6 - 2x) = (6 - 2x)(6 - 6x)$$. On $$0 < x < 3$$, the only critical point is $$x = 1$$, where $$V'$$ changes from positive to negative.
+
+**Q.** A farmer has 96 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$1152$$. With width $$x$$ perpendicular to the river, $$A = x(96 - 2x)$$, maximized at $$x = 24$$. $$A(x) = x(96 - 2x)$$, $$A'(x) = 96 - 4x = 0$$ at $$x = 24$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$24$$ by $$48$$, with area $$1152$$.
+
+**Q.** An open-top box is made from a 36-inch by 36-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$6$$. $$V = x(36 - 2x)^2$$, $$V' = (36 - 2x)(36 - 6x) = 0$$ at $$x = 6$$. $$V'(x) = (36 - 2x)^2 - 4x(36 - 2x) = (36 - 2x)(36 - 6x)$$. On $$0 < x < 18$$, the only critical point is $$x = 6$$, where $$V'$$ changes from positive to negative.
+
+**Q.** A farmer has 128 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$2048$$. With width $$x$$ perpendicular to the river, $$A = x(128 - 2x)$$, maximized at $$x = 32$$. $$A(x) = x(128 - 2x)$$, $$A'(x) = 128 - 4x = 0$$ at $$x = 32$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$32$$ by $$64$$, with area $$2048$$.
+
+**Q.** A farmer has 152 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$2888$$. With width $$x$$ perpendicular to the river, $$A = x(152 - 2x)$$, maximized at $$x = 38$$. $$A(x) = x(152 - 2x)$$, $$A'(x) = 152 - 4x = 0$$ at $$x = 38$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$38$$ by $$76$$, with area $$2888$$.
+
+**Q.** A farmer has 216 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$5832$$. With width $$x$$ perpendicular to the river, $$A = x(216 - 2x)$$, maximized at $$x = 54$$. $$A(x) = x(216 - 2x)$$, $$A'(x) = 216 - 4x = 0$$ at $$x = 54$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$54$$ by $$108$$, with area $$5832$$.
+
+**Q.** A farmer has 88 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$968$$. With width $$x$$ perpendicular to the river, $$A = x(88 - 2x)$$, maximized at $$x = 22$$. $$A(x) = x(88 - 2x)$$, $$A'(x) = 88 - 4x = 0$$ at $$x = 22$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$22$$ by $$44$$, with area $$968$$.
+
+**Q.** A farmer has 80 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$800$$. With width $$x$$ perpendicular to the river, $$A = x(80 - 2x)$$, maximized at $$x = 20$$. $$A(x) = x(80 - 2x)$$, $$A'(x) = 80 - 4x = 0$$ at $$x = 20$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$20$$ by $$40$$, with area $$800$$.
+
+**Q.** An open-top box is made from a 30-inch by 30-inch square of cardboard by cutting equal squares of side $$x$$ from each corner and folding up the sides. What value of $$x$$ gives the box its maximum volume?
+
+**A.** $$5$$. $$V = x(30 - 2x)^2$$, $$V' = (30 - 2x)(30 - 6x) = 0$$ at $$x = 5$$. $$V'(x) = (30 - 2x)^2 - 4x(30 - 2x) = (30 - 2x)(30 - 6x)$$. On $$0 < x < 15$$, the only critical point is $$x = 5$$, where $$V'$$ changes from positive to negative.
+
+**Q.** A farmer has 184 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$4232$$. With width $$x$$ perpendicular to the river, $$A = x(184 - 2x)$$, maximized at $$x = 46$$. $$A(x) = x(184 - 2x)$$, $$A'(x) = 184 - 4x = 0$$ at $$x = 46$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$46$$ by $$92$$, with area $$4232$$.
+
+**Q.** A farmer has 200 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$5000$$. With width $$x$$ perpendicular to the river, $$A = x(200 - 2x)$$, maximized at $$x = 50$$. $$A(x) = x(200 - 2x)$$, $$A'(x) = 200 - 4x = 0$$ at $$x = 50$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$50$$ by $$100$$, with area $$5000$$.
+
+**Q.** A farmer has 168 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$3528$$. With width $$x$$ perpendicular to the river, $$A = x(168 - 2x)$$, maximized at $$x = 42$$. $$A(x) = x(168 - 2x)$$, $$A'(x) = 168 - 4x = 0$$ at $$x = 42$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$42$$ by $$84$$, with area $$3528$$.
+
+**Q.** A farmer has 40 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$200$$. With width $$x$$ perpendicular to the river, $$A = x(40 - 2x)$$, maximized at $$x = 10$$. $$A(x) = x(40 - 2x)$$, $$A'(x) = 40 - 4x = 0$$ at $$x = 10$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$10$$ by $$20$$, with area $$200$$.
+
+**Q.** A farmer has 192 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$4608$$. With width $$x$$ perpendicular to the river, $$A = x(192 - 2x)$$, maximized at $$x = 48$$. $$A(x) = x(192 - 2x)$$, $$A'(x) = 192 - 4x = 0$$ at $$x = 48$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$48$$ by $$96$$, with area $$4608$$.
+
+**Q.** A farmer has 224 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$6272$$. With width $$x$$ perpendicular to the river, $$A = x(224 - 2x)$$, maximized at $$x = 56$$. $$A(x) = x(224 - 2x)$$, $$A'(x) = 224 - 4x = 0$$ at $$x = 56$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$56$$ by $$112$$, with area $$6272$$.
+
+**Q.** A farmer has 160 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$3200$$. With width $$x$$ perpendicular to the river, $$A = x(160 - 2x)$$, maximized at $$x = 40$$. $$A(x) = x(160 - 2x)$$, $$A'(x) = 160 - 4x = 0$$ at $$x = 40$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$40$$ by $$80$$, with area $$3200$$.
+
+**Q.** A farmer has 112 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$1568$$. With width $$x$$ perpendicular to the river, $$A = x(112 - 2x)$$, maximized at $$x = 28$$. $$A(x) = x(112 - 2x)$$, $$A'(x) = 112 - 4x = 0$$ at $$x = 28$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$28$$ by $$56$$, with area $$1568$$.
+
+**Q.** A farmer has 232 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$6728$$. With width $$x$$ perpendicular to the river, $$A = x(232 - 2x)$$, maximized at $$x = 58$$. $$A(x) = x(232 - 2x)$$, $$A'(x) = 232 - 4x = 0$$ at $$x = 58$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$58$$ by $$116$$, with area $$6728$$.
+
+**Q.** A farmer has 56 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$392$$. With width $$x$$ perpendicular to the river, $$A = x(56 - 2x)$$, maximized at $$x = 14$$. $$A(x) = x(56 - 2x)$$, $$A'(x) = 56 - 4x = 0$$ at $$x = 14$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$14$$ by $$28$$, with area $$392$$.
+
+**Q.** A farmer has 104 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$1352$$. With width $$x$$ perpendicular to the river, $$A = x(104 - 2x)$$, maximized at $$x = 26$$. $$A(x) = x(104 - 2x)$$, $$A'(x) = 104 - 4x = 0$$ at $$x = 26$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$26$$ by $$52$$, with area $$1352$$.
+
+**Q.** A farmer has 176 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$3872$$. With width $$x$$ perpendicular to the river, $$A = x(176 - 2x)$$, maximized at $$x = 44$$. $$A(x) = x(176 - 2x)$$, $$A'(x) = 176 - 4x = 0$$ at $$x = 44$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$44$$ by $$88$$, with area $$3872$$.
+
+**Q.** A farmer has 120 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$1800$$. With width $$x$$ perpendicular to the river, $$A = x(120 - 2x)$$, maximized at $$x = 30$$. $$A(x) = x(120 - 2x)$$, $$A'(x) = 120 - 4x = 0$$ at $$x = 30$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$30$$ by $$60$$, with area $$1800$$.
+
+**Q.** A farmer has 144 meters of fencing to enclose a rectangular field along a straight river. No fence is needed along the river. What is the largest possible area of the field, in square meters?
+
+**A.** $$2592$$. With width $$x$$ perpendicular to the river, $$A = x(144 - 2x)$$, maximized at $$x = 36$$. $$A(x) = x(144 - 2x)$$, $$A'(x) = 144 - 4x = 0$$ at $$x = 36$$, and $$A'' = -4 < 0$$, so this is a maximum. The dimensions are $$36$$ by $$72$$, with area $$2592$$.

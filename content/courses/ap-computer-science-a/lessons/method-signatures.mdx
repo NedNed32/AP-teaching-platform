@@ -1,0 +1,105 @@
+---
+objectives:
+  - Identify the parts of a method signature and header.
+  - Explain overloading and how Java chooses which method to call.
+keyTerms:
+  - term: Method signature
+    definition: 'The method name and the ordered list of parameter types.'
+  - term: Overloading
+    definition: 'Defining several methods with the same name but different parameter lists.'
+  - term: void
+    definition: 'A return type meaning the method returns no value.'
+checks:
+  - q: 'Can two methods have the same name and the same parameter types but different return types?'
+    a: 'No. That is not valid overloading; the signatures would be the same.'
+  - q: 'What is the return type of `public static double area(int r)`?'
+    a: 'double.'
+sources:
+  - title: CSAwesome, "Using Objects"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A method header tells you everything you need to call the method: what it is called, what it needs and what it gives back.
+
+## Anatomy of a header
+
+```java
+public static double average(int a, int b)
+```
+
+| Part | Meaning |
+| --- | --- |
+| `public` | access: usable from other classes |
+| `static` | belongs to the class, not an object |
+| `double` | return type |
+| `average` | name |
+| `(int a, int b)` | parameters |
+
+The **signature** is just `average(int, int)`.
+
+## Calling a method
+
+Arguments must match the parameters in number, order and type:
+
+```java
+double m = average(4, 7);
+```
+
+A `void` method performs an action but returns nothing, so its call is a statement on its own: `printReport();`.
+
+## Overloading
+
+```java
+int max(int a, int b)
+double max(double a, double b)
+int max(int a, int b, int c)
+```
+
+Java chooses the version whose parameter list matches the arguments.
+
+<Note title="Return values must be used">
+A non-void method's result is lost unless you store it, print it or use it in an expression. Calling `average(4, 7);` alone compiles but does nothing useful.
+</Note>
+
+<WorkedExample title="Which call compiles?">
+Given `public static int scale(int x, double f)`, which call is valid: (I) `scale(3.0, 2)` (II) `scale(3, 2)` (III) `int r = scale(3, 2.5);`?
+
+1. (I) `3.0` is a double, but the first parameter is an int: does not compile.
+2. (II) 2 is widened to 2.0: compiles (the result is discarded).
+3. (III) compiles and stores the int result.
+
+**Answer:** II and III.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following method.
+
+```java
+public static int f(int x) {
+    return x * 2 - 3;
+}
+```
+
+What value is returned by the call `f(f(2))`?
+
+**Answer:** `-1`
+
+**Why:** f(2) is 1, and f(1) is -1.
+
+**Working:** Evaluate the inner call first: f(2) = 1. Then f(1) = -1.
+
+**Mistakes to avoid**
+
+- `1`: The outer call uses the result of the inner call.
+- `2`: The outer call also subtracts.
+- `5`: The inner call subtracts before the outer call multiplies.

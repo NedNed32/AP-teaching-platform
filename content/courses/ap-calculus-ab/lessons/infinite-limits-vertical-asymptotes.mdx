@@ -1,0 +1,78 @@
+---
+objectives:
+  - Interpret infinite limits and connect them to vertical asymptotes.
+  - Determine the sign of an infinite one-sided limit.
+keyTerms:
+  - term: Infinite limit
+    definition: '$$\lim_{x \to a} f(x) = \infty$$ means $$f(x)$$ grows without bound as $$x$$ approaches $$a$$. The limit does not exist as a number.'
+  - term: Vertical asymptote
+    definition: 'The line $$x = a$$ is a vertical asymptote if at least one one-sided limit at $$a$$ is $$\infty$$ or $$-\infty$$.'
+checks:
+  - q: 'Find $$\lim_{x \to 2^-} \frac{3}{x - 2}$$.'
+    a: '$$-\infty$$: the numerator is positive and the denominator is a small negative number.'
+  - q: 'Does $$\frac{x - 1}{x^2 - 1}$$ have a vertical asymptote at $$x = 1$$?'
+    a: 'No. It simplifies to $$\frac{1}{x + 1}$$, so $$x = 1$$ is a hole. The asymptote is $$x = -1$$.'
+sources:
+  - title: Calculus Volume 1, section 2.2 "The Limit of a Function" (Infinite Limits)
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When a denominator heads to 0 while the numerator does not, the fraction does not settle on a number: it blows up. Writing $$\infty$$ records *how* the limit fails to exist.
+
+<Figure src="assets/lessons/asymptotes.svg" alt="The graph of (2x + 1)/(x - 1), with a dashed vertical asymptote at x = 1 and a dashed horizontal asymptote at y = 2." caption="f(x) = (2x + 1)/(x − 1): vertical asymptote x = 1, horizontal asymptote y = 2." />
+
+## Reading the sign
+
+For $$f(x) = \frac{2x + 1}{x - 1}$$ near $$x = 1$$, the numerator approaches 3 (positive).
+
+- From the right, $$x - 1$$ is a small **positive** number, so $$f(x) \to +\infty$$.
+- From the left, $$x - 1$$ is a small **negative** number, so $$f(x) \to -\infty$$.
+
+So $$\lim_{x \to 1^+} f(x) = \infty$$, $$\lim_{x \to 1^-} f(x) = -\infty$$, and $$x = 1$$ is a vertical asymptote.
+
+## Finding vertical asymptotes of rational functions
+
+1. Factor the numerator and denominator.
+2. Cancel common factors (these give holes, not asymptotes).
+3. Each remaining zero of the denominator gives a vertical asymptote.
+
+Other functions have asymptotes too: $$\ln x$$ at $$x = 0$$ and $$\tan x$$ at $$x = \frac{\pi}{2} + k\pi$$.
+
+<Note title="Infinity is not a number">
+$$\lim_{x \to a} f(x) = \infty$$ is a description, not a value; the limit still does not exist. If one side gives $$\infty$$ and the other $$-\infty$$, the notation $$\lim_{x \to a} f(x)$$ cannot be given any single value.
+</Note>
+
+<WorkedExample title="Signs on each side">
+Find $$\lim_{x \to -3^+} \frac{x}{(x + 3)^2}$$ and $$\lim_{x \to -3^-} \frac{x}{(x + 3)^2}$$.
+
+1. The numerator approaches $$-3$$ (negative).
+2. The denominator $$(x + 3)^2$$ is positive on both sides and approaches 0.
+3. Negative divided by a tiny positive number is a large negative number.
+
+**Answer:** both one-sided limits are $$-\infty$$, so $$\lim_{x \to -3} \frac{x}{(x + 3)^2} = -\infty$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = \frac{x^{2} + 2x - 3}{x^{2} + x - 2}$$. Which of the following lists every vertical asymptote of the graph of $$f$$?
+
+**Answer:** $$x = -2$$
+
+**Why:** The factor $$x - 1$$ cancels, leaving a hole at $$x = 1$$. Only $$x = -2$$ makes the simplified denominator zero.
+
+**Working:** Factor: $$f(x) = \frac{(x - 1)(x + 3)}{(x - 1)(x + 2)}$$. The common factor gives a hole at $$x = 1$$; near $$x = -2$$ the denominator approaches 0 while the numerator does not, so $$x = -2$$ is the only vertical asymptote.
+
+**Mistakes to avoid**
+
+- $$x = 1 \text{ and } x = -2$$: At $$x = 1$$ the numerator is also zero; the common factor cancels, giving a removable discontinuity (a hole), not an asymptote.
+- $$x = 1$$: $$x = 1$$ is a hole, because its factor cancels.
+- $$x = -3$$: $$x = -3$$ is a zero of the numerator, so it is an x-intercept, not an asymptote.

@@ -1,0 +1,137 @@
+---
+objectives:
+  - Find volumes of revolution about horizontal or vertical lines other than the axes, using discs.
+keyTerms:
+  - term: Radius about a line
+    definition: 'The distance from the axis of revolution to the edge of the region: $$|f(x) - k|$$ for the line $$y = k$$.'
+checks:
+  - q: 'The region between $$y = x^2$$ and $$y = 4$$ is revolved about $$y = 4$$. What is the radius?'
+    a: '$$4 - x^2$$.'
+  - q: 'The region is revolved about $$y = -1$$ and touches that line. What is the radius to $$y = f(x)$$?'
+    a: '$$f(x) - (-1) = f(x) + 1$$.'
+sources:
+  - title: Calculus Volume 1, section 6.2 "Determining Volumes by Slicing"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The axis of revolution does not have to be a coordinate axis. Revolving around $$y = 3$$ or $$x = -2$$ works the same way; only the radius changes.
+
+## The radius is a distance
+
+For a horizontal axis $$y = k$$, the radius from the axis to the curve $$y = f(x)$$ is
+
+$$
+R(x) = |f(x) - k|,
+$$
+
+usually written as (larger $$y$$) minus (smaller $$y$$). For a vertical axis $$x = h$$, the radius to the curve $$x = g(y)$$ is (larger $$x$$) minus (smaller $$x$$).
+
+## The method
+
+1. Sketch the region and the axis.
+2. Confirm the region touches the axis (otherwise use washers).
+3. Write the radius as a distance.
+4. $$V = \pi\int R^2$$, integrating along the axis direction.
+
+<Note title="Check with a test point">
+Plug in one value of $$x$$ and make sure your radius gives a positive distance that matches the sketch. A sign error here squares away and gives a believable but wrong answer.
+</Note>
+
+<WorkedExample title="Revolving about the top boundary">
+The region bounded by $$y = x^2$$ and $$y = 1$$ is revolved about the line $$y = 1$$. Find the volume.
+
+1. The region runs from $$x = -1$$ to $$x = 1$$ and touches $$y = 1$$, so discs apply.
+2. Radius: $$R(x) = 1 - x^2$$.
+3. $$V = \pi\int_{-1}^{1} (1 - x^2)^2\,dx = 2\pi\int_0^1 (1 - 2x^2 + x^4)\,dx = 2\pi\left(1 - \frac{2}{3} + \frac{1}{5}\right)$$.
+
+**Answer:** $$\frac{16\pi}{15} \approx 3.351$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Let $$R$$ be the region bounded by $$y = x^2$$ and $$y = 4$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = 4$$?
+
+**A.** $$\pi\int_{-2}^{2} (4 - x^2)^2\,dx$$. Each disc has radius $$4 - x^2$$, the distance from the curve to the axis. Revolving about $$y = 4$$, which is the top boundary, gives discs of radius $$4 - x^2$$.
+
+**Q.** Let $$R$$ be the region enclosed by $$y = x$$ and $$y = x^2$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = -2$$?
+
+**A.** $$\pi\int_0^1 \left[(x + 2)^2 - (x^2 + 2)^2\right]dx$$. The radii are measured from $$y = -2$$: outer $$x + 2$$, inner $$x^2 + 2$$. Washers: $$V = \pi\int_0^1 \left[R(x)^2 - r(x)^2\right]dx$$ with $$R = x - (-2)$$ and $$r = x^2 - (-2)$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = x^2$$ and $$y = 9$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = 9$$?
+
+**A.** $$\pi\int_{-3}^{3} (9 - x^2)^2\,dx$$. Each disc has radius $$9 - x^2$$, the distance from the curve to the axis. Revolving about $$y = 9$$, which is the top boundary, gives discs of radius $$9 - x^2$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = x^2$$ and $$y = 1$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = 1$$?
+
+**A.** $$\pi\int_{-1}^{1} (1 - x^2)^2\,dx$$. Each disc has radius $$1 - x^2$$, the distance from the curve to the axis. Revolving about $$y = 1$$, which is the top boundary, gives discs of radius $$1 - x^2$$.
+
+**Q.** Let $$R$$ be the region enclosed by $$y = x$$ and $$y = x^2$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?
+
+**A.** $$\pi\int_0^1 \left[(x + 3)^2 - (x^2 + 3)^2\right]dx$$. The radii are measured from $$y = -3$$: outer $$x + 3$$, inner $$x^2 + 3$$. Washers: $$V = \pi\int_0^1 \left[R(x)^2 - r(x)^2\right]dx$$ with $$R = x - (-3)$$ and $$r = x^2 - (-3)$$.
+
+**Q.** Let $$R$$ be the region enclosed by $$y = x$$ and $$y = x^2$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = -1$$?
+
+**A.** $$\pi\int_0^1 \left[(x + 1)^2 - (x^2 + 1)^2\right]dx$$. The radii are measured from $$y = -1$$: outer $$x + 1$$, inner $$x^2 + 1$$. Washers: $$V = \pi\int_0^1 \left[R(x)^2 - r(x)^2\right]dx$$ with $$R = x - (-1)$$ and $$r = x^2 - (-1)$$.
+
+**Q.** Let $$R$$ be the region enclosed by $$y = x$$ and $$y = x^2$$. Which of the following gives the volume of the solid generated when $$R$$ is revolved about the line $$y = -4$$?
+
+**A.** $$\pi\int_0^1 \left[(x + 4)^2 - (x^2 + 4)^2\right]dx$$. The radii are measured from $$y = -4$$: outer $$x + 4$$, inner $$x^2 + 4$$. Washers: $$V = \pi\int_0^1 \left[R(x)^2 - r(x)^2\right]dx$$ with $$R = x - (-4)$$ and $$r = x^2 - (-4)$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 4$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?
+
+**A.** $$84.000$$. Washers with outer radius $$f(x) + 3$$ and inner radius $$3$$. $$V = \pi\int_0^{4} \left[(f(x) + 3)^2 - 3^2\right]dx \approx 84.000$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 3$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -2$$?
+
+**A.** $$44.612$$. Washers with outer radius $$f(x) + 2$$ and inner radius $$2$$. $$V = \pi\int_0^{3} \left[(f(x) + 2)^2 - 2^2\right]dx \approx 44.612$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 4$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -2$$?
+
+**A.** $$59.925$$. Washers with outer radius $$f(x) + 2$$ and inner radius $$2$$. $$V = \pi\int_0^{4} \left[(f(x) + 2)^2 - 2^2\right]dx \approx 59.925$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 5$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -1$$?
+
+**A.** $$43.916$$. Washers with outer radius $$f(x) + 1$$ and inner radius $$1$$. $$V = \pi\int_0^{5} \left[(f(x) + 1)^2 - 1^2\right]dx \approx 43.916$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 2$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -2$$?
+
+**A.** $$28.076$$. Washers with outer radius $$f(x) + 2$$ and inner radius $$2$$. $$V = \pi\int_0^{2} \left[(f(x) + 2)^2 - 2^2\right]dx \approx 28.076$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 2$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -1$$?
+
+**A.** $$16.709$$. Washers with outer radius $$f(x) + 1$$ and inner radius $$1$$. $$V = \pi\int_0^{2} \left[(f(x) + 1)^2 - 1^2\right]dx \approx 16.709$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 3$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -1$$?
+
+**A.** $$26.688$$. Washers with outer radius $$f(x) + 1$$ and inner radius $$1$$. $$V = \pi\int_0^{3} \left[(f(x) + 1)^2 - 1^2\right]dx \approx 26.688$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 4$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -1$$?
+
+**A.** $$35.851$$. Washers with outer radius $$f(x) + 1$$ and inner radius $$1$$. $$V = \pi\int_0^{4} \left[(f(x) + 1)^2 - 1^2\right]dx \approx 35.851$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 5$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -2$$?
+
+**A.** $$73.573$$. Washers with outer radius $$f(x) + 2$$ and inner radius $$2$$. $$V = \pi\int_0^{5} \left[(f(x) + 2)^2 - 2^2\right]dx \approx 73.573$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 2$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?
+
+**A.** $$39.443$$. Washers with outer radius $$f(x) + 3$$ and inner radius $$3$$. $$V = \pi\int_0^{2} \left[(f(x) + 3)^2 - 3^2\right]dx \approx 39.443$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 3$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?
+
+**A.** $$62.535$$. Washers with outer radius $$f(x) + 3$$ and inner radius $$3$$. $$V = \pi\int_0^{3} \left[(f(x) + 3)^2 - 3^2\right]dx \approx 62.535$$.
+
+**Q.** Let $$R$$ be the region bounded by $$y = \sqrt{x}\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 5$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?
+
+**A.** $$103.231$$. Washers with outer radius $$f(x) + 3$$ and inner radius $$3$$. $$V = \pi\int_0^{5} \left[(f(x) + 3)^2 - 3^2\right]dx \approx 103.231$$.

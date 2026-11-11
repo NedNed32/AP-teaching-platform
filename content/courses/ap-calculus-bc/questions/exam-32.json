@@ -1,0 +1,2313 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e32-q02-s",
+      "text": "The function $$f$$ is defined for all real numbers except $$x = 3$$. Selected values of $$f$$ are shown.",
+      "table": {
+        "caption": "Values of f near x = 3",
+        "columns": [
+          {
+            "key": "x",
+            "label": "$$x$$"
+          },
+          {
+            "key": "fx",
+            "label": "$$f(x)$$"
+          }
+        ],
+        "rows": [
+          {
+            "x": 2.9,
+            "fx": -5.1
+          },
+          {
+            "x": 2.99,
+            "fx": -5.01
+          },
+          {
+            "x": 2.999,
+            "fx": -5.001
+          },
+          {
+            "x": 3.001,
+            "fx": -7.999
+          },
+          {
+            "x": 3.01,
+            "fx": -7.99
+          },
+          {
+            "x": 3.1,
+            "fx": -7.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-q34-s",
+      "text": "The function $$g$$ is differentiable. Selected values of $$g$$ are shown.",
+      "table": {
+        "caption": "Values of g",
+        "columns": [
+          {
+            "key": "x",
+            "label": "$$x$$"
+          },
+          {
+            "key": "g",
+            "label": "$$g(x)$$"
+          }
+        ],
+        "rows": [
+          {
+            "x": 1,
+            "g": -5
+          },
+          {
+            "x": 3,
+            "g": 9
+          },
+          {
+            "x": 4,
+            "g": 18
+          },
+          {
+            "x": 6,
+            "g": 7
+          },
+          {
+            "x": 9,
+            "g": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-frq1-s",
+      "text": "A particle moves along the x-axis. Its velocity is given by $$v(t) = 5\\sin\\left(\\frac{t^2}{5}\\right) - 1$$ for $$0 \\leq t \\leq 6$$. At time $$t = 0$$ the particle is at position $$x = -1$$."
+    },
+    {
+      "id": "e32-frq2-s",
+      "text": "A particle moves in the xy-plane so that for $$0 \\leq t \\leq 3$$, $$\\frac{dx}{dt} = 3\\sin\\left(\\frac{t^2}{3}\\right) + 0.5$$ and $$\\frac{dy}{dt} = \\cos(t)\\,e^{t/4}$$. At $$t = 0$$ the particle is at $$(0, 0)$$."
+    },
+    {
+      "id": "e32-frq3-s",
+      "text": "Consider the differential equation $$\\frac{dy}{dx} = 2x(y + 1)$$. Let $$y = f(x)$$ be the particular solution with $$f(1) = -2$$."
+    },
+    {
+      "id": "e32-frq4-s",
+      "text": "The continuous function $$f$$ is defined on $$0 \\leq x \\leq 6$$. Its graph consists of line segments, as shown. Let $$g(x) = \\int_{2}^{x} f(t)\\,dt$$.",
+      "image": {
+        "src": "assets/exams/e32-frq4-s.svg",
+        "alt": "Graph of f: line segments through (0, -3), (1, -1), (2, 1), (3, -3), (4, 1), (5, -3), (6, 3)."
+      }
+    },
+    {
+      "id": "e32-frq5-s",
+      "text": "Let $$f(x) = 2x^{3} + 3x^{2} - 12x + 4$$."
+    },
+    {
+      "id": "e32-frq6-s",
+      "text": "A function $$f$$ has derivatives of all orders. Selected values are $$f(3) = 5$$, $$f'(3) = 4$$, $$f''(3) = 5$$ and $$f'''(3) = -7$$. For all $$x$$, $$|f^{(4)}(x)| \\leq 12$$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "e32-q01",
+      "type": "mcq",
+      "topics": [
+        "ftc-definite-integrals",
+        "antiderivatives-basic-rules"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "What is $$\\int_{-1}^{2} \\left(-3x^{2} + 4x - 3\\right)dx$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-6$$",
+          "why": "This is F(b) only; subtract F(a) as well."
+        },
+        {
+          "id": "b",
+          "text": "$$-12$$",
+          "why": "Correct. An antiderivative is $$F(x) = -x^{3} + 2x^{2} - 3x$$; $$F(2) - F(-1) = -12$$."
+        },
+        {
+          "id": "c",
+          "text": "$$0$$",
+          "why": "This adds F(a) instead of subtracting it."
+        },
+        {
+          "id": "d",
+          "text": "$$3$$",
+          "why": "This subtracts values of the integrand instead of an antiderivative."
+        }
+      ],
+      "answer": "b",
+      "explanation": "By the Fundamental Theorem of Calculus, $$\\int_{-1}^{2} f(x)\\,dx = F(2) - F(-1)$$ with $$F(x) = -x^{3} + 2x^{2} - 3x$$. That is $$-6 - (6) = -12$$."
+    },
+    {
+      "id": "e32-q02",
+      "type": "mcq",
+      "topics": [
+        "limits-from-tables"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 1,
+      "stimuli": [
+        "e32-q02-s"
+      ],
+      "stem": "Based on the table, which of the following is the best estimate of $$\\lim_{x \\to 3} f(x)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The limit does not exist.",
+          "why": "Correct. From the left the outputs approach -5; from the right they approach -8. The one-sided limits differ."
+        },
+        {
+          "id": "b",
+          "text": "$$-8$$",
+          "why": "This is only the right-hand trend."
+        },
+        {
+          "id": "c",
+          "text": "$$-5$$",
+          "why": "This is only the left-hand trend."
+        },
+        {
+          "id": "d",
+          "text": "$$-\\frac{13}{2}$$",
+          "why": "Averaging the two sides is never how a limit is found."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Read the table toward $$x = 3$$ from each side. The left side approaches -5 and the right side approaches -8, so the two-sided limit does not exist."
+    },
+    {
+      "id": "e32-q03",
+      "type": "mcq",
+      "topics": [
+        "parametric-derivatives"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A curve is defined by $$x = t^{2} + 3t$$ and $$y = t^{3} + 4t$$. What is $$\\frac{dy}{dx}$$ at $$t = -2$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-6$$",
+          "why": "This divides second derivatives, which is not the slope."
+        },
+        {
+          "id": "b",
+          "text": "$$16$$",
+          "why": "This is $$\\frac{dy}{dt}$$ alone."
+        },
+        {
+          "id": "c",
+          "text": "$$-\\frac{1}{16}$$",
+          "why": "This is $$\\frac{dx/dt}{dy/dt}$$, upside down."
+        },
+        {
+          "id": "d",
+          "text": "$$-16$$",
+          "why": "Correct. $$\\frac{dy/dt}{dx/dt} = \\frac{16}{-1}$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$\\frac{dx}{dt} = 2t + 3$$ and $$\\frac{dy}{dt} = 3t^{2} + 4$$. At $$t = -2$$: $$\\frac{16}{-1}$$."
+    },
+    {
+      "id": "e32-q04",
+      "type": "mcq",
+      "topics": [
+        "local-linearity"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Using the line tangent to $$f(x) = \\sqrt{x}$$ at $$x = 49$$, what is the approximation of $$\\sqrt{52}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{95}{14}$$",
+          "why": "Sign error: the change in x is added, not subtracted."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{52}{7}$$",
+          "why": "The derivative of $$\\sqrt{x}$$ is $$\\frac{1}{2\\sqrt{x}}$$; this forgets the 2."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{101}{14}$$",
+          "why": "Correct. $$L(x) = 7 + \\frac{1}{14}(x - 49)$$, so $$L(52) = 7 + \\frac{3}{14}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{17}{2}$$",
+          "why": "This uses slope $$\\frac{1}{2}$$ instead of $$f'(49) = \\frac{1}{14}$$."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$f(49) = 7$$ and $$f'(49) = \\frac{1}{2\\sqrt{49}} = \\frac{1}{14}$$. So $$\\sqrt{52} \\approx 7 + \\frac{1}{14}(3) = \\frac{101}{14}$$."
+    },
+    {
+      "id": "e32-q05",
+      "type": "mcq",
+      "topics": [
+        "geometric-series"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "What is the sum of $$\\sum_{n=1}^{\\infty} 3\\left(\\frac{2}{3}\\right)^n$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3$$",
+          "why": "This divides by $$r$$ instead of $$1 - r$$."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{9}{5}$$",
+          "why": "The formula is $$\\frac{a}{1 - r}$$, not $$\\frac{a}{1 + r}$$."
+        },
+        {
+          "id": "c",
+          "text": "$$6$$",
+          "why": "Correct. Geometric with first term $$2$$ and ratio $$\\frac{2}{3}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$9$$",
+          "why": "The first term depends on the starting index; check the term for the first value of n."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$|r| = \\left|\\frac{2}{3}\\right| < 1$$, so the series converges to $$\\frac{2}{1 - \\left(\\frac{2}{3}\\right)} = 6$$."
+    },
+    {
+      "id": "e32-q06",
+      "type": "mcq",
+      "topics": [
+        "properties-of-definite-integrals"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "If $$\\int_0^{4} f(x)\\,dx = 4$$ and $$\\int_0^{7} f(x)\\,dx = 11$$, what is $$\\int_{4}^{7} \\left(-3f(x) + 5\\right)dx$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-16$$",
+          "why": "The integral of the constant $$5$$ over an interval of length $$3$$ is $$15$$, not $$5$$."
+        },
+        {
+          "id": "b",
+          "text": "$$-30$$",
+          "why": "This adds the two given integrals; the integral from a to b is their difference."
+        },
+        {
+          "id": "c",
+          "text": "$$22$$",
+          "why": "This forgets to multiply the integral of $$f$$ by $$-3$$."
+        },
+        {
+          "id": "d",
+          "text": "$$-6$$",
+          "why": "Correct. $$\\int_{4}^{7} f = 11 - (4) = 7$$, so the integral is $$-3(7) + 5(3)$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$\\int_{4}^{7} f(x)\\,dx = \\int_0^{7} f - \\int_0^{4} f = 7$$. By linearity, the requested integral is $$-3 \\cdot 7 + 5 \\cdot 3 = -6$$."
+    },
+    {
+      "id": "e32-q07",
+      "type": "mcq",
+      "topics": [
+        "chain-rule"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "If $$f(x) = (-x^{2} - 4)^{2}$$, what is $$f'(-1)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$25$$",
+          "why": "This is the value of the function, not its derivative."
+        },
+        {
+          "id": "b",
+          "text": "$$4$$",
+          "why": "This applies the power rule to the derivative of the inside instead of to the inside function."
+        },
+        {
+          "id": "c",
+          "text": "$$-10$$",
+          "why": "This differentiates the outer power but leaves out the derivative of the inside function."
+        },
+        {
+          "id": "d",
+          "text": "$$-20$$",
+          "why": "Correct. $$f'(x) = 2(-x^{2} - 4) \\cdot (-2x)$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Chain rule: $$f'(x) = 2(-x^{2} - 4) \\cdot (-2x)$$. At $$x = -1$$: $$2(-5) \\cdot (2) = -20$$."
+    },
+    {
+      "id": "e32-q08",
+      "type": "mcq",
+      "topics": [
+        "concavity",
+        "connecting-f-fprime-fdoubleprime"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "At what value of $$x$$ does the graph of $$f(x) = 2x^{3} - 12x^{2} + 4x - 5$$ have a point of inflection?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2$$",
+          "why": "Correct. $$f''(x) = 12x - 24$$ is zero and changes sign at $$x = 2$$."
+        },
+        {
+          "id": "b",
+          "text": "$$-2$$",
+          "why": "Sign error when solving f″(x) = 0."
+        },
+        {
+          "id": "c",
+          "text": "$$3$$",
+          "why": "This is −b/(2a), the vertex formula for a parabola, applied to the cubic's coefficients. Set f″(x) = 0 instead."
+        },
+        {
+          "id": "d",
+          "text": "$$0$$",
+          "why": "Inflection points are where f″ changes sign, not where f″ has its constant term."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$f'(x) = 6x^{2} - 24x + 4$$ and $$f''(x) = 12x - 24$$. $$f''$$ is linear, so it changes sign at its zero, $$x = 2$$."
+    },
+    {
+      "id": "e32-q09",
+      "type": "mcq",
+      "topics": [
+        "u-substitution",
+        "ftc-definite-integrals"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "What is $$\\int_0^{\\pi/5} \\sin(5x)\\,dx$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{2}{5}$$",
+          "why": "Correct. $$-\\frac{1}{5}\\cos(5x)\\Big|_0^{\\pi/5} = -\\frac{1}{5}(-1 - 1) = \\frac{2}{5}$$."
+        },
+        {
+          "id": "b",
+          "text": "$$0$$",
+          "why": "This makes a sign error in the cosine values; the region is entirely above the axis, so the integral is positive."
+        },
+        {
+          "id": "c",
+          "text": "$$2$$",
+          "why": "This forgets the factor $$\\frac{1}{5}$$ from the inner function."
+        },
+        {
+          "id": "d",
+          "text": "$$-\\frac{2}{5}$$",
+          "why": "The antiderivative of $$\\sin u$$ is $$-\\cos u$$; this drops the negative sign."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$\\int \\sin(5x)\\,dx = -\\frac{1}{5}\\cos(5x) + C$$. Evaluating: $$-\\frac{1}{5}\\left[\\cos\\pi - \\cos 0\\right] = \\frac{2}{5}$$."
+    },
+    {
+      "id": "e32-q10",
+      "type": "mcq",
+      "topics": [
+        "power-rule",
+        "basic-derivative-rules"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 1,
+      "stem": "If $$f(x) = -2x^{3} - x^{2} + 3x + 6$$, what is $$f'(-1)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4$$",
+          "why": "This is $$f(-1)$$, the value of the function, not its derivative."
+        },
+        {
+          "id": "b",
+          "text": "$$-4$$",
+          "why": "This drops the derivative of the linear term, which is its coefficient."
+        },
+        {
+          "id": "c",
+          "text": "$$5$$",
+          "why": "The derivative of a constant is 0; this keeps the constant term."
+        },
+        {
+          "id": "d",
+          "text": "$$-1$$",
+          "why": "Correct. $$f'(x) = -6x^{2} - 2x + 3$$, so $$f'(-1) = -1$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "By the power rule, $$f'(x) = -6x^{2} - 2x + 3$$. Substituting $$x = -1$$ gives $$-1$$."
+    },
+    {
+      "id": "e32-q11",
+      "type": "mcq",
+      "topics": [
+        "vector-valued-integrals",
+        "parametric-vector-motion"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A particle has velocity $$\\vec{v}(t) = \\langle 2t, 3t^{2} - 2 \\rangle$$ and position $$(-3, 0)$$ at $$t = 0$$. Where is the particle at $$t = 3$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$(3, 25)$$",
+          "why": "This adds the final velocity instead of the accumulated change in position."
+        },
+        {
+          "id": "b",
+          "text": "$$(6, 21)$$",
+          "why": "Correct. Add the integral of each velocity component to the starting coordinate."
+        },
+        {
+          "id": "c",
+          "text": "$$(6, 25)$$",
+          "why": "This is the velocity at the final time, not the position."
+        },
+        {
+          "id": "d",
+          "text": "$$(9, 21)$$",
+          "why": "This is the displacement; add the starting position."
+        }
+      ],
+      "answer": "b",
+      "explanation": "$$x(3) = -3 + \\int_0^{3} (2t)\\,dt = 6$$ and $$y(3) = 0 + \\int_0^{3} (3t^{2} - 2)\\,dt = 21$$."
+    },
+    {
+      "id": "e32-q12",
+      "type": "mcq",
+      "topics": [
+        "mean-value-theorem"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "Let $$f(x) = x^{2} - 2x$$. What value of $$c$$ satisfies the conclusion of the Mean Value Theorem for $$f$$ on the interval $$[2, 4]$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3$$",
+          "why": "Correct. The average rate of change is $$\\frac{f(4) - f(2)}{2} = 4$$, and $$f'(c) = 2c - 2 = 4$$ gives $$c = 3$$."
+        },
+        {
+          "id": "b",
+          "text": "$$4$$",
+          "why": "The MVT guarantees a point strictly inside the interval, and this endpoint doesn't satisfy the equation."
+        },
+        {
+          "id": "c",
+          "text": "$$1$$",
+          "why": "This is where f′(c) = 0, the vertex, not where f′(c) equals the average rate of change."
+        },
+        {
+          "id": "d",
+          "text": "$$2$$",
+          "why": "The MVT guarantees a point strictly inside the interval, and this endpoint doesn't satisfy the equation."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$\\frac{f(4) - f(2)}{4 - 2} = 4$$. Set $$f'(c) = 2c - 2 = 4$$: $$c = 3$$, which lies in $$(2, 4)$$."
+    },
+    {
+      "id": "e32-q13",
+      "type": "mcq",
+      "topics": [
+        "selecting-derivative-procedures",
+        "chain-rule"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "What is $$\\frac{d}{dx}\\left(e^{5x^2}\\right)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$10xe^{10x}$$",
+          "why": "This makes a sign or coefficient error in the outer derivative."
+        },
+        {
+          "id": "b",
+          "text": "$$10xe^{5x^2}$$",
+          "why": "Correct. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside."
+        },
+        {
+          "id": "c",
+          "text": "$$e^{5x^2}$$",
+          "why": "This leaves out the derivative of the inside function."
+        },
+        {
+          "id": "d",
+          "text": "$$5x^2e^{5x^2 - 1}$$",
+          "why": "This differentiates the inside but then substitutes it incorrectly into the outer derivative."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Treat $$e^{5x^2}$$ as a composite and apply the chain rule: $$\\frac{d}{dx}\\left(e^{5x^2}\\right) = 10xe^{5x^2}$$."
+    },
+    {
+      "id": "e32-q14",
+      "type": "mcq",
+      "topics": [
+        "long-division-completing-square",
+        "selecting-antidifferentiation-techniques"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "$$\\int \\frac{5x^{2} + 6}{x}\\,dx =$$",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$5x^2 + 6\\ln|x| + C$$",
+          "why": "The antiderivative of $$5x$$ is $$\\frac{5}{2}x^2$$."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{5}{2}x^2 - 6x^{-2} + C$$",
+          "why": "The antiderivative of $$\\frac{1}{x}$$ is $$\\ln|x|$$."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{\\frac{5}{3}x^3 + 6x}{\\frac{1}{2}x^2} + C$$",
+          "why": "You cannot integrate a quotient by integrating the top and bottom separately."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{5}{2}x^2 + 6\\ln|x| + C$$",
+          "why": "Correct. Divide first: $$\\frac{5x^{2} + 6}{x} = 5x + \\frac{6}{x}$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$\\int \\left(5x + \\frac{6}{x}\\right)dx = \\frac{5}{2}x^2 + 6\\ln|x| + C$$."
+    },
+    {
+      "id": "e32-q15",
+      "type": "mcq",
+      "topics": [
+        "defining-the-derivative",
+        "power-rule"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Which of the following is an equation of the line tangent to the graph of $$f(x) = x^{2} - x - 6$$ at $$x = -2$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$y - 0 = 0(x + 2)$$",
+          "why": "This uses the function value $$0$$ as the slope."
+        },
+        {
+          "id": "b",
+          "text": "$$y - 0 = -4(x + 2)$$",
+          "why": "This slope drops the derivative of $$-x$$."
+        },
+        {
+          "id": "c",
+          "text": "$$y - 0 = -5(x + 2)$$",
+          "why": "Correct. The point is $$(-2, 0)$$ and the slope is $$f'(-2) = -5$$."
+        },
+        {
+          "id": "d",
+          "text": "$$y + 2 = -5x$$",
+          "why": "This swaps the x- and y-coordinates of the point of tangency."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$f(-2) = 0$$ and $$f'(x) = 2x - 1$$, so $$f'(-2) = -5$$. Point-slope form: $$y - 0 = -5(x + 2)$$."
+    },
+    {
+      "id": "e32-q16",
+      "type": "mcq",
+      "topics": [
+        "eulers-method"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "Let $$y = f(x)$$ be the solution to $$\\frac{dy}{dx} = x + y$$ with $$f(0) = 1$$. What is the approximation of $$f(0.5)$$ found with Euler's method, using two steps of equal size?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.5$$",
+          "why": "This reuses the first slope for the second step; the slope must be recomputed at the new point."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{13}{8}$$",
+          "why": "Correct. Step 1: slope $$1$$, $$y_1 = 1.25$$. Step 2: slope $$1.5$$ at $$(0.25, 1.25)$$."
+        },
+        {
+          "id": "c",
+          "text": "$$1.75$$",
+          "why": "This uses the second slope for the whole distance."
+        },
+        {
+          "id": "d",
+          "text": "$$1.25$$",
+          "why": "This is only the first step."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Step size $$0.25$$. $$y_1 = 1 + (1)(0.25) = 1.25$$; $$y_2 = 1.25 + (1.5)(0.25) = \\frac{13}{8}$$."
+    },
+    {
+      "id": "e32-q17",
+      "type": "mcq",
+      "topics": [
+        "integration-by-parts"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "$$\\int xe^{x}\\,dx =$$",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{x^2}{2}e^{x} + C$$",
+          "why": "Integrating both factors separately and multiplying is not valid."
+        },
+        {
+          "id": "b",
+          "text": "$$xe^{x} + C$$",
+          "why": "This is only $$uv$$; the term $$-\\int v\\,du$$ is missing."
+        },
+        {
+          "id": "c",
+          "text": "$$xe^{x} + e^{x} + C$$",
+          "why": "Sign error: integration by parts subtracts $$\\int v\\,du$$."
+        },
+        {
+          "id": "d",
+          "text": "$$xe^{x} - e^{x} + C$$",
+          "why": "Correct. Parts with $$u = x$$ and $$dv = e^{x}\\,dx$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$u = x,\\; du = dx,\\; v = \\frac{1}{1}e^{x}$$. Then $$\\int xe^{x}\\,dx = \\frac{x}{1}e^{x} - \\int \\frac{1}{1}e^{x}\\,dx = xe^{x} - e^{x} + C$$."
+    },
+    {
+      "id": "e32-q18",
+      "type": "mcq",
+      "topics": [
+        "taylor-maclaurin-series",
+        "representing-functions-power-series"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "What is the coefficient of $$x^{4}$$ in the Maclaurin series for $$f(x) = \\frac{1}{1 - 3x}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$12$$",
+          "why": "The coefficient is the ratio raised to the nth power."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{27}{8}$$",
+          "why": "The geometric series has no factorials."
+        },
+        {
+          "id": "c",
+          "text": "$$81$$",
+          "why": "Correct. Substitute into the known Maclaurin series."
+        },
+        {
+          "id": "d",
+          "text": "$$-81$$",
+          "why": "Sign error: check the sign pattern of the series."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$\\frac{1}{1 - u} = \\sum u^n$$ with $$u = 3x$$: the coefficient of $$x^{4}$$ is $$3^{4} = 81$$."
+    },
+    {
+      "id": "e32-q19",
+      "type": "mcq",
+      "topics": [
+        "absolute-conditional-convergence",
+        "alternating-series-test"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following best describes $$\\sum_{n=1}^{\\infty} \\frac{(-1)^n}{\\sqrt{n}}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It converges, but to a negative sum only if the first term is negative.",
+          "why": "This statement is not a classification of convergence."
+        },
+        {
+          "id": "b",
+          "text": "It converges conditionally.",
+          "why": "Correct. alternating series test, but p = 1/2 for the absolute values."
+        },
+        {
+          "id": "c",
+          "text": "It diverges.",
+          "why": "Not this one: alternating series test, but p = 1/2 for the absolute values."
+        },
+        {
+          "id": "d",
+          "text": "It converges absolutely.",
+          "why": "Not this one: alternating series test, but p = 1/2 for the absolute values."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Test the absolute values first, then the series itself: alternating series test, but p = 1/2 for the absolute values."
+    },
+    {
+      "id": "e32-q20",
+      "type": "mcq",
+      "topics": [
+        "cross-sections-squares-rectangles",
+        "cross-sections-triangles-semicircles"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "The base of a solid is the region bounded by $$y = \\sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$9$$",
+          "why": "Correct. Each cross section has leg $$\\sqrt{x}$$, area $$\\frac{1}{2}x$$; integrate from 0 to 6."
+        },
+        {
+          "id": "b",
+          "text": "$$18$$",
+          "why": "This is the volume for cross sections that are squares."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{9\\pi}{4}$$",
+          "why": "This is the volume for cross sections that are semicircles."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{9}{2}\\sqrt{3}$$",
+          "why": "This is the volume for cross sections that are equilateral triangles."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The cross section at $x$ has leg $$\\sqrt{x}$$, area $$\\frac{1}{2}x$$. Integrating from 0 to 6 gives $9$."
+    },
+    {
+      "id": "e32-q21",
+      "type": "mcq",
+      "topics": [
+        "exponential-models"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A population $$P$$ grows according to $$\\frac{dP}{dt} = kP$$, and it doubles every 5 years. If $$P(0) = 500$$, what is $$P(20)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1000$$",
+          "why": "This counts only one doubling period."
+        },
+        {
+          "id": "b",
+          "text": "$$2500$$",
+          "why": "This adds the original amount once per period (linear growth); exponential growth multiplies by 2 each period."
+        },
+        {
+          "id": "c",
+          "text": "$$8000$$",
+          "why": "Correct. $$20$$ years is 4 doubling periods, so the population is multiplied by $$2^{4}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$524288000$$",
+          "why": "This treats each year as a doubling period."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The solution is $$P(t) = 500 \\cdot 2^{t/5}$$. So $$P(20) = 500 \\cdot 2^{4} = 8000$$."
+    },
+    {
+      "id": "e32-q22",
+      "type": "mcq",
+      "topics": [
+        "alternating-series-error-bound"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "The sum of $$\\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 5 terms. What is the smallest upper bound on the error given by the alternating series error bound?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{1}{25}$$",
+          "why": "This is the last term used, not the first one omitted."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{1}{36}$$",
+          "why": "Correct. The error is at most the first omitted term."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{1}{49}$$",
+          "why": "This skips a term: the bound is the very next term."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{1}{216}$$",
+          "why": "The exponent stays the same as in the series."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The terms alternate, decrease in size and approach 0, so $$|S - S_{5}| \\leq b_{6} = \\frac{1}{6^{2}}$$."
+    },
+    {
+      "id": "e32-q23",
+      "type": "mcq",
+      "topics": [
+        "radius-interval-of-convergence",
+        "ratio-test"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "What is the radius of convergence of $$\\sum_{n=0}^{\\infty} \\frac{n\\,(x + 1)^n}{4^n}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1$$",
+          "why": "The center is not the radius."
+        },
+        {
+          "id": "b",
+          "text": "$$\\infty$$",
+          "why": "The series converges for all x only when the ratio limit is 0 for every x."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{1}{4}$$",
+          "why": "The radius is the reciprocal of this."
+        },
+        {
+          "id": "d",
+          "text": "$$4$$",
+          "why": "Correct. The ratio test gives $$\\frac{|x + 1|}{4} < 1$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$\\left|\\frac{(n + 1)(x + 1)^{n+1}}{4^{n+1}}\\cdot\\frac{4^n}{n(x + 1)^n}\\right| = \\frac{n + 1}{n}\\cdot\\frac{|x + 1|}{4} \\to \\frac{|x + 1|}{4}$$. Convergence needs this below 1, so $$R = 4$$."
+    },
+    {
+      "id": "e32-q24",
+      "type": "mcq",
+      "topics": [
+        "taylor-polynomials",
+        "taylor-maclaurin-series"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "A function $$f$$ has $$f(0) = -5$$, $$f'(0) = -3$$ and $$f''(0) = 8$$. Using the second-degree Taylor polynomial for $$f$$ about $$x = 0$$, what is the approximation of $$f(0.2)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-4.800$$",
+          "why": "The quadratic term must use $$(x - a)^2$$, not $$(x - a)$$."
+        },
+        {
+          "id": "b",
+          "text": "$$-5.280$$",
+          "why": "This forgets to divide the second derivative by $$2!$$."
+        },
+        {
+          "id": "c",
+          "text": "$$-5.440$$",
+          "why": "Correct. $$P_2(0.2) = -5 + (-3)(0.2) + \\frac{8}{2}(0.2)^2$$."
+        },
+        {
+          "id": "d",
+          "text": "$$-5.600$$",
+          "why": "This is the tangent-line (first-degree) approximation."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$P_2(x) = -5 - 3x + \\frac{8}{2}x^2$$, evaluated at $$x = 0.2$$: $$-5.440$$."
+    },
+    {
+      "id": "e32-q25",
+      "type": "mcq",
+      "topics": [
+        "continuity-at-a-point",
+        "removing-discontinuities"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Let $$f(x) = \\begin{cases} kx - 7 & x < 2 \\\\ x^{2} - 1 & x \\geq 2 \\end{cases}$$ where $$k$$ is a constant. For what value of $$k$$ is $$f$$ continuous at $$x = 2$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$5$$",
+          "why": "Correct. Continuity needs $$k(2) - 7 = (2)^2 - 1$$, which gives $$k = 5$$."
+        },
+        {
+          "id": "b",
+          "text": "$$10$$",
+          "why": "This forgets to divide by $$2$$ when solving for $$k$$."
+        },
+        {
+          "id": "c",
+          "text": "$$-2$$",
+          "why": "This comes from a sign error when moving the constant term across the equation."
+        },
+        {
+          "id": "d",
+          "text": "$$4$$",
+          "why": "This matches the slopes of the two pieces, which is the condition for differentiability, not continuity."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$f$$ is continuous at $$2$$ when the left-hand limit equals $$f(2) = 3$$. The left-hand limit is $$2k - 7$$, so $$2k - 7 = 3$$ and $$k = 5$$."
+    },
+    {
+      "id": "e32-q26",
+      "type": "mcq",
+      "topics": [
+        "convergent-divergent-series",
+        "harmonic-and-p-series",
+        "comparison-tests",
+        "nth-term-test",
+        "ratio-test"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following series converge?\n\nI. $$\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 4}$$\n\nII. $$\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$$\n\nIII. $$\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$$",
+      "options": [
+        {
+          "id": "a",
+          "text": "I and II only",
+          "why": "Correct. I: converges (smaller than the convergent p-series with p = 2). II: converges (p-series with p = 2 > 1). III: diverges (p-series with p = 1/2 ≤ 1)."
+        },
+        {
+          "id": "b",
+          "text": "III only",
+          "why": "Check each series with an appropriate test: I converges, II converges, III diverges."
+        },
+        {
+          "id": "c",
+          "text": "I and III only",
+          "why": "Check each series with an appropriate test: I converges, II converges, III diverges."
+        },
+        {
+          "id": "d",
+          "text": "I, II, and III",
+          "why": "Check each series with an appropriate test: I converges, II converges, III diverges."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Series I converges: smaller than the convergent p-series with p = 2. Series II converges: p-series with p = 2 > 1. Series III diverges: p-series with p = 1/2 ≤ 1."
+    },
+    {
+      "id": "e32-q27",
+      "type": "mcq",
+      "topics": [
+        "increasing-decreasing"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "The derivative of a function $$f$$ is $$f'(x) = (x + 3)(x - 1)$$. On which intervals is $$f$$ increasing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-3 < x < 1$$ only",
+          "why": "Between the roots the factors have opposite signs, so f′ < 0 and f is decreasing."
+        },
+        {
+          "id": "b",
+          "text": "$$x < -3$$ and $$x > 1$$",
+          "why": "Correct. $$f'(x) > 0$$ when both factors have the same sign: $$x < -3$$ or $$x > 1$$."
+        },
+        {
+          "id": "c",
+          "text": "$$x > 1$$ only",
+          "why": "This misses $$x < -3$$, where both factors are negative so f′ > 0."
+        },
+        {
+          "id": "d",
+          "text": "$$x < -3$$ only",
+          "why": "This misses $$x > 1$$, where both factors are positive."
+        }
+      ],
+      "answer": "b",
+      "explanation": "$$f$$ increases where $$f'(x) > 0$$. A sign chart for $$(x + 3)(x - 1)$$ is positive, negative, positive across $$-3$$ and $$1$$."
+    },
+    {
+      "id": "e32-q28",
+      "type": "mcq",
+      "topics": [
+        "parametric-second-derivatives"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 4,
+      "stem": "For the curve $$x = t^2$$, $$y = t^{3} + t$$, what is $$\\frac{d^2y}{dx^2}$$ at $$t = 1$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1$$",
+          "why": "This forgets to divide by $$\\frac{dx}{dt}$$."
+        },
+        {
+          "id": "b",
+          "text": "$$2$$",
+          "why": "This is $$\\frac{dy}{dx}$$, the first derivative."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{1}{2}$$",
+          "why": "Correct. Differentiate $$\\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\\frac{dx}{dt} = 2t$$."
+        },
+        {
+          "id": "d",
+          "text": "$$3$$",
+          "why": "This divides $$y''(t)$$ by $$x''(t)$$, which is not the second derivative."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$\\frac{dy}{dx} = \\frac{3t^2 + 1}{2t} = \\frac{3t}{2} + \\frac{1}{2t}$$. Its $$t$$-derivative is $$\\frac{3}{2} - \\frac{1}{2t^2}$$, which is $$1$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\\frac{1}{2}$$."
+    },
+    {
+      "id": "e32-q29",
+      "type": "mcq",
+      "topics": [
+        "area-multiple-intersections"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 4,
+      "stem": "What is the total area of the regions enclosed by the graphs of $$y = x^3$$ and $$y = 4x$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4$$",
+          "why": "This is only one of the two regions."
+        },
+        {
+          "id": "b",
+          "text": "$$0$$",
+          "why": "This integrates the difference across both regions at once; the signed areas cancel."
+        },
+        {
+          "id": "c",
+          "text": "$$8$$",
+          "why": "Correct. The graphs meet at $$x = -2, 0, 2$$. Each region has area $$4$$."
+        },
+        {
+          "id": "d",
+          "text": "$$16$$",
+          "why": "This doubles the total area."
+        }
+      ],
+      "answer": "c",
+      "explanation": "On $$[-2, 0]$$, $$x^3$$ is on top; on $$[0, 2]$$, $$4x$$ is on top. By symmetry, total area $$= 2\\int_0^{2} (4x - x^3)\\,dx = 2 \\cdot 4 = 8$$."
+    },
+    {
+      "id": "e32-q30",
+      "type": "mcq",
+      "topics": [
+        "straight-line-motion"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 4,
+      "stem": "A particle moves along a line with velocity $$v(t) = 3(t - 3)(t - 7)$$ for $$t \\geq 0$$. For which values of $$t$$ is the particle speeding up?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3 < t < 5$$ and $$t > 7$$",
+          "why": "Correct. The particle speeds up when velocity and acceleration have the same sign."
+        },
+        {
+          "id": "b",
+          "text": "$$0 < t < 3$$ and $$t > 7$$",
+          "why": "On $$0 < t < 3$$ the velocity is positive but the acceleration is negative, so it is slowing down."
+        },
+        {
+          "id": "c",
+          "text": "$$t > 7$$ only",
+          "why": "This misses $$3 < t < 5$$, where both $$v$$ and $$a$$ are negative."
+        },
+        {
+          "id": "d",
+          "text": "$$3 < t < 7$$",
+          "why": "This is where the velocity is negative, which only means the particle moves left."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$a(t) = 6t - 30$$ changes sign at $$t = 5$$. $$v$$ is negative on $$(3, 7)$$ and positive elsewhere. Both are negative on $$(3, 5)$$ and both positive for $$t > 7$$."
+    },
+    {
+      "id": "e32-q31",
+      "type": "mcq",
+      "topics": [
+        "geometric-series"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "What is the sum of $$\\sum_{n=1}^{\\infty} 2\\left(-\\frac{1}{6}\\right)^n$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{12}{7}$$",
+          "why": "The first term depends on the starting index; check the term for the first value of n."
+        },
+        {
+          "id": "b",
+          "text": "$$-\\frac{2}{7}$$",
+          "why": "Correct. Geometric with first term $$-\\frac{1}{3}$$ and ratio $$-\\frac{1}{6}$$."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{12}{5}$$",
+          "why": "The formula is $$\\frac{a}{1 - r}$$, not $$\\frac{a}{1 + r}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$2$$",
+          "why": "This divides by $$r$$ instead of $$1 - r$$."
+        }
+      ],
+      "answer": "b",
+      "explanation": "$$|r| = \\left|-\\frac{1}{6}\\right| < 1$$, so the series converges to $$\\frac{-\\frac{1}{3}}{1 - \\left(-\\frac{1}{6}\\right)} = -\\frac{2}{7}$$."
+    },
+    {
+      "id": "e32-q32",
+      "type": "mcq",
+      "topics": [
+        "summation-and-definite-integrals",
+        "ftc-definite-integrals"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "What is the value of $$\\int_{0}^{3} \\frac{x}{1 + \\cos^2 x}\\,dx$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4.545$$",
+          "why": "This is a single rectangle using the right endpoint, a rough estimate rather than the integral."
+        },
+        {
+          "id": "b",
+          "text": "$$0.886$$",
+          "why": "This integrates over only half of the interval."
+        },
+        {
+          "id": "c",
+          "text": "$$3.271$$",
+          "why": "Correct. Use the calculator's numerical integration."
+        },
+        {
+          "id": "d",
+          "text": "$$1.515$$",
+          "why": "This is the change in the integrand, not the integral."
+        }
+      ],
+      "answer": "c",
+      "explanation": "On a graphing calculator, $$\\int_{0}^{3} \\frac{x}{1 + \\cos^2 x}\\,dx \\approx 3.271$$."
+    },
+    {
+      "id": "e32-q33",
+      "type": "mcq",
+      "topics": [
+        "antiderivatives-basic-rules"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "$$\\int \\left(6x^{5} - 2\\cdot\\frac{1}{x} + 4e^{x}\\right)dx =$$",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$30x^{4} + 2x^{-2} + 4e^{x} + C$$",
+          "why": "This differentiates instead of antidifferentiating."
+        },
+        {
+          "id": "b",
+          "text": "$$x^{6} + 2x^{-2} + 4e^{x} + C$$",
+          "why": "The antiderivative of 1/x is ln|x|, not a power of x."
+        },
+        {
+          "id": "c",
+          "text": "$$x^{6} - 2\\ln + x + 4e^{x} + C$$",
+          "why": "Correct. Raise the power by one and divide by the new power; the antiderivative of 1/x is ln|x|; e^x is its own antiderivative."
+        },
+        {
+          "id": "d",
+          "text": "$$6x^{6} - 2\\ln + x + 4e^{x} + C$$",
+          "why": "After raising the power, divide by the new exponent."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Term by term: $$\\int 6x^{5}dx = x^{6}$$, $$\\int \\frac{-2}{x}dx = -2\\ln|x|$$, and $$\\int 4e^x dx = 4e^x$$. Add the constant of integration."
+    },
+    {
+      "id": "e32-q34",
+      "type": "mcq",
+      "topics": [
+        "estimating-derivatives"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e32-q34-s"
+      ],
+      "stem": "Using the data in the table and the values on either side of $$x = 4$$, what is the best estimate of $$g'(4)$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-2$$",
+          "why": "This is the change in g without dividing by the change in x."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{9}{2}$$",
+          "why": "This divides the output by the input, which is not a rate of change."
+        },
+        {
+          "id": "c",
+          "text": "$$-\\frac{2}{3}$$",
+          "why": "Correct. $$\\frac{g(6) - g(3)}{6 - 3} = \\frac{-2}{3}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$-11$$",
+          "why": "This forgets to divide by the change in x."
+        }
+      ],
+      "answer": "c",
+      "explanation": "The slope of the secant line through the neighboring points estimates the derivative: $$g'(4) \\approx \\frac{7 - (9)}{3} = -\\frac{2}{3}$$."
+    },
+    {
+      "id": "e32-q35",
+      "type": "mcq",
+      "topics": [
+        "radius-interval-of-convergence",
+        "ratio-test"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "What is the interval of convergence of $$\\sum_{n=1}^{\\infty} \\frac{(x + 3)^n}{n\\cdot 2^n}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-5 < x \\leq -1$$",
+          "why": "The endpoints are reversed: the right endpoint gives the divergent harmonic series."
+        },
+        {
+          "id": "b",
+          "text": "$$-5 \\leq x < -1$$",
+          "why": "Correct. Ratio test gives $$|x + 3| < 2$$; the left endpoint gives an alternating harmonic series (converges), the right endpoint the harmonic series (diverges)."
+        },
+        {
+          "id": "c",
+          "text": "$$-4 < x < -2$$",
+          "why": "The radius is 2, from the factor $$2^n$$."
+        },
+        {
+          "id": "d",
+          "text": "$$-5 < x < -1$$",
+          "why": "The left endpoint gives $$\\sum \\frac{(-1)^n}{n}$$, which converges."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Ratio: $$\\left|\\frac{(x + 3)^{n+1}}{(n + 1)2^{n+1}}\\cdot\\frac{n\\,2^n}{(x + 3)^n}\\right| \\to \\frac{|x + 3|}{2}$$, so $$|x + 3| < 2$$. At $$x = -1$$: $$\\sum \\frac{1}{n}$$ diverges. At $$x = -5$$: $$\\sum \\frac{(-1)^n}{n}$$ converges."
+    },
+    {
+      "id": "e32-q36",
+      "type": "mcq",
+      "topics": [
+        "arc-length"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "What is the length of the curve $$y = x^3$$ from $$x = 0$$ to $$x = 1$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.000$$",
+          "why": "This is only the vertical change."
+        },
+        {
+          "id": "b",
+          "text": "$$1.548$$",
+          "why": "Correct. $$\\int_{0}^{1} \\sqrt{1 + \\left(3x^2\\right)^2}\\,dx$$ on the calculator."
+        },
+        {
+          "id": "c",
+          "text": "$$1.414$$",
+          "why": "This is the straight-line distance between the endpoints, which is shorter than the curve."
+        },
+        {
+          "id": "d",
+          "text": "$$1.064$$",
+          "why": "This squares the function instead of the derivative."
+        }
+      ],
+      "answer": "b",
+      "explanation": "$$L = \\int_{0}^{1} \\sqrt{1 + \\left(3x^2\\right)^2}\\,dx \\approx 1.548$$."
+    },
+    {
+      "id": "e32-q37",
+      "type": "mcq",
+      "topics": [
+        "polar-area-single",
+        "polar-area-two-curves"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "What is the area of the region bounded by the polar curve $$r = 4 + 0.5\\sin^2\\theta + \\frac{\\cos 3\\theta}{2}$$ and the rays $$\\theta = 0$$ and $$\\theta = \\frac{\\pi}{2}$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$13.526$$",
+          "why": "Correct. $$\\frac{1}{2}\\int_0^{\\frac{\\pi}{2}} r^2\\,d\\theta$$ on the calculator."
+        },
+        {
+          "id": "b",
+          "text": "$$3.255$$",
+          "why": "The radius must be squared."
+        },
+        {
+          "id": "c",
+          "text": "$$27.051$$",
+          "why": "This leaves out the factor $$\\frac{1}{2}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$4.305$$",
+          "why": "This divides by $$\\pi$$, which is not part of the formula."
+        }
+      ],
+      "answer": "a",
+      "explanation": "$$A = \\frac{1}{2}\\int_0^{\\frac{\\pi}{2}} \\left(4 + 0.5\\sin^2\\theta + \\frac{\\cos 3\\theta}{2}\\right)^2 d\\theta \\approx 13.526$$."
+    },
+    {
+      "id": "e32-q38",
+      "type": "mcq",
+      "topics": [
+        "parametric-arc-length",
+        "parametric-vector-motion"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "A particle moves in the plane with $$x'(t) = 2\\cos\\left(\\frac{t^2}{2}\\right)$$ and $$y'(t) = e^{t/3}$$. What is the total distance the particle travels from $$t = 0$$ to $$t = 2$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.901$$",
+          "why": "This is the straight-line distance between the start and end points."
+        },
+        {
+          "id": "b",
+          "text": "$$5.514$$",
+          "why": "This adds the component displacements instead of integrating the speed."
+        },
+        {
+          "id": "c",
+          "text": "$$4.252$$",
+          "why": "Correct. Integrate the speed $$\\sqrt{x'(t)^2 + y'(t)^2}$$."
+        },
+        {
+          "id": "d",
+          "text": "$$2.118$$",
+          "why": "This is the speed at the final time."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$\\int_0^{2} \\sqrt{x'(t)^2 + y'(t)^2}\\,dt \\approx 4.252$$."
+    },
+    {
+      "id": "e32-q39",
+      "type": "mcq",
+      "topics": [
+        "separation-of-variables",
+        "particular-solutions"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following is the solution to the differential equation $$\\frac{dy}{dx} = 2y$$ with initial condition $$y(0) = 5$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$y = e^{2x + 5}$$",
+          "why": "At $$x = 0$$ this gives $$e^{5}$$, not $$5$$."
+        },
+        {
+          "id": "b",
+          "text": "$$y = e^{2x} + 4$$",
+          "why": "The constant multiplies the exponential; it is not added."
+        },
+        {
+          "id": "c",
+          "text": "$$y = 5e^{2x}$$",
+          "why": "Correct. Separating, $$\\ln|y| = 2x + C$$, so $$y = Ce^{2x}$$ and $$C = 5$$."
+        },
+        {
+          "id": "d",
+          "text": "$$y = 5e^{x}$$",
+          "why": "The exponent must include the growth constant $$2$$."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$\\frac{dy}{y} = 2\\,dx$$, so $$\\ln|y| = 2x + C$$ and $$y = Ae^{2x}$$. The initial condition gives $$A = 5$$."
+    },
+    {
+      "id": "e32-q40",
+      "type": "mcq",
+      "topics": [
+        "exploring-accumulation",
+        "ftc-definite-integrals"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Sand is added to a pile at a rate modeled by $$R(t) = 27 + 4\\sin\\left(\\frac{t}{5}\\right)\\sqrt{t + 1}$$ cubic feet per hour, for $$0 \\leq t \\leq 9$$. At time $$t = 0$$ the pile contains 242 cubic feet of sand. How much sand is in the pile at $$t = 9$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$281.318$$",
+          "why": "This adds the rate at one instant, not the accumulated amount."
+        },
+        {
+          "id": "b",
+          "text": "$$547.231$$",
+          "why": "Correct. $$242 + \\int_0^{9} R(t)\\,dt$$."
+        },
+        {
+          "id": "c",
+          "text": "$$595.865$$",
+          "why": "This assumes the rate stays at R(T) for the whole time."
+        },
+        {
+          "id": "d",
+          "text": "$$305.231$$",
+          "why": "This is only the sand added; include the initial amount."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Amount = initial amount + accumulated change = $$242 + \\int_0^{9} R(t)\\,dt \\approx 242 + 305.231 = 547.231$$ cubic feet."
+    },
+    {
+      "id": "e32-q41",
+      "type": "mcq",
+      "topics": [
+        "rates-in-applied-contexts",
+        "derivative-in-context"
+      ],
+      "skills": [
+        "1",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "The temperature of a room, in degrees Fahrenheit, is modeled by $$H(t) = 81 + 14\\sin\\left(\\frac{t}{7}\\right)e^{-t/20}$$, where $$t$$ is measured in hours. What is the instantaneous rate of change of the temperature at $$t = 12$$, in degrees Fahrenheit per hour?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-0.537$$",
+          "why": "Correct. The calculator's numerical derivative of $$H$$ at $$t = 12$$ gives -0.537; the temperature is decreasing."
+        },
+        {
+          "id": "b",
+          "text": "$$88.604$$",
+          "why": "This is the temperature itself, not its rate of change."
+        },
+        {
+          "id": "c",
+          "text": "$$0.634$$",
+          "why": "This is the average rate of change over $$0 \\leq t \\leq 12$$, not the instantaneous rate."
+        },
+        {
+          "id": "d",
+          "text": "$$-6.446$$",
+          "why": "This multiplies the rate by the time, which is not a rate."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The instantaneous rate of change is $$H'(12) \\approx -0.537$$ degrees Fahrenheit per hour, from the calculator's numerical derivative."
+    },
+    {
+      "id": "e32-q42",
+      "type": "mcq",
+      "topics": [
+        "lagrange-error-bound"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 4,
+      "stem": "Let $$P_{3}(x)$$ be the degree-3 Taylor polynomial for $$f$$ about $$x = 2$$, and suppose $$|f^{(4)}(x)| \\leq 30$$ for all $$x$$. What is the Lagrange error bound for $$|f(\\frac{21}{10}) - P_{3}(\\frac{21}{10})|$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{1}{8}$$",
+          "why": "The distance from the center must be raised to the power n + 1."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{1}{200}$$",
+          "why": "This uses the degree n instead of n + 1 for the factorial and power."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{3}{1000}$$",
+          "why": "This forgets to divide by $$(n + 1)!$$."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{1}{8000}$$",
+          "why": "Correct. $$\\frac{30}{4!}\\left(\\frac{1}{10}\\right)^{4}$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$|f(x) - P_{3}(x)| \\leq \\frac{M}{(3 + 1)!}|x - 2|^{4} = \\frac{30}{24}\\left(\\frac{1}{10}\\right)^{4} = \\frac{1}{8000}$$."
+    },
+    {
+      "id": "e32-q43",
+      "type": "mcq",
+      "topics": [
+        "first-derivative-test",
+        "connecting-f-fprime-fdoubleprime"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 4,
+      "stem": "The derivative of a function $$f$$ is $$f'(x) = \\sin\\left(\\frac{x^2}{3}\\right) - 0.75\\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2$$",
+          "why": "Count the zeros of f′ where it changes sign; graph f′ on the calculator over the whole interval."
+        },
+        {
+          "id": "b",
+          "text": "$$3$$",
+          "why": "Correct. Graphing $$f'$$ shows it changes sign 3 times on the interval."
+        },
+        {
+          "id": "c",
+          "text": "$$4$$",
+          "why": "Count the zeros of f′ where it changes sign; graph f′ on the calculator over the whole interval."
+        },
+        {
+          "id": "d",
+          "text": "$$5$$",
+          "why": "Count the zeros of f′ where it changes sign; graph f′ on the calculator over the whole interval."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \\approx 1.061$$, $$x \\approx 3.439$$, $$x \\approx 4.213$$, so $$f$$ has 3 relative extrema."
+    },
+    {
+      "id": "e32-q44",
+      "type": "mcq",
+      "topics": [
+        "lagrange-error-bound"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 4,
+      "stem": "Let $$P_{3}(x)$$ be the degree-3 Taylor polynomial for $$f$$ about $$x = 1$$, and suppose $$|f^{(4)}(x)| \\leq 4$$ for all $$x$$. What is the Lagrange error bound for $$|f(\\frac{6}{5}) - P_{3}(\\frac{6}{5})|$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$\\frac{4}{625}$$",
+          "why": "This forgets to divide by $$(n + 1)!$$."
+        },
+        {
+          "id": "b",
+          "text": "$$\\frac{1}{30}$$",
+          "why": "The distance from the center must be raised to the power n + 1."
+        },
+        {
+          "id": "c",
+          "text": "$$\\frac{2}{375}$$",
+          "why": "This uses the degree n instead of n + 1 for the factorial and power."
+        },
+        {
+          "id": "d",
+          "text": "$$\\frac{1}{3750}$$",
+          "why": "Correct. $$\\frac{4}{4!}\\left(\\frac{1}{5}\\right)^{4}$$."
+        }
+      ],
+      "answer": "d",
+      "explanation": "$$|f(x) - P_{3}(x)| \\leq \\frac{M}{(3 + 1)!}|x - 1|^{4} = \\frac{4}{24}\\left(\\frac{1}{5}\\right)^{4} = \\frac{1}{3750}$$."
+    },
+    {
+      "id": "e32-q45",
+      "type": "mcq",
+      "topics": [
+        "washer-method-other-axes",
+        "disc-method-other-axes"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 4,
+      "stem": "Let $$R$$ be the region bounded by $$y = \\sqrt{x}\\,e^{-x/4} + 0.2$$, the x-axis, $$x = 0$$, and $$x = 3$$. What is the volume of the solid generated when $$R$$ is revolved about the line $$y = -3$$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$19.906$$",
+          "why": "This leaves out the factor of π."
+        },
+        {
+          "id": "b",
+          "text": "$$93.587$$",
+          "why": "This adds the squared radii instead of subtracting the inner radius squared."
+        },
+        {
+          "id": "c",
+          "text": "$$62.535$$",
+          "why": "Correct. Washers with outer radius $$f(x) + 3$$ and inner radius $$3$$."
+        },
+        {
+          "id": "d",
+          "text": "$$8.764$$",
+          "why": "This revolves about the x-axis."
+        }
+      ],
+      "answer": "c",
+      "explanation": "$$V = \\pi\\int_0^{3} \\left[(f(x) + 3)^2 - 3^2\\right]dx \\approx 62.535$$."
+    },
+    {
+      "id": "e32-frq1",
+      "type": "frq",
+      "title": "A particle in motion",
+      "topics": [
+        "straight-line-motion",
+        "motion-with-integrals"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the acceleration of the particle at time $$t = 2.5$$. Is the speed of the particle increasing or decreasing at that time? Give a reason.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Gives the correct acceleration.",
+              "example": "$$a(2.5) = v'(2.5) \\approx 1.577$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Concludes about the speed by comparing the signs of velocity and acceleration.",
+              "example": "$$v(2.5) \\approx 3.745$$. Velocity and acceleration have the same sign, so the speed is increasing."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Find the position of the particle at time $$t = 6$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses the initial position plus the integral of velocity.",
+              "example": "$$x(6) = -1 + \\int_0^{6} v(t)\\,dt$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the correct position.",
+              "example": "$$-1.353$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Find the total distance traveled by the particle over $$0 \\leq t \\leq 6$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Integrates the absolute value of velocity (or splits at the sign changes).",
+              "example": "$$\\int_0^{6} |v(t)|\\,dt$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the correct distance.",
+              "example": "$$14.867$$"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "At what times in the interval $$0 < t < 6$$ does the particle change direction? Justify your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Identifies the times where $$v$$ changes sign, with justification.",
+              "example": "$$v(t)$$ changes sign at $$t \\approx 1.003$$, $$t \\approx 3.834$$ and $$t \\approx 5.694$$, so the particle changes direction there."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq2",
+      "type": "frq",
+      "title": "Motion in the plane",
+      "topics": [
+        "parametric-vector-motion",
+        "parametric-derivatives",
+        "vector-valued-integrals",
+        "parametric-arc-length"
+      ],
+      "skills": [
+        "1",
+        "2",
+        "4"
+      ],
+      "difficulty": 4,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the speed of the particle and its acceleration vector at $$t = 2.5$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Gives the speed.",
+              "example": "$$\\sqrt{x'(2.5)^2 + y'(2.5)^2} \\approx 3.455$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the acceleration vector.",
+              "example": "$$\\langle x''(2.5), y''(2.5) \\rangle \\approx \\langle -2.452, -1.492 \\rangle$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Find the slope of the line tangent to the path of the particle at $$t = 2.5$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Divides the velocity components.",
+              "example": "$$\\frac{dy/dt}{dx/dt} \\approx -0.481$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Find the position of the particle at $$t = 3$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses the initial position with the integral of each component.",
+              "example": "$$x(3) = 0 + \\int_0^{3} x'(t)\\,dt$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives both coordinates.",
+              "example": "$$(6.135, -0.447)$$"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Find the total distance traveled by the particle over $$0 \\leq t \\leq 3$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Integrates the speed.",
+              "example": "$$\\int_0^{3} \\sqrt{x'(t)^2 + y'(t)^2}\\,dt$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the distance.",
+              "example": "$$7.082$$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq3",
+      "type": "frq",
+      "title": "A differential equation",
+      "topics": [
+        "sketching-slope-fields",
+        "particular-solutions",
+        "separation-of-variables",
+        "local-linearity"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq3-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the slope of the slope-field segment at each of the points $$(-1, 0)$$, $$(0, 1)$$, $$(1, -2)$$ and $$(2, -1)$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Gives all four slopes correctly.",
+              "example": "$$(-1, 0): -2$$; $$(0, 1): 0$$; $$(1, -2): -2$$; $$(2, -1): 0$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Write an equation for the line tangent to the graph of $$f$$ at $$x = 1$$, and use it to approximate $$f(1.2)$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Finds the slope at the point and writes the tangent line.",
+              "example": "$$\\frac{dy}{dx}\\Big|_{(1, -2)} = -2$$; $$y = -2 - 2(x - 1)$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the approximation.",
+              "example": "$$f(1.2) \\approx -2.4$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Find $$\\frac{d^2y}{dx^2}$$ in terms of $$x$$ and $$y$$. Is the approximation in part (b) an overestimate or an underestimate? Explain.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Finds the second derivative.",
+              "example": "$$\\frac{d^2y}{dx^2} = 2(y + 1) + 2x\\frac{dy}{dx} = 2(y + 1)(1 + 2x^2)$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Uses the sign of the second derivative at the point to conclude.",
+              "example": "At $$(1, -2)$$, $$\\frac{d^2y}{dx^2} = -6$$, so f is concave down and the tangent line lies above the curve: an overestimate."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Find the particular solution $$y = f(x)$$ with $$f(1) = -2$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Separates the variables.",
+              "example": "$$\\frac{dy}{y + 1} = 2x\\,dx$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Antidifferentiates both sides.",
+              "example": "$$\\ln|y + 1| = x^2 + C$$"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Uses the initial condition.",
+              "example": "$$C = \\ln1 - 1$$"
+            },
+            {
+              "kind": "point",
+              "id": "p4",
+              "criterion": "Solves for $$y$$.",
+              "example": "$$y = -1 - e^{x^2 - 1}$$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq4",
+      "type": "frq",
+      "title": "An accumulation function from a graph",
+      "topics": [
+        "ftc-accumulation-functions",
+        "accumulation-functions-behavior",
+        "first-derivative-test",
+        "concavity"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq4-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find $$g(0)$$ and $$g(6)$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Finds $$g(0)$$, reversing the limits correctly.",
+              "example": "$$g(0) = -\\int_0^{2} f(t)\\,dt = 2$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Finds $$g(6)$$.",
+              "example": "$$g(6) = -3$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Find $$g'(2.5)$$ and $$g''(2.5)$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses $$g' = f$$.",
+              "example": "$$g'(2.5) = f(2.5) = -1$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Uses $$g'' = f'$$, the slope of the segment.",
+              "example": "$$g''(2.5) = f'(2.5) = -4$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "On the open interval $$0 < x < 6$$, find all values of $$x$$ at which $$g$$ has a relative maximum. Justify your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Identifies the correct values (or that there are none).",
+              "example": "$$x = \\frac{9}{4}, \\frac{17}{4}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Justifies using a sign change of $$g' = f$$ from positive to negative.",
+              "example": "$$g' = f$$ changes from positive to negative there."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Find the absolute maximum value of $$g$$ on $$0 \\leq x \\leq 6$$. Justify your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Considers the endpoints and every critical point (Candidates Test).",
+              "example": "$$g(0) = 2$$, $$g(\\frac{3}{2}) = -\\frac{1}{4}$$, $$g(\\frac{9}{4}) = \\frac{1}{8}$$, $$g(\\frac{15}{4}) = -\\frac{17}{8}$$, $$g(\\frac{17}{4}) = -\\frac{15}{8}$$, $$g(\\frac{11}{2}) = -\\frac{15}{4}$$, $$g(6) = -3$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the correct maximum value.",
+              "example": "The absolute maximum is $$2$$, at $$x = 0$$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq5",
+      "type": "frq",
+      "title": "Analyzing a function",
+      "topics": [
+        "first-derivative-test",
+        "concavity",
+        "candidates-test",
+        "lhospitals-rule"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq5-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the x-coordinates of all relative extrema of $$f$$, and classify each as a relative maximum or relative minimum. Justify your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Finds the critical points.",
+              "example": "$$f'(x) = 6(x + 2)(x - 1) = 0$$ at $$x = -2$$ and $$x = 1$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Classifies both with a sign-change justification.",
+              "example": "$$f'$$ changes from positive to negative at $$-2$$ (relative maximum) and from negative to positive at $$1$$ (relative minimum)."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "On what intervals is the graph of $$f$$ concave down? Give a reason.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Gives the interval with a reason based on $$f''$$.",
+              "example": "$$f''(x) = 12x + 6 < 0$$ for $$x < -\\frac{1}{2}$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Find the absolute maximum value of $$f$$ on the closed interval $$[-3, 1]$$. Justify your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Evaluates $$f$$ at the critical points and endpoints.",
+              "example": "$$f(-3) = 13$$, $$f(-2) = 24$$, $$f(1) = -3$$, $$f(1) = -3$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the absolute maximum value.",
+              "example": "$$24$$, at $$x = -2$$"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Find $$\\lim_{x \\to -2} \\frac{f(x) - f(-2)}{(x + 2)^2}$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Recognizes the form 0/0 and applies L'Hospital's Rule (twice, or once with $$f'(-2) = 0$$).",
+              "example": "$$\\lim \\frac{f'(x)}{2(x + 2)} = \\lim \\frac{f''(x)}{2}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Gives the correct value.",
+              "example": "$$\\frac{f''(-2)}{2} = -9$$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq6",
+      "type": "frq",
+      "title": "A Taylor polynomial",
+      "topics": [
+        "taylor-polynomials",
+        "lagrange-error-bound",
+        "taylor-maclaurin-series"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 4,
+      "minutes": 15,
+      "stimuli": [
+        "e32-frq6-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the third-degree Taylor polynomial for $$f$$ about $$x = 3$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses the correct coefficients, including factorials.",
+              "example": "$$P_3(x) = 5 + 4(x - 3) + \\frac{5}{2}(x - 3)^2 - \\frac{7}{6}(x - 3)^3$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Writes powers of $$(x - a)$$ correctly.",
+              "example": "Each term uses $$(x - 3)^k$$."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Use $$P_3$$ to approximate $$f(3.5)$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Evaluates the polynomial.",
+              "example": "$$P_3(3.5) = \\frac{359}{48}$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Use the Lagrange error bound to show that the approximation in part (b) differs from $$f(3.5)$$ by at most $$\\frac{1}{32}$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Writes the Lagrange bound with the given M.",
+              "example": "$$\\frac{12}{4!}\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{32}$$"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Write the second-degree Taylor polynomial for $$f'$$ about $$x = 3$$.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Differentiates $$P_3$$ (or uses the derivative values directly).",
+              "example": "$$4 + 5(x - 3) - \\frac{7}{2}(x - 3)^2$$"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

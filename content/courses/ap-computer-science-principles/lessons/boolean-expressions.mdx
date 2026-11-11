@@ -1,0 +1,73 @@
+---
+objectives:
+  - Evaluate relational and logical expressions with AND, OR and NOT.
+keyTerms:
+  - term: Boolean value
+    definition: 'Either true or false.'
+  - term: Relational operators
+    definition: '=, ≠, >, the less-than sign, ≥ and ≤, which compare two values.'
+  - term: Logical operators
+    definition: 'NOT, AND and OR, which combine Boolean values.'
+checks:
+  - q: 'When is `a AND b` true?'
+    a: 'Only when both a and b are true.'
+  - q: 'When is `a OR b` false?'
+    a: 'Only when both a and b are false.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Boolean expressions evaluate to **true** or **false**. They are the conditions that control decisions and loops.
+
+## Relational operators
+
+AP pseudocode uses =, ≠, >, ≥, ≤ and the less-than sign. Note that = is comparison; assignment is ←.
+
+## Logical operators
+
+| a | b | NOT a | a AND b | a OR b |
+| --- | --- | --- | --- | --- |
+| true | true | false | true | true |
+| true | false | false | false | true |
+| false | true | true | false | true |
+| false | false | true | false | false |
+
+<Note title="Testing a range">
+To test whether x is between 10 and 20 inclusive, write `(x ≥ 10) AND (x ≤ 20)`. Using OR would make the condition true for every number.
+</Note>
+
+<WorkedExample title="Evaluate">
+With age = 15 and hasPermit = false, evaluate `(age ≥ 16) OR (NOT hasPermit AND age ≥ 15)`.
+
+1. age ≥ 16 is false.
+2. NOT hasPermit is true; age ≥ 15 is true; their AND is true.
+3. false OR true is true.
+
+**Answer:** true.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+For which of the following values does the expression `NOT ((x ≤ 7) OR (y MOD 2 = 0))` evaluate to true?
+
+**Answer:** `x = 11, y = 3`
+
+**Why:** Substituting gives true.
+
+**Working:** With x = 11 and y = 3, each part of `NOT ((x ≤ 7) OR (y MOD 2 = 0))` evaluates so that the whole expression is true.
+
+**Mistakes to avoid**
+
+- `x = 5, y = 6`: Substituting these values gives false.
+- `x = 2, y = 8`: Substituting these values gives false.
+- `x = 12, y = 10`: Substituting these values gives false.

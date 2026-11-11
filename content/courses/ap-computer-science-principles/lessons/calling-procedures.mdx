@@ -1,0 +1,84 @@
+---
+objectives:
+  - Call procedures with arguments and use their return values.
+keyTerms:
+  - term: Procedure
+    definition: 'A named group of instructions that may have parameters and may return a value.'
+  - term: Argument
+    definition: 'A value passed into a procedure when it is called; it is assigned to the matching parameter.'
+checks:
+  - q: 'What happens when a procedure is called?'
+    a: 'The program runs the procedure''s statements, then continues after the call, using any returned value.'
+  - q: 'What is the difference between a parameter and an argument?'
+    a: 'A parameter is the variable in the definition; an argument is the value given in the call.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+A **procedure** packages a task under a name. Calling it runs those steps; you do not need to know how it works inside.
+
+## Calls
+
+```text
+DISPLAY (max(4, 9))            // a procedure that returns a value
+result ← max(a, b) + 1
+drawSquare(50)                 // a procedure that only performs an action
+```
+
+When a procedure is called, its statements run with the arguments as parameter values. Then execution returns to just after the call, and a returned value replaces the call in the expression.
+
+<Note title="Procedures as abstraction">
+You can use a procedure knowing only what it does (its name, parameters and return value), not how it does it. This is **procedural abstraction**.
+</Note>
+
+<WorkedExample title="Nested calls">
+`double(x)` returns 2 × x and `addOne(x)` returns x + 1. What is displayed by `DISPLAY (double(addOne(double(3))))`?
+
+1. double(3) = 6.
+2. addOne(6) = 7.
+3. double(7) = 14.
+
+**Answer:** 14.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following procedure.
+
+```text
+PROCEDURE find(list, limit)
+{
+   FOR EACH item IN list
+   {
+      IF (item > limit)
+      {
+         RETURN (item)
+      }
+   }
+   RETURN (-1)
+}
+```
+
+What is returned by `find([29, 29, 18, 2, 12, 19], 12)`?
+
+**Answer:** `29`
+
+**Why:** RETURN ends the procedure at the first value greater than the limit.
+
+**Working:** 29 is the first element greater than 12, so RETURN (29) runs and the procedure ends.
+
+**Mistakes to avoid**
+
+- `19`: RETURN stops the procedure immediately; later values are not checked.
+- `-1`: 29 is greater than 12, so -1 is never reached.
+- `1`: The procedure returns the item, not its index.

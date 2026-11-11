@@ -1,0 +1,311 @@
+---
+objectives:
+  - Implement 2D array algorithms such as row and column sums, searching and neighbor checks.
+keyTerms:
+  - term: Row sum
+    definition: 'The total of all elements in one row, computed with a single loop over the columns.'
+  - term: Neighbor check
+    definition: 'Examining adjacent cells, with bounds checks to avoid leaving the grid.'
+checks:
+  - q: 'How do you sum column c?'
+    a: 'Loop r from 0 to grid.length - 1, adding grid[r][c].'
+  - q: 'Before reading the cell to the right of grid[r][c], what must you check?'
+    a: 'That `c + 1 < grid[0].length`.'
+sources:
+  - title: CSAwesome, "2D Arrays"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+The 2D array free-response question usually combines a traversal with one of the standard algorithms.
+
+## Row and column sums
+
+```java
+public static int rowSum(int[][] g, int r) {
+    int sum = 0;
+    for (int c = 0; c < g[r].length; c++) sum += g[r][c];
+    return sum;
+}
+
+public static int colSum(int[][] g, int c) {
+    int sum = 0;
+    for (int r = 0; r < g.length; r++) sum += g[r][c];
+    return sum;
+}
+```
+
+## Searching
+
+```java
+for (int r = 0; r < g.length; r++) {
+    for (int c = 0; c < g[0].length; c++) {
+        if (g[r][c] == target) return true;
+    }
+}
+return false;
+```
+
+## Neighbors
+
+```java
+int count = 0;
+if (r > 0 && g[r - 1][c] > 0) count++;                 // above
+if (r < g.length - 1 && g[r + 1][c] > 0) count++;       // below
+if (c > 0 && g[r][c - 1] > 0) count++;                  // left
+if (c < g[0].length - 1 && g[r][c + 1] > 0) count++;    // right
+```
+
+<Note title="Use row methods as helpers">
+A 2D array is an array of 1D arrays, so `g[r]` can be passed to any method that takes an `int[]`. Free-response questions often reward reusing a method you wrote in part (a).
+</Note>
+
+<WorkedExample title="Largest row sum">
+For `{ {3, 1}, {4, 4}, {0, 6} }`, which row has the largest sum?
+
+1. Row sums: 4, 8, 6.
+
+**Answer:** row 1, with a sum of 8.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following method.
+
+```java
+public static int mystery(int[][] g) {
+    int best = 0;
+    int bestSum = 0;
+    for (int r = 0; r < g.length; r++) {
+        int sum = 0;
+        for (int c = 0; c < g[r].length; c++) {
+            sum += g[r][c];
+        }
+        if (sum > bestSum) {
+            bestSum = sum;
+            best = r;
+        }
+    }
+    return best;
+}
+```
+
+What is returned by `mystery(g)` if `g` is `{{2, 1, 6}, {2, 3, 3}, {0, 9, 9}}`?
+
+**Answer:** `2`
+
+**Why:** The row sums are 9, 8, 18; the largest is in row 2.
+
+**Working:** Row sums: 9, 8, 18. The method keeps the index of the largest, 2.
+
+**Mistakes to avoid**
+
+- `18`: The method returns the row index, not the sum.
+- `0`: Recompute each row's sum.
+- `3`: Rows are numbered from 0.
+
+### Free-response practice: Seating chart
+
+A `Theater` stores its seats in a 2D array of student ID numbers. A value of 0 means the seat is empty.
+
+```java
+public class Theater {
+    private int[][] seats;
+    /** Returns the number of empty seats in the given row. */
+    public int emptyInRow(int row) { /* part (a) */ }
+    /** Returns the index of the first row containing at least k adjacent empty seats,
+        or -1 if there is none. */
+    public int findBlock(int k) { /* part (b) */ }
+}
+```
+
+For the chart below, `emptyInRow(3)` returns 5 and `findBlock(2)` returns 0.
+
+```java
+ 0 20  0  0 67  0  0
+ 0 63 12  0  0 25 38
+59  0  0 94  0 53 81
+ 0 66  0  0 79  0  0
+```
+
+**(a)** Write the method `emptyInRow`.
+
+To earn the point: Traverses every column of the given row. Model answer: `for (int c = 0; c < seats[row].length; c++)`
+
+To earn the point: Counts seats equal to 0 and returns the count. Model answer:
+
+```java
+public int emptyInRow(int row) {
+    int count = 0;
+    for (int c = 0; c < seats[row].length; c++) {
+        if (seats[row][c] == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+**(b)** Write the method `findBlock`.
+
+To earn the point: Traverses rows in order from 0. Model answer: `for (int r = 0; r < seats.length; r++)`
+
+To earn the point: Tracks the current run of adjacent empty seats, resetting it at an occupied seat and at the start of each row. Model answer: `run = (seats[r][c] == 0) ? run + 1 : 0;`
+
+To earn the point: Returns the row index as soon as a run reaches k. Model answer: `if (run >= k) return r;`
+
+To earn the point: Returns -1 when no row qualifies. Model answer:
+
+```java
+public int findBlock(int k) {
+    for (int r = 0; r < seats.length; r++) {
+        int run = 0;
+        for (int c = 0; c < seats[r].length; c++) {
+            if (seats[r][c] == 0) {
+                run++;
+            } else {
+                run = 0;
+            }
+            if (run >= k) {
+                return r;
+            }
+        }
+    }
+    return -1;
+}
+```
+
+### Free-response practice: Terrain peaks
+
+A `Terrain` stores heights in a 2D array. A cell is a **peak** if its height is strictly greater than each of its neighbors above, below, left and right that are inside the grid.
+
+```java
+public class Terrain {
+    private int[][] heights;
+    /** Returns true if the cell at (r, c) is a peak. Precondition: (r, c) is in the grid. */
+    public boolean isPeak(int r, int c) { /* part (a) */ }
+    /** Returns the number of peaks in the grid. */
+    public int countPeaks() { /* part (b) */ }
+}
+```
+
+For the grid below, `isPeak(2, 1)` returns false and `countPeaks()` returns 6.
+
+```java
+ 7  8  6  9  5
+ 1  9  6  3  9
+ 9  5  4  2  4
+ 6  9  5  8  6
+```
+
+**(a)** Write the method `isPeak`.
+
+To earn the point: Checks each of the four neighbors. Model answer: above, below, left and right
+
+To earn the point: Checks bounds before reading a neighbor, so edge cells do not cause an exception. Model answer: `r > 0 && heights[r - 1][c] >= h`
+
+To earn the point: Uses strict comparison and returns the correct boolean. Model answer:
+
+```java
+public boolean isPeak(int r, int c) {
+    int h = heights[r][c];
+    if (r > 0 && heights[r - 1][c] >= h) return false;
+    if (r < heights.length - 1 && heights[r + 1][c] >= h) return false;
+    if (c > 0 && heights[r][c - 1] >= h) return false;
+    if (c < heights[0].length - 1 && heights[r][c + 1] >= h) return false;
+    return true;
+}
+```
+
+**(b)** Write the method `countPeaks`. Assume `isPeak` works as specified, regardless of what you wrote in part (a).
+
+To earn the point: Traverses every cell with nested loops and correct bounds. Model answer: `for (int r = 0; r < heights.length; r++) for (int c = 0; c < heights[0].length; c++)`
+
+To earn the point: Calls isPeak on each cell. Model answer: `if (isPeak(r, c)) count++;`
+
+To earn the point: Returns the count. Model answer:
+
+```java
+public int countPeaks() {
+    int count = 0;
+    for (int r = 0; r < heights.length; r++) {
+        for (int c = 0; c < heights[0].length; c++) {
+            if (isPeak(r, c)) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+```
+
+### Free-response practice: Gradebook
+
+A `Gradebook` stores test scores in a 2D array: each row is a student and each column is a test, in the order the tests were given.
+
+```java
+public class Gradebook {
+    private int[][] scores;
+    /** Returns the average score on test c. */
+    public double testAverage(int c) { /* part (a) */ }
+    /** Returns the row index of the student whose last score minus first score is greatest.
+        If there is a tie, returns the smallest such index. */
+    public int mostImproved() { /* part (b) */ }
+}
+```
+
+For the scores below, `testAverage(1)` returns 69.333 and `mostImproved()` returns 2.
+
+```java
+82 87 66 81
+61 51 68 55
+69 70 96 85
+```
+
+**(a)** Write the method `testAverage`.
+
+To earn the point: Traverses every row of column c. Model answer: `for (int r = 0; r < scores.length; r++) sum += scores[r][c];`
+
+To earn the point: Divides by the number of rows without integer division and returns the result. Model answer:
+
+```java
+public double testAverage(int c) {
+    int sum = 0;
+    for (int r = 0; r < scores.length; r++) {
+        sum += scores[r][c];
+    }
+    return (double) sum / scores.length;
+}
+```
+
+**(b)** Write the method `mostImproved`.
+
+To earn the point: Computes last minus first for each row. Model answer: `scores[r][scores[r].length - 1] - scores[r][0]`
+
+To earn the point: Initializes the best from data (row 0), not from 0. Model answer: `int best = 0; int bestDiff = scores[0][last] - scores[0][0];`
+
+To earn the point: Updates only on a strictly greater difference (keeps the smallest index in a tie) and returns the index. Model answer:
+
+```java
+public int mostImproved() {
+    int last = scores[0].length - 1;
+    int best = 0;
+    int bestDiff = scores[0][last] - scores[0][0];
+    for (int r = 1; r < scores.length; r++) {
+        int diff = scores[r][last] - scores[r][0];
+        if (diff > bestDiff) {
+            bestDiff = diff;
+            best = r;
+        }
+    }
+    return best;
+}
+```

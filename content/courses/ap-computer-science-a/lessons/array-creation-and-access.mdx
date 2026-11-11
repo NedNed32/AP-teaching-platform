@@ -1,0 +1,95 @@
+---
+objectives:
+  - Create arrays, access elements by index and use the length attribute.
+keyTerms:
+  - term: Array
+    definition: 'A fixed-size sequence of elements of the same type, indexed from 0 to length - 1.'
+  - term: ArrayIndexOutOfBoundsException
+    definition: 'The exception thrown when an index is negative or at least the array''s length.'
+checks:
+  - q: 'What does `new int[5]` contain?'
+    a: 'Five zeros.'
+  - q: 'What is the last valid index of an array arr?'
+    a: '`arr.length - 1`.'
+sources:
+  - title: CSAwesome, "Arrays"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+An array stores a fixed number of values of one type, each reached by its **index**.
+
+## Creating arrays
+
+```java
+int[] scores = new int[4];               // {0, 0, 0, 0}
+double[] prices = {2.5, 3.0, 1.25};      // initializer list
+String[] names = new String[3];          // {null, null, null}
+```
+
+Default values: 0 for `int`, 0.0 for `double`, false for `boolean`, null for objects.
+
+## Accessing elements
+
+```java
+scores[0] = 90;
+scores[3] = scores[0] + 5;
+int n = scores.length;    // 4 (no parentheses: length is a field)
+```
+
+Indexes run from 0 to `length - 1`. Using `scores[4]` throws an `ArrayIndexOutOfBoundsException`.
+
+<Note title="length, length(), size()">
+Arrays use `arr.length` (no parentheses), Strings use `s.length()`, and ArrayLists use `list.size()`. Mixing them up is a frequent compile error.
+</Note>
+
+<WorkedExample title="Trace">
+What is printed?
+
+```java
+int[] a = {4, 7, 1, 9};
+a[1] = a[0] + a[3];
+a[a[2]] = 0;
+System.out.println(a[0] + " " + a[1] + " " + a[2]);
+```
+
+1. `a[1] = 4 + 9 = 13`: array is [4, 13, 1, 9].
+2. `a[2]` is 1, so `a[1] = 0`: array is [4, 0, 1, 9].
+
+**Answer:** `4 0 1`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int[] a = {1, 3, 3, 1};
+a[3] = a[3] + a[0];
+a[a[2]] = 20;
+for (int x : a) {
+    System.out.print(x + " ");
+}
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `1 3 3 20`
+
+**Why:** After the first assignment, a[2] is 3, so that index is set to 20.
+
+**Working:** After `a[3] = a[3] + a[0]`, the array is \{1, 3, 3, 2\}. Then a[2] is 3, so index 3 becomes 20.
+
+**Mistakes to avoid**
+
+- `1 3 20 2`: a[a[2]] uses the value stored at index 2 as the index.
+- `1 3 3 2`: The second assignment also changes the array.
+- `1 3 3 21`: Statements run in order; the first assignment happens before a[2] is read.

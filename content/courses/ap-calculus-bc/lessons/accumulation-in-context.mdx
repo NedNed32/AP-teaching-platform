@@ -1,0 +1,129 @@
+---
+objectives:
+  - Use definite integrals of rates to find accumulated amounts in context.
+  - Interpret integral expressions with units.
+keyTerms:
+  - term: Net amount
+    definition: 'Initial amount plus the integral of the rate in minus the integral of the rate out.'
+checks:
+  - q: '$$R(t)$$ is the rate snow falls, in inches per hour. What does $$\int_2^5 R(t)\,dt$$ mean?'
+    a: 'The number of inches of snow that fall from $$t = 2$$ to $$t = 5$$ hours.'
+  - q: 'What are the units of $$\int_0^8 E(t)\,dt$$ if $$E$$ is in people per hour and $$t$$ in hours?'
+    a: 'People.'
+sources:
+  - title: Calculus Volume 1, section 5.4 "Integration Formulas and the Net Change Theorem"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Question 1 of the free-response section is almost always a rate problem: water in a tank, people in a park, cars on a road. The integral of a rate gives an amount, and the net change theorem stitches everything together.
+
+## The template
+
+If a quantity $$A$$ has inflow rate $$I(t)$$ and outflow rate $$O(t)$$:
+
+$$
+A(T) = A(0) + \int_0^T I(t)\,dt - \int_0^T O(t)\,dt.
+$$
+
+The amount is increasing when $$I(t) > O(t)$$, and it reaches a maximum or minimum where $$I(t) - O(t)$$ changes sign (or at an endpoint).
+
+## Interpreting an integral
+
+A full interpretation of $$\int_a^b R(t)\,dt$$ names:
+
+1. the quantity (the amount, not the rate),
+2. the time interval,
+3. the units (rate units times time units).
+
+For example: "$$\int_0^4 R(t)\,dt = 30$$ means 30 gallons of water flowed into the tank during the first 4 hours."
+
+<Note title="Rate versus amount">
+$$R(3)$$ is a **rate** at an instant (gallons per hour). $$\int_0^3 R(t)\,dt$$ is an **amount** (gallons). Mixing these up is the most common error in context problems.
+</Note>
+
+<WorkedExample title="When is the amount largest?">
+People enter a store at $$E(t) = 20 + 10\sin\left(\frac{t}{2}\right)$$ and leave at $$L(t) = 2t + 15$$ people per hour, for $$0 \leq t \leq 8$$. At what time is the number of people in the store greatest?
+
+1. Solve $$E(t) - L(t) = 0$$ on a calculator: $$t \approx 5.161$$.
+2. $$E - L$$ changes from positive to negative there, so the number of people increases, then decreases.
+3. The single critical point with this sign change gives the absolute maximum; the endpoints cannot be larger.
+
+**Answer:** at about $$t = 5.161$$ hours.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$9.136$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 9.136$$. The displacement $$\int_0^{5} v(t)\,dt \approx 5.182$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$4.236$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 4.236$$. The displacement $$\int_0^{4} v(t)\,dt \approx 3.925$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$6.971$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 6.971$$. The displacement $$\int_0^{5} v(t)\,dt \approx 4.262$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$5.945$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 5.945$$. The displacement $$\int_0^{4} v(t)\,dt \approx 5.288$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$5.081$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 5.081$$. The displacement $$\int_0^{6} v(t)\,dt \approx 3.092$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 2\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 5$$?
+
+**A.** $$4.820$$. $$\int_0^{5} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{5} |v(t)|\,dt \approx 4.820$$. The displacement $$\int_0^{5} v(t)\,dt \approx 3.341$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 3\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$7.495$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 7.495$$. The displacement $$\int_0^{6} v(t)\,dt \approx 3.738$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 4$$?
+
+**A.** $$7.668$$. $$\int_0^{4} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{4} |v(t)|\,dt \approx 7.668$$. The displacement $$\int_0^{4} v(t)\,dt \approx 6.650$$ is smaller because the particle moves backward part of the time.
+
+**Q.** A particle moves along a line with velocity $$v(t) = 4\sin(t)\,e^{-t/6} + 0.3$$. What is the total distance the particle travels over $$0 \leq t \leq 6$$?
+
+**A.** $$9.934$$. $$\int_0^{6} |v(t)|\,dt$$ on the calculator. Total distance $$= \int_0^{6} |v(t)|\,dt \approx 9.934$$. The displacement $$\int_0^{6} v(t)\,dt \approx 4.384$$ is smaller because the particle moves backward part of the time.
+
+### Free-response practice: Water in a tank
+
+Water enters a tank at a rate modeled by $$E(t) = 13 + 3\sin\left(\frac{t}{2}\right)$$ gallons per hour and leaves the tank at a rate modeled by $$L(t) = 5\sqrt{t + 1}$$ gallons per hour, for $$0 \leq t \leq 8$$. At time $$t = 0$$ the tank contains 137 gallons of water.
+
+**(a)** How many gallons of water enter the tank during the time interval $$0 \leq t \leq 8$$?
+
+To earn the point: Writes a definite integral of $$E$$ over the interval. Model answer: $$\int_0^{8} E(t)\,dt$$
+
+To earn the point: Gives the correct value. Model answer: 113.922 gallons
+
+**(b)** Is the amount of water in the tank increasing or decreasing at time $$t = 2$$? Give a reason for your answer.
+
+To earn the point: Concludes correctly, with a reason that compares $$E$$ and $$L$$ (or uses the sign of $$E - L$$). Model answer: $$E(2) - L(2) \approx 6.864$$, which is positive, so the amount is increasing.
+
+**(c)** At what time $$t$$, for $$0 \leq t \leq 8$$, is the amount of water in the tank greatest? Justify your answer.
+
+To earn the point: Sets $$E(t) - L(t) = 0$$ to find the critical points. Model answer: $$t \approx 6.080$$
+
+To earn the point: Evaluates the amount at the critical points and the endpoints (Candidates Test). Model answer: $$W(0.000) \approx 137.000$$, $$W(6.080) \approx 168.547$$, $$W(8.000) \approx 164.255$$
+
+To earn the point: Gives the correct time with justification. Model answer: The amount is greatest at $$t \approx 6.080$$.
+
+**(d)** How many gallons of water are in the tank at time $$t = 8$$?
+
+To earn the point: Uses the initial amount plus the integral of the net rate. Model answer: $$137 + \int_0^{8} (E(t) - L(t))\,dt$$
+
+To earn the point: Gives the correct value. Model answer: 164.255 gallons

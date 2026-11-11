@@ -1,0 +1,114 @@
+---
+objectives:
+  - Build Taylor polynomials from derivative values.
+  - Use Taylor polynomials to approximate function values.
+keyTerms:
+  - term: Taylor polynomial
+    definition: '$$P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k$$, the degree-$$n$$ polynomial matching $$f$$ and its first $$n$$ derivatives at $$a$$.'
+  - term: Maclaurin polynomial
+    definition: 'A Taylor polynomial centered at $$a = 0$$.'
+checks:
+  - q: 'Find the degree-2 Maclaurin polynomial for $$e^x$$.'
+    a: '$$1 + x + \frac{x^2}{2}$$.'
+  - q: 'If $$f(2) = 3$$, $$f''(2) = -1$$, $$f''''(2) = 4$$, write $$P_2(x)$$ about $$x = 2$$.'
+    a: '$$3 - (x - 2) + 2(x - 2)^2$$.'
+sources:
+  - title: Calculus Volume 2, section 6.3 "Taylor and Maclaurin Series"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+A tangent line matches a function's value and slope at a point. A Taylor polynomial goes further, also matching concavity and every higher derivative up to its degree, so it hugs the function much more closely.
+
+## The formula
+
+$$
+P_n(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n.
+$$
+
+The coefficient of $$(x - a)^k$$ is $$\frac{f^{(k)}(a)}{k!}$$. Reading backwards, a coefficient tells you a derivative: $$f^{(k)}(a) = k! \times (\text{coefficient})$$.
+
+## A useful table
+
+| $$k$$ | $$f^{(k)}(a)$$ | $$\frac{f^{(k)}(a)}{k!}$$ |
+| --- | --- | --- |
+| 0 | $$f(a)$$ | $$f(a)$$ |
+| 1 | $$f'(a)$$ | $$f'(a)$$ |
+| 2 | $$f''(a)$$ | $$\frac{f''(a)}{2}$$ |
+| 3 | $$f'''(a)$$ | $$\frac{f'''(a)}{6}$$ |
+
+<Note title="Do not forget the factorials">
+The most frequent error is writing $$f''(a)(x - a)^2$$ instead of $$\frac{f''(a)}{2}(x - a)^2$$. Free-response graders check every factorial.
+</Note>
+
+<WorkedExample title="Approximating a value">
+Use the third-degree Maclaurin polynomial of $$\sin x$$ to approximate $$\sin(0.2)$$.
+
+1. Derivatives at 0: $$\sin 0 = 0$$, $$\cos 0 = 1$$, $$-\sin 0 = 0$$, $$-\cos 0 = -1$$.
+2. $$P_3(x) = x - \frac{x^3}{6}$$.
+3. $$P_3(0.2) = 0.2 - \frac{0.008}{6}$$.
+
+**Answer:** $$\sin(0.2) \approx 0.198667$$ (actual value $$0.198669\ldots$$).
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A function $$f$$ has $$f(0) = 4$$, $$f'(0) = -6$$, $$f''(0) = -3$$ and $$f'''(0) = -5$$. What is the coefficient of $$x^3$$ in the Taylor polynomial for $$f$$ about $$x = 0$$?
+
+**Answer:** $$-\frac{5}{6}$$
+
+**Why:** $$\frac{f'''(0)}{3!} = \frac{-5}{6}$$.
+
+**Working:** The coefficient of $$x^k$$ is $$\frac{f^{(k)}(0)}{k!}$$; for $$k = 3$$ it is $$\frac{-5}{6} = -\frac{5}{6}$$.
+
+**Mistakes to avoid**
+
+- $$-5$$: This forgets to divide by $$3!$$.
+- $$-\frac{5}{3}$$: This divides by 3 instead of $$3! = 6$$.
+- $$-\frac{3}{2}$$: This is the coefficient of the squared term.
+
+### Worked exam question 2
+
+A function $$f$$ has $$f(3) = 3$$, $$f'(3) = -6$$ and $$f''(3) = 2$$. Using the second-degree Taylor polynomial for $$f$$ about $$x = 3$$, what is the approximation of $$f(2.9)$$?
+
+**Answer:** $$3.610$$
+
+**Why:** $$P_2(2.9) = 3 + (-6)(-0.1) + \frac{2}{2}(-0.1)^2$$.
+
+**Working:** $$P_2(x) = 3 - 6(x - 3) + \frac{2}{2}(x - 3)^2$$, evaluated at $$x = 2.9$$: $$3.610$$.
+
+**Mistakes to avoid**
+
+- $$3.620$$: This forgets to divide the second derivative by $$2!$$.
+- $$3.600$$: This is the tangent-line (first-degree) approximation.
+- $$3.500$$: The quadratic term must use $$(x - a)^2$$, not $$(x - a)$$.
+
+### Free-response practice: A Taylor polynomial
+
+A function $$f$$ has derivatives of all orders. Selected values are $$f(2) = -3$$, $$f'(2) = 4$$, $$f''(2) = -1$$ and $$f'''(2) = 12$$. For all $$x$$, $$|f^{(4)}(x)| \leq 18$$.
+
+**(a)** Write the third-degree Taylor polynomial for $$f$$ about $$x = 2$$.
+
+To earn the point: Uses the correct coefficients, including factorials. Model answer: $$P_3(x) = -3 + 4(x - 2) - \frac{1}{2}(x - 2)^2 + 2(x - 2)^3$$
+
+To earn the point: Writes powers of $$(x - a)$$ correctly. Model answer: Each term uses $$(x - 2)^k$$.
+
+**(b)** Use $$P_3$$ to approximate $$f(2.5)$$.
+
+To earn the point: Evaluates the polynomial. Model answer: $$P_3(2.5) = -\frac{7}{8}$$
+
+**(c)** Use the Lagrange error bound to show that the approximation in part (b) differs from $$f(2.5)$$ by at most $$\frac{3}{64}$$.
+
+To earn the point: Writes the Lagrange bound with the given M. Model answer: $$\frac{18}{4!}\left(\frac{1}{2}\right)^4 = \frac{3}{64}$$
+
+**(d)** Write the second-degree Taylor polynomial for $$f'$$ about $$x = 2$$.
+
+To earn the point: Differentiates $$P_3$$ (or uses the derivative values directly). Model answer: $$4 - (x - 2) + 6(x - 2)^2$$

@@ -1,0 +1,1885 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e13-frq1-s",
+      "text": "A block of mass 5 kg on a 30° incline is connected by a light string over a light, frictionless pulley at the top of the incline to a hanging block of mass 7 kg. The coefficient of kinetic friction between the block and the incline is 0.2. The system is released from rest, and the hanging block descends."
+    },
+    {
+      "id": "e13-frq2-s",
+      "text": "A block of mass 0.5 kg on a horizontal frictionless surface is attached to a spring. Its position is $$x(t) = 0.07\\cos(12t)$$, with x in meters and t in seconds."
+    },
+    {
+      "id": "e13-frq3-s",
+      "text": "Students measure the period of a simple pendulum for several string lengths, using small amplitudes.",
+      "table": {
+        "caption": "Pendulum data",
+        "columns": [
+          {
+            "key": "len",
+            "label": "Length L (m)"
+          },
+          {
+            "key": "period",
+            "label": "Period T (s)"
+          }
+        ],
+        "rows": [
+          {
+            "len": 0.2,
+            "period": 0.9
+          },
+          {
+            "len": 0.4,
+            "period": 1.27
+          },
+          {
+            "len": 0.6,
+            "period": 1.56
+          },
+          {
+            "len": 0.8,
+            "period": 1.81
+          },
+          {
+            "len": 1,
+            "period": 2.01
+          }
+        ]
+      }
+    },
+    {
+      "id": "e13-frq4-s",
+      "text": "A hoop (I = MR²) and a solid sphere (I = ⅖MR²) of equal mass M and radius R are released from rest at the top of the same ramp of height 2.9 m. Both roll without slipping."
+    }
+  ],
+  "questions": [
+    {
+      "id": "e13-q01",
+      "type": "mcq",
+      "topics": [
+        "newtons-second-law",
+        "systems-and-center-of-mass"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Masses of 10 kg and 2 kg hang on either side of a light, frictionless pulley. What is the magnitude of their acceleration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$9.8\\ \\mathrm{m/s^2}$$",
+          "why": "The masses are connected, so a is less than g."
+        },
+        {
+          "id": "b",
+          "text": "$$14.7\\ \\mathrm{m/s^2}$$",
+          "why": "The fraction is inverted."
+        },
+        {
+          "id": "c",
+          "text": "$$6.53\\ \\mathrm{m/s^2}$$",
+          "why": "Correct. a = (m₁ − m₂)g/(m₁ + m₂)."
+        },
+        {
+          "id": "d",
+          "text": "$$7.84\\ \\mathrm{m/s^2}$$",
+          "why": "The whole system accelerates: divide by both masses."
+        }
+      ],
+      "answer": "c",
+      "explanation": "a = (10 − 2)(9.8)/12 = 6.53 m/s²; T = m₂(g + a) = 32.7 N."
+    },
+    {
+      "id": "e13-q02",
+      "type": "mcq",
+      "topics": [
+        "frequency-and-period-of-shm"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 0.9 kg mass oscillates on a spring with $$k = 55$$ N/m. What is the period?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.804\\ \\mathrm{s}$$",
+          "why": "Correct. T = 2π√(m/k)."
+        },
+        {
+          "id": "b",
+          "text": "$$49.1\\ \\mathrm{s}$$",
+          "why": "The ratio is m/k."
+        },
+        {
+          "id": "c",
+          "text": "$$1.24\\ \\mathrm{s}$$",
+          "why": "That is the frequency."
+        },
+        {
+          "id": "d",
+          "text": "$$0.128\\ \\mathrm{s}$$",
+          "why": "Include the 2π."
+        }
+      ],
+      "answer": "a",
+      "explanation": "T = 2π√(0.9/55) = 0.804 s."
+    },
+    {
+      "id": "e13-q03",
+      "type": "mcq",
+      "topics": [
+        "representing-and-analyzing-shm",
+        "defining-simple-harmonic-motion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "An oscillator's position is $$x(t) = 0.16\\cos(3t)$$ m. What is its maximum acceleration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.48\\ \\mathrm{m/s^2}$$",
+          "why": "That is v_max."
+        },
+        {
+          "id": "b",
+          "text": "$$9\\ \\mathrm{m/s^2}$$",
+          "why": "Multiply by the amplitude."
+        },
+        {
+          "id": "c",
+          "text": "$$1.44\\ \\mathrm{m/s^2}$$",
+          "why": "Correct. a_max = Aω²."
+        },
+        {
+          "id": "d",
+          "text": "$$4.32\\ \\mathrm{m/s^2}$$",
+          "why": "Differentiate twice: Aω²."
+        }
+      ],
+      "answer": "c",
+      "explanation": "a_max = Aω² = 1.44 m/s²."
+    },
+    {
+      "id": "e13-q04",
+      "type": "mcq",
+      "topics": [
+        "elastic-and-inelastic-collisions",
+        "conservation-of-linear-momentum"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 3 kg cart moving at 7 m/s collides with and sticks to a 7 kg cart at rest. What is their speed after the collision?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.83\\ \\mathrm{m/s}$$",
+          "why": "Kinetic energy is not conserved here."
+        },
+        {
+          "id": "b",
+          "text": "$$4.9\\ \\mathrm{m/s}$$",
+          "why": "Use m₁v₁ for the initial momentum."
+        },
+        {
+          "id": "c",
+          "text": "$$7\\ \\mathrm{m/s}$$",
+          "why": "The carts share the momentum."
+        },
+        {
+          "id": "d",
+          "text": "$$2.1\\ \\mathrm{m/s}$$",
+          "why": "Correct. Momentum is conserved; kinetic energy is not."
+        }
+      ],
+      "answer": "d",
+      "explanation": "v_f = 3·7/10 = 2.1 m/s; kinetic energy lost = 51.5 J."
+    },
+    {
+      "id": "e13-q05",
+      "type": "mcq",
+      "topics": [
+        "simple-and-physical-pendulums"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A uniform rod of length 0.9 m swings about a pivot at one end with small amplitude. What is its period?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.1\\ \\mathrm{s}$$",
+          "why": "d is L/2, the distance to the center of mass."
+        },
+        {
+          "id": "b",
+          "text": "$$1.9\\ \\mathrm{s}$$",
+          "why": "A rod is a physical pendulum, not a simple one."
+        },
+        {
+          "id": "c",
+          "text": "$$2.69\\ \\mathrm{s}$$",
+          "why": "I = mL²/3."
+        },
+        {
+          "id": "d",
+          "text": "$$1.55\\ \\mathrm{s}$$",
+          "why": "Correct. T = 2π√(I/(mgd)) with I = mL²/3 and d = L/2."
+        }
+      ],
+      "answer": "d",
+      "explanation": "T = 1.55 s."
+    },
+    {
+      "id": "e13-q06",
+      "type": "mcq",
+      "topics": [
+        "power"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A motor lifts a 90 kg load 14 m at constant speed in 18 s. What average power does it deliver?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$686\\ \\mathrm{W}$$",
+          "why": "Correct. P = mgh/t."
+        },
+        {
+          "id": "b",
+          "text": "$$70\\ \\mathrm{W}$$",
+          "why": "Include g."
+        },
+        {
+          "id": "c",
+          "text": "$$1130\\ \\mathrm{W}$$",
+          "why": "P = W/t."
+        },
+        {
+          "id": "d",
+          "text": "$$1.23 \\times 10^{4}\\ \\mathrm{W}$$",
+          "why": "That is the work; divide by time."
+        }
+      ],
+      "answer": "a",
+      "explanation": "P = 90(9.8)(14)/18 = 686 W."
+    },
+    {
+      "id": "e13-q07",
+      "type": "mcq",
+      "topics": [
+        "work"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A force $$F(x) = 2x^2$$ N acts along the x-axis. How much work does it do on an object moving from $$x = 2$$ m to $$x = 4$$ m?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$64\\ \\mathrm{J}$$",
+          "why": "The force is not constant."
+        },
+        {
+          "id": "b",
+          "text": "$$112\\ \\mathrm{J}$$",
+          "why": "Divide by n + 1 when integrating."
+        },
+        {
+          "id": "c",
+          "text": "$$37.3\\ \\mathrm{J}$$",
+          "why": "Correct. W = ∫F dx."
+        },
+        {
+          "id": "d",
+          "text": "$$24\\ \\mathrm{J}$$",
+          "why": "Integrate; do not just evaluate F."
+        }
+      ],
+      "answer": "c",
+      "explanation": "W = 2[x^3/3] from 2 to 4 = 37.3 J."
+    },
+    {
+      "id": "e13-q08",
+      "type": "mcq",
+      "topics": [
+        "displacement-velocity-and-acceleration"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A particle's position is $$x(t) = 4t^3 + 2t^2 + 1t$$, with x in meters and t in seconds. What is its velocity at $$t = 3$$ s?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$129\\ \\mathrm{m/s}$$",
+          "why": "That is the position; differentiate it."
+        },
+        {
+          "id": "b",
+          "text": "$$43\\ \\mathrm{m/s}$$",
+          "why": "Bring each exponent down as a factor when differentiating."
+        },
+        {
+          "id": "c",
+          "text": "$$121\\ \\mathrm{m/s}$$",
+          "why": "Correct. Differentiate once: v = 3at² + 2bt + c."
+        },
+        {
+          "id": "d",
+          "text": "$$120\\ \\mathrm{m/s}$$",
+          "why": "The constant term c is part of the velocity."
+        }
+      ],
+      "answer": "c",
+      "explanation": "v(t) = 12t² + 4t + 1, so at t = 3 the value is 121."
+    },
+    {
+      "id": "e13-q09",
+      "type": "mcq",
+      "topics": [
+        "rotational-kinematics"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A wheel spinning at 45 rad/s slows uniformly to rest in 18 s. How many revolutions does it make while stopping?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$129$$",
+          "why": "The average angular speed is ω₀/2."
+        },
+        {
+          "id": "b",
+          "text": "$$32.2$$",
+          "why": "Recheck the average."
+        },
+        {
+          "id": "c",
+          "text": "$$64.5$$",
+          "why": "Correct. Δθ = ½ω₀t, then divide by 2π."
+        },
+        {
+          "id": "d",
+          "text": "$$405$$",
+          "why": "That is in radians; convert to revolutions."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Δθ = ½(45)(18) = 405 rad = 64.5 rev."
+    },
+    {
+      "id": "e13-q10",
+      "type": "mcq",
+      "topics": [
+        "gravitational-force"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A planet has 4 times Earth's mass and 4 times Earth's radius. What is the gravitational field strength at its surface? (Earth's is 9.8 N/kg.)",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$9.8\\ \\mathrm{N/kg}$$",
+          "why": "g depends on 1/R², not 1/R."
+        },
+        {
+          "id": "b",
+          "text": "$$627\\ \\mathrm{N/kg}$$",
+          "why": "g decreases with radius."
+        },
+        {
+          "id": "c",
+          "text": "$$39.2\\ \\mathrm{N/kg}$$",
+          "why": "The ratio is inverted."
+        },
+        {
+          "id": "d",
+          "text": "$$2.45\\ \\mathrm{N/kg}$$",
+          "why": "Correct. g ∝ M/R²."
+        }
+      ],
+      "answer": "d",
+      "explanation": "g = 9.8 × 4/4² = 2.45 N/kg."
+    },
+    {
+      "id": "e13-q11",
+      "type": "mcq",
+      "topics": [
+        "potential-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "The potential energy of a particle is $$U(x) = 2x^3 - 15x$$ J. At what positive x is the particle in stable equilibrium?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2.74\\ \\mathrm{m}$$",
+          "why": "dU/dx = 3ax² − b."
+        },
+        {
+          "id": "b",
+          "text": "$$1.58\\ \\mathrm{m}$$",
+          "why": "Correct. Equilibrium where dU/dx = 0; stable at a minimum."
+        },
+        {
+          "id": "c",
+          "text": "$$1.96\\ \\mathrm{m}$$",
+          "why": "Set the derivative, not U, to zero."
+        },
+        {
+          "id": "d",
+          "text": "$$2.5\\ \\mathrm{m}$$",
+          "why": "Take the square root."
+        }
+      ],
+      "answer": "b",
+      "explanation": "dU/dx = 6x² − 15 = 0 gives x = 1.58 m; d²U/dx² > 0 there, so it is stable."
+    },
+    {
+      "id": "e13-q12",
+      "type": "mcq",
+      "topics": [
+        "conservation-of-energy",
+        "spring-forces"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A spring with $$k = 270$$ N/m is compressed 0.17 m and launches a 1 kg block across a frictionless surface. What is the block's speed after leaving the spring?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$7.8\\ \\mathrm{m/s}$$",
+          "why": "Take the square root."
+        },
+        {
+          "id": "b",
+          "text": "$$45.9\\ \\mathrm{m/s}$$",
+          "why": "Use energy: v = x√(k/m)."
+        },
+        {
+          "id": "c",
+          "text": "$$3.95\\ \\mathrm{m/s}$$",
+          "why": "The ½ appears on both sides."
+        },
+        {
+          "id": "d",
+          "text": "$$2.79\\ \\mathrm{m/s}$$",
+          "why": "Correct. ½kx² = ½mv²."
+        }
+      ],
+      "answer": "d",
+      "explanation": "v = x√(k/m) = 0.17√(270/1) = 2.79 m/s."
+    },
+    {
+      "id": "e13-q13",
+      "type": "mcq",
+      "topics": [
+        "newtons-second-law",
+        "forces-and-free-body-diagrams"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 81 kg person stands on a scale in an elevator that is accelerating upward at 3 m/s². What does the scale read?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$243\\ \\mathrm{N}$$",
+          "why": "Include gravity."
+        },
+        {
+          "id": "b",
+          "text": "$$551\\ \\mathrm{N}$$",
+          "why": "Check the direction of the acceleration."
+        },
+        {
+          "id": "c",
+          "text": "$$1040\\ \\mathrm{N}$$",
+          "why": "Correct. The scale reads the normal force: N − mg = ma (up positive)."
+        },
+        {
+          "id": "d",
+          "text": "$$794\\ \\mathrm{N}$$",
+          "why": "The acceleration changes the normal force."
+        }
+      ],
+      "answer": "c",
+      "explanation": "N = m(g + a) = 1040 N."
+    },
+    {
+      "id": "e13-q14",
+      "type": "mcq",
+      "topics": [
+        "reference-frames-and-relative-motion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A boat points straight across a river 120 m wide, moving at 6 m/s relative to the water. The current flows at 1 m/s. How long does the crossing take?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$20\\ \\mathrm{s}$$",
+          "why": "Correct. The current does not change the time to cross; it only carries the boat downstream."
+        },
+        {
+          "id": "b",
+          "text": "$$24\\ \\mathrm{s}$$",
+          "why": "The current is perpendicular to the heading."
+        },
+        {
+          "id": "c",
+          "text": "$$19.7\\ \\mathrm{s}$$",
+          "why": "The perpendicular component alone sets the crossing time."
+        },
+        {
+          "id": "d",
+          "text": "$$17.1\\ \\mathrm{s}$$",
+          "why": "The current is perpendicular to the heading."
+        }
+      ],
+      "answer": "a",
+      "explanation": "t = 120/6 = 20 s; drift = 1·20 = 20 m."
+    },
+    {
+      "id": "e13-q15",
+      "type": "mcq",
+      "topics": [
+        "newtons-second-law-in-rotational-form",
+        "torque"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A uniform rod of length 0.8 m is pivoted at one end and released from rest in a horizontal position. What is its angular acceleration just after release?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$73.5\\ \\mathrm{rad/s^2}$$",
+          "why": "The weight acts at L/2."
+        },
+        {
+          "id": "b",
+          "text": "$$12.3\\ \\mathrm{rad/s^2}$$",
+          "why": "Use τ = Iα with I = ML²/3."
+        },
+        {
+          "id": "c",
+          "text": "$$36.8\\ \\mathrm{rad/s^2}$$",
+          "why": "τ = MgL/2."
+        },
+        {
+          "id": "d",
+          "text": "$$18.4\\ \\mathrm{rad/s^2}$$",
+          "why": "Correct. τ = Mg(L/2) and I = ML²/3 give α = 3g/(2L)."
+        }
+      ],
+      "answer": "d",
+      "explanation": "α = (MgL/2)/(ML²/3) = 3g/(2L) = 18.4 rad/s²."
+    },
+    {
+      "id": "e13-q16",
+      "type": "mcq",
+      "topics": [
+        "systems-and-center-of-mass"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A rod lies along the x-axis from $$x = 0$$ to $$x = 5$$ m and has linear mass density $$\\lambda = kx^2$$. Where is its center of mass?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.75\\ \\mathrm{m}$$",
+          "why": "Correct. x_cm = ∫xλ dx / ∫λ dx."
+        },
+        {
+          "id": "b",
+          "text": "$$3.33\\ \\mathrm{m}$$",
+          "why": "The exponents are n + 2 and n + 1."
+        },
+        {
+          "id": "c",
+          "text": "$$2.5\\ \\mathrm{m}$$",
+          "why": "The rod is not uniform."
+        },
+        {
+          "id": "d",
+          "text": "$$3\\ \\mathrm{m}$$",
+          "why": "Integrate x·xⁿ and xⁿ correctly."
+        }
+      ],
+      "answer": "a",
+      "explanation": "x_cm = [kL^4/(4)]/[kL^3/(3)] = 3L/4 = 3.75 m."
+    },
+    {
+      "id": "e13-q17",
+      "type": "mcq",
+      "topics": [
+        "torque-and-work",
+        "rotational-kinetic-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A constant torque of 11 N·m acts on a wheel ($$I = 0.2$$ kg·m²) initially at rest, through 3 revolutions. What is the wheel's final angular speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$32.2\\ \\mathrm{rad/s}$$",
+          "why": "W = ½Iω²."
+        },
+        {
+          "id": "b",
+          "text": "$$1040\\ \\mathrm{rad/s}$$",
+          "why": "½Iω² = W; solve for ω."
+        },
+        {
+          "id": "c",
+          "text": "$$45.5\\ \\mathrm{rad/s}$$",
+          "why": "Correct. Work τΔθ (in radians) equals ½Iω²."
+        },
+        {
+          "id": "d",
+          "text": "$$18.2\\ \\mathrm{rad/s}$$",
+          "why": "Convert revolutions to radians."
+        }
+      ],
+      "answer": "c",
+      "explanation": "W = 11·3·2π = 207 J; ω = √(2W/I) = 45.5 rad/s."
+    },
+    {
+      "id": "e13-q18",
+      "type": "mcq",
+      "topics": [
+        "change-in-momentum-and-impulse"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 0.4 kg ball hits a wall at 18 m/s and rebounds at 9 m/s. The contact lasts 0.07 s. What is the average force from the wall?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$103\\ \\mathrm{N}$$",
+          "why": "Include the rebound."
+        },
+        {
+          "id": "b",
+          "text": "$$51.4\\ \\mathrm{N}$$",
+          "why": "The velocity reverses, so the speeds add."
+        },
+        {
+          "id": "c",
+          "text": "$$154\\ \\mathrm{N}$$",
+          "why": "Correct. Δp = m(v_f − v_i) with the direction reversed."
+        },
+        {
+          "id": "d",
+          "text": "$$0.756\\ \\mathrm{N}$$",
+          "why": "Divide by time."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Δp = 0.4(9 + 18) = 10.8 kg·m/s; F = Δp/Δt = 154 N."
+    },
+    {
+      "id": "e13-q19",
+      "type": "mcq",
+      "topics": [
+        "circular-motion",
+        "kinetic-and-static-friction"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A car rounds a flat curve of radius 30 m. The coefficient of static friction is 0.6. What is the maximum speed without skidding?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$176\\ \\mathrm{m/s}$$",
+          "why": "Take the square root."
+        },
+        {
+          "id": "b",
+          "text": "$$17.1\\ \\mathrm{m/s}$$",
+          "why": "Include the friction coefficient."
+        },
+        {
+          "id": "c",
+          "text": "$$22.1\\ \\mathrm{m/s}$$",
+          "why": "μ multiplies g r."
+        },
+        {
+          "id": "d",
+          "text": "$$13.3\\ \\mathrm{m/s}$$",
+          "why": "Correct. Static friction supplies the centripetal force: μmg = mv²/r."
+        }
+      ],
+      "answer": "d",
+      "explanation": "v = √(μgr) = √(0.6·9.8·30) = 13.3 m/s."
+    },
+    {
+      "id": "e13-q20",
+      "type": "mcq",
+      "topics": [
+        "conservation-of-linear-momentum"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 2500 kg car heading east at 15 m/s collides with a 500 kg car heading north at 12 m/s, and they lock together. What is their speed just after the collision?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$15.2\\ \\mathrm{m/s}$$",
+          "why": "Divide by the total mass."
+        },
+        {
+          "id": "b",
+          "text": "$$14.5\\ \\mathrm{m/s}$$",
+          "why": "Momentum is a vector; add components at right angles."
+        },
+        {
+          "id": "c",
+          "text": "$$19.2\\ \\mathrm{m/s}$$",
+          "why": "Weight each velocity by its mass."
+        },
+        {
+          "id": "d",
+          "text": "$$12.7\\ \\mathrm{m/s}$$",
+          "why": "Correct. Conserve momentum in x and y separately, then combine."
+        }
+      ],
+      "answer": "d",
+      "explanation": "p_x = 37500, p_y = 6000; v = √(p_x² + p_y²)/(m₁ + m₂) = 12.7 m/s."
+    },
+    {
+      "id": "e13-q21",
+      "type": "mcq",
+      "topics": [
+        "elastic-and-inelastic-collisions"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 5 kg ball moving at +8 m/s collides elastically head-on with a 8 kg ball at rest. What is the velocity of the 8 kg ball afterward (positive in the original direction)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$8\\ \\mathrm{m/s}$$",
+          "why": "Only equal masses exchange velocities."
+        },
+        {
+          "id": "b",
+          "text": "$$6.15\\ \\mathrm{m/s}$$",
+          "why": "Correct. Elastic: conserve momentum and kinetic energy (relative velocity reverses)."
+        },
+        {
+          "id": "c",
+          "text": "$$3.08\\ \\mathrm{m/s}$$",
+          "why": "That would be a sticking collision."
+        },
+        {
+          "id": "d",
+          "text": "$$5\\ \\mathrm{m/s}$$",
+          "why": "Kinetic energy is conserved too."
+        }
+      ],
+      "answer": "b",
+      "explanation": "v₁' = (m₁ − m₂)v/(m₁ + m₂) = -1.85 m/s; v₂' = 2m₁v/(m₁ + m₂) = 6.15 m/s."
+    },
+    {
+      "id": "e13-q22",
+      "type": "mcq",
+      "topics": [
+        "rolling",
+        "rotational-kinetic-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A solid cylinder rolls without slipping from rest down a ramp of height 2.4 m. What is its speed at the bottom?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$5.6\\ \\mathrm{m/s}$$",
+          "why": "Correct. mgh = ½mv²(1 + β) with I = ½MR²."
+        },
+        {
+          "id": "b",
+          "text": "$$6.86\\ \\mathrm{m/s}$$",
+          "why": "Some energy goes into rotation."
+        },
+        {
+          "id": "c",
+          "text": "$$3.96\\ \\mathrm{m/s}$$",
+          "why": "Rotational energy is ½Iω² = ½βmv²."
+        },
+        {
+          "id": "d",
+          "text": "$$4.85\\ \\mathrm{m/s}$$",
+          "why": "That is only correct for a hoop."
+        }
+      ],
+      "answer": "a",
+      "explanation": "v = √(2gh/(1 + 0.5)) = 5.6 m/s."
+    },
+    {
+      "id": "e13-q23",
+      "type": "mcq",
+      "topics": [
+        "circular-motion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 2 kg ball on a 0.9 m string moves in a vertical circle. At the bottom of the circle its speed is 8 m/s. What is the tension in the string there?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$123\\ \\mathrm{N}$$",
+          "why": "Check the direction of gravity relative to the center."
+        },
+        {
+          "id": "b",
+          "text": "$$142\\ \\mathrm{N}$$",
+          "why": "Include gravity."
+        },
+        {
+          "id": "c",
+          "text": "$$37.4\\ \\mathrm{N}$$",
+          "why": "Centripetal force uses v²."
+        },
+        {
+          "id": "d",
+          "text": "$$162\\ \\mathrm{N}$$",
+          "why": "Correct. At the bottom, T − mg = mv²/r."
+        }
+      ],
+      "answer": "d",
+      "explanation": "T = mv²/r + mg = 162 N."
+    },
+    {
+      "id": "e13-q24",
+      "type": "mcq",
+      "topics": [
+        "displacement-velocity-and-acceleration"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A car moving at 22 m/s brakes with a constant deceleration of 2 m/s². How far does it travel before stopping?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$121\\ \\mathrm{m}$$",
+          "why": "Correct. Use v² = v₀² + 2aΔx with v = 0."
+        },
+        {
+          "id": "b",
+          "text": "$$60.5\\ \\mathrm{m}$$",
+          "why": "Δx = v₀²/(2a)."
+        },
+        {
+          "id": "c",
+          "text": "$$11\\ \\mathrm{m}$$",
+          "why": "That is the stopping time in seconds."
+        },
+        {
+          "id": "d",
+          "text": "$$242\\ \\mathrm{m}$$",
+          "why": "Divide by 2a, not a."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Δx = v₀²/(2a) = 22²/(2 × 2) = 121 m."
+    },
+    {
+      "id": "e13-q25",
+      "type": "mcq",
+      "topics": [
+        "work"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A force $$F(x) = 3x$$ N acts along the x-axis. How much work does it do on an object moving from $$x = 1$$ m to $$x = 3$$ m?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$12\\ \\mathrm{J}$$",
+          "why": "Correct. W = ∫F dx."
+        },
+        {
+          "id": "b",
+          "text": "$$6\\ \\mathrm{J}$$",
+          "why": "Integrate; do not just evaluate F."
+        },
+        {
+          "id": "c",
+          "text": "$$18\\ \\mathrm{J}$$",
+          "why": "The force is not constant."
+        },
+        {
+          "id": "d",
+          "text": "$$24\\ \\mathrm{J}$$",
+          "why": "Divide by n + 1 when integrating."
+        }
+      ],
+      "answer": "a",
+      "explanation": "W = 3[x^2/2] from 1 to 3 = 12 J."
+    },
+    {
+      "id": "e13-q26",
+      "type": "mcq",
+      "topics": [
+        "kinetic-and-static-friction",
+        "newtons-second-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A block slides down a 25° incline. The coefficient of kinetic friction is 0.1. What is the magnitude of its acceleration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.73\\ \\mathrm{m/s^2}$$",
+          "why": "Friction depends on the normal force, mg cos θ."
+        },
+        {
+          "id": "b",
+          "text": "$$8.47\\ \\mathrm{m/s^2}$$",
+          "why": "The component along the incline is mg sin θ."
+        },
+        {
+          "id": "c",
+          "text": "$$4.14\\ \\mathrm{m/s^2}$$",
+          "why": "Friction acts up the slope."
+        },
+        {
+          "id": "d",
+          "text": "$$3.25\\ \\mathrm{m/s^2}$$",
+          "why": "Correct. a = g(sin θ − μk cos θ)."
+        }
+      ],
+      "answer": "d",
+      "explanation": "a = 9.8(sin 25° − 0.1 cos 25°) = 3.25 m/s²."
+    },
+    {
+      "id": "e13-q27",
+      "type": "mcq",
+      "topics": [
+        "change-in-momentum-and-impulse"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 4 kg object at rest experiences a net force $$F(t) = 8t^2$$ N from $$t = 0$$ to $$t = 4$$ s. What is its final speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$42.7\\ \\mathrm{m/s}$$",
+          "why": "Correct. Impulse ∫F dt equals the change in momentum."
+        },
+        {
+          "id": "b",
+          "text": "$$32\\ \\mathrm{m/s}$$",
+          "why": "Integrate the force over time."
+        },
+        {
+          "id": "c",
+          "text": "$$128\\ \\mathrm{m/s}$$",
+          "why": "The force is not constant."
+        },
+        {
+          "id": "d",
+          "text": "$$171\\ \\mathrm{m/s}$$",
+          "why": "Divide by the mass to get speed."
+        }
+      ],
+      "answer": "a",
+      "explanation": "J = ∫F dt = 171 N·s; v = J/m = 42.7 m/s."
+    },
+    {
+      "id": "e13-q28",
+      "type": "mcq",
+      "topics": [
+        "conservation-of-energy",
+        "work"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A block starts from rest and slides 6 m down a 30° incline with coefficient of kinetic friction 0.3. What is its speed at the bottom?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4.85\\ \\mathrm{m/s}$$",
+          "why": "Friction depends on the normal force, mg cos θ."
+        },
+        {
+          "id": "b",
+          "text": "$$5.31\\ \\mathrm{m/s}$$",
+          "why": "Correct. mgh − μmg cos θ·L = ½mv²."
+        },
+        {
+          "id": "c",
+          "text": "$$7.67\\ \\mathrm{m/s}$$",
+          "why": "Friction removes energy."
+        },
+        {
+          "id": "d",
+          "text": "$$10.8\\ \\mathrm{m/s}$$",
+          "why": "Use the vertical drop, L sin θ."
+        }
+      ],
+      "answer": "b",
+      "explanation": "h = 3 m. v = √(2g(h − μL cos θ)) = 5.31 m/s."
+    },
+    {
+      "id": "e13-q29",
+      "type": "mcq",
+      "topics": [
+        "displacement-velocity-and-acceleration"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "An object's acceleration is $$a(t) = 5t$$ m/s². At $$t = 0$$ it has velocity 3 m/s and is at $$x = 0$$. What is its position at $$t = 5$$ s?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$328\\ \\mathrm{m}$$",
+          "why": "Integrating tⁿ divides by n + 1."
+        },
+        {
+          "id": "b",
+          "text": "$$104\\ \\mathrm{m}$$",
+          "why": "Include the initial velocity."
+        },
+        {
+          "id": "c",
+          "text": "$$119\\ \\mathrm{m}$$",
+          "why": "Correct. Integrate twice, using the initial conditions."
+        },
+        {
+          "id": "d",
+          "text": "$$65.5\\ \\mathrm{m}$$",
+          "why": "That is the velocity."
+        }
+      ],
+      "answer": "c",
+      "explanation": "v(t) = 3 + 5t²/2 and x(t) = 3t + 5t³/6. At t = 5: 119."
+    },
+    {
+      "id": "e13-q30",
+      "type": "mcq",
+      "topics": [
+        "motion-of-orbiting-satellites"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Satellite B orbits a planet in a circular orbit 2 times the radius of satellite A's circular orbit. What is the ratio of B's orbital period to A's?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2$$",
+          "why": "Kepler's third law: T ∝ r^(3/2)."
+        },
+        {
+          "id": "b",
+          "text": "$$2.83$$",
+          "why": "Correct. T² ∝ r³, so T ∝ r^(3/2)."
+        },
+        {
+          "id": "c",
+          "text": "$$4$$",
+          "why": "T² ∝ r³."
+        },
+        {
+          "id": "d",
+          "text": "$$1.41$$",
+          "why": "The exponent is 3/2."
+        }
+      ],
+      "answer": "b",
+      "explanation": "T_B/T_A = 2^(3/2) = 2.83."
+    },
+    {
+      "id": "e13-q31",
+      "type": "mcq",
+      "topics": [
+        "rotational-equilibrium-and-newtons-first-law-in-rotational-form",
+        "torque"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A uniform 5 m beam weighing 500 N rests on supports at both ends. A 700 N load sits 3 m from the left end. What force does the right support exert?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$420\\ \\mathrm{N}$$",
+          "why": "Include the beam's weight at its center."
+        },
+        {
+          "id": "b",
+          "text": "$$600\\ \\mathrm{N}$$",
+          "why": "The load is not at the center."
+        },
+        {
+          "id": "c",
+          "text": "$$670\\ \\mathrm{N}$$",
+          "why": "Correct. Take torques about the left support."
+        },
+        {
+          "id": "d",
+          "text": "$$530\\ \\mathrm{N}$$",
+          "why": "That is the left support's force."
+        }
+      ],
+      "answer": "c",
+      "explanation": "F_R·5 = 500·2.5 + 700·3, so F_R = 670 N."
+    },
+    {
+      "id": "e13-q32",
+      "type": "mcq",
+      "topics": [
+        "newtons-second-law",
+        "kinetic-and-static-friction"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 6 kg block on a horizontal table is connected by a string over a light pulley to a hanging 2 kg block. The coefficient of kinetic friction between the table and the block is 0.2. What is the acceleration of the blocks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2.45\\ \\mathrm{m/s^2}$$",
+          "why": "Include friction on the table block."
+        },
+        {
+          "id": "b",
+          "text": "$$3.92\\ \\mathrm{m/s^2}$$",
+          "why": "Both blocks accelerate; divide by the total mass."
+        },
+        {
+          "id": "c",
+          "text": "$$0.98\\ \\mathrm{m/s^2}$$",
+          "why": "Correct. Net force (m₂g − μm₁g) divided by the total mass."
+        },
+        {
+          "id": "d",
+          "text": "$$3.27\\ \\mathrm{m/s^2}$$",
+          "why": "Divide by the total mass."
+        }
+      ],
+      "answer": "c",
+      "explanation": "a = (2 − 0.2·6)(9.8)/8 = 0.98 m/s²."
+    },
+    {
+      "id": "e13-q33",
+      "type": "mcq",
+      "topics": [
+        "energy-of-simple-harmonic-oscillators"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A mass on a spring oscillates with angular frequency 8 rad/s and amplitude 0.14 m. What is its speed when it is 0.084 m from equilibrium?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.12\\ \\mathrm{m/s}$$",
+          "why": "That is the maximum speed, at x = 0."
+        },
+        {
+          "id": "b",
+          "text": "$$0.672\\ \\mathrm{m/s}$$",
+          "why": "Speed is greatest at equilibrium, not at the ends."
+        },
+        {
+          "id": "c",
+          "text": "$$0.448\\ \\mathrm{m/s}$$",
+          "why": "Use A² − x² under a square root."
+        },
+        {
+          "id": "d",
+          "text": "$$0.896\\ \\mathrm{m/s}$$",
+          "why": "Correct. v = ω√(A² − x²), from conservation of energy."
+        }
+      ],
+      "answer": "d",
+      "explanation": "v = 8√(0.14² − 0.084²) = 0.896 m/s."
+    },
+    {
+      "id": "e13-q34",
+      "type": "mcq",
+      "topics": [
+        "resistive-forces"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "An object of mass 0.9 kg falls from rest with a drag force $$F = -bv$$, where $$b = 0.09$$ kg/s. What is the time constant of its approach to terminal speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.1\\ \\mathrm{s}$$",
+          "why": "τ = m/b."
+        },
+        {
+          "id": "b",
+          "text": "$$10\\ \\mathrm{s}$$",
+          "why": "Correct. From m dv/dt = mg − bv, τ = m/b."
+        },
+        {
+          "id": "c",
+          "text": "$$98\\ \\mathrm{s}$$",
+          "why": "That is the terminal speed."
+        },
+        {
+          "id": "d",
+          "text": "$$0.794\\ \\mathrm{s}$$",
+          "why": "τ has units of seconds: m/b."
+        }
+      ],
+      "answer": "b",
+      "explanation": "v_T = mg/b = 98 m/s and τ = m/b = 10 s."
+    },
+    {
+      "id": "e13-q35",
+      "type": "mcq",
+      "topics": [
+        "vectors-and-motion-in-two-dimensions"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A ball is launched from level ground at 24 m/s at 30° above the horizontal. Ignoring air resistance, what is its maximum height?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$22\\ \\mathrm{m}$$",
+          "why": "Use the vertical component, v₀ sin θ."
+        },
+        {
+          "id": "b",
+          "text": "$$14.7\\ \\mathrm{m}$$",
+          "why": "H = (v₀ sin θ)²/(2g)."
+        },
+        {
+          "id": "c",
+          "text": "$$7.35\\ \\mathrm{m}$$",
+          "why": "Correct. Treat horizontal and vertical motion separately."
+        },
+        {
+          "id": "d",
+          "text": "$$29.4\\ \\mathrm{m}$$",
+          "why": "Only the vertical component matters."
+        }
+      ],
+      "answer": "c",
+      "explanation": "v₀x = 20.8 m/s, v₀y = 12 m/s. H = v₀y²/(2g) = 7.35 m."
+    },
+    {
+      "id": "e13-q36",
+      "type": "mcq",
+      "topics": [
+        "newtons-second-law-in-rotational-form"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 3 kg mass hangs from a light string wrapped around a uniform disk pulley of mass 4 kg that turns on a frictionless axle. What is the acceleration of the mass?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4.2\\ \\mathrm{m/s^2}$$",
+          "why": "For a disk, I/R² = M/2."
+        },
+        {
+          "id": "b",
+          "text": "$$2.67\\ \\mathrm{m/s^2}$$",
+          "why": "I/R² = M/2."
+        },
+        {
+          "id": "c",
+          "text": "$$5.88\\ \\mathrm{m/s^2}$$",
+          "why": "Correct. a = mg/(m + M/2), using I = ½MR² and a = Rα."
+        },
+        {
+          "id": "d",
+          "text": "$$9.8\\ \\mathrm{m/s^2}$$",
+          "why": "The pulley's inertia reduces the acceleration."
+        }
+      ],
+      "answer": "c",
+      "explanation": "mg − T = ma and TR = ½MR²(a/R) give a = 5.88 m/s²."
+    },
+    {
+      "id": "e13-q37",
+      "type": "mcq",
+      "topics": [
+        "rotational-inertia"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A uniform disk of mass 7 kg and radius 0.2 m rotates about an axis perpendicular to it, 0.5 m from its center. What is its rotational inertia?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.64\\ \\mathrm{kg{\\cdot}m^2}$$",
+          "why": "The parallel-axis term is Md²."
+        },
+        {
+          "id": "b",
+          "text": "$$1.89\\ \\mathrm{kg{\\cdot}m^2}$$",
+          "why": "Correct. Parallel-axis theorem: I = ½MR² + Md²."
+        },
+        {
+          "id": "c",
+          "text": "$$1.75\\ \\mathrm{kg{\\cdot}m^2}$$",
+          "why": "Include the disk's own I about its center."
+        },
+        {
+          "id": "d",
+          "text": "$$0.14\\ \\mathrm{kg{\\cdot}m^2}$$",
+          "why": "The axis is not through the center."
+        }
+      ],
+      "answer": "b",
+      "explanation": "I = ½(7)(0.2)² + 7(0.5)² = 1.89 kg·m²."
+    },
+    {
+      "id": "e13-q38",
+      "type": "mcq",
+      "topics": [
+        "conservation-of-energy",
+        "gravitational-force"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A planet has mass $$8 \\times 10^{24}$$ kg and radius $$1 \\times 10^{7}$$ m. What is the escape speed from its surface? ($$G = 6.67 \\times 10^{-11}$$ N·m²/kg²)",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.03 \\times 10^{4}\\ \\mathrm{m/s}$$",
+          "why": "Correct. ½mv² = GMm/R."
+        },
+        {
+          "id": "b",
+          "text": "$$1.07 \\times 10^{8}\\ \\mathrm{m/s}$$",
+          "why": "Take the square root."
+        },
+        {
+          "id": "c",
+          "text": "$$3.27\\ \\mathrm{m/s}$$",
+          "why": "Potential energy uses 1/R."
+        },
+        {
+          "id": "d",
+          "text": "$$7300\\ \\mathrm{m/s}$$",
+          "why": "That is the circular orbit speed; escape needs √2 times more."
+        }
+      ],
+      "answer": "a",
+      "explanation": "v = √(2GM/R) = 1.03 \\times 10^{4} m/s."
+    },
+    {
+      "id": "e13-q39",
+      "type": "mcq",
+      "topics": [
+        "torque-and-work",
+        "rotational-kinetic-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A constant torque of 12 N·m acts on a wheel ($$I = 0.1$$ kg·m²) initially at rest, through 4 revolutions. What is the wheel's final angular speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3020\\ \\mathrm{rad/s}$$",
+          "why": "½Iω² = W; solve for ω."
+        },
+        {
+          "id": "b",
+          "text": "$$77.7\\ \\mathrm{rad/s}$$",
+          "why": "Correct. Work τΔθ (in radians) equals ½Iω²."
+        },
+        {
+          "id": "c",
+          "text": "$$54.9\\ \\mathrm{rad/s}$$",
+          "why": "W = ½Iω²."
+        },
+        {
+          "id": "d",
+          "text": "$$31\\ \\mathrm{rad/s}$$",
+          "why": "Convert revolutions to radians."
+        }
+      ],
+      "answer": "b",
+      "explanation": "W = 12·4·2π = 302 J; ω = √(2W/I) = 77.7 rad/s."
+    },
+    {
+      "id": "e13-q40",
+      "type": "mcq",
+      "topics": [
+        "elastic-and-inelastic-collisions",
+        "conservation-of-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 4,
+      "stem": "A 21 g bullet moving at 250 m/s embeds in a 1.4 kg block hanging from strings. How high does the block rise?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$47.1\\ \\mathrm{m}$$",
+          "why": "Kinetic energy is not conserved in the collision."
+        },
+        {
+          "id": "b",
+          "text": "$$0.696\\ \\mathrm{m}$$",
+          "why": "Correct. Momentum for the collision, then energy for the swing."
+        },
+        {
+          "id": "c",
+          "text": "$$0.377\\ \\mathrm{m}$$",
+          "why": "h = V²/(2g)."
+        },
+        {
+          "id": "d",
+          "text": "$$3190\\ \\mathrm{m}$$",
+          "why": "Find the block's speed after the collision first."
+        }
+      ],
+      "answer": "b",
+      "explanation": "V = 3.69 m/s after the collision; h = V²/(2g) = 0.696 m."
+    },
+    {
+      "id": "e13-frq1",
+      "type": "frq",
+      "format": "mr",
+      "title": "Block on an incline with a hanging mass",
+      "topics": [
+        "newtons-second-law",
+        "kinetic-and-static-friction",
+        "work",
+        "conservation-of-energy"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e13-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Draw (describe) a free-body diagram for the 5 kg block, labeling each force.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Weight down, normal force perpendicular to the incline, tension up the incline.",
+              "example": "mg, F_N, F_T"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Kinetic friction down the incline (opposite the motion).",
+              "example": "f_k pointing down the slope"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Derive an expression for the acceleration of the system in terms of the masses, θ, μ and g, then calculate its value.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Newton's second law applied to each block (or the system).",
+              "example": "$$m_2g - T = m_2a$$, $$T - m_1g\\sin\\theta - \\mu m_1g\\cos\\theta = m_1a$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct expression.",
+              "example": "$$a = \\frac{(m_2 - m_1\\sin\\theta - \\mu m_1\\cos\\theta)g}{m_1 + m_2}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Correct value.",
+              "example": "2.97 m/s²"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Calculate the tension in the string.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct value.",
+              "example": "T = m₂(g − a) = 47.8 N"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Calculate the speed of the blocks after the hanging block has descended 2 m, and the work done by friction on the incline block during that motion.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Speed from kinematics or energy.",
+              "example": "v = √(2ad) = 3.45 m/s"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Work by friction, with a negative sign.",
+              "example": "W_f = −μm₁g cos θ·d = −17 J"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e13-frq2",
+      "type": "frq",
+      "format": "tbr",
+      "title": "A mass on a spring",
+      "topics": [
+        "representing-and-analyzing-shm",
+        "energy-of-simple-harmonic-oscillators",
+        "frequency-and-period-of-shm"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e13-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Sketch (describe) graphs of position, velocity and acceleration versus time for one period, aligned vertically.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Position is a cosine starting at +A; velocity is a negative sine starting at 0.",
+              "example": "x starts at 0.07 m; v starts at 0 and goes negative."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Acceleration starts at its negative maximum and is opposite in sign to position throughout.",
+              "example": "$$a = -\\omega^2 x$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Derive expressions for v(t) and a(t), and determine the maximum speed and maximum acceleration.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct derivatives.",
+              "example": "$$v = -0.84\\sin(12t)$$, $$a = -10.1\\cos(12t)$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct maxima.",
+              "example": "v_max = 0.84 m/s; a_max = 10.1 m/s²"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Calculate the spring constant and the period.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Spring constant.",
+              "example": "k = mω² = 72 N/m"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Period.",
+              "example": "T = 2π/ω = 0.524 s"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Calculate the total mechanical energy and describe how kinetic and potential energy vary during one period.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Total energy.",
+              "example": "E = ½kA² = 0.176 J"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Energy exchange.",
+              "example": "K is maximum at x = 0 and zero at x = ±A; U is the reverse; the sum is constant. Each varies twice per period."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e13-frq3",
+      "type": "frq",
+      "format": "lab",
+      "title": "Measuring g with a pendulum",
+      "topics": [
+        "simple-and-physical-pendulums",
+        "frequency-and-period-of-shm"
+      ],
+      "skills": [
+        "1",
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e13-frq3-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Describe a procedure the students could use to measure the period accurately, including how to reduce uncertainty.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Time many oscillations and divide.",
+              "example": "Time 10 swings with a stopwatch and divide by 10."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Keep the amplitude small and repeat trials.",
+              "example": "Release from under about 10° and average several trials."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Identify quantities to graph that would give a straight line, and explain how g can be found from the graph.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Graph T² versus L.",
+              "example": "$$T^2 = \\frac{4\\pi^2}{g}L$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "g from the slope.",
+              "example": "g = 4π²/slope"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Plot (describe) the linearized data and draw a best-fit line. Use it to calculate an experimental value of g.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "T² values computed and plotted.",
+              "example": "0.81, 1.61, 2.43, 3.28, 4.04 s²"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Slope of the best-fit line.",
+              "example": "about 4.06 s²/m"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Experimental g.",
+              "example": "g = 4π²/4.06 ≈ 9.72 m/s²"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "The students repeat the experiment with a much larger amplitude. Predict how the measured periods would change and explain.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Periods increase slightly; the small-angle approximation (sin θ ≈ θ) no longer holds.",
+              "example": "The restoring torque is less than proportional to θ at large angles."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e13-frq4",
+      "type": "frq",
+      "format": "qqt",
+      "title": "A rolling race",
+      "topics": [
+        "rolling",
+        "rotational-kinetic-energy",
+        "conservation-of-energy"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e13-frq4-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Without calculating, predict which object reaches the bottom first. Justify your prediction using energy.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "The solid sphere arrives first.",
+              "example": "It has the smaller rotational inertia per MR²."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Justification: less of its energy goes into rotation, so more is translational kinetic energy.",
+              "example": "Both convert the same mgh."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Derive an expression for the speed at the bottom of an object with rotational inertia βMR², in terms of g, h and β.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Energy conservation including both forms of kinetic energy, with v = Rω.",
+              "example": "$$Mgh = \\tfrac12 Mv^2 + \\tfrac12\\beta MR^2\\left(\\frac{v}{R}\\right)^2$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct result.",
+              "example": "$$v = \\sqrt{\\frac{2gh}{1 + \\beta}}$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Calculate the speed of each object at the bottom.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Both speeds correct.",
+              "example": "hoop: 5.33 m/s; solid sphere: 6.37 m/s"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Explain whether your derived expression is consistent with your prediction in part (a), and why neither speed depends on M or R.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Smaller β gives larger v, consistent with the prediction.",
+              "example": "β = 0.4 for the solid sphere."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "M and R cancel in the energy equation.",
+              "example": "Only the shape factor β matters."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

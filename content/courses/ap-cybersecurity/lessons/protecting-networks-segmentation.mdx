@@ -1,0 +1,120 @@
+---
+objectives:
+  - 'Explain network segmentation, VLANs, DMZs and subnetting.'
+keyTerms:
+  - term: 'Segmentation'
+    definition: 'Dividing a network into separate zones so a compromise in one does not spread easily.'
+  - term: 'DMZ'
+    definition: 'A zone between the internet and the internal network for public-facing servers.'
+  - term: 'CIDR notation'
+    definition: 'Writing a network as an address and prefix length, such as 192.168.1.0/24.'
+checks:
+  - q: 'How many usable host addresses are in a /24 network?'
+    a: '254 (256 minus the network and broadcast addresses).'
+  - q: 'Where should a public web server be placed?'
+    a: 'In a DMZ, separate from internal systems.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+A flat network lets an attacker who gets in reach everything. **Segmentation** limits movement.
+
+- **VLANs** separate traffic logically on the same switches (staff, students, cameras, guests).
+- A **DMZ** holds servers the internet must reach (web, email), with firewalls on both sides.
+- **Air gaps** physically isolate critical systems.
+
+## Subnet sizes
+
+A prefix of /n leaves $$32 - n$$ host bits:
+
+$$\text{usable hosts} = 2^{32-n} - 2$$
+
+| Prefix | Addresses | Usable hosts |
+| --- | --- | --- |
+| /24 | 256 | 254 |
+| /26 | 64 | 62 |
+| /28 | 16 | 14 |
+| /30 | 4 | 2 |
+
+<Note title="IoT on its own segment">
+Smart cameras and thermostats are often poorly secured. Putting them on a separate VLAN keeps them from being a path to sensitive systems.
+</Note>
+
+<WorkedExample title="Size a subnet">
+A lab needs addresses for 50 devices. What is the smallest prefix that works?
+
+1. /27 gives 30 usable hosts: too few.
+2. /26 gives 62 usable hosts.
+
+**Answer:** /26.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A network segment must support 450 devices. What is the smallest subnet (largest prefix) that provides enough usable addresses?
+
+**Answer:** `/23`
+
+**Why:** /23 gives 510 usable hosts; /24 gives only 254.
+
+**Working:** Usable hosts = 2^(32 − prefix) − 2; the smallest that reaches 450 is /23.
+
+**Mistakes to avoid**
+
+- `/24`: That gives only 254 usable hosts.
+- `/22`: That works but is larger than necessary.
+- `/25`: Too few addresses.
+
+### Worked exam question 2
+
+How many usable host addresses are in a `192.168.37.0/30` subnet?
+
+**Answer:** 2
+
+**Why:** 2^(32 − 30) − 2: subtract the network and broadcast addresses.
+
+**Working:** 2 host bits give 4 addresses, 2 usable.
+
+**Mistakes to avoid**
+
+- 4: The network and broadcast addresses cannot be assigned.
+- 1073741824: Use the host bits, 32 − prefix.
+- 3: Two addresses are reserved.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Why is a single shared Wi-Fi password a weakness for a large organization?
+
+**A.** Access cannot be revoked for one person without changing it for everyone. Individual credentials (enterprise authentication) solve this.
+
+**Q.** Where should a company place its public web server?
+
+**A.** In a DMZ separated from the internal network by firewalls. It isolates internet-facing systems.
+
+**Q.** Why should smart cameras and other IoT devices be placed on their own VLAN?
+
+**A.** If an IoT device is compromised, segmentation limits the attacker's access to other systems. Segmentation contains breaches.
+
+**Q.** Which policy is a managerial control for network security?
+
+**A.** An acceptable use policy that users must agree to. Policies are managerial controls.
+
+**Q.** An attacker sends forged ARP replies so that traffic on a local network passes through the attacker's computer. What is this?
+
+**A.** ARP spoofing, an on-path (man-in-the-middle) attack. It redirects local traffic through the attacker.
+
+**Q.** A school's Wi-Fi still uses WEP encryption. What should replace it?
+
+**A.** WPA3 (or WPA2 with AES). WEP can be cracked quickly.

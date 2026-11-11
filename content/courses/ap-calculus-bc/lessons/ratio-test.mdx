@@ -1,0 +1,115 @@
+---
+objectives:
+  - Use the ratio test, especially for series with factorials and exponentials.
+keyTerms:
+  - term: Ratio test
+    definition: 'Let $$L = \lim_{n \to \infty}\left|\frac{a_{n+1}}{a_n}\right|$$. If $$L < 1$$ the series converges absolutely; if $$L > 1$$ it diverges; if $$L = 1$$ the test is inconclusive.'
+checks:
+  - q: 'Apply the ratio test to $$\sum \frac{2^n}{n!}$$.'
+    a: '$$\frac{2}{n + 1} \to 0 < 1$$: converges.'
+  - q: 'What does the ratio test say about $$\sum \frac{1}{n^2}$$?'
+    a: 'Nothing: $$L = 1$$. Use the p-series test instead.'
+sources:
+  - title: Calculus Volume 2, section 5.6 "Ratio and Root Tests"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Far out in a series, if each term is roughly a fixed fraction of the one before, the series behaves like a geometric series. The ratio test measures that fraction.
+
+## The test
+
+$$
+L = \lim_{n \to \infty}\left|\frac{a_{n+1}}{a_n}\right|
+$$
+
+| $$L$$ | Conclusion |
+| --- | --- |
+| $$L < 1$$ | converges (absolutely) |
+| $$L > 1$$ or $$\infty$$ | diverges |
+| $$L = 1$$ | inconclusive |
+
+## When to use it
+
+The ratio test shines with **factorials** and **exponentials**, because they simplify neatly in ratios:
+
+$$
+\frac{(n + 1)!}{n!} = n + 1, \qquad \frac{3^{n+1}}{3^n} = 3.
+$$
+
+It is also the main tool for finding the radius of convergence of power series (topic 10.13). For rational functions of $$n$$ (like $$\frac{n}{n^3 + 1}$$) it always gives $$L = 1$$, so use a comparison test instead.
+
+<Note title="Absolute values">
+Write the absolute value bars: the ratio test works with $$|a_n|$$. With power series, $$|x|$$ stays inside the limit and becomes the condition $$|x - a| < R$$.
+</Note>
+
+<WorkedExample title="Factorials and powers">
+Does $$\sum_{n=1}^{\infty} \frac{n^2 \, 5^n}{n!}$$ converge?
+
+1. $$\frac{a_{n+1}}{a_n} = \frac{(n + 1)^2 5^{n+1}}{(n + 1)!} \cdot \frac{n!}{n^2 5^n} = \frac{5(n + 1)^2}{(n + 1)n^2} = \frac{5(n + 1)}{n^2}$$.
+2. $$L = \lim \frac{5(n + 1)}{n^2} = 0 < 1$$.
+
+**Answer:** the series converges by the ratio test.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Which of the following series converge?
+
+I. $$\sum_{n=1}^{\infty} \cos\left(\frac{1}{n}\right)$$
+
+II. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}$$
+
+III. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$
+
+**Answer:** II and III only
+
+**Why:** I: diverges (terms approach 1 (nth term test)). II: converges (absolute values form a p-series with p = 3). III: converges (alternating series test, but the harmonic series diverges).
+
+**Working:** Series I diverges: terms approach 1 (nth term test). Series II converges: absolute values form a p-series with p = 3. Series III converges: alternating series test, but the harmonic series diverges.
+
+**Mistakes to avoid**
+
+- I and III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- None of them: Check each series with an appropriate test: I diverges, II converges, III converges.
+
+### Worked exam question 2
+
+What is the radius of convergence of $$\sum_{n=0}^{\infty} \frac{n\,(x + 3)^n}{4^n}$$?
+
+**Answer:** $$4$$
+
+**Why:** The ratio test gives $$\frac{|x + 3|}{4} < 1$$.
+
+**Working:** $$\left|\frac{(n + 1)(x + 3)^{n+1}}{4^{n+1}}\cdot\frac{4^n}{n(x + 3)^n}\right| = \frac{n + 1}{n}\cdot\frac{|x + 3|}{4} \to \frac{|x + 3|}{4}$$. Convergence needs this below 1, so $$R = 4$$.
+
+**Mistakes to avoid**
+
+- $$\frac{1}{4}$$: The radius is the reciprocal of this.
+- $$3$$: The center is not the radius.
+- $$\infty$$: The series converges for all x only when the ratio limit is 0 for every x.
+
+### Worked exam question 3
+
+What is the interval of convergence of $$\sum_{n=1}^{\infty} \frac{(x + 3)^n}{n\cdot 2^n}$$?
+
+**Answer:** $$-5 \leq x < -1$$
+
+**Why:** Ratio test gives $$|x + 3| < 2$$; the left endpoint gives an alternating harmonic series (converges), the right endpoint the harmonic series (diverges).
+
+**Working:** Ratio: $$\left|\frac{(x + 3)^{n+1}}{(n + 1)2^{n+1}}\cdot\frac{n\,2^n}{(x + 3)^n}\right| \to \frac{|x + 3|}{2}$$, so $$|x + 3| < 2$$. At $$x = -1$$: $$\sum \frac{1}{n}$$ diverges. At $$x = -5$$: $$\sum \frac{(-1)^n}{n}$$ converges.
+
+**Mistakes to avoid**
+
+- $$-5 < x < -1$$: The left endpoint gives $$\sum \frac{(-1)^n}{n}$$, which converges.
+- $$-5 < x \leq -1$$: The endpoints are reversed: the right endpoint gives the divergent harmonic series.
+- $$-4 < x < -2$$: The radius is 2, from the factor $$2^n$$.

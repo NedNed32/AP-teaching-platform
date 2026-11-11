@@ -1,0 +1,71 @@
+---
+objectives:
+  - Compute second and higher derivatives, including implicitly.
+  - Interpret the second derivative as the rate of change of the rate of change.
+keyTerms:
+  - term: Second derivative
+    definition: 'The derivative of the derivative, written $$f''''(x)$$ or $$\frac{d^2y}{dx^2}$$.'
+checks:
+  - q: 'Find $$f''''(x)$$ for $$f(x) = x^4 - 3x^2$$.'
+    a: '$$f''(x) = 4x^3 - 6x$$, so $$f''''(x) = 12x^2 - 6$$.'
+  - q: 'If $$s(t)$$ is position, what does $$s''''(t)$$ represent?'
+    a: 'Acceleration.'
+sources:
+  - title: Calculus Volume 1, section 3.2 "The Derivative as a Function" (Higher-Order Derivatives)
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The derivative of a function is another function, so it can be differentiated again. The second derivative measures how the slope itself is changing, which is the key to acceleration (Unit 4) and concavity (Unit 5).
+
+## Notation
+
+| Order | Prime notation | Leibniz notation |
+| --- | --- | --- |
+| First | $$f'(x)$$ | $$\frac{dy}{dx}$$ |
+| Second | $$f''(x)$$ | $$\frac{d^2y}{dx^2}$$ |
+| Third | $$f'''(x)$$ | $$\frac{d^3y}{dx^3}$$ |
+| $$n$$th | $$f^{(n)}(x)$$ | $$\frac{d^ny}{dx^n}$$ |
+
+## Second derivatives implicitly
+
+Differentiate $$\frac{dy}{dx}$$ again, remembering that $$y$$ (and therefore $$y'$$) depends on $$x$$. Then substitute the expression for $$y'$$ you already found.
+
+<Note title="Patterns in repeated derivatives">
+$$\sin x$$ cycles every four derivatives: $$\sin x$$, $$\cos x$$, $$-\sin x$$, $$-\cos x$$, $$\sin x$$. So the 27th derivative of $$\sin x$$ equals the third, $$-\cos x$$.
+</Note>
+
+<WorkedExample title="Second derivative of a circle">
+Find $$\frac{d^2y}{dx^2}$$ for $$x^2 + y^2 = 25$$.
+
+1. First derivative: $$y' = -\frac{x}{y}$$.
+2. Quotient rule: $$y'' = -\frac{1 \cdot y - x \cdot y'}{y^2}$$.
+3. Substitute $$y' = -\frac{x}{y}$$: $$y'' = -\frac{y + \frac{x^2}{y}}{y^2} = -\frac{y^2 + x^2}{y^3}$$.
+4. Use the original equation, $$x^2 + y^2 = 25$$.
+
+**Answer:** $$\frac{d^2y}{dx^2} = -\frac{25}{y^3}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+If $$f(x) = 2x^{4} - 4x^{3} - 2x^{2} + 2x + 2$$, what is $$f''(-2)$$?
+
+**Answer:** $$140$$
+
+**Why:** $$f''(x) = 24x^{2} - 24x - 4$$.
+
+**Working:** $$f'(x) = 8x^{3} - 12x^{2} - 4x + 2$$ and $$f''(x) = 24x^{2} - 24x - 4$$, so $$f''(-2) = 140$$.
+
+**Mistakes to avoid**
+
+- $$-102$$: This is $$f'(-2)$$, the first derivative.
+- $$144$$: This drops the constant that comes from the quadratic term.
+- $$52$$: This lowers each exponent twice but only multiplies by the exponent once.

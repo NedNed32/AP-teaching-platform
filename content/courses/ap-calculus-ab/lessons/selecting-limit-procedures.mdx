@@ -1,0 +1,111 @@
+---
+objectives:
+  - Choose an efficient method for evaluating a limit based on the form of the expression.
+keyTerms:
+  - term: Indeterminate form
+    definition: 'A result such as $$\frac{0}{0}$$ that does not determine the limit; the expression must be rewritten.'
+  - term: Nonzero over zero
+    definition: 'A result such as $$\frac{5}{0}$$, which signals an infinite limit or a limit that does not exist.'
+checks:
+  - q: 'Substituting into a limit gives $$\frac{0}{0}$$ and the expression contains $$\sqrt{x + 9} - 3$$. What should you try?'
+    a: 'Multiply the numerator and denominator by the conjugate $$\sqrt{x + 9} + 3$$.'
+  - q: 'Evaluate $$\lim_{x \to 0} \frac{\sin 5x}{x}$$.'
+    a: '$$5 \cdot \lim_{x \to 0} \frac{\sin 5x}{5x} = 5$$.'
+sources:
+  - title: Calculus Volume 1, section 2.3 "The Limit Laws"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+There is no single method for every limit, but there is a reliable order of attack. Always start by substituting, then let the result tell you what to do next.
+
+## A decision guide
+
+1. **Substitute.** If you get a number, that is the limit (the function is continuous there).
+2. **Nonzero over zero**, such as $$\frac{3}{0}$$: the limit is infinite or does not exist. Check the sign on each side (topic 1.14).
+3. **$$\frac{0}{0}$$**: rewrite the expression.
+   - Polynomials: **factor and cancel**.
+   - Square roots: **multiply by the conjugate**.
+   - Fractions within fractions: **combine over a common denominator**.
+   - Trigonometric: use $$\lim_{x \to 0} \frac{\sin x}{x} = 1$$ and $$\lim_{x \to 0} \frac{1 - \cos x}{x} = 0$$.
+   - Later, in Unit 4: **L'Hospital's Rule**.
+4. **Piecewise or absolute value**: find each one-sided limit separately.
+5. **$$x \to \pm\infty$$**: compare degrees or divide by the highest power (topic 1.15).
+
+## The two special trig limits
+
+$$
+\lim_{x \to 0} \frac{\sin x}{x} = 1 \qquad\qquad \lim_{x \to 0} \frac{1 - \cos x}{x} = 0
+$$
+
+To use them, make the denominator match the angle:
+
+$$
+\lim_{x \to 0} \frac{\sin 3x}{2x} = \frac{3}{2} \cdot \lim_{x \to 0} \frac{\sin 3x}{3x} = \frac{3}{2}.
+$$
+
+<Note title="Absolute values hide a piecewise function">
+$$|x - 2|$$ equals $$x - 2$$ when $$x \geq 2$$ and $$-(x - 2)$$ when $$x < 2$$. Limits at 2 of expressions such as $$\frac{|x - 2|}{x - 2}$$ need a left-hand and a right-hand calculation.
+</Note>
+
+<WorkedExample title="Choosing the method">
+Find $$\lim_{x \to 0} \frac{\tan x}{x}$$.
+
+1. Substitution gives $$\frac{0}{0}$$, and the expression is trigonometric.
+2. Rewrite: $$\frac{\tan x}{x} = \frac{\sin x}{x} \cdot \frac{1}{\cos x}$$.
+3. Use the limit laws: $$1 \cdot \frac{1}{\cos 0} = 1$$.
+
+**Answer:** $$\lim_{x \to 0} \frac{\tan x}{x} = 1$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is $$\lim_{x \to 0} \frac{\tan(7x)}{5x}$$?
+
+**Answer:** $$\frac{7}{5}$$
+
+**Why:** Write it as $$\frac{7}{5} \cdot \frac{\tan(7x)}{7x}$$; the second factor approaches 1.
+
+**Working:** Using $$\lim_{u \to 0} \frac{\tan u}{u} = 1$$ with $$u = 7x$$: $$\frac{\tan(7x)}{5x} = \frac{7}{5} \cdot \frac{\tan(7x)}{7x} \to \frac{7}{5}$$.
+
+**Mistakes to avoid**
+
+- $$1$$: $$\frac{\tan u}{u} \to 1$$ only when the angle and the denominator match. Here they differ by a factor of $$\frac{7}{5}$$.
+- $$\frac{5}{7}$$: This inverts the ratio of the coefficients.
+- $$0$$: Substitution gives $$\frac{0}{0}$$, which is indeterminate, not 0.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x}$$?
+
+**A.** $$\frac{1}{2}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 1} + 1}$$, which approaches $$\frac{1}{2}$$. Multiply by $$\frac{\sqrt{x + 1} + 1}{\sqrt{x + 1} + 1}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 1} + 1} \to \frac{1}{2}$$.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 36} - 6}{x}$$?
+
+**A.** $$\frac{1}{12}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 36} + 6}$$, which approaches $$\frac{1}{12}$$. Multiply by $$\frac{\sqrt{x + 36} + 6}{\sqrt{x + 36} + 6}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 36} + 6} \to \frac{1}{12}$$.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 25} - 5}{x}$$?
+
+**A.** $$\frac{1}{10}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 25} + 5}$$, which approaches $$\frac{1}{10}$$. Multiply by $$\frac{\sqrt{x + 25} + 5}{\sqrt{x + 25} + 5}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 25} + 5} \to \frac{1}{10}$$.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 4} - 2}{x}$$?
+
+**A.** $$\frac{1}{4}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 4} + 2}$$, which approaches $$\frac{1}{4}$$. Multiply by $$\frac{\sqrt{x + 4} + 2}{\sqrt{x + 4} + 2}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 4} + 2} \to \frac{1}{4}$$.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 16} - 4}{x}$$?
+
+**A.** $$\frac{1}{8}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 16} + 4}$$, which approaches $$\frac{1}{8}$$. Multiply by $$\frac{\sqrt{x + 16} + 4}{\sqrt{x + 16} + 4}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 16} + 4} \to \frac{1}{8}$$.
+
+**Q.** What is $$\lim_{x \to 0} \frac{\sqrt{x + 9} - 3}{x}$$?
+
+**A.** $$\frac{1}{6}$$. Rationalizing gives $$\frac{1}{\sqrt{x + 9} + 3}$$, which approaches $$\frac{1}{6}$$. Multiply by $$\frac{\sqrt{x + 9} + 3}{\sqrt{x + 9} + 3}$$. The numerator becomes $$x$$, which cancels, leaving $$\frac{1}{\sqrt{x + 9} + 3} \to \frac{1}{6}$$.

@@ -1,0 +1,58 @@
+---
+objectives:
+  - 'Construct a two-sample t interval for μ₁ − μ₂.'
+keyTerms:
+  - term: 'Two-sample t interval'
+    definition: '(x̄₁ − x̄₂) ± t* √(s₁²/n₁ + s₂²/n₂).'
+checks:
+  - q: 'Which degrees of freedom are used?'
+    a: 'Technology''s (Welch) df, or conservatively the smaller of n₁ − 1 and n₂ − 1.'
+  - q: 'What conditions are needed?'
+    a: 'Independent random samples (or random assignment), 10%, and normal/large samples in both groups.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$(\bar x_1 - \bar x_2) \pm t^*\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+
+Degrees of freedom come from technology (the Welch approximation) or conservatively $$\min(n_1 - 1, n_2 - 1)$$.
+
+Follow the four steps and interpret in context with units.
+
+<Note title="Do not pool">
+AP Statistics uses unpooled standard errors for means.
+</Note>
+
+<WorkedExample title="Construct">
+Group 1: n = 30, x̄ = 78, s = 8. Group 2: n = 35, x̄ = 72, s = 10. Find SE.
+
+1. $$\sqrt{64/30 + 100/35} = \sqrt{2.133 + 2.857}$$.
+
+**Answer:** SE ≈ 2.23; the interval is 6 ± t*(2.23).
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Two independent random samples have n₁ = 18, s₁ = 12 and n₂ = 24, s₂ = 10. What is the standard error of x̄₁ − x̄₂?
+
+**Answer:** 3.488
+
+**Why:** √(s₁²/n₁ + s₂²/n₂).
+
+**Working:** √(12²/18 + 10²/24) = 3.488.
+
+**Mistakes to avoid**
+
+- 1.958: Variances add, even for a difference.
+- 4.87: Add variances, then take the square root; standard errors do not add.
+- 3.395: Each sample contributes s²/n.

@@ -1,0 +1,297 @@
+---
+objectives:
+  - Trace recursive methods, identifying the base case and recursive call.
+keyTerms:
+  - term: Recursion
+    definition: 'A method that calls itself to solve a smaller version of the same problem.'
+  - term: Base case
+    definition: 'The condition under which the method returns without recursing, stopping the chain of calls.'
+checks:
+  - q: 'What happens if a recursive method has no reachable base case?'
+    a: 'It calls itself forever until the call stack overflows (StackOverflowError).'
+  - q: 'What does `fact(4)` return if fact(n) = n * fact(n - 1) with fact(0) = 1?'
+    a: '24.'
+sources:
+  - title: CSAwesome, "Recursion"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A recursive method solves a problem by solving a smaller copy of it. Every recursive method needs a **base case** that stops the recursion.
+
+## A classic example
+
+```java
+public static int sumTo(int n) {
+    if (n == 0) return 0;          // base case
+    return n + sumTo(n - 1);       // recursive call
+}
+```
+
+`sumTo(3)` = 3 + `sumTo(2)` = 3 + 2 + `sumTo(1)` = 3 + 2 + 1 + `sumTo(0)` = 6.
+
+## Tracing with a stack
+
+Each call waits for the one it made to return. Write the calls going down, then fill in the results coming back up:
+
+| Call | Returns |
+| --- | --- |
+| `sumTo(3)` | 3 + 3 = 6 |
+| `sumTo(2)` | 2 + 1 = 3 |
+| `sumTo(1)` | 1 + 0 = 1 |
+| `sumTo(0)` | 0 |
+
+## Output before or after the call
+
+```java
+public static void show(int n) {
+    if (n > 0) {
+        show(n - 1);
+        System.out.print(n);
+    }
+}
+```
+
+`show(3)` prints `123`, because each print happens **after** the deeper call returns. Moving the print before the call would print `321`.
+
+<Note title="Strings and recursion">
+Recursive String methods often use `s.substring(1)` (everything after the first character) to make the problem smaller, with an empty string as the base case.
+</Note>
+
+<WorkedExample title="A string recursion">
+What does `mystery("abc")` return?
+
+```java
+public static String mystery(String s) {
+    if (s.length() == 0) return "";
+    return mystery(s.substring(1)) + s.substring(0, 1);
+}
+```
+
+1. mystery("abc") = mystery("bc") + "a".
+2. mystery("bc") = mystery("c") + "b" = (mystery("") + "c") + "b" = "cb".
+
+**Answer:** `"cba"`, the reversed string.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following method.
+
+```java
+public static void show(int n) {
+    if (n > 0) {
+        System.out.print(n % 10);
+        show(n / 10);
+    }
+}
+```
+
+What is printed by the call `show(62410)`?
+
+**Answer:** `01426`
+
+**Why:** The last digit prints first, then the recursion handles the rest.
+
+**Working:** Each call prints n % 10 (the last digit) before recursing: 01426.
+
+**Mistakes to avoid**
+
+- `62410`: The print comes before the recursive call.
+- `0142`: The recursion continues until n is 0, so every digit prints.
+- `014260`: When n is 0, nothing is printed.
+
+### Worked exam question 2
+
+Consider the following method.
+
+```java
+public static String mystery(String s) {
+    if (s.length() < 2) {
+        return s;
+    }
+    return s.substring(0, 1) + mystery(s.substring(2));
+}
+```
+
+What is returned by `mystery("trian")`?
+
+**Answer:** `"tin"`
+
+**Why:** Each call keeps the first character and skips the next one.
+
+**Working:** Expanding the calls for "trian" gives "tin".
+
+**Mistakes to avoid**
+
+- `"ra"`: Each call keeps the character at index 0.
+- `"trian"`: substring(2) skips a character each time.
+- `"ti"`: The base case returns the remaining character.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `179`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 179.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 2 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `96`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 96.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `34`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 34.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return n + f(n - 2); } ``` What value is returned by `f(6)`?
+
+**A.** `13`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 13.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return n + f(n - 2); } ``` What value is returned by `f(4)`?
+
+**A.** `7`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 7.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `260`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 260.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `57`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 57.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return n + f(n - 2); } ``` What value is returned by `f(5)`?
+
+**A.** `9`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 9.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `112`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 112.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 3 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `243`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 243.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 2 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `32`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 32.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `543`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 543.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `89`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 89.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `1029`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 1029.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `341`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 341.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 3 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `729`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 729.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 3 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `1458`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 1458.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `184`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 184.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `120`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 120.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 3 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `486`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 486.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 3; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `42`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 42.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 2 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `48`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 48.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 2 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `32`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 32.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(5)`?
+
+**A.** `73`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 73.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 3 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `2187`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 2187.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 2 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `64`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 64.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `786`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 786.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `26`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 26.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 1; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `58`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 58.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 3 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `243`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 243.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 2 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `16`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 16.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 3 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `81`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 81.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 3 * f(n - 1) + n; } ``` What value is returned by `f(4)`?
+
+**A.** `85`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 85.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 2 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `128`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 128.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 2; } return 3 * f(n - 1); } ``` What value is returned by `f(4)`?
+
+**A.** `162`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(4) = 162.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 3 * f(n - 1); } ``` What value is returned by `f(5)`?
+
+**A.** `729`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(5) = 729.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 1; } return 2 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `64`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 64.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n <= 1) { return 2; } return 2 * f(n - 1) + n; } ``` What value is returned by `f(6)`?
+
+**A.** `152`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 152.
+
+**Q.** Consider the following method. ```java public static int f(int n) { if (n == 0) { return 3; } return 2 * f(n - 1); } ``` What value is returned by `f(6)`?
+
+**A.** `192`. Work down to the base case, then build the result back up. Expanding the calls down to the base case and substituting back gives f(6) = 192.

@@ -1,0 +1,241 @@
+---
+objectives:
+  - Write constructors that initialize all instance variables.
+  - Explain default values and overloaded constructors.
+keyTerms:
+  - term: Constructor
+    definition: 'A method-like block with the same name as the class and no return type, run when an object is created.'
+  - term: Default values
+    definition: 'Uninitialized instance variables get 0 (int), 0.0 (double), false (boolean) or null (objects).'
+checks:
+  - q: 'Does a constructor have a return type?'
+    a: 'No, not even void.'
+  - q: 'If a class defines no constructor, what does Java provide?'
+    a: 'A default no-argument constructor that leaves instance variables at their default values.'
+sources:
+  - title: CSAwesome, "Writing Classes"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A constructor sets up a new object so that it starts in a valid state.
+
+## Writing a constructor
+
+```java
+public class Rectangle {
+    private int width;
+    private int height;
+
+    public Rectangle(int w, int h) {
+        width = w;
+        height = h;
+    }
+
+    public Rectangle() {        // overloaded: a default square
+        width = 1;
+        height = 1;
+    }
+}
+```
+
+- Same name as the class, no return type.
+- Parameters supply initial values.
+- Every instance variable should be initialized.
+
+## Default values
+
+If a constructor does not set an instance variable, it keeps its default: 0, 0.0, false or null.
+
+## Calling constructors
+
+```java
+Rectangle a = new Rectangle(3, 5);
+Rectangle b = new Rectangle();
+```
+
+Java picks the constructor whose parameter list matches the arguments.
+
+<Note title="A common bug">
+Declaring a local variable with the same name inside the constructor, such as `int width = w;`, creates a new local variable and leaves the instance variable at 0.
+</Note>
+
+<WorkedExample title="Spot the bug">
+What does `new Box(7).getSize()` return?
+
+```java
+public class Box {
+    private int size;
+    public Box(int s) {
+        int size = s;
+    }
+    public int getSize() { return size; }
+}
+```
+
+1. `int size = s;` declares a local variable that disappears when the constructor ends.
+2. The instance variable `size` is never assigned and keeps its default.
+
+**Answer:** `0`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following class.
+
+```java
+public class Box {
+    private int width;
+    private int height;
+    public Box(int width, int h) {
+        this.width = width;
+        height = h;
+    }
+    public int area() {
+        return width * height;
+    }
+}
+```
+
+What is printed by `System.out.println(new Box(5, 8).area());`?
+
+**Answer:** `40`
+
+**Why:** this.width refers to the instance variable, so it is set correctly.
+
+**Working:** this.width = width stores 5 in the instance variable, so the area is 5 × 8 = 40.
+
+**Mistakes to avoid**
+
+- `0`: this.width assigns the instance variable.
+- `13`: area multiplies.
+- `64`: width is not set from h.
+
+### Free-response practice: Punch card
+
+A `PunchCard` represents a prepaid card for a number of visits. Each successful `punch` uses one visit. After every 4 successful punches, the card earns one free visit.
+
+• `PunchCard(int visits)` creates a card with the given number of visits.
+
+• `boolean punch()` uses a visit and returns true if one is available; otherwise it changes nothing and returns false.
+
+• `int getRemaining()` returns the number of visits left.
+
+For example, after `PunchCard c = new PunchCard(4);`, calling `c.punch()` 6 times returns true, true, true, true, true, false, and then `c.getRemaining()` returns 0.
+
+**(a)** Write the complete `PunchCard` class, including any instance variables, the constructor and both methods. Your implementation must meet all specifications and match the example.
+
+To earn the point: Declares private instance variables for the remaining visits and the number of successful punches. Model answer: `private int remaining; private int punches;`
+
+To earn the point: Constructor initializes the instance variables from the parameter. Model answer: `remaining = visits; punches = 0;`
+
+To earn the point: punch checks availability and returns false without changes when none remain. Model answer: `if (remaining == 0) return false;`
+
+To earn the point: punch decrements remaining and counts the punch. Model answer: `remaining--; punches++;`
+
+To earn the point: Adds a free visit after every 4 successful punches. Model answer: `if (punches % 4 == 0) remaining++;`
+
+To earn the point: getRemaining returns the remaining visits; all methods have the correct headers. Model answer:
+
+```java
+public class PunchCard {
+    private int remaining;
+    private int punches;
+    public PunchCard(int visits) {
+        remaining = visits;
+        punches = 0;
+    }
+    public boolean punch() {
+        if (remaining == 0) {
+            return false;
+        }
+        remaining--;
+        punches++;
+        if (punches % 4 == 0) {
+            remaining++;
+        }
+        return true;
+    }
+    public int getRemaining() {
+        return remaining;
+    }
+}
+```
+
+### Free-response practice: Thermostat
+
+A `Thermostat` keeps a temperature setting between a minimum and a maximum, inclusive.
+
+• `Thermostat(int min, int max, int start)` creates a thermostat. Precondition: min &lt;= start &lt;= max.
+
+• `void raise(int amount)` and `void lower(int amount)` change the setting by amount, but never past max or min.
+
+• `int getSetting()` returns the current setting.
+
+• `int getChanges()` returns how many calls to raise or lower actually changed the setting.
+
+Example:
+
+```java
+Thermostat t = new Thermostat(15, 30, 26);
+t.raise(8);      // setting is 30
+t.raise(1);      // still 30: no change
+t.lower(4);      // setting is 26
+t.getSetting();  // returns 26
+t.getChanges();  // returns 2
+```
+
+**(a)** Write the complete `Thermostat` class.
+
+To earn the point: Private instance variables for the minimum, maximum, setting and change count. Model answer: `private int min, max, setting, changes;`
+
+To earn the point: Constructor initializes all instance variables. Model answer: `this.min = min; this.max = max; setting = start; changes = 0;`
+
+To earn the point: raise limits the setting to max. Model answer: `int next = Math.min(max, setting + amount);`
+
+To earn the point: lower limits the setting to min. Model answer: `int next = Math.max(min, setting - amount);`
+
+To earn the point: Counts a change only when the setting actually changes. Model answer: `if (next != setting) changes++;`
+
+To earn the point: Accessors return the correct values with correct headers. Model answer:
+
+```java
+public class Thermostat {
+    private int min;
+    private int max;
+    private int setting;
+    private int changes;
+    public Thermostat(int min, int max, int start) {
+        this.min = min;
+        this.max = max;
+        setting = start;
+        changes = 0;
+    }
+    public void raise(int amount) {
+        update(Math.min(max, setting + amount));
+    }
+    public void lower(int amount) {
+        update(Math.max(min, setting - amount));
+    }
+    private void update(int next) {
+        if (next != setting) {
+            changes++;
+        }
+        setting = next;
+    }
+    public int getSetting() {
+        return setting;
+    }
+    public int getChanges() {
+        return changes;
+    }
+}
+```

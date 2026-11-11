@@ -1,0 +1,137 @@
+---
+objectives:
+  - Use the AP list procedures INSERT, APPEND, REMOVE and LENGTH.
+  - Traverse lists with FOR EACH and with an index.
+keyTerms:
+  - term: Traversal
+    definition: 'Visiting each element of a list, completely or partially.'
+  - term: Linear search
+    definition: 'Checking each element in order until the target is found or the list ends.'
+checks:
+  - q: 'What does `APPEND(list, 7)` do?'
+    a: 'Adds 7 to the end of the list, increasing its length by 1.'
+  - q: 'What does `INSERT(list, 2, 7)` do to the element that was at index 2?'
+    a: 'It moves to index 3; everything from index 2 on shifts right.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Lists change as programs run. The exam reference sheet defines these operations (indexes start at 1):
+
+| Operation | Effect |
+| --- | --- |
+| `list[i]` | the element at index i |
+| `INSERT(list, i, value)` | shifts elements at i and after to the right, puts value at i |
+| `APPEND(list, value)` | adds value to the end |
+| `REMOVE(list, i)` | removes the element at i, shifting later elements left |
+| `LENGTH(list)` | the number of elements |
+
+## Traversal
+
+```text
+total ← 0
+FOR EACH score IN scores
+{
+   total ← total + score
+}
+```
+
+Or with an index:
+
+```text
+i ← 1
+REPEAT LENGTH(scores) TIMES
+{
+   DISPLAY (scores[i])
+   i ← i + 1
+}
+```
+
+<Note title="Filtering into a new list">
+A common pattern builds a new list: start with `evens ← []` and APPEND each element that meets the condition. The original list is unchanged.
+</Note>
+
+<WorkedExample title="Trace list operations">
+What is displayed?
+
+```text
+nums ← [4, 8, 15]
+APPEND(nums, 16)
+INSERT(nums, 2, 23)
+REMOVE(nums, 4)
+DISPLAY (nums)
+```
+
+1. Append: [4, 8, 15, 16].
+2. Insert 23 at 2: [4, 23, 8, 15, 16].
+3. Remove index 4 (15): [4, 23, 8, 16].
+
+**Answer:** [4, 23, 8, 16].
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```text
+nums ← [18, 17, 12, 5]
+APPEND(nums, 44)
+INSERT(nums, 2, 59)
+REMOVE(nums, 4)
+DISPLAY (nums)
+```
+
+What is displayed as a result of running the code segment?
+
+**Answer:** `[18, 59, 17, 5, 44]`
+
+**Why:** List indexes start at 1; INSERT shifts later elements right and REMOVE shifts them left.
+
+**Working:** After APPEND: [18, 17, 12, 5, 44]. INSERT at 2 and REMOVE at 4 give [18, 59, 17, 5, 44].
+
+**Mistakes to avoid**
+
+- `[18, 17, 59, 12, 44]`: AP pseudocode lists start at index 1, not 0.
+- `[18, 59, 12, 44]`: INSERT adds a new element; it does not replace one.
+- `[18, 17, 12, 5, 44]`: INSERT and REMOVE also change the list.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```text
+nums ← [10, 1, 2, 10, 18, 13]
+count ← 0
+FOR EACH n IN nums
+{
+   IF (n > 10)
+   {
+      count ← count + 1
+   }
+}
+DISPLAY (count)
+```
+
+What is displayed as a result of running the code segment?
+
+**Answer:** `2`
+
+**Why:** Apply the condition to every element of the list.
+
+**Working:** 2 values are greater than 10.
+
+**Mistakes to avoid**
+
+- `4`: The comparison is strict.
+- `3`: Recheck each element.
+- `6`: Not every element passes the condition.

@@ -1,0 +1,1834 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e21-frq1-s",
+      "text": "A parking garage charges for each stay as follows.\n\n\n• Stays of 15 minutes or less are free.\n\n• Otherwise the fee is 5 dollars for each hour or part of an hour (so 61 minutes counts as 2 hours).\n\n• No stay costs more than 45 dollars.\n\n```java\npublic class Garage {\n    /** Returns the fee, in dollars, for a stay of the given length. Precondition: 0 <= minutes <= 1440 */\n    public static int fee(int minutes) { /* part (a) */ }\n    /** Returns the longest stay, in minutes from 0 to 1440, whose fee is at most budget. */\n    public static int longestStay(int budget) { /* part (b) */ }\n}\n```\n\nExamples: `fee(15)` returns 0, `fee(20)` returns 5, `fee(196)` returns 20, `fee(840)` returns 45. `longestStay(5)` returns 60."
+    },
+    {
+      "id": "e21-frq2-s",
+      "text": "A `PunchCard` represents a prepaid card for a number of visits. Each successful `punch` uses one visit. After every 3 successful punches, the card earns one free visit.\n\n\n• `PunchCard(int visits)` creates a card with the given number of visits.\n\n• `boolean punch()` uses a visit and returns true if one is available; otherwise it changes nothing and returns false.\n\n• `int getRemaining()` returns the number of visits left.\n\nFor example, after `PunchCard c = new PunchCard(4);`, calling `c.punch()` 6 times returns true, true, true, true, true, false, and then `c.getRemaining()` returns 0."
+    },
+    {
+      "id": "e21-frq3-s",
+      "text": "A `Reading` stores the day of the month and a temperature. A `SensorLog` keeps readings in increasing order of day, with no two readings on the same day.\n\n```java\npublic class Reading {\n    public Reading(int day, int temp) { /* not shown */ }\n    public int getDay() { /* not shown */ }\n    public int getTemp() { /* not shown */ }\n}\npublic class SensorLog {\n    private ArrayList<Reading> readings;\n    /** Returns the number of readings with a temperature greater than t. */\n    public int countAbove(int t) { /* part (a) */ }\n    /** Inserts r so the list stays in increasing order of day.\n        Precondition: no reading in the list has the same day as r. */\n    public void addReading(Reading r) { /* part (b) */ }\n}\n```\n\nIf the readings are (day, temp) (1, 26), (5, 31), (8, 32), (10, 16), (25, 5), (30, 5), then `countAbove(25)` returns 3. Adding a reading for day 23 gives the days [1, 5, 8, 10, 23, 25, 30]."
+    },
+    {
+      "id": "e21-frq4-s",
+      "text": "A `Theater` stores its seats in a 2D array of student ID numbers. A value of 0 means the seat is empty.\n\n```java\npublic class Theater {\n    private int[][] seats;\n    /** Returns the number of empty seats in the given row. */\n    public int emptyInRow(int row) { /* part (a) */ }\n    /** Returns the index of the first row containing at least k adjacent empty seats,\n        or -1 if there is none. */\n    public int findBlock(int k) { /* part (b) */ }\n}\n```\n\nFor the chart below, `emptyInRow(2)` returns 2 and `findBlock(2)` returns 1.\n\n```java\n 3 73 82  0 95\n 0 58  0  0  0\n29  0 39  9  0\n 0 72 81 31  0\n```"
+    }
+  ],
+  "questions": [
+    {
+      "id": "e21-q01",
+      "type": "mcq",
+      "topics": [
+        "expressions-and-output"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 1,
+      "stem": "Consider the following code segment.\n\n```java\nint a = 22;\nint b = 3;\nSystem.out.println(a / b + a % b);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`8`",
+          "why": "Correct. 22 / 3 is 7 (integer division) and 22 % 3 is 1."
+        },
+        {
+          "id": "b",
+          "text": "`8.333333333333332`",
+          "why": "Both operands are ints, so a / b is an int."
+        },
+        {
+          "id": "c",
+          "text": "`7`",
+          "why": "The remainder is added as well."
+        },
+        {
+          "id": "d",
+          "text": "`71`",
+          "why": "The + is between two ints, so it adds; it does not concatenate."
+        }
+      ],
+      "answer": "a",
+      "explanation": "With two int operands, `/` gives the truncated quotient 7 and `%` gives the remainder 1, so the sum is 8."
+    },
+    {
+      "id": "e21-q02",
+      "type": "mcq",
+      "topics": [
+        "string-algorithms"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nString s = \"notebook\";\nString result = \"\";\nfor (int i = s.length() - 1; i >= 0; i -= 3) {\n    result += s.substring(i, i + 1);\n}\nSystem.out.println(result);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`kbo`",
+          "why": "Correct. Collect the characters at the visited indexes, in order."
+        },
+        {
+          "id": "b",
+          "text": "`oen`",
+          "why": "Check the starting index."
+        },
+        {
+          "id": "c",
+          "text": "`obk`",
+          "why": "Characters are appended in the order they are visited."
+        },
+        {
+          "id": "d",
+          "text": "`ke`",
+          "why": "i changes by 3 each time."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The loop visits indexes from 7 down in steps of 3 and appends each character: \"kbo\"."
+    },
+    {
+      "id": "e21-q03",
+      "type": "mcq",
+      "topics": [
+        "math-class",
+        "casting-and-range"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\ndouble d = Math.sqrt(Math.pow(8, 2) + Math.pow(15, 2));\nSystem.out.println(d);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`23.0`",
+          "why": "The square root of a sum is not the sum of the square roots."
+        },
+        {
+          "id": "b",
+          "text": "`17`",
+          "why": "Math.sqrt returns a double, so it prints with a decimal point."
+        },
+        {
+          "id": "c",
+          "text": "`289.0`",
+          "why": "Math.sqrt is applied to the sum."
+        },
+        {
+          "id": "d",
+          "text": "`17.0`",
+          "why": "Correct. 64 + 225 = 289, whose square root is 17."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Math.pow gives 64 and 225; their sum is 289 and its square root is 17."
+    },
+    {
+      "id": "e21-q04",
+      "type": "mcq",
+      "topics": [
+        "scope-and-access",
+        "anatomy-of-a-class"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "The class `Plant` has a private instance variable `int height` and a public, non-static method `int getHeight()` that returns it. A client class declares `Plant p = new Plant();`. Which statement in the client class compiles without error?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`p.height = 5;`",
+          "why": "height is private and cannot be assigned from another class."
+        },
+        {
+          "id": "b",
+          "text": "`int v = p.getHeight();`",
+          "why": "Correct. Clients use public methods on an object to read private data."
+        },
+        {
+          "id": "c",
+          "text": "`int v = Plant.getHeight();`",
+          "why": "getHeight is not static, so it must be called on an object."
+        },
+        {
+          "id": "d",
+          "text": "`int v = p.height;`",
+          "why": "height is private, so it is only accessible inside Plant."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Private members are visible only inside Plant. The client must call the public instance method `getHeight()` on an object."
+    },
+    {
+      "id": "e21-q05",
+      "type": "mcq",
+      "topics": [
+        "for-loops"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint sum = 0;\nfor (int i = 2; i < 14; i += 3) {\n    sum += i;\n}\nSystem.out.println(sum);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`40`",
+          "why": "The condition excludes the end value."
+        },
+        {
+          "id": "b",
+          "text": "`90`",
+          "why": "i increases by 3 each time."
+        },
+        {
+          "id": "c",
+          "text": "`26`",
+          "why": "Correct. i takes the values 2, 5, … while i < 14."
+        },
+        {
+          "id": "d",
+          "text": "`24`",
+          "why": "The first value of i is also added."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Add every value of i from 2 in steps of 3 that satisfies the condition: 26."
+    },
+    {
+      "id": "e21-q06",
+      "type": "mcq",
+      "topics": [
+        "expressions-and-output"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint a = 9;\nint b = 6;\nSystem.out.println(a + b + \"Hi\" + a + b);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`96Hi15`",
+          "why": "Evaluation goes left to right: add first, then concatenate."
+        },
+        {
+          "id": "b",
+          "text": "`15Hi96`",
+          "why": "Correct. + is evaluated left to right; once a String is involved it concatenates."
+        },
+        {
+          "id": "c",
+          "text": "`15Hi15`",
+          "why": "After the String, a and b are concatenated one at a time."
+        },
+        {
+          "id": "d",
+          "text": "`96Hi96`",
+          "why": "Before the String appears, a + b is integer addition."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Java evaluates + left to right. Two ints add; a String and anything concatenate."
+    },
+    {
+      "id": "e21-q07",
+      "type": "mcq",
+      "topics": [
+        "math-class"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Which expression produces a random integer from 10 to 32, inclusive?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`(int) (Math.random() * 22) + 10`",
+          "why": "This never produces 32."
+        },
+        {
+          "id": "b",
+          "text": "`(int) (Math.random() * 23) + 10`",
+          "why": "Correct. There are 23 possible values, starting at 10."
+        },
+        {
+          "id": "c",
+          "text": "`(int) (Math.random() * 32) + 10`",
+          "why": "This can produce values above 32."
+        },
+        {
+          "id": "d",
+          "text": "`(int) Math.random() * 23 + 10`",
+          "why": "The cast applies to Math.random() alone, which becomes 0, so this is always 10."
+        }
+      ],
+      "answer": "b",
+      "explanation": "To get 23 values starting at 10, multiply by 23, cast to int, then add 10."
+    },
+    {
+      "id": "e21-q08",
+      "type": "mcq",
+      "topics": [
+        "calling-class-methods",
+        "method-signatures"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following method.\n\n```java\npublic static int f(int x) {\n    return x * 4 - 6;\n}\n```\n\nWhat value is returned by the call `f(f(5))`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`56`",
+          "why": "The outer call also subtracts."
+        },
+        {
+          "id": "b",
+          "text": "`14`",
+          "why": "The outer call uses the result of the inner call."
+        },
+        {
+          "id": "c",
+          "text": "`74`",
+          "why": "The inner call subtracts before the outer call multiplies."
+        },
+        {
+          "id": "d",
+          "text": "`50`",
+          "why": "Correct. f(5) is 14, and f(14) is 50."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Evaluate the inner call first: f(5) = 14. Then f(14) = 50."
+    },
+    {
+      "id": "e21-q09",
+      "type": "mcq",
+      "topics": [
+        "compound-boolean-expressions",
+        "boolean-expressions"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following Boolean expression.\n\n```java\n(x > 4 && y < 6) || x == y\n```\n\nFor which of the following values is the expression `true`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`x = 10, y = 10`",
+          "why": "Correct. Substituting these values makes the whole expression true."
+        },
+        {
+          "id": "b",
+          "text": "`x = 2, y = 6`",
+          "why": "Substitute and evaluate each part: this pair makes the expression false."
+        },
+        {
+          "id": "c",
+          "text": "`x = 1, y = 0`",
+          "why": "Substitute and evaluate each part: this pair makes the expression false."
+        },
+        {
+          "id": "d",
+          "text": "`x = 1, y = 8`",
+          "why": "Substitute and evaluate each part: this pair makes the expression false."
+        }
+      ],
+      "answer": "a",
+      "explanation": "With x = 10 and y = 10, evaluating `(x > 4 && y < 6) || x == y` step by step gives true; each other pair gives false."
+    },
+    {
+      "id": "e21-q10",
+      "type": "mcq",
+      "topics": [
+        "anatomy-of-a-class",
+        "writing-methods"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following class.\n\n```java\npublic class Account {\n    private int balance;\n    public Account(int start) {\n        balance = start;\n    }\n    public void deposit(int amt) {\n        balance += amt;\n    }\n    public void withdraw(int amt) {\n        if (amt <= balance) {\n            balance -= amt;\n        }\n    }\n    public int getBalance() {\n        return balance;\n    }\n}\n```\n\nWhat is printed by the following code segment?\n\n```java\nAccount a = new Account(30);\na.withdraw(60);\na.deposit(10);\na.withdraw(25);\nSystem.out.println(a.getBalance());\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`-45`",
+          "why": "withdraw only subtracts when there is enough money."
+        },
+        {
+          "id": "b",
+          "text": "`-20`",
+          "why": "Trace every call, and check each withdrawal against the current balance."
+        },
+        {
+          "id": "c",
+          "text": "`15`",
+          "why": "Correct. The first withdrawal is refused because 60 is more than 30."
+        },
+        {
+          "id": "d",
+          "text": "`40`",
+          "why": "The second withdrawal is allowed."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Balance: 30; withdraw 60 refused; deposit 10 gives 40; withdraw 25 gives 15."
+    },
+    {
+      "id": "e21-q11",
+      "type": "mcq",
+      "topics": [
+        "string-algorithms"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nString s = \"keyboard\";\nString result = \"\";\nfor (int i = 1; i < s.length(); i += 3) {\n    result += s.substring(i, i + 1);\n}\nSystem.out.println(result);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`kbr`",
+          "why": "Check the starting index."
+        },
+        {
+          "id": "b",
+          "text": "`ea`",
+          "why": "i changes by 3 each time."
+        },
+        {
+          "id": "c",
+          "text": "`doe`",
+          "why": "Characters are appended in the order they are visited."
+        },
+        {
+          "id": "d",
+          "text": "`eod`",
+          "why": "Correct. Collect the characters at the visited indexes, in order."
+        }
+      ],
+      "answer": "d",
+      "explanation": "The loop visits indexes from 1 up in steps of 3 and appends each character: \"eod\"."
+    },
+    {
+      "id": "e21-q12",
+      "type": "mcq",
+      "topics": [
+        "array-creation-and-access"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint[] a = {1, 1, 3, 3};\na[1] = a[3] + a[0];\na[a[2]] = 11;\nfor (int x : a) {\n    System.out.print(x + \" \");\n}\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1 12 3 11`",
+          "why": "Statements run in order; the first assignment happens before a[2] is read."
+        },
+        {
+          "id": "b",
+          "text": "`1 4 3 3`",
+          "why": "The second assignment also changes the array."
+        },
+        {
+          "id": "c",
+          "text": "`1 4 3 11`",
+          "why": "Correct. After the first assignment, a[2] is 3, so that index is set to 11."
+        },
+        {
+          "id": "d",
+          "text": "`1 4 11 3`",
+          "why": "a[a[2]] uses the value stored at index 2 as the index."
+        }
+      ],
+      "answer": "c",
+      "explanation": "After `a[1] = a[3] + a[0]`, the array is {1, 4, 3, 3}. Then a[2] is 3, so index 3 becomes 11."
+    },
+    {
+      "id": "e21-q13",
+      "type": "mcq",
+      "topics": [
+        "for-loops"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint sum = 0;\nfor (int i = 2; i <= 14; i += 3) {\n    sum += i;\n}\nSystem.out.println(sum);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`104`",
+          "why": "i increases by 3 each time."
+        },
+        {
+          "id": "b",
+          "text": "`26`",
+          "why": "The condition includes the end value."
+        },
+        {
+          "id": "c",
+          "text": "`38`",
+          "why": "The first value of i is also added."
+        },
+        {
+          "id": "d",
+          "text": "`40`",
+          "why": "Correct. i takes the values 2, 5, … while i <= 14."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Add every value of i from 2 in steps of 3 that satisfies the condition: 40."
+    },
+    {
+      "id": "e21-q14",
+      "type": "mcq",
+      "topics": [
+        "compound-assignment"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint x = 20;\nx -= 4;\nx += 1;\nx /= 4;\nx *= 3;\nSystem.out.println(x);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`4`",
+          "why": "Every statement runs, including the last one."
+        },
+        {
+          "id": "b",
+          "text": "`12.75`",
+          "why": "x is an int, so /= truncates."
+        },
+        {
+          "id": "c",
+          "text": "`3`",
+          "why": "/= keeps the quotient and %= keeps the remainder."
+        },
+        {
+          "id": "d",
+          "text": "`12`",
+          "why": "Correct. Apply each statement in order, using integer division."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Starting from 20, the statements give 16, 17, 4, 12."
+    },
+    {
+      "id": "e21-q15",
+      "type": "mcq",
+      "topics": [
+        "2d-array-creation-and-access"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint[][] m = new int[3][5];\nfor (int r = 0; r < m.length; r++) {\n    for (int c = 0; c < m[0].length; c++) {\n        m[r][c] = r * 2 + c;\n    }\n}\nSystem.out.println(m[1][3] + \" \" + m.length + \" \" + m[0].length);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5 3 5`",
+          "why": "Correct. The first index is the row; m.length is the number of rows."
+        },
+        {
+          "id": "b",
+          "text": "`5 15 5`",
+          "why": "m.length is the number of rows, not elements."
+        },
+        {
+          "id": "c",
+          "text": "`7 3 5`",
+          "why": "m[1][3] is row 1, column 3."
+        },
+        {
+          "id": "d",
+          "text": "`5 5 3`",
+          "why": "m.length counts rows; m[0].length counts columns."
+        }
+      ],
+      "answer": "a",
+      "explanation": "m[1][3] = 1 × 2 + 3 = 5; the array has 3 rows and 5 columns."
+    },
+    {
+      "id": "e21-q16",
+      "type": "mcq",
+      "topics": [
+        "while-loops"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nint x = 61;\nint count = 0;\nwhile (x > 3) {\n    x -= 5;\n    count++;\n}\nSystem.out.println(count + \" \" + x);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`11 6`",
+          "why": "The loop runs once more: the condition is still true at that point."
+        },
+        {
+          "id": "b",
+          "text": "`12 1`",
+          "why": "Correct. The loop runs 12 times and stops when x is 1."
+        },
+        {
+          "id": "c",
+          "text": "`13 -4`",
+          "why": "The loop stops as soon as x is no longer greater than the limit."
+        },
+        {
+          "id": "d",
+          "text": "`12 6`",
+          "why": "x is decreased inside the loop on the last iteration too."
+        }
+      ],
+      "answer": "b",
+      "explanation": "x goes 61, 56, … and the loop ends at x = 1 after 12 passes."
+    },
+    {
+      "id": "e21-q17",
+      "type": "mcq",
+      "topics": [
+        "ethics-of-data-collection",
+        "using-data-sets"
+      ],
+      "skills": [
+        "1"
+      ],
+      "difficulty": 2,
+      "stem": "A survey app stores users' names together with their answers to sensitive questions. Which practice best reduces harm if the stored data is stolen?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Keep the data forever in case it is needed",
+          "why": "Keeping data longer increases risk."
+        },
+        {
+          "id": "b",
+          "text": "Store answers without names, or encrypt the data",
+          "why": "Correct. Removing identifiers or encrypting limits the damage of a breach."
+        },
+        {
+          "id": "c",
+          "text": "Print the data so there is a paper copy",
+          "why": "A paper copy adds another place for the data to leak."
+        },
+        {
+          "id": "d",
+          "text": "Ask more sensitive questions so the data is more useful",
+          "why": "This increases the potential harm."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Removing identifiers or encrypting limits the damage of a breach."
+    },
+    {
+      "id": "e21-q18",
+      "type": "mcq",
+      "topics": [
+        "objects-instances-of-classes",
+        "string-manipulation"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nString a = \"document\";\na.substring(2);\nString b = a.toUpperCase();\nSystem.out.println(a + \" \" + b);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`document document`",
+          "why": "b stores the returned uppercase String."
+        },
+        {
+          "id": "b",
+          "text": "`cument DOCUMENT`",
+          "why": "The substring result is not stored, so a is unchanged."
+        },
+        {
+          "id": "c",
+          "text": "`DOCUMENT DOCUMENT`",
+          "why": "toUpperCase does not change a; it returns a new String."
+        },
+        {
+          "id": "d",
+          "text": "`document DOCUMENT`",
+          "why": "Correct. Strings are immutable; calling a method without storing its result changes nothing."
+        }
+      ],
+      "answer": "d",
+      "explanation": "String methods return new Strings. Unless the result is assigned, the original variable is unchanged."
+    },
+    {
+      "id": "e21-q19",
+      "type": "mcq",
+      "topics": [
+        "string-manipulation",
+        "calling-instance-methods"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Consider the following code segment.\n\n```java\nString s = \"computer\";\nint i = s.indexOf(\"m\");\nSystem.out.println(s.substring(i + 1) + i);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`uter3`",
+          "why": "indexOf counts from 0."
+        },
+        {
+          "id": "b",
+          "text": "`puter2`",
+          "why": "Correct. indexOf returns the first position of \"m\", which is 2."
+        },
+        {
+          "id": "c",
+          "text": "`puter3`",
+          "why": "i itself is printed, not i + 1."
+        },
+        {
+          "id": "d",
+          "text": "`mputer2`",
+          "why": "substring(i + 1) starts after the found letter."
+        }
+      ],
+      "answer": "b",
+      "explanation": "\"m\" first appears at index 2, so the substring from 3 is \"puter\" and 2 is appended."
+    },
+    {
+      "id": "e21-q20",
+      "type": "mcq",
+      "topics": [
+        "searching-algorithms",
+        "recursive-searching-and-sorting"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A sorted array contains 22 elements. What is the maximum number of elements that binary search examines to find a target or determine that it is not present?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Correct. Each comparison halves the range; 22 can be halved about 4 times before one element remains."
+        },
+        {
+          "id": "b",
+          "text": "`9`",
+          "why": "2 to the power 5 is 32, which is already more than 22."
+        },
+        {
+          "id": "c",
+          "text": "`11`",
+          "why": "Binary search halves the range at each step, not just once."
+        },
+        {
+          "id": "d",
+          "text": "`22`",
+          "why": "That is the worst case for linear search."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Binary search needs about log₂(22) + 1 = 5 comparisons in the worst case, far fewer than the 22 of linear search."
+    },
+    {
+      "id": "e21-q21",
+      "type": "mcq",
+      "topics": [
+        "array-algorithms"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following method.\n\n```java\npublic static int mystery(int[] arr) {\n    int c = 0;\n    for (int i = 0; i < arr.length - 1; i++) {\n        if (arr[i] < arr[i + 1]) {\n            c++;\n        }\n    }\n    return c;\n}\n```\n\nWhat is returned by `mystery(new int[] {9, 6, 8, 4, 5, 7})`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`",
+          "why": "Only pairs that increase are counted."
+        },
+        {
+          "id": "b",
+          "text": "`3`",
+          "why": "Correct. Count the adjacent pairs where the next element is larger."
+        },
+        {
+          "id": "c",
+          "text": "`4`",
+          "why": "There are 5 pairs; check each."
+        },
+        {
+          "id": "d",
+          "text": "`2`",
+          "why": "The method counts increases, not decreases."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Comparing each element with the next in {9, 6, 8, 4, 5, 7} finds 3 increases."
+    },
+    {
+      "id": "e21-q22",
+      "type": "mcq",
+      "topics": [
+        "passing-and-returning-references",
+        "writing-methods"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following method.\n\n```java\npublic static void change(int x, int[] arr) {\n    x = x + 2;\n    arr[0] = arr[0] + 2;\n}\n```\n\nWhat is printed by the following code segment?\n\n```java\nint n = 10;\nint[] nums = {6, 12};\nchange(n, nums);\nSystem.out.println(n + \" \" + nums[0]);\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`10 6`",
+          "why": "arr refers to the same array as nums, so the change to arr[0] is visible."
+        },
+        {
+          "id": "b",
+          "text": "`10 8`",
+          "why": "Correct. The int is copied, but the array parameter refers to the same array object."
+        },
+        {
+          "id": "c",
+          "text": "`12 8`",
+          "why": "x is a copy of n; changing x does not change n."
+        },
+        {
+          "id": "d",
+          "text": "`12 6`",
+          "why": "Primitives are passed by value; arrays are passed as references to the same object."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Java passes copies of values. For an int, the copy is independent. For an array, the copy is a reference to the same array, so element changes persist."
+    },
+    {
+      "id": "e21-q23",
+      "type": "mcq",
+      "topics": [
+        "arraylist-traversals"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 4,
+      "stem": "Consider the following code segment.\n\n```java\n// list contains [-6, -3, -2, -3, -4, -8]\nfor (int i = 0; i < list.size(); i++) {\n    if (list.get(i) < 0) {\n        list.remove(i);\n    }\n}\nSystem.out.println(list);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[-3, -2, -3, -4, -8]`",
+          "why": "The loop continues after the first removal."
+        },
+        {
+          "id": "b",
+          "text": "`[-6, -3, -2, -3, -4, -8]`",
+          "why": "Negative values are removed."
+        },
+        {
+          "id": "c",
+          "text": "`[]`",
+          "why": "This is the intended result, but adjacent negatives cause one to be skipped."
+        },
+        {
+          "id": "d",
+          "text": "`[-3, -3, -8]`",
+          "why": "Correct. After a removal, the next element shifts into index i but i still increases, so it is skipped."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Removing at index i shifts the rest left. The element that moves into index i is never checked, so the result is [-3, -3, -8]."
+    },
+    {
+      "id": "e21-q24",
+      "type": "mcq",
+      "topics": [
+        "array-algorithms"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint[] a = {4, 1, 8, 3};\nint last = a[a.length - 1];\nfor (int i = a.length - 1; i > 0; i--) {\n    a[i] = a[i - 1];\n}\na[0] = last;\n```\n\nWhich of the following represents the contents of `a` after the code segment executes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`{3, 8, 1, 4}`",
+          "why": "Shifting is not reversing."
+        },
+        {
+          "id": "b",
+          "text": "`{4, 4, 4, 4}`",
+          "why": "Trace the loop direction and indexes carefully."
+        },
+        {
+          "id": "c",
+          "text": "`{1, 8, 3, 4}`",
+          "why": "Trace the loop direction and indexes carefully."
+        },
+        {
+          "id": "d",
+          "text": "`{3, 4, 1, 8}`",
+          "why": "Correct. Every element moves one place right and the last wraps to the front."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Tracing the loop on {4, 1, 8, 3} gives {3, 4, 1, 8}."
+    },
+    {
+      "id": "e21-q25",
+      "type": "mcq",
+      "topics": [
+        "if-statements",
+        "nested-if-statements"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint n = 69;\nString r = \"\";\nif (n > 39) {\n    r += \"X\";\n}\nif (n > 29) {\n    r += \"Y\";\n} else if (n > 18) {\n    r += \"Z\";\n} else {\n    r += \"W\";\n}\nSystem.out.println(r);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`X`",
+          "why": "The first if is not part of the else-if chain, so the chain still runs."
+        },
+        {
+          "id": "b",
+          "text": "`XYZ`",
+          "why": "In an if / else if chain, only the first true branch runs."
+        },
+        {
+          "id": "c",
+          "text": "`XY`",
+          "why": "Correct. The first if is separate; the second statement is a chain where only one branch runs."
+        },
+        {
+          "id": "d",
+          "text": "`XZ`",
+          "why": "Trace each condition with n = 69."
+        }
+      ],
+      "answer": "c",
+      "explanation": "n = 69: the first if adds X; in the chain n > 29 adds Y."
+    },
+    {
+      "id": "e21-q26",
+      "type": "mcq",
+      "topics": [
+        "array-algorithms"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint[] a = {1, 3, 9, 6, 7, 8};\nfor (int i = 0; i < a.length / 2; i++) {\n    a[a.length - 1 - i] = a[i];\n}\n```\n\nWhich of the following represents the contents of `a` after the code segment executes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`{8, 7, 6, 6, 7, 8}`",
+          "why": "Values are copied from index i to the back, not the other way."
+        },
+        {
+          "id": "b",
+          "text": "`{8, 7, 6, 9, 3, 1}`",
+          "why": "Reversing needs a swap with a temporary variable; this only copies."
+        },
+        {
+          "id": "c",
+          "text": "`{1, 3, 9, 9, 3, 1}`",
+          "why": "Correct. The back half is overwritten with a copy of the front half, so the array reads the same both ways."
+        },
+        {
+          "id": "d",
+          "text": "`{1, 3, 9, 6, 7, 8}`",
+          "why": "The loop assigns to the back half."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Each a[i] in the front half is copied to its mirror position, giving {1, 3, 9, 9, 3, 1}."
+    },
+    {
+      "id": "e21-q27",
+      "type": "mcq",
+      "topics": [
+        "2d-array-algorithms"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following method.\n\n```java\npublic static int mystery(int[][] g) {\n    int best = 0;\n    int bestSum = 0;\n    for (int r = 0; r < g.length; r++) {\n        int sum = 0;\n        for (int c = 0; c < g[r].length; c++) {\n            sum += g[r][c];\n        }\n        if (sum > bestSum) {\n            bestSum = sum;\n            best = r;\n        }\n    }\n    return best;\n}\n```\n\nWhat is returned by `mystery(g)` if `g` is `{{5, 1, 1}, {9, 6, 0}, {8, 5, 9}}`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`",
+          "why": "Recompute each row's sum."
+        },
+        {
+          "id": "b",
+          "text": "`2`",
+          "why": "Correct. The row sums are 7, 15, 22; the largest is in row 2."
+        },
+        {
+          "id": "c",
+          "text": "`22`",
+          "why": "The method returns the row index, not the sum."
+        },
+        {
+          "id": "d",
+          "text": "`0`",
+          "why": "The inner loop adds across a row, not down a column."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Row sums: 7, 15, 22. The method keeps the index of the largest, 2."
+    },
+    {
+      "id": "e21-q28",
+      "type": "mcq",
+      "topics": [
+        "recursive-searching-and-sorting"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "During merge sort, the sorted halves `{13, 19, 29, 30}` and `{6, 7, 23}` are merged. What are the first 3 values placed into the merged array, in order?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`13, 19, 29`",
+          "why": "Merging interleaves the halves; it does not copy the left half first."
+        },
+        {
+          "id": "b",
+          "text": "`30, 29, 23`",
+          "why": "The merged array is in ascending order."
+        },
+        {
+          "id": "c",
+          "text": "`13, 6, 19`",
+          "why": "Merging compares values; it does not alternate between halves."
+        },
+        {
+          "id": "d",
+          "text": "`6, 7, 13`",
+          "why": "Correct. Merging repeatedly takes the smaller of the two front elements."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Compare the front elements of each half and take the smaller each time: 6, 7, 13, 19, 23, 29, 30."
+    },
+    {
+      "id": "e21-q29",
+      "type": "mcq",
+      "topics": [
+        "run-time-analysis",
+        "nested-iteration"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint count = 0;\nfor (int i = 1; i <= 7; i++) {\n    for (int j = 1; j < 7; j *= 2) {\n        count++;\n    }\n}\n```\n\nHow many times is `count++` executed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`49`",
+          "why": "That count belongs to the inner loop `for (int j = 1; j <= 7; j++)`."
+        },
+        {
+          "id": "b",
+          "text": "`28`",
+          "why": "That count belongs to the inner loop `for (int j = 1; j <= i; j++)`."
+        },
+        {
+          "id": "c",
+          "text": "`7`",
+          "why": "The statement is inside the inner loop."
+        },
+        {
+          "id": "d",
+          "text": "`21`",
+          "why": "Correct. Add the inner-loop executions for each value of i."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Summing the inner loop's executions over i = 1 to 7 gives 21."
+    },
+    {
+      "id": "e21-q30",
+      "type": "mcq",
+      "topics": [
+        "searching-algorithms"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "The following binary search is called with `arr` = `{2, 3, 12, 21, 23, 26, 27, 29, 34, 40, 46, 48}` and `target` = 3.\n\n```java\nint low = 0, high = arr.length - 1;\nwhile (low <= high) {\n    int mid = (low + high) / 2;\n    if (arr[mid] == target) {\n        return mid;\n    }\n    if (arr[mid] < target) {\n        low = mid + 1;\n    } else {\n        high = mid - 1;\n    }\n}\nreturn -1;\n```\n\nWhich values of `arr[mid]` are compared with the target, in order?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`26, 12, 2, 3`",
+          "why": "Correct. Each step halves the range; integer division rounds mid down."
+        },
+        {
+          "id": "b",
+          "text": "`27, 21, 3`",
+          "why": "(low + high) / 2 truncates, so mid is rounded down."
+        },
+        {
+          "id": "c",
+          "text": "`26, 12, 2`",
+          "why": "Include the final comparison."
+        },
+        {
+          "id": "d",
+          "text": "`2, 3`",
+          "why": "Binary search starts in the middle, not at the front."
+        }
+      ],
+      "answer": "a",
+      "explanation": "low = 0, high = 11: the middle elements checked are 26, 12, 2, 3, and 3 is found."
+    },
+    {
+      "id": "e21-q31",
+      "type": "mcq",
+      "topics": [
+        "objects-instances-of-classes",
+        "passing-and-returning-references"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Assume a class `Point` has a constructor `Point(int x, int y)`, a method `setX(int x)` and a method `getX()`. What is printed by the following code segment?\n\n```java\nPoint p = new Point(26, 21);\nPoint q = p;\nq.setX(18);\np = new Point(16, 13);\nSystem.out.println(q.getX() + \" \" + p.getX());\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`16 16`",
+          "why": "Reassigning p does not change what q refers to."
+        },
+        {
+          "id": "b",
+          "text": "`18 18`",
+          "why": "p now refers to a new Point with x = 16."
+        },
+        {
+          "id": "c",
+          "text": "`26 16`",
+          "why": "q = p copies the reference, so q.setX changes the shared object."
+        },
+        {
+          "id": "d",
+          "text": "`18 16`",
+          "why": "Correct. q and p first refer to the same object; then p is pointed at a new object, and q is unaffected."
+        }
+      ],
+      "answer": "d",
+      "explanation": "After q = p, both refer to one Point whose x becomes 18. Then p refers to a new Point (x = 16); q still refers to the first one."
+    },
+    {
+      "id": "e21-q32",
+      "type": "mcq",
+      "topics": [
+        "nested-iteration"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint count = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 5; j++) {\n        count++;\n    }\n}\nSystem.out.println(count);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`20`",
+          "why": "The outer loop runs 3 times."
+        },
+        {
+          "id": "b",
+          "text": "`15`",
+          "why": "Correct. Add the inner-loop counts for each value of i."
+        },
+        {
+          "id": "c",
+          "text": "`18`",
+          "why": "The inner condition is j < 5, not j <= 5."
+        },
+        {
+          "id": "d",
+          "text": "`12`",
+          "why": "Read the inner loop's starting value carefully."
+        }
+      ],
+      "answer": "b",
+      "explanation": "For each i from 0 to 2, the inner loop runs from 0 up to 4. The total is 15."
+    },
+    {
+      "id": "e21-q33",
+      "type": "mcq",
+      "topics": [
+        "text-files"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "A text file contains the following tokens, separated by spaces.\n\n```java\n15 13 9 2 end 7\n```\n\nWhat is printed by this code segment, where `in` is a `Scanner` reading the file?\n\n```java\nint sum = 0;\nwhile (in.hasNextInt()) {\n    sum += in.nextInt();\n}\nSystem.out.println(sum);\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`39`",
+          "why": "Correct. hasNextInt() is false at \"end\", so the loop stops there."
+        },
+        {
+          "id": "b",
+          "text": "`4`",
+          "why": "sum adds the values, not one per value."
+        },
+        {
+          "id": "c",
+          "text": "`37`",
+          "why": "The last int before the word is also read."
+        },
+        {
+          "id": "d",
+          "text": "`46`",
+          "why": "The loop stops at the first token that is not an int."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The loop adds 15 + 13 + 9 + 2 = 39, then hasNextInt() returns false at \"end\"."
+    },
+    {
+      "id": "e21-q34",
+      "type": "mcq",
+      "topics": [
+        "recursion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following method.\n\n```java\npublic static int f(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return 3 * f(n - 1);\n}\n```\n\nWhat value is returned by `f(5)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`248`",
+          "why": "Each call's own work is done once."
+        },
+        {
+          "id": "b",
+          "text": "`81`",
+          "why": "That is f(4)."
+        },
+        {
+          "id": "c",
+          "text": "`243`",
+          "why": "Correct. Work down to the base case, then build the result back up."
+        },
+        {
+          "id": "d",
+          "text": "`729`",
+          "why": "That is f(6)."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Expanding the calls down to the base case and substituting back gives f(5) = 243."
+    },
+    {
+      "id": "e21-q35",
+      "type": "mcq",
+      "topics": [
+        "selection-iteration-algorithms",
+        "while-loops"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint n = 7237;\nint result = 0;\nwhile (n > 0) {\n    result += n % 10;\n    n /= 10;\n}\nSystem.out.println(result);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`19`",
+          "why": "Correct. Each pass adds the last digit, then removes it."
+        },
+        {
+          "id": "b",
+          "text": "`4`",
+          "why": "result adds the digits, not 1 per pass."
+        },
+        {
+          "id": "c",
+          "text": "`20`",
+          "why": "Recheck the sum of the digits."
+        },
+        {
+          "id": "d",
+          "text": "`12`",
+          "why": "The loop also runs when n is a single digit."
+        }
+      ],
+      "answer": "a",
+      "explanation": "The digits of 7237 add to 19."
+    },
+    {
+      "id": "e21-q36",
+      "type": "mcq",
+      "topics": [
+        "nested-iteration"
+      ],
+      "skills": [
+        "2",
+        "4"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint count = 0;\nfor (int i = 0; i < 6; i++) {\n    for (int j = i; j < 5; j++) {\n        count++;\n    }\n}\nSystem.out.println(count);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`10`",
+          "why": "Read the inner loop's starting value carefully."
+        },
+        {
+          "id": "b",
+          "text": "`15`",
+          "why": "Correct. Add the inner-loop counts for each value of i."
+        },
+        {
+          "id": "c",
+          "text": "`30`",
+          "why": "The inner loop starts at a value that depends on i."
+        },
+        {
+          "id": "d",
+          "text": "`21`",
+          "why": "The inner condition is j < 5, not j <= 5."
+        }
+      ],
+      "answer": "b",
+      "explanation": "For each i from 0 to 5, the inner loop runs from i up to 4. The total is 15."
+    },
+    {
+      "id": "e21-q37",
+      "type": "mcq",
+      "topics": [
+        "arraylist-methods"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nArrayList<Integer> list = new ArrayList<Integer>();\nlist.add(24);\nlist.add(20);\nlist.add(26);\nlist.remove(1);\nlist.add(49);\nlist.add(1, 22);\nlist.set(0, 45);\nlist.add(0, 28);\nSystem.out.println(list);\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[45, 28, 26, 22, 49]`",
+          "why": "add(i, obj) places obj at index i."
+        },
+        {
+          "id": "b",
+          "text": "`[28, 45, 22, 20, 26, 49]`",
+          "why": "With an int argument, remove(i) removes the element at index i."
+        },
+        {
+          "id": "c",
+          "text": "`[28, 45, 22, 26, 49]`",
+          "why": "Correct. Apply each call in order; add(i, v) inserts and remove(i) removes by index."
+        },
+        {
+          "id": "d",
+          "text": "`[28, 22, 49]`",
+          "why": "add(index, obj) inserts and shifts later elements; it does not replace."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Tracing each call from [24, 20, 26] gives [28, 45, 22, 26, 49]."
+    },
+    {
+      "id": "e21-q38",
+      "type": "mcq",
+      "topics": [
+        "class-variables-and-methods"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following class.\n\n```java\npublic class Badge {\n    private static int count = 0;\n    private int id;\n    public Badge() {\n        count++;\n        id = count;\n    }\n    public int getId() {\n        return id;\n    }\n    public static int getCount() {\n        return count;\n    }\n}\n```\n\nWhat is printed by the following code segment?\n\n```java\nBadge t1 = new Badge();\nBadge t2 = new Badge();\nBadge t3 = new Badge();\nSystem.out.println(t1.getId() + \" \" + Badge.getCount());\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1 1`",
+          "why": "count is static: it keeps increasing after t1 is created."
+        },
+        {
+          "id": "b",
+          "text": "`1 3`",
+          "why": "Correct. count is shared by all objects; each id records count when that object was made."
+        },
+        {
+          "id": "c",
+          "text": "`0 3`",
+          "why": "count is incremented before id is assigned."
+        },
+        {
+          "id": "d",
+          "text": "`3 3`",
+          "why": "id is an instance variable set once, when that object is constructed."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Each constructor call increments the shared count, so t1 gets id 1, and after 3 objects count is 3."
+    },
+    {
+      "id": "e21-q39",
+      "type": "mcq",
+      "topics": [
+        "this-keyword",
+        "constructors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following class.\n\n```java\npublic class Box {\n    private int width;\n    private int height;\n    public Box(int width, int h) {\n        this.width = width;\n        height = h;\n    }\n    public int area() {\n        return width * height;\n    }\n}\n```\n\nWhat is printed by `System.out.println(new Box(7, 8).area());`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`64`",
+          "why": "width is not set from h."
+        },
+        {
+          "id": "b",
+          "text": "`56`",
+          "why": "Correct. this.width refers to the instance variable, so it is set correctly."
+        },
+        {
+          "id": "c",
+          "text": "`15`",
+          "why": "area multiplies."
+        },
+        {
+          "id": "d",
+          "text": "`0`",
+          "why": "this.width assigns the instance variable."
+        }
+      ],
+      "answer": "b",
+      "explanation": "this.width = width stores 7 in the instance variable, so the area is 7 × 8 = 56."
+    },
+    {
+      "id": "e21-q40",
+      "type": "mcq",
+      "topics": [
+        "array-traversals"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Consider the following code segment.\n\n```java\nint[] a = {9, 7, 7, 6, 3};\nfor (int x : a) {\n    x = x * 2;\n}\nfor (int i = 1; i < a.length; i += 2) {\n    a[i] = a[i] + 1;\n}\nfor (int x : a) {\n    System.out.print(x + \" \");\n}\n```\n\nWhat is printed as a result of executing the code segment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`10 8 8 7 4`",
+          "why": "The index increases by 2."
+        },
+        {
+          "id": "b",
+          "text": "`9 8 7 7 3`",
+          "why": "Correct. The enhanced for loop changes only copies; the indexed loop changes the array."
+        },
+        {
+          "id": "c",
+          "text": "`18 15 14 13 6`",
+          "why": "Assigning to the enhanced-for variable does not change the array."
+        },
+        {
+          "id": "d",
+          "text": "`10 7 8 6 4`",
+          "why": "The indexed loop starts at 1."
+        }
+      ],
+      "answer": "b",
+      "explanation": "The first loop has no effect on a. The second adds 1 at indexes 1, 3, …, giving {9, 8, 7, 7, 3}."
+    },
+    {
+      "id": "e21-q41",
+      "type": "mcq",
+      "topics": [
+        "comparing-boolean-expressions"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Which of the following is equivalent to `!(a <= 3 && b != 13)` for all int values of a and b?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`a <= 3 || b != 13`",
+          "why": "Each comparison must be negated too."
+        },
+        {
+          "id": "b",
+          "text": "`a >= 3 || b == 13`",
+          "why": "The negation of > is <=, not < (and similarly for the others)."
+        },
+        {
+          "id": "c",
+          "text": "`a > 3 || b == 13`",
+          "why": "Correct. De Morgan's law: negate each comparison and switch && and ||."
+        },
+        {
+          "id": "d",
+          "text": "`a > 3 && b == 13`",
+          "why": "Negating also switches && to ||."
+        }
+      ],
+      "answer": "c",
+      "explanation": "By De Morgan's law, !(P && Q) is !P || !Q. Negating `a <= 3` gives `a > 3`, and `b != 13` gives `b == 13`."
+    },
+    {
+      "id": "e21-q42",
+      "type": "mcq",
+      "topics": [
+        "recursion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 4,
+      "stem": "Consider the following method.\n\n```java\npublic static String mystery(String s) {\n    if (s.length() <= 1) {\n        return s;\n    }\n    return mystery(s.substring(1)) + s.substring(0, 1);\n}\n```\n\nWhat is returned by `mystery(\"airpl\")`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`\"lpria\"`",
+          "why": "Correct. Each call puts the first character after the result for the rest: the string is reversed."
+        },
+        {
+          "id": "b",
+          "text": "`\"a\"`",
+          "why": "The result is built from every recursive call."
+        },
+        {
+          "id": "c",
+          "text": "`\"lpri\"`",
+          "why": "The first character is also included."
+        },
+        {
+          "id": "d",
+          "text": "`\"airpl\"`",
+          "why": "The first character is added at the end, not the front."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Expanding the calls for \"airpl\" gives \"lpria\"."
+    },
+    {
+      "id": "e21-frq1",
+      "type": "frq",
+      "format": "methods",
+      "title": "Parking fees",
+      "topics": [
+        "if-statements",
+        "compound-boolean-expressions",
+        "while-loops",
+        "writing-methods"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 23,
+      "stimuli": [
+        "e21-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the method `fee`.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Returns 0 for stays of 15 minutes or less.",
+              "example": "`if (minutes <= 15) return 0;`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Counts hours, rounding any partial hour up.",
+              "example": "`int hours = (minutes + 59) / 60;`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Applies the 45-dollar maximum and returns the fee.",
+              "example": "```java\npublic static int fee(int minutes) {\n    if (minutes <= 15) {\n        return 0;\n    }\n    int hours = (minutes + 59) / 60;\n    int cost = hours * 5;\n    if (cost > 45) {\n        cost = 45;\n    }\n    return cost;\n}\n```"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Write the method `longestStay`. Assume `fee` works as specified, regardless of what you wrote in part (a).",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Examines stay lengths from 0 to 1440 (in either direction).",
+              "example": "`for (int m = 1440; m >= 0; m--)`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Calls fee and compares the result with budget.",
+              "example": "`if (fee(m) <= budget)`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Returns the longest qualifying length.",
+              "example": "```java\npublic static int longestStay(int budget) {\n    for (int m = 1440; m >= 0; m--) {\n        if (fee(m) <= budget) {\n            return m;\n        }\n    }\n    return 0;\n}\n```"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e21-frq2",
+      "type": "frq",
+      "format": "class",
+      "title": "Punch card",
+      "topics": [
+        "anatomy-of-a-class",
+        "constructors",
+        "writing-methods"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 22,
+      "stimuli": [
+        "e21-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the complete `PunchCard` class, including any instance variables, the constructor and both methods. Your implementation must meet all specifications and match the example.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Declares private instance variables for the remaining visits and the number of successful punches.",
+              "example": "`private int remaining; private int punches;`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Constructor initializes the instance variables from the parameter.",
+              "example": "`remaining = visits; punches = 0;`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "punch checks availability and returns false without changes when none remain.",
+              "example": "`if (remaining == 0) return false;`"
+            },
+            {
+              "kind": "point",
+              "id": "p4",
+              "criterion": "punch decrements remaining and counts the punch.",
+              "example": "`remaining--; punches++;`"
+            },
+            {
+              "kind": "point",
+              "id": "p5",
+              "criterion": "Adds a free visit after every 3 successful punches.",
+              "example": "`if (punches % 3 == 0) remaining++;`"
+            },
+            {
+              "kind": "point",
+              "id": "p6",
+              "criterion": "getRemaining returns the remaining visits; all methods have the correct headers.",
+              "example": "```java\npublic class PunchCard {\n    private int remaining;\n    private int punches;\n    public PunchCard(int visits) {\n        remaining = visits;\n        punches = 0;\n    }\n    public boolean punch() {\n        if (remaining == 0) {\n            return false;\n        }\n        remaining--;\n        punches++;\n        if (punches % 3 == 0) {\n            remaining++;\n        }\n        return true;\n    }\n    public int getRemaining() {\n        return remaining;\n    }\n}\n```"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e21-frq3",
+      "type": "frq",
+      "format": "arraylist",
+      "title": "Sensor log",
+      "topics": [
+        "arraylist-algorithms",
+        "arraylist-methods",
+        "wrapper-classes"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 4,
+      "minutes": 23,
+      "stimuli": [
+        "e21-frq3-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the method `countAbove`.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Traverses all readings.",
+              "example": "`for (Reading rd : readings)`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Compares getTemp() with t using a strict inequality.",
+              "example": "`if (rd.getTemp() > t)`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Counts and returns the result.",
+              "example": "```java\npublic int countAbove(int t) {\n    int count = 0;\n    for (Reading rd : readings) {\n        if (rd.getTemp() > t) {\n            count++;\n        }\n    }\n    return count;\n}\n```"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Write the method `addReading`.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Finds the first index whose day is greater than r's day, without going out of bounds.",
+              "example": "`while (i < readings.size() && readings.get(i).getDay() < r.getDay()) i++;`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Inserts with add(index, r).",
+              "example": "`readings.add(i, r);`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Handles inserting at the front and at the end (including an empty list).",
+              "example": "```java\npublic void addReading(Reading r) {\n    int i = 0;\n    while (i < readings.size() && readings.get(i).getDay() < r.getDay()) {\n        i++;\n    }\n    readings.add(i, r);\n}\n```"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e21-frq4",
+      "type": "frq",
+      "format": "2d-array",
+      "title": "Seating chart",
+      "topics": [
+        "2d-array-algorithms",
+        "2d-array-traversals"
+      ],
+      "skills": [
+        "1",
+        "3"
+      ],
+      "difficulty": 4,
+      "minutes": 22,
+      "stimuli": [
+        "e21-frq4-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the method `emptyInRow`.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Traverses every column of the given row.",
+              "example": "`for (int c = 0; c < seats[row].length; c++)`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Counts seats equal to 0 and returns the count.",
+              "example": "```java\npublic int emptyInRow(int row) {\n    int count = 0;\n    for (int c = 0; c < seats[row].length; c++) {\n        if (seats[row][c] == 0) {\n            count++;\n        }\n    }\n    return count;\n}\n```"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Write the method `findBlock`.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Traverses rows in order from 0.",
+              "example": "`for (int r = 0; r < seats.length; r++)`"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Tracks the current run of adjacent empty seats, resetting it at an occupied seat and at the start of each row.",
+              "example": "`run = (seats[r][c] == 0) ? run + 1 : 0;`"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Returns the row index as soon as a run reaches k.",
+              "example": "`if (run >= k) return r;`"
+            },
+            {
+              "kind": "point",
+              "id": "p4",
+              "criterion": "Returns -1 when no row qualifies.",
+              "example": "```java\npublic int findBlock(int k) {\n    for (int r = 0; r < seats.length; r++) {\n        int run = 0;\n        for (int c = 0; c < seats[r].length; c++) {\n            if (seats[r][c] == 0) {\n                run++;\n            } else {\n                run = 0;\n            }\n            if (run >= k) {\n                return r;\n            }\n        }\n    }\n    return -1;\n}\n```"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

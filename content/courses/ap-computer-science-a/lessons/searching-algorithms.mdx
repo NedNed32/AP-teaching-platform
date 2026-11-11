@@ -1,0 +1,129 @@
+---
+objectives:
+  - Implement linear search and binary search.
+  - Compare their requirements and efficiency.
+keyTerms:
+  - term: Linear search
+    definition: 'Checking each element in order until the target is found or the list ends.'
+  - term: Binary search
+    definition: 'Repeatedly halving a sorted range by comparing the target with the middle element.'
+checks:
+  - q: 'What must be true of the data for binary search?'
+    a: 'It must be sorted.'
+  - q: 'At most how many comparisons does binary search need for 1,000 elements?'
+    a: 'About 10, since 2 to the 10th is 1,024.'
+sources:
+  - title: CSAwesome, "Searching and Sorting"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Finding a value is one of the most common tasks in computing. The best method depends on whether the data is sorted.
+
+## Linear search
+
+```java
+public static int linearSearch(int[] a, int target) {
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] == target) return i;
+    }
+    return -1;
+}
+```
+
+Works on any data. In the worst case it checks every element: $$n$$ comparisons.
+
+## Binary search (sorted data)
+
+```java
+public static int binarySearch(int[] a, int target) {
+    int low = 0, high = a.length - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (a[mid] == target) return mid;
+        if (a[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
+```
+
+Each step halves the range: about $$\log_2 n$$ comparisons.
+
+| Elements | Linear (worst) | Binary (worst) |
+| --- | --- | --- |
+| 16 | 16 | 5 |
+| 1,000 | 1,000 | 10 |
+| 1,000,000 | 1,000,000 | 20 |
+
+<Note title="mid uses integer division">
+`(low + high) / 2` truncates, so with low = 0 and high = 5, mid is 2.
+</Note>
+
+<WorkedExample title="Binary search trace">
+Search for 23 in [3, 8, 12, 17, 23, 31, 40]. Which elements are compared?
+
+1. low 0, high 6: mid 3 (17); 17 is less than 23, so low = 4.
+2. low 4, high 6: mid 5 (31); 31 is greater, so high = 4.
+3. low 4, high 4: mid 4 (23): found.
+
+**Answer:** 17, 31, 23, three comparisons; returns index 4.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The following binary search is called with `arr` = `{5, 10, 16, 19, 27, 28, 29, 32, 49, 51, 58}` and `target` = 51.
+
+```java
+int low = 0, high = arr.length - 1;
+while (low <= high) {
+    int mid = (low + high) / 2;
+    if (arr[mid] == target) {
+        return mid;
+    }
+    if (arr[mid] < target) {
+        low = mid + 1;
+    } else {
+        high = mid - 1;
+    }
+}
+return -1;
+```
+
+Which values of `arr[mid]` are compared with the target, in order?
+
+**Answer:** `28, 49, 51`
+
+**Why:** Each step halves the range; integer division rounds mid down.
+
+**Working:** low = 0, high = 10: the middle elements checked are 28, 49, 51, and 51 is found.
+
+**Mistakes to avoid**
+
+- `28, 49, 58, 51`: (low + high) / 2 truncates, so mid is rounded down.
+- `5, 10, 16, 19`: Binary search starts in the middle, not at the front.
+- `28, 49`: Include the final comparison.
+
+### Worked exam question 2
+
+A sorted array contains 10001 elements. What is the maximum number of elements that binary search examines to find a target or determine that it is not present?
+
+**Answer:** `14`
+
+**Why:** Each comparison halves the range; 10001 can be halved about 13 times before one element remains.
+
+**Working:** Binary search needs about log₂(10001) + 1 = 14 comparisons in the worst case, far fewer than the 10001 of linear search.
+
+**Mistakes to avoid**
+
+- `10001`: That is the worst case for linear search.
+- `5001`: Binary search halves the range at each step, not just once.
+- `18`: 2 to the power 14 is 16384, which is already more than 10001.

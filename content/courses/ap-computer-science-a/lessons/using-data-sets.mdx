@@ -1,0 +1,77 @@
+---
+objectives:
+  - Describe how programs use collections to store and analyze data sets.
+  - Choose between arrays and ArrayLists.
+keyTerms:
+  - term: Data set
+    definition: 'A collection of related values, such as daily temperatures or survey answers.'
+  - term: Collection
+    definition: 'A structure that holds many values under one name, such as an array or ArrayList.'
+checks:
+  - q: 'Which structure has a fixed size once created?'
+    a: 'An array.'
+  - q: 'Which structure can grow and shrink?'
+    a: 'An ArrayList.'
+sources:
+  - title: CSAwesome, "Data Collections"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Analyzing data means working with many values at once: finding averages, trends, outliers. Collections make that possible.
+
+## Collections in AP CSA
+
+| Structure | Size | Holds | Access |
+| --- | --- | --- | --- |
+| array | fixed when created | primitives or objects | `arr[i]` |
+| ArrayList | changes as you add and remove | objects only (use wrappers for numbers) | `list.get(i)` |
+| 2D array | fixed rows and columns | primitives or objects | `grid[r][c]` |
+
+## Typical analysis tasks
+
+- summary statistics: sum, average, minimum, maximum;
+- filtering: keep only records that meet a condition;
+- searching for a value;
+- finding patterns, such as the longest run of increasing values.
+
+<Note title="Choose the structure first">
+If you know how many values there will be and they will not change, an array is simple. If items will be added or removed, use an ArrayList.
+</Note>
+
+<WorkedExample title="Choosing a structure">
+A program records the high temperature each day for one year, and another keeps a playlist that users edit. Which structure suits each?
+
+1. 365 fixed values: an array of `double`.
+2. A playlist grows and shrinks: an ArrayList of `String`.
+
+**Answer:** an array for the temperatures; an ArrayList for the playlist.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A survey app stores users' names together with their answers to sensitive questions. Which practice best reduces harm if the stored data is stolen?
+
+**A.** Store answers without names, or encrypt the data. Removing identifiers or encrypting limits the damage of a breach.
+
+**Q.** A program that predicts loan approvals was built from past decisions in which some groups were rarely approved. What is the most likely problem?
+
+**A.** The program may repeat the unfair patterns in the historical data. Biased training data leads to biased predictions.
+
+**Q.** A school app collects students' locations at all times, although it only needs to know whether a student is on campus. Which change best protects student privacy?
+
+**A.** Record only whether each student is on campus, not exact locations. Collecting only the data needed reduces privacy risk.
+
+**Q.** Researchers analyze a data set of fitness-tracker users to make claims about the health of all adults. What is the main concern with this conclusion?
+
+**A.** Fitness-tracker users may not represent all adults. A non-representative sample limits how far conclusions apply.

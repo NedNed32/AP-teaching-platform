@@ -1,0 +1,87 @@
+---
+objectives:
+  - 'Interpret p-values and compare them with a significance level.'
+keyTerms:
+  - term: 'p-value'
+    definition: 'The probability, assuming H₀ is true, of a statistic as extreme as or more extreme than the observed one.'
+checks:
+  - q: 'Is a p-value the probability that H₀ is true?'
+    a: 'No.'
+  - q: 'What does a small p-value indicate?'
+    a: 'The observed result would be unusual if H₀ were true, giving evidence for Hₐ.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+**Interpretation template**: "Assuming [H₀ in context], there is a [p-value] probability of getting a sample proportion of [observed] or [more extreme direction] by chance alone."
+
+- p-value ≤ α: **reject** H₀; convincing evidence for Hₐ.
+- p-value greater than α: **fail to reject** H₀; not convincing evidence for Hₐ.
+
+We never "accept" H₀.
+
+<Note title="Two-sided tests">
+For Hₐ: p ≠ p₀, the p-value counts extreme results in both tails, so it is twice the one-tail area.
+</Note>
+
+<WorkedExample title="Interpret">
+Testing H₀: p = 0.30 vs Hₐ: p > 0.30 gives p̂ = 0.36 and a p-value of 0.04. Interpret the p-value.
+
+1. Assume p = 0.30.
+
+**Answer:** if 30% is the true proportion, there is a 0.04 probability of a sample proportion of 0.36 or higher by chance alone.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+To test H₀: p = 0.3 versus Hₐ: p > 0.3, a random sample of 150 gives p̂ = 0.38. What are the test statistic and p-value?
+
+**Answer:** z = 2.14, p-value = 0.0163
+
+**Why:** z = (p̂ − p₀)/√(p₀(1 − p₀)/n); one-sided p-value.
+
+**Working:** SD = √(0.3·0.7/150) = 0.0374; z = 2.14; p-value = 0.0163.
+
+**Mistakes to avoid**
+
+- z = 2.02, p-value = 0.0218: The test's standard deviation uses p₀, not p̂.
+- z = 2.14, p-value = 0.0325: The alternative is one-sided.
+- z = 2.14, p-value = 0.9837: Find the area in the direction of Hₐ.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which change increases the power of a significance test, with everything else unchanged?
+
+**A.** Increasing the sample size. Larger samples detect real effects more often.
+
+**Q.** A factory tests H₀: the defect rate is 2% versus Hₐ: it is greater than 2%. What is a Type I error in this context?
+
+**A.** Concluding the defect rate is greater than 2% when it actually is 2%. Rejecting a true H₀.
+
+**Q.** A 95% confidence interval for p is (0.42, 0.51). Which claim is supported?
+
+**A.** It is plausible that fewer than half the population has the trait. Values below 0.5 lie in the interval.
+
+**Q.** A test of H₀: p = 0.4 versus Hₐ: p > 0.4 gives a p-value of 0.03. Which interpretation is correct?
+
+**A.** If p = 0.4, there is a 0.03 probability of a sample proportion at least as large as the one observed, by chance alone. That is the definition of the p-value.
+
+**Q.** Which statistic is an unbiased estimator of the population proportion?
+
+**A.** The sample proportion p̂ from a random sample. Its sampling distribution is centered at p.
+
+**Q.** What does '95% confident' mean for a confidence interval?
+
+**A.** In many repeated samples, about 95% of intervals built this way would capture the true parameter. Confidence describes the method's long-run success rate.

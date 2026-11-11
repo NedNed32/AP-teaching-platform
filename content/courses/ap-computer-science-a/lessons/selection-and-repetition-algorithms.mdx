@@ -1,0 +1,374 @@
+---
+objectives:
+  - Describe algorithms using sequencing, selection and repetition.
+  - Represent an algorithm in pseudocode or a flowchart before coding it.
+keyTerms:
+  - term: Sequencing
+    definition: 'Executing steps in order.'
+  - term: Selection
+    definition: 'Choosing which steps to run based on a condition (if statements).'
+  - term: Repetition (iteration)
+    definition: 'Running steps repeatedly (loops).'
+checks:
+  - q: 'Which building block decides whether to give a discount?'
+    a: 'Selection.'
+  - q: 'Which building block processes every item in a list?'
+    a: 'Repetition.'
+sources:
+  - title: CSAwesome, "Boolean Expressions and if Statements"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Every algorithm, however complex, is built from three structures: do steps in order, choose between steps, and repeat steps.
+
+## The three building blocks
+
+| Structure | Java construct | Example |
+| --- | --- | --- |
+| Sequencing | statements in order | compute, then print |
+| Selection | `if`, `if-else` | if the score is at least 90, print "A" |
+| Repetition | `while`, `for` | add up every value in an array |
+
+## Plan before coding
+
+Write the algorithm in plain steps first:
+
+1. Set `total` to 0.
+2. For each number from 1 to `n`: if it is even, add it to `total`.
+3. Report `total`.
+
+Then translate each step into Java:
+
+```java
+int total = 0;
+for (int i = 1; i <= n; i++) {
+    if (i % 2 == 0) {
+        total += i;
+    }
+}
+System.out.println(total);
+```
+
+<Note title="Order matters">
+Swapping two statements can change the result. Initializing `total` inside the loop, for example, resets it on every pass.
+</Note>
+
+<WorkedExample title="Designing an algorithm">
+Describe an algorithm to count how many values in a list exceed 50.
+
+1. Set `count` to 0 (sequencing).
+2. Repeat for each value (repetition).
+3. If the value is greater than 50, add 1 to `count` (selection).
+4. After the loop, return `count`.
+
+**Answer:** the algorithm combines all three building blocks.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int x = 30;
+int count = 0;
+while (x > 3) {
+    x -= 7;
+    count++;
+}
+System.out.println(count + " " + x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `4 2`
+
+**Why:** The loop runs 4 times and stops when x is 2.
+
+**Working:** x goes 30, 23, … and the loop ends at x = 2 after 4 passes.
+
+**Mistakes to avoid**
+
+- `3 9`: The loop runs once more: the condition is still true at that point.
+- `4 9`: x is decreased inside the loop on the last iteration too.
+- `5 -5`: The loop stops as soon as x is no longer greater than the limit.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 15; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `45`. i takes the values 3, 6, … while i &lt;= 15. Add every value of i from 3 in steps of 3 that satisfies the condition: 45.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 9; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `16`. i takes the values 1, 3, … while i &lt; 9. Add every value of i from 1 in steps of 2 that satisfies the condition: 16.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 16; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `51`. i takes the values 1, 4, … while i &lt;= 16. Add every value of i from 1 in steps of 3 that satisfies the condition: 51.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 11; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `25`. i takes the values 1, 3, … while i &lt; 11. Add every value of i from 1 in steps of 2 that satisfies the condition: 25.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 16; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `35`. i takes the values 1, 4, … while i &lt; 16. Add every value of i from 1 in steps of 3 that satisfies the condition: 35.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 15; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `48`. i takes the values 3, 5, … while i &lt; 15. Add every value of i from 3 in steps of 2 that satisfies the condition: 48.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 11; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. i takes the values 2, 5, … while i &lt; 11. Add every value of i from 2 in steps of 3 that satisfies the condition: 15.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i <= 10; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. i takes the values 2, 4, … while i &lt;= 10. Add every value of i from 2 in steps of 2 that satisfies the condition: 30.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 15; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `64`. i takes the values 1, 3, … while i &lt;= 15. Add every value of i from 1 in steps of 2 that satisfies the condition: 64.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 9; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `25`. i takes the values 1, 3, … while i &lt;= 9. Add every value of i from 1 in steps of 2 that satisfies the condition: 25.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 13; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `36`. i takes the values 1, 3, … while i &lt; 13. Add every value of i from 1 in steps of 2 that satisfies the condition: 36.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 13; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `48`. i takes the values 3, 5, … while i &lt;= 13. Add every value of i from 3 in steps of 2 that satisfies the condition: 48.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 15; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. i takes the values 3, 6, … while i &lt; 15. Add every value of i from 3 in steps of 3 that satisfies the condition: 30.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 14; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `42`. i takes the values 2, 4, … while i &lt; 14. Add every value of i from 2 in steps of 2 that satisfies the condition: 42.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 11; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `35`. i takes the values 3, 5, … while i &lt;= 11. Add every value of i from 3 in steps of 2 that satisfies the condition: 35.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 14; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `26`. i takes the values 2, 5, … while i &lt; 14. Add every value of i from 2 in steps of 3 that satisfies the condition: 26.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 12; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. i takes the values 2, 4, … while i &lt; 12. Add every value of i from 2 in steps of 2 that satisfies the condition: 30.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 9; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `9`. i takes the values 3, 6, … while i &lt; 9. Add every value of i from 3 in steps of 3 that satisfies the condition: 9.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 9; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. i takes the values 3, 6, … while i &lt;= 9. Add every value of i from 3 in steps of 3 that satisfies the condition: 18.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 13; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `35`. i takes the values 3, 5, … while i &lt; 13. Add every value of i from 3 in steps of 2 that satisfies the condition: 35.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 16; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `56`. i takes the values 2, 4, … while i &lt; 16. Add every value of i from 2 in steps of 2 that satisfies the condition: 56.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 12; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. i takes the values 3, 6, … while i &lt;= 12. Add every value of i from 3 in steps of 3 that satisfies the condition: 30.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 13; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `49`. i takes the values 1, 3, … while i &lt;= 13. Add every value of i from 1 in steps of 2 that satisfies the condition: 49.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i <= 11; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `26`. i takes the values 2, 5, … while i &lt;= 11. Add every value of i from 2 in steps of 3 that satisfies the condition: 26.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 15; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `63`. i takes the values 3, 5, … while i &lt;= 15. Add every value of i from 3 in steps of 2 that satisfies the condition: 63.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 12; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. i takes the values 3, 6, … while i &lt; 12. Add every value of i from 3 in steps of 3 that satisfies the condition: 18.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i <= 9; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. i takes the values 3, 5, … while i &lt;= 9. Add every value of i from 3 in steps of 2 that satisfies the condition: 24.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 13; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `35`. i takes the values 1, 4, … while i &lt;= 13. Add every value of i from 1 in steps of 3 that satisfies the condition: 35.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i <= 12; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `42`. i takes the values 2, 4, … while i &lt;= 12. Add every value of i from 2 in steps of 2 that satisfies the condition: 42.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i <= 14; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `40`. i takes the values 2, 5, … while i &lt;= 14. Add every value of i from 2 in steps of 3 that satisfies the condition: 40.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 10; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. i takes the values 1, 4, … while i &lt; 10. Add every value of i from 1 in steps of 3 that satisfies the condition: 12.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i < 13; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `22`. i takes the values 1, 4, … while i &lt; 13. Add every value of i from 1 in steps of 3 that satisfies the condition: 22.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i <= 14; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `56`. i takes the values 2, 4, … while i &lt;= 14. Add every value of i from 2 in steps of 2 that satisfies the condition: 56.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 11; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `36`. i takes the values 1, 3, … while i &lt;= 11. Add every value of i from 1 in steps of 2 that satisfies the condition: 36.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 1; i <= 10; i += 3) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `22`. i takes the values 1, 4, … while i &lt;= 10. Add every value of i from 1 in steps of 3 that satisfies the condition: 22.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 11; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. i takes the values 3, 5, … while i &lt; 11. Add every value of i from 3 in steps of 2 that satisfies the condition: 24.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 3; i < 9; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. i takes the values 3, 5, … while i &lt; 9. Add every value of i from 3 in steps of 2 that satisfies the condition: 15.
+
+**Q.** Consider the following code segment. ```java int sum = 0; for (int i = 2; i < 10; i += 2) { sum += i; } System.out.println(sum); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. i takes the values 2, 4, … while i &lt; 10. Add every value of i from 2 in steps of 2 that satisfies the condition: 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `9`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i up to 3. The total is 9.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 5. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 5. The total is 30.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 5. The total is 24.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 4. The total is 30.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i + 1; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i + 1 up to 5. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 5. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 3. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i + 1; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `14`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i + 1 up to 5. The total is 14.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 3. The total is 24.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 2. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 2. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `14`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 4. The total is 14.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i + 1; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `9`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i + 1 up to 4. The total is 9.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 3. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 5. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 2. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i up to 4. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 4. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `21`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 5. The total is 21.

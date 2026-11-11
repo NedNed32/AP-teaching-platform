@@ -1,0 +1,87 @@
+---
+objectives:
+  - 'Construct one-sample t intervals for a mean, including paired differences.'
+keyTerms:
+  - term: 't interval'
+    definition: 'x̄ ± t* · s/√n with df = n − 1.'
+  - term: 'Paired data'
+    definition: 'Two measurements on the same or matched units; analyze the differences.'
+checks:
+  - q: 'What are the degrees of freedom for a sample of 20?'
+    a: '19.'
+  - q: 'How do you analyze before-and-after measurements on the same people?'
+    a: 'Compute each person''s difference and do a one-sample t procedure on the differences.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$\bar x \pm t^*\frac{s}{\sqrt n} \qquad df = n - 1$$
+
+**Conditions**: random, 10%, and normal/large sample ($$n \ge 30$$, or the population is normal, or the sample data show no strong skew or outliers).
+
+**Paired data**: compute differences $$d$$, then use $$\bar x_d \pm t^*\frac{s_d}{\sqrt n}$$.
+
+t* is larger than z* for the same confidence level, especially for small samples.
+
+<Note title="Check the graph">
+With small samples, sketch or describe a dotplot or boxplot of the data to justify the normality condition.
+</Note>
+
+<WorkedExample title="Construct">
+A random sample of 25 students sleeps x̄ = 6.8 h with s = 1.2 h. Find a 95% interval for μ (t* = 2.064).
+
+1. SE = $$1.2/5 = 0.24$$.
+2. $$6.8 \pm 2.064(0.24) = 6.8 \pm 0.495$$.
+
+**Answer:** (6.31, 7.30) hours.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A random sample of 18 has mean 72.9 and standard deviation 8. Which is a 90% confidence interval for the population mean?
+
+**Answer:** (69.62, 76.18)
+
+**Why:** x̄ ± t*·s/√n with t* = 1.74 (df = 17).
+
+**Working:** SE = 1.886; margin = 3.28.
+
+**Mistakes to avoid**
+
+- (69.8, 76): With s estimating σ, use t*, not z*.
+- (58.98, 86.82): Divide s by √n.
+- (72.13, 73.67): Divide by √n, not n.
+
+### Free-response practice: A test for a proportion
+
+A school district claims that 40% of its students take public transit to school. A reporter suspects the true proportion is lower. In a random sample of 130 students, 44 take public transit.
+
+**(a)** State the hypotheses, defining the parameter.
+
+To earn the point: Correct hypotheses with the parameter defined. Model answer: H₀: p = 0.4; Hₐ: p &lt; 0.4, where p is the proportion of all district students who take public transit.
+
+**(b)** Identify the appropriate procedure and check its conditions.
+
+To earn the point: One-sample z test for a proportion. Model answer: Random sample stated.
+
+To earn the point: 10% and large counts checked. Model answer: 130 is less than 10% of all students (assumed); np₀ = 52 and n(1 − p₀) = 78 are both at least 10.
+
+**(c)** Calculate the test statistic and p-value.
+
+To earn the point: Test statistic. Model answer: p̂ = 0.3385; z = (0.3385 − 0.4)/0.043 = -1.43
+
+To earn the point: p-value. Model answer: 0.076
+
+**(d)** State a conclusion in context at α = 0.05.
+
+To earn the point: Correct decision linked to the p-value, in context. Model answer: Because 0.076 is greater than 0.05, fail to reject H₀: not convincing evidence that the proportion is less than 0.4.

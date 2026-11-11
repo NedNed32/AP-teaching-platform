@@ -1,0 +1,94 @@
+---
+objectives:
+  - Find the area between curves using horizontal slices (integrating with respect to $$y$$).
+keyTerms:
+  - term: Right minus left
+    definition: 'The length of a horizontal slice between $$x = f(y)$$ on the right and $$x = g(y)$$ on the left is $$f(y) - g(y)$$.'
+checks:
+  - q: 'Find the area between $$x = y^2$$ and $$x = 4$$.'
+    a: '$$\int_{-2}^{2} (4 - y^2)\,dy = \frac{32}{3}$$.'
+  - q: 'When is integrating in $$y$$ easier?'
+    a: 'When the curves are naturally written as $$x = $$ functions of $$y$$, or when vertical slices would need to be split into several pieces.'
+sources:
+  - title: Calculus Volume 1, section 6.1 "Areas between Curves"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Sometimes vertical slices are awkward: one curve is a sideways parabola, or the top boundary changes partway across. Turning the slices sideways often makes the integral simpler.
+
+## The formula
+
+If $$f(y) \geq g(y)$$ for $$c \leq y \leq d$$:
+
+$$
+\text{Area} = \int_c^d [f(y) - g(y)]\,dy = \int_c^d (\text{right} - \text{left})\,dy.
+$$
+
+The limits are **y-values**, and the functions must be written as $$x$$ in terms of $$y$$.
+
+## Choosing the direction
+
+| Situation | Better choice |
+| --- | --- |
+| Curves given as $$y = f(x)$$, one curve always on top | slices in $$x$$ |
+| Curves given as $$x = g(y)$$ | slices in $$y$$ |
+| Top boundary changes partway across | slices in $$y$$ may avoid two integrals |
+
+<Note title="Rewrite the curves">
+To integrate in $$y$$, solve each equation for $$x$$: $$y = \sqrt{x}$$ becomes $$x = y^2$$ (for $$y \geq 0$$), and $$y = 2x - 4$$ becomes $$x = \frac{y + 4}{2}$$.
+</Note>
+
+<WorkedExample title="A region best sliced horizontally">
+Find the area bounded by $$x = y^2$$ and $$x = y + 2$$.
+
+1. Intersections: $$y^2 = y + 2$$ gives $$y = -1$$ and $$y = 2$$.
+2. At $$y = 0$$: $$y + 2 = 2 > 0 = y^2$$, so the line is on the right.
+3. $$\int_{-1}^{2} (y + 2 - y^2)\,dy = \left[\frac{y^2}{2} + 2y - \frac{y^3}{3}\right]_{-1}^{2} = \frac{10}{3} - \left(-\frac{7}{6}\right)$$.
+
+**Answer:** $$\frac{9}{2}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 4y$$?
+
+**A.** $$\frac{32}{3}$$. $$\int_0^{4} (4y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$4$$. Area $$= \int_0^{4} (4u - u^2)\,du = \frac{4u^2}{2} - \frac{u^3}{3}\Big|_0^{4} = \frac{32}{3}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = x$$?
+
+**A.** $$\frac{1}{6}$$. $$\int_0^{1} (x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$1$$. Area $$= \int_0^{1} (u - u^2)\,du = \frac{u^2}{2} - \frac{u^3}{3}\Big|_0^{1} = \frac{1}{6}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 4x$$?
+
+**A.** $$\frac{32}{3}$$. $$\int_0^{4} (4x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$4$$. Area $$= \int_0^{4} (4u - u^2)\,du = \frac{4u^2}{2} - \frac{u^3}{3}\Big|_0^{4} = \frac{32}{3}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 2x$$?
+
+**A.** $$\frac{4}{3}$$. $$\int_0^{2} (2x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$2$$. Area $$= \int_0^{2} (2u - u^2)\,du = \frac{2u^2}{2} - \frac{u^3}{3}\Big|_0^{2} = \frac{4}{3}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = y$$?
+
+**A.** $$\frac{1}{6}$$. $$\int_0^{1} (y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$1$$. Area $$= \int_0^{1} (u - u^2)\,du = \frac{u^2}{2} - \frac{u^3}{3}\Big|_0^{1} = \frac{1}{6}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 3x$$?
+
+**A.** $$\frac{9}{2}$$. $$\int_0^{3} (3x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$3$$. Area $$= \int_0^{3} (3u - u^2)\,du = \frac{3u^2}{2} - \frac{u^3}{3}\Big|_0^{3} = \frac{9}{2}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 3y$$?
+
+**A.** $$\frac{9}{2}$$. $$\int_0^{3} (3y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$3$$. Area $$= \int_0^{3} (3u - u^2)\,du = \frac{3u^2}{2} - \frac{u^3}{3}\Big|_0^{3} = \frac{9}{2}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 2y$$?
+
+**A.** $$\frac{4}{3}$$. $$\int_0^{2} (2y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$2$$. Area $$= \int_0^{2} (2u - u^2)\,du = \frac{2u^2}{2} - \frac{u^3}{3}\Big|_0^{2} = \frac{4}{3}$$.

@@ -1,0 +1,195 @@
+---
+objectives:
+  - Use static variables shared by all objects of a class and static methods.
+keyTerms:
+  - term: Static (class) variable
+    definition: 'A variable shared by all objects of a class; there is one copy for the whole class.'
+  - term: Static method
+    definition: 'A method that belongs to the class; it cannot use instance variables directly.'
+checks:
+  - q: 'Three objects are created and each constructor increments a static count. What is count?'
+    a: '3.'
+  - q: 'Can a static method access an instance variable directly?'
+    a: 'No, because it is not called on a particular object.'
+sources:
+  - title: CSAwesome, "Writing Classes"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Most data belongs to individual objects. Some data, like a count of how many objects exist, belongs to the class as a whole. That is what `static` is for.
+
+## Static variables
+
+```java
+public class Ticket {
+    private static int issued = 0;   // one copy, shared
+    private int number;              // one per object
+
+    public Ticket() {
+        issued++;
+        number = issued;
+    }
+
+    public static int getIssued() {
+        return issued;
+    }
+}
+```
+
+After three `new Ticket()` calls, `Ticket.getIssued()` returns 3, and the tickets have numbers 1, 2 and 3.
+
+## Static methods
+
+- Called with the class name: `Ticket.getIssued()`.
+- Can use static variables and their parameters.
+- **Cannot** use instance variables or call instance methods directly, because there is no `this` object.
+
+<Note title="Constants">
+`public static final double TAX_RATE = 0.08;` defines a class-wide constant that never changes.
+</Note>
+
+<WorkedExample title="Shared versus individual">
+What is printed?
+
+```java
+Ticket a = new Ticket();
+Ticket b = new Ticket();
+Ticket c = new Ticket();
+System.out.println(a.getNumber() + " " + Ticket.getIssued());
+```
+
+1. `a` was created first: number 1.
+2. Three tickets were issued in total.
+
+**Answer:** `1 3`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following class.
+
+```java
+public class Visitor {
+    private static int count = 0;
+    private int id;
+    public Visitor() {
+        count++;
+        id = count;
+    }
+    public int getId() {
+        return id;
+    }
+    public static int getCount() {
+        return count;
+    }
+}
+```
+
+What is printed by the following code segment?
+
+```java
+Visitor t1 = new Visitor();
+Visitor t2 = new Visitor();
+Visitor t3 = new Visitor();
+Visitor t4 = new Visitor();
+Visitor t5 = new Visitor();
+System.out.println(t3.getId() + " " + Visitor.getCount());
+```
+
+**Answer:** `3 5`
+
+**Why:** count is shared by all objects; each id records count when that object was made.
+
+**Working:** Each constructor call increments the shared count, so t3 gets id 3, and after 5 objects count is 5.
+
+**Mistakes to avoid**
+
+- `3 3`: count is static: it keeps increasing after t3 is created.
+- `5 5`: id is an instance variable set once, when that object is constructed.
+- `1 1`: A static variable is not reset for each new object.
+
+### Free-response practice: Score keeper
+
+A `ScoreKeeper` records the scores of one player. The class also tracks the total number of scores recorded by all ScoreKeeper objects.
+
+• `ScoreKeeper(String name)` creates a keeper with no scores.
+
+• `void addScore(int s)` records a score.
+
+• `double getAverage()` returns the average score, or 0.0 if there are none.
+
+• `int getBest()` returns the highest score, or -1 if there are none.
+
+• `static int getTotalScores()` returns the number of scores recorded by all keepers.
+
+Example:
+
+```java
+ScoreKeeper a = new ScoreKeeper("Chen");
+ScoreKeeper b = new ScoreKeeper("Eli");
+a.addScore(93);
+a.addScore(60);
+a.addScore(61);
+b.addScore(99);
+b.addScore(95);
+a.getAverage();               // returns 71.333
+a.getBest();                  // returns 93
+ScoreKeeper.getTotalScores(); // returns 5
+```
+
+**(a)** Write the complete `ScoreKeeper` class. You do not need to store every score.
+
+To earn the point: Private instance variables for the name, the sum, the count and the best score. Model answer: `private String name; private int sum, count, best;`
+
+To earn the point: A private static variable counting scores across all objects. Model answer: `private static int totalScores = 0;`
+
+To earn the point: Constructor sets the name and initial values (best starts at -1). Model answer: `this.name = name; best = -1;`
+
+To earn the point: addScore updates the sum, count, best and the static total. Model answer: `sum += s; count++; totalScores++; if (s > best) best = s;`
+
+To earn the point: getAverage returns a double without integer division and handles no scores. Model answer: `return count == 0 ? 0.0 : (double) sum / count;`
+
+To earn the point: getBest and the static getTotalScores return the correct values. Model answer:
+
+```java
+public class ScoreKeeper {
+    private static int totalScores = 0;
+    private String name;
+    private int sum;
+    private int count;
+    private int best;
+    public ScoreKeeper(String name) {
+        this.name = name;
+        best = -1;
+    }
+    public void addScore(int s) {
+        sum += s;
+        count++;
+        totalScores++;
+        if (s > best) {
+            best = s;
+        }
+    }
+    public double getAverage() {
+        if (count == 0) {
+            return 0.0;
+        }
+        return (double) sum / count;
+    }
+    public int getBest() {
+        return best;
+    }
+    public static int getTotalScores() {
+        return totalScores;
+    }
+}
+```

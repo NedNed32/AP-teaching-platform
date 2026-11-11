@@ -1,0 +1,88 @@
+---
+objectives:
+  - Use string concatenation and substrings.
+keyTerms:
+  - term: String
+    definition: 'An ordered sequence of characters.'
+  - term: Concatenation
+    definition: 'Joining two or more strings end to end into a new string.'
+  - term: Substring
+    definition: 'Part of an existing string.'
+checks:
+  - q: 'What is `concat("rain", "bow")`?'
+    a: '"rainbow".'
+  - q: 'Is "row" a substring of "arrow"?'
+    a: 'Yes, it appears in order at the end.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Strings store text. The exam uses procedures, defined in each question, to work with them.
+
+## Concatenation
+
+Joining strings creates a new string:
+
+```text
+first ← "data"
+word ← concat(first, "base")      // "database"
+```
+
+## Substrings
+
+A substring is a part of a string. A question might define a procedure such as `substring(str, start, length)` that returns `length` characters beginning at position `start` (positions start at 1, as with lists).
+
+```text
+substring("computer", 4, 3)       // "put"
+```
+
+<Note title="Read the definitions given">
+String procedures in exam questions are defined in the question itself. Read the description carefully, especially whether positions start at 1.
+</Note>
+
+<WorkedExample title="Building a username">
+Using the substring procedure above, what does this display?
+
+```text
+name ← "Morgan"
+year ← "2031"
+DISPLAY (concat(substring(name, 1, 3), substring(year, 3, 2)))
+```
+
+1. The first 3 characters of "Morgan": "Mor".
+2. Two characters starting at position 3 of "2031": "31".
+
+**Answer:** Mor31.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The procedure `substring(str, start, length)` returns `length` characters of `str` beginning at position `start`; the first character is at position 1. The procedure `concat(a, b)` returns `a` joined to `b`. What is displayed?
+
+```text
+word ← "abstract"
+other ← "software"
+DISPLAY (concat(substring(word, 1, 4), substring(other, 7, 2)))
+```
+
+**Answer:** `abstre`
+
+**Why:** Positions start at 1 in AP pseudocode.
+
+**Working:** substring("abstract", 1, 4) is "abst" and substring("software", 7, 2) is "re", so the result is "abstre".
+
+**Mistakes to avoid**
+
+- `bstre`: The first character is at position 1, not 0.
+- `abstrre`: length is 4, so 4 characters are taken.
+- `reabst`: concat joins its arguments in the order given.

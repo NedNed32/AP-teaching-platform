@@ -1,0 +1,91 @@
+---
+objectives:
+  - Find the volume of a solid of revolution about the x- or y-axis using discs.
+keyTerms:
+  - term: Solid of revolution
+    definition: 'The solid formed by rotating a region around a line.'
+  - term: Disc method
+    definition: '$$V = \pi\int_a^b [R(x)]^2\,dx$$, where $$R(x)$$ is the distance from the axis to the edge of the region.'
+checks:
+  - q: 'Revolve the region under $$y = x$$ from 0 to 3 about the x-axis. What solid and volume result?'
+    a: 'A cone: $$\pi\int_0^3 x^2\,dx = 9\pi$$.'
+  - q: 'What variable do you integrate in when revolving about the y-axis with discs?'
+    a: '$$y$$; the radius is written as $$x$$ in terms of $$y$$.'
+sources:
+  - title: Calculus Volume 1, section 6.2 "Determining Volumes by Slicing"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Spin a region around an axis and it sweeps out a solid, like a vase on a potter's wheel. Every slice perpendicular to the axis is a circular disc.
+
+<Figure src="assets/lessons/disc-method.svg" alt="The region under y = square root of x from 0 to 4, reflected across the x-axis to suggest the solid of revolution, with a vertical segment showing the radius at one x-value." caption="Revolving y = √x about the x-axis: each slice is a disc of radius √x." />
+
+## The disc method
+
+Each slice is a disc of radius $$R(x)$$ and thickness $$dx$$, with volume $$\pi R(x)^2\,dx$$. Adding them up:
+
+$$
+V = \pi\int_a^b [R(x)]^2\,dx.
+$$
+
+**Revolving about the x-axis** with the region between $$y = f(x)$$ and the axis: $$R(x) = f(x)$$.
+
+**Revolving about the y-axis** with the region between $$x = g(y)$$ and the axis: $$R(y) = g(y)$$, and you integrate $$dy$$.
+
+<Note title="Discs need the region to touch the axis">
+The disc method applies when the region runs right up to the axis of revolution, so there is no hole. If there is a gap between the region and the axis, use washers (topic 8.11).
+</Note>
+
+<WorkedExample title="Disc method from the figure">
+Revolve the region under $$y = \sqrt{x}$$, $$0 \leq x \leq 4$$, about the x-axis. Find the volume.
+
+1. Radius $$R(x) = \sqrt{x}$$, so $$R(x)^2 = x$$.
+2. $$V = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4$$.
+
+**Answer:** $$8\pi \approx 25.133$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The region bounded by $$y = \sqrt{x}$$, the x-axis, and the line $$x = 9$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{81\pi}{2}$$. $$\pi\int_0^{9} (\sqrt{x})^2\,dx = \pi\frac{x^2}{2}\Big|_0^{9}$$. Each cross section is a disc of radius $$\sqrt{x}$$, so $$V = \pi\int_0^{9} x\,dx = \frac{81\pi}{2}$$.
+
+**Q.** The region bounded by $$y = \sqrt{x}$$, the x-axis, and the line $$x = 4$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$8\pi$$. $$\pi\int_0^{4} (\sqrt{x})^2\,dx = \pi\frac{x^2}{2}\Big|_0^{4}$$. Each cross section is a disc of radius $$\sqrt{x}$$, so $$V = \pi\int_0^{4} x\,dx = 8\pi$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 1$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{\pi}{5}$$. $$\pi\int_0^{1} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{1}$$. $$V = \pi\int_0^{1} x^4\,dx = \frac{\pi}{5}$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 2$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{32\pi}{5}$$. $$\pi\int_0^{2} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{2}$$. $$V = \pi\int_0^{2} x^4\,dx = \frac{32\pi}{5}$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 3$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{243\pi}{5}$$. $$\pi\int_0^{3} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{3}$$. $$V = \pi\int_0^{3} x^4\,dx = \frac{243\pi}{5}$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 3$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{243\pi}{5}$$. $$\pi\int_0^{3} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{3}$$. $$V = \pi\int_0^{3} x^4\,dx = \frac{243\pi}{5}$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 1$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{\pi}{5}$$. $$\pi\int_0^{1} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{1}$$. $$V = \pi\int_0^{1} x^4\,dx = \frac{\pi}{5}$$.
+
+**Q.** The region bounded by $$y = x^2$$, the x-axis, and the line $$x = 2$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{32\pi}{5}$$. $$\pi\int_0^{2} (x^2)^2\,dx = \pi\frac{x^5}{5}\Big|_0^{2}$$. $$V = \pi\int_0^{2} x^4\,dx = \frac{32\pi}{5}$$.

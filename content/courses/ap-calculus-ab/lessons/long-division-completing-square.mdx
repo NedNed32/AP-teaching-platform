@@ -1,0 +1,81 @@
+---
+objectives:
+  - Rewrite rational integrands using long division before integrating.
+  - Complete the square to produce arctangent integrals.
+keyTerms:
+  - term: Long division
+    definition: 'Dividing polynomials when the numerator has degree at least the denominator, leaving a polynomial plus a proper fraction.'
+  - term: Completing the square
+    definition: 'Rewriting $$x^2 + bx + c$$ as $$\left(x + \frac{b}{2}\right)^2 + k$$.'
+checks:
+  - q: 'Find $$\int \frac{x + 3}{x + 1}\,dx$$.'
+    a: '$$\frac{x + 3}{x + 1} = 1 + \frac{2}{x + 1}$$, so $$x + 2\ln|x + 1| + C$$.'
+  - q: 'Find $$\int \frac{1}{x^2 + 4x + 5}\,dx$$.'
+    a: '$$x^2 + 4x + 5 = (x + 2)^2 + 1$$, so $$\arctan(x + 2) + C$$.'
+sources:
+  - title: Calculus Volume 1, sections 5.5 to 5.7
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Some rational functions do not match any table entry until you rearrange them. Two algebra tools do most of the work.
+
+## Long division
+
+If the numerator's degree is at least the denominator's, divide first:
+
+$$
+\frac{x^2 + 3x + 1}{x + 1} = x + 2 - \frac{1}{x + 1}.
+$$
+
+Now each piece is easy: $$\int = \frac{x^2}{2} + 2x - \ln|x + 1| + C$$.
+
+A quick alternative for linear denominators: add and subtract to make the numerator contain the denominator, as in $$\frac{x + 3}{x + 1} = \frac{(x + 1) + 2}{x + 1}$$.
+
+## Completing the square
+
+A quadratic denominator with no real roots often leads to arctangent:
+
+$$
+\int \frac{du}{u^2 + a^2} = \frac{1}{a}\arctan\left(\frac{u}{a}\right) + C.
+$$
+
+Complete the square to get the form $$u^2 + a^2$$, then substitute.
+
+<Note title="Check for a derivative on top first">
+If the numerator is a multiple of the denominator's derivative, as in $$\frac{2x + 4}{x^2 + 4x + 5}$$, use $$u$$-substitution to get a logarithm instead of an arctangent.
+</Note>
+
+<WorkedExample title="Completing the square">
+Find $$\int \frac{1}{x^2 - 6x + 13}\,dx$$.
+
+1. $$x^2 - 6x + 13 = (x - 3)^2 + 4$$.
+2. $$u = x - 3$$, $$du = dx$$, $$a = 2$$.
+3. $$\frac{1}{2}\arctan\left(\frac{u}{2}\right) + C$$.
+
+**Answer:** $$\frac{1}{2}\arctan\left(\frac{x - 3}{2}\right) + C$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+$$\int \frac{1}{x^{2} - 6x + 10}\,dx =$$
+
+**Answer:** $$\arctan(x - 3) + C$$
+
+**Why:** Completing the square: $$x^{2} - 6x + 10 = (x - 3)^2 + 1$$.
+
+**Working:** $$x^2 - 6x + 10 = (x - 3)^2 + 1$$, and $$\int \frac{du}{u^2 + 1} = \arctan u + C$$.
+
+**Mistakes to avoid**
+
+- $$\ln|x^{2} - 6x + 10| + C$$: The numerator is not the derivative of the denominator, so this is not a logarithm.
+- $$\arctan(x + 3) + C$$: Sign error when completing the square.
+- $$\frac{1}{2x - 6} + C$$: This divides by the derivative of the denominator, which is not a valid antiderivative.

@@ -1,0 +1,120 @@
+---
+objectives:
+  - 'Describe common network attacks, including denial of service, spoofing and on-path attacks.'
+keyTerms:
+  - term: 'DoS / DDoS'
+    definition: 'Overwhelming a service with traffic, from one source (DoS) or many (DDoS), to make it unavailable.'
+  - term: 'Spoofing'
+    definition: 'Faking an address or identity, such as an IP, MAC or ARP response.'
+  - term: 'Port scan'
+    definition: 'Probing a host to find which ports, and therefore services, are open.'
+checks:
+  - q: 'Which part of the CIA triad does a DDoS attack target?'
+    a: 'Availability.'
+  - q: 'Why is an open, unused port a vulnerability?'
+    a: 'It exposes a service an attacker might exploit; unused services should be disabled.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+| Attack | Effect |
+| --- | --- |
+| DoS / DDoS | floods a target until it cannot serve legitimate users |
+| ARP spoofing | redirects local traffic through the attacker (on-path) |
+| DNS spoofing / poisoning | sends users to a malicious IP for a real name |
+| port scanning | reconnaissance of open services |
+| packet sniffing | captures unencrypted traffic |
+| rogue access point | an unauthorized wireless device on the network |
+
+## Common ports
+
+| Port | Service |
+| --- | --- |
+| 22 | SSH |
+| 23 | Telnet (unencrypted) |
+| 25 | SMTP |
+| 53 | DNS |
+| 80 / 443 | HTTP / HTTPS |
+| 3389 | RDP |
+
+<Note title="Insecure protocols">
+Telnet, FTP and HTTP send data, including passwords, in plain text. Replace them with SSH, SFTP and HTTPS.
+</Note>
+
+<WorkedExample title="Identify the attack">
+Thousands of compromised devices send requests to a school's website at once, and it goes offline. What attack is this?
+
+1. Many sources, goal is to stop service.
+
+**Answer:** a distributed denial-of-service (DDoS) attack.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A scan shows port 22 open on a server. Which service most likely uses it?
+
+**A.** SSH. Port 22 is the standard port for SSH. Port 22: SSH.
+
+**Q.** A scan shows port 80 open on a server. Which service most likely uses it, and what concern does it raise?
+
+**A.** HTTP, which sends data unencrypted. Port 80 is the standard port for HTTP. Port 80: HTTP. Replace it with an encrypted alternative (SSH, SFTP or HTTPS).
+
+**Q.** A scan shows port 21 open on a server. Which service most likely uses it, and what concern does it raise?
+
+**A.** FTP, which sends data unencrypted. Port 21 is the standard port for FTP. Port 21: FTP. Replace it with an encrypted alternative (SSH, SFTP or HTTPS).
+
+**Q.** A scan shows port 443 open on a server. Which service most likely uses it?
+
+**A.** HTTPS. Port 443 is the standard port for HTTPS. Port 443: HTTPS.
+
+**Q.** A scan shows port 53 open on a server. Which service most likely uses it?
+
+**A.** DNS. Port 53 is the standard port for DNS. Port 53: DNS.
+
+**Q.** A scan shows port 25 open on a server. Which service most likely uses it?
+
+**A.** SMTP. Port 25 is the standard port for SMTP. Port 25: SMTP.
+
+**Q.** A scan shows port 3389 open on a server. Which service most likely uses it?
+
+**A.** RDP. Port 3389 is the standard port for RDP. Port 3389: RDP.
+
+**Q.** A scan shows port 23 open on a server. Which service most likely uses it, and what concern does it raise?
+
+**A.** Telnet, which sends data unencrypted. Port 23 is the standard port for Telnet. Port 23: Telnet. Replace it with an encrypted alternative (SSH, SFTP or HTTPS).
+
+**Q.** Why is a single shared Wi-Fi password a weakness for a large organization?
+
+**A.** Access cannot be revoked for one person without changing it for everyone. Individual credentials (enterprise authentication) solve this.
+
+**Q.** Where should a company place its public web server?
+
+**A.** In a DMZ separated from the internal network by firewalls. It isolates internet-facing systems.
+
+**Q.** Why should smart cameras and other IoT devices be placed on their own VLAN?
+
+**A.** If an IoT device is compromised, segmentation limits the attacker's access to other systems. Segmentation contains breaches.
+
+**Q.** Which policy is a managerial control for network security?
+
+**A.** An acceptable use policy that users must agree to. Policies are managerial controls.
+
+**Q.** An attacker sends forged ARP replies so that traffic on a local network passes through the attacker's computer. What is this?
+
+**A.** ARP spoofing, an on-path (man-in-the-middle) attack. It redirects local traffic through the attacker.
+
+**Q.** A school's Wi-Fi still uses WEP encryption. What should replace it?
+
+**A.** WPA3 (or WPA2 with AES). WEP can be cracked quickly.

@@ -1,0 +1,89 @@
+---
+objectives:
+  - 'Describe secure development practices and application controls.'
+keyTerms:
+  - term: 'Parameterized query'
+    definition: 'A database query in which user input is passed separately from the command.'
+  - term: 'Patch management'
+    definition: 'Tracking, testing and installing software updates.'
+  - term: 'Secure by design'
+    definition: 'Building security into software from the start rather than adding it later.'
+checks:
+  - q: 'Name two secure coding practices.'
+    a: 'Input validation, parameterized queries, output encoding, least privilege, and proper error handling.'
+  - q: 'Why should error messages shown to users be generic?'
+    a: 'Detailed errors can reveal system information useful to attackers.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+## Secure coding
+
+- **Validate input** (type, length, format) on the server.
+- **Parameterized queries** to prevent SQL injection.
+- **Encode output** to prevent XSS.
+- Use **least privilege** for application accounts.
+- Show **generic error messages**; log details privately.
+- Keep **dependencies** updated.
+
+## Operations
+
+- Patch applications promptly.
+- Use **web application firewalls** to filter malicious requests.
+- Require MFA and strong session management.
+- Test with code reviews, scanning and penetration testing.
+
+<Note title="Allow lists beat block lists">
+Accept only known-good input (an allow list) rather than trying to block every bad pattern.
+</Note>
+
+<WorkedExample title="Fix the form">
+A search box passes user text directly into a SQL query. What change best prevents injection?
+
+1. Filtering characters can be bypassed.
+2. Parameterized queries keep data separate from code.
+
+**Answer:** use a parameterized query (prepared statement).
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A team wants to confirm that a downloaded software installer has not been altered. Which technique should it use?
+
+**A.** Compare the file's hash with the hash published by the vendor. Hashes verify integrity.
+
+**Q.** Why should error messages on a website be generic, such as 'Something went wrong'?
+
+**A.** Detailed errors can reveal database or system details useful to attackers. Details belong in private logs.
+
+**Q.** A company stores user passwords. How should they be stored?
+
+**A.** As salted hashes using a slow password-hashing algorithm. Hashes cannot be reversed, and salts defeat precomputed tables.
+
+**Q.** Which statement correctly contrasts hashing and symmetric encryption?
+
+**A.** Encryption can be reversed with the key; hashing is one-way. That is the key difference.
+
+**Q.** Employees who move to new departments keep access to their old department's files. What practice fixes this?
+
+**A.** Regular access reviews that remove permissions no longer needed. This prevents privilege creep.
+
+**Q.** Access to hospital records is granted based on whether a user is a nurse, doctor or billing clerk. Which access control model is this?
+
+**A.** Role-based access control. Permissions follow the job role.
+
+**Q.** What is the most effective defense against SQL injection?
+
+**A.** Parameterized queries (prepared statements). They keep user input separate from the query's code.

@@ -1,0 +1,99 @@
+---
+objectives:
+  - 'Calculate rotational inertia for point masses and continuous objects, including the parallel-axis theorem.'
+keyTerms:
+  - term: 'Rotational inertia'
+    definition: 'I = Σmr² or ∫r² dm: resistance to angular acceleration.'
+  - term: 'Parallel-axis theorem'
+    definition: 'I = I_cm + Md² for an axis a distance d from a parallel axis through the center of mass.'
+checks:
+  - q: 'What is I for a uniform rod about its center? About its end?'
+    a: 'ML²/12; ML²/3.'
+  - q: 'Why does a hoop have a larger I than a disk of the same mass and radius?'
+    a: 'All its mass is at the maximum distance from the axis.'
+sources:
+  - title: 'University Physics Volume 1'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-1
+  - title: 'AP Physics C: Mechanics course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-mechanics
+reviewed: false
+---
+
+$$I = \sum m_i r_i^2 \qquad I = \int r^2\,dm$$
+
+| Object | Axis | I |
+| --- | --- | --- |
+| hoop | center | $$MR^2$$ |
+| solid disk or cylinder | center | $$\tfrac12 MR^2$$ |
+| solid sphere | center | $$\tfrac25 MR^2$$ |
+| rod | center | $$\tfrac{1}{12}ML^2$$ |
+| rod | end | $$\tfrac13 ML^2$$ |
+
+**Parallel-axis theorem**: $$I = I_{cm} + Md^2$$. For a rod about its end: $$\tfrac{1}{12}ML^2 + M(L/2)^2 = \tfrac13 ML^2$$.
+
+<Note title="Distribution matters">
+Two objects with the same mass can have very different rotational inertia, depending on how far the mass is from the axis.
+</Note>
+
+<WorkedExample title="Integration">
+Find I for a uniform rod of mass M and length L about one end.
+
+1. $$dm = (M/L)\,dx$$.
+2. $$I = \int_0^L x^2 \frac{M}{L}\,dx = \frac{M}{L}\cdot\frac{L^3}{3}$$.
+
+**Answer:** $$\tfrac13 ML^2$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Point masses of 5 kg and 4 kg are at the ends of a massless rod 1 m long. What is the rotational inertia about the rod's center?
+
+**Answer:** $$2.25\ \mathrm{kg{\cdot}m^2}$$
+
+**Why:** Sum of mr² with r = L/2.
+
+**Working:** I = (5 + 4)(1/2)² = 2.25 kg·m².
+
+**Mistakes to avoid**
+
+- $$9\ \mathrm{kg{\cdot}m^2}$$: Each mass is L/2 from the center.
+- $$4.5\ \mathrm{kg{\cdot}m^2}$$: Square the distance.
+- $$5\ \mathrm{kg{\cdot}m^2}$$: Measure from the center, not an end.
+
+### Worked exam question 2
+
+What is the rotational inertia of a uniform rod of mass 7 kg and length 2 m about an axis through one end, perpendicular to the rod?
+
+**Answer:** $$9.33\ \mathrm{kg{\cdot}m^2}$$
+
+**Why:** I = ML²/3 (parallel-axis theorem from ML²/12).
+
+**Working:** I = ML²/12 + M(L/2)² = ML²/3 = 9.33 kg·m².
+
+**Mistakes to avoid**
+
+- $$2.33\ \mathrm{kg{\cdot}m^2}$$: That is about the center.
+- $$28\ \mathrm{kg{\cdot}m^2}$$: The mass is spread along the rod.
+- $$14\ \mathrm{kg{\cdot}m^2}$$: That is a disk's formula.
+
+### Worked exam question 3
+
+A uniform disk of mass 4 kg and radius 0.6 m rotates about an axis perpendicular to it, 1.5 m from its center. What is its rotational inertia?
+
+**Answer:** $$9.72\ \mathrm{kg{\cdot}m^2}$$
+
+**Why:** Parallel-axis theorem: I = ½MR² + Md².
+
+**Working:** I = ½(4)(0.6)² + 4(1.5)² = 9.72 kg·m².
+
+**Mistakes to avoid**
+
+- $$0.72\ \mathrm{kg{\cdot}m^2}$$: The axis is not through the center.
+- $$9\ \mathrm{kg{\cdot}m^2}$$: Include the disk's own I about its center.
+- $$6.72\ \mathrm{kg{\cdot}m^2}$$: The parallel-axis term is Md².

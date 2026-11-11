@@ -1,0 +1,138 @@
+---
+objectives:
+  - Explain how lists manage complexity as a data abstraction.
+  - Use 1-based list indexes in AP pseudocode.
+keyTerms:
+  - term: List
+    definition: 'An ordered sequence of elements; in AP pseudocode, indexes start at 1.'
+  - term: Data abstraction
+    definition: 'Giving a collection of data one name so it can be used without handling each item separately.'
+checks:
+  - q: 'In AP pseudocode, what is the index of the first element of a list?'
+    a: '1.'
+  - q: 'How does a list make a program easier to change?'
+    a: 'Code that loops over the list keeps working when items are added, instead of needing new variables.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+A **list** holds many values under one name. That is a **data abstraction**: the program can work with "the scores" without a separate variable for each one.
+
+## Lists in AP pseudocode
+
+```text
+scores ← [88, 92, 75]
+DISPLAY (scores[1])        // 88: indexes start at 1
+scores[3] ← 80             // [88, 92, 80]
+```
+
+Accessing an index less than 1 or greater than the length is an error.
+
+## Why it manages complexity
+
+- Adding a fifth or a five-hundredth score needs no new variables.
+- The same loop processes any number of items.
+- Code is easier to read, change and reuse.
+
+<Note title="Strings are like lists">
+A string is an ordered sequence of characters. Many list ideas, like length and position, apply to strings too.
+</Note>
+
+<WorkedExample title="Replacing separate variables">
+A program stores temperatures in t1, t2, ..., t7 and computes the week's average. How would a list improve it?
+
+1. Store them as `temps ← [t1, ..., t7]`.
+2. One loop can total the list, whatever its length.
+
+**Answer:** the list removes repeated code and lets the program handle any number of days.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which is the best reason to use a simulation to study how a disease spreads?
+
+**A.** It can test different scenarios safely and quickly without exposing people to disease. Simulations study situations that are dangerous or impractical to test directly.
+
+**Q.** A simulation of a store's checkout lines assumes every customer takes exactly 2 minutes. What is the main limitation?
+
+**A.** Real customers vary, so the simulation may not reflect actual waiting times. Simplifying assumptions limit accuracy.
+
+**Q.** What does an API provide to programmers?
+
+**A.** A specification of how a library's procedures behave and how to use them. An API documents a library's procedures.
+
+**Q.** How do parameters make a procedure more useful?
+
+**A.** They let one procedure work with different input values, so it can be reused. Parameters generalize a procedure.
+
+**Q.** Which is the main benefit of procedural abstraction?
+
+**A.** A procedure can be used by knowing what it does, without knowing how it works. That reduces complexity.
+
+**Q.** A program stores 50 student names in 50 separate variables. How would storing them in a list manage complexity?
+
+**A.** One loop could process all names, and the program could handle any number of students. A list is a data abstraction that generalizes the code.
+
+### Free-response practice: Written response 2: algorithms, testing and abstraction
+
+A student wrote a program called **Step Streak**. Its purpose is to encourage regular exercise by rewarding streaks of active days. In the program, the user types their step count for each day, and the app displays the longest streak of days that met the daily goal. The list `steps` stores the step counts the user has entered, one per day. The program's main procedure is shown below.
+
+```text
+PROCEDURE longestStreak(steps, goal)
+{
+   best ← 0
+   current ← 0
+   FOR EACH s IN steps
+   {
+      IF (s ≥ goal)
+      {
+         current ← current + 1
+         IF (current > best)
+         {
+            best ← current
+         }
+      }
+      ELSE
+      {
+         current ← 0
+      }
+   }
+   RETURN (best)
+}
+```
+
+On the actual exam, these questions refer to your own Create performance task program. Answer them here for the sample program.
+
+**(a)** (Algorithm development) Explain in detailed steps how the algorithm in `longestStreak` uses sequencing, selection and iteration to produce its result.
+
+To earn the point: Describes iteration in the algorithm. Model answer: The FOR EACH loop visits every day's step count in order.
+
+To earn the point: Describes selection in the algorithm. Model answer: The IF statement checks whether each day's steps meet the goal; if so the current streak grows, otherwise it resets to 0.
+
+To earn the point: Describes how the steps in sequence produce the returned value. Model answer: The variables are initialized first, updated inside the loop, and the result is returned after the loop ends. For example, longestStreak([12000, 4000, 11000, 6000, 3000, 6000, 8000], 8000) returns 1.
+
+**(b)** (Errors and testing) Describe a call to `longestStreak` that tests a different condition than `longestStreak([12000, 4000, 11000, 6000, 3000, 6000, 8000], 8000)`. Identify the result the call should produce and explain why that test is useful.
+
+To earn the point: Gives a specific call with different arguments. Model answer: longestStreak([], 8000)
+
+To earn the point: States the correct expected result. Model answer: 0, because the loop never runs and best keeps its starting value
+
+To earn the point: Explains what condition the test checks. Model answer: It checks a boundary or special case that a typical input does not, which could reveal an error the first test would miss.
+
+**(c)** (Data and procedural abstraction) Explain how the list `steps` manages complexity in the program. Then explain how the parameters of `longestStreak` make the procedure more useful.
+
+To earn the point: Explains how the list manages complexity. Model answer: Without the list, the program would need a separate variable for each day and could only handle a fixed number of days; the procedure could not loop over them.
+
+To earn the point: Explains how parameters generalize the procedure. Model answer: Because the list and the threshold are parameters, the same procedure works for any data and setting, so it can be reused without copying code. To find the longest streak of days that missed the goal, change the condition to s &lt; goal.

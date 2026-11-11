@@ -1,0 +1,115 @@
+---
+objectives:
+  - Trace nested if statements and match each else to its if.
+keyTerms:
+  - term: Nested if
+    definition: 'An if statement inside another if or else block; the inner condition is checked only when the outer path is taken.'
+  - term: Dangling else
+    definition: 'Without braces, an else belongs to the nearest preceding unmatched if.'
+checks:
+  - q: 'Without braces, which if does an else belong to?'
+    a: 'The closest unmatched if before it.'
+  - q: 'Is a nested if checked when the outer condition is false?'
+    a: 'No, unless it is inside the outer else.'
+sources:
+  - title: CSAwesome, "Boolean Expressions and if Statements"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Nesting places one decision inside another: the inner question is asked only if the outer answer leads there.
+
+## Nested structure
+
+```java
+if (age >= 16) {
+    if (hasPermit) {
+        System.out.println("May drive with supervision");
+    } else {
+        System.out.println("Needs a permit");
+    }
+} else {
+    System.out.println("Too young");
+}
+```
+
+## The dangling else
+
+Without braces, indentation is misleading. Java pairs `else` with the **nearest** unmatched `if`:
+
+```java
+if (x > 0)
+    if (y > 0)
+        System.out.println("A");
+else
+    System.out.println("B");   // belongs to if (y > 0)
+```
+
+With `x = -1`, nothing prints at all.
+
+<Note title="Use braces">
+Always writing braces makes the structure explicit and avoids dangling-else bugs. On the exam, read the actual pairing, not the indentation.
+</Note>
+
+<WorkedExample title="Tracing nested conditions">
+What prints for `a = 4, b = 7`?
+
+```java
+if (a > b) {
+    System.out.print("X");
+} else {
+    if (b - a > 2) {
+        System.out.print("Y");
+    } else {
+        System.out.print("Z");
+    }
+}
+```
+
+1. `4 > 7` is false, so the else block runs.
+2. `7 - 4 = 3 > 2` is true.
+
+**Answer:** `Y`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int n = 36;
+String r = "";
+if (n > 42) {
+    r += "X";
+}
+if (n > 22) {
+    r += "Y";
+} else if (n > 10) {
+    r += "Z";
+} else {
+    r += "W";
+}
+System.out.println(r);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `Y`
+
+**Why:** The first if is separate; the second statement is a chain where only one branch runs.
+
+**Working:** n = 36: the first if adds nothing; in the chain n > 22 adds Y.
+
+**Mistakes to avoid**
+
+- `YZ`: In an if / else if chain, only the first true branch runs.
+- `XY`: Trace each condition with n = 36.
+- `XZ`: Trace each condition with n = 36.

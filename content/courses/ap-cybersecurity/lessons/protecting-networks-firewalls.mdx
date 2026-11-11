@@ -1,0 +1,85 @@
+---
+objectives:
+  - 'Read and write firewall rules, applying first-match processing and implicit deny.'
+keyTerms:
+  - term: 'Firewall'
+    definition: 'A device or program that allows or blocks traffic based on rules.'
+  - term: 'Implicit deny'
+    definition: 'Traffic that matches no rule is blocked.'
+  - term: 'Stateful firewall'
+    definition: 'Tracks connections, so replies to allowed outbound traffic are permitted automatically.'
+checks:
+  - q: 'Rules are processed top to bottom. A packet matches rules 2 and 5. Which applies?'
+    a: 'Rule 2, the first match.'
+  - q: 'Why place specific rules above general ones?'
+    a: 'A general rule higher up would match first and the specific rule would never apply.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+Most firewalls check rules **in order** and apply the **first match**. Anything not matched is denied (**implicit deny**).
+
+```text
+#  Action  Source          Destination    Port   Protocol
+1  ALLOW   10.0.5.0/24     10.0.1.10      443    TCP
+2  DENY    any             10.0.1.10      22     TCP
+3  ALLOW   10.0.9.7        any            22     TCP
+4  ALLOW   any             any            80     TCP
+   (implicit deny all)
+```
+
+An SSH (22) connection from 10.0.9.7 to 10.0.1.10 matches rule 2 first, so it is **denied**, even though rule 3 would allow it.
+
+Good practice: least privilege (allow only what is needed), specific rules before general ones, logging denied traffic, and reviewing rules regularly.
+
+<Note title="Host and network firewalls">
+Network firewalls protect segments; host-based firewalls protect individual devices. Using both is defense in depth.
+</Note>
+
+<WorkedExample title="Evaluate a packet">
+Using the rules above, is HTTP (port 80) traffic from 172.16.0.4 to 10.0.1.10 allowed?
+
+1. Rule 1: port 443 only, no match.
+2. Rule 2: port 22, no match.
+3. Rule 3: source differs, no match.
+4. Rule 4: any to any on port 80: match.
+
+**Answer:** allowed by rule 4.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A firewall processes these rules from top to bottom and applies the first match.
+
+```text
+#  Action  Source          Destination   Port
+1  ALLOW   10.0.7.0/24     10.0.1.19     443
+2  DENY    any             10.0.1.19     22
+3  ALLOW   any             any           80
+4  ALLOW   10.0.10.32      any           22
+   (all other traffic is denied)
+```
+
+A packet arrives from `172.16.0.82` to `10.0.1.19` on port 443. What happens?
+
+**Answer:** Denied by the implicit deny
+
+**Why:** No rule matches, so the implicit deny applies.
+
+**Working:** No rule matches all three fields, so the packet is dropped by the implicit deny.
+
+**Mistakes to avoid**
+
+- Allowed by rule 1: This rule does not match the packet's source, destination and port.
+- Denied by rule 2: This rule does not match the packet's source, destination and port.
+- Allowed by rule 3: This rule does not match the packet's source, destination and port.

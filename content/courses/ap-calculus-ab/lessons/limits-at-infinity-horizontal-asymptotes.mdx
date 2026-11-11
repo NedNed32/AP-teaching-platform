@@ -1,0 +1,80 @@
+---
+objectives:
+  - Evaluate limits as $$x$$ approaches positive or negative infinity.
+  - Use limits at infinity to identify horizontal asymptotes.
+keyTerms:
+  - term: Limit at infinity
+    definition: '$$\lim_{x \to \infty} f(x) = L$$ means $$f(x)$$ approaches $$L$$ as $$x$$ grows without bound.'
+  - term: Horizontal asymptote
+    definition: 'The line $$y = L$$ when $$\lim_{x \to \infty} f(x) = L$$ or $$\lim_{x \to -\infty} f(x) = L$$.'
+checks:
+  - q: 'Find $$\lim_{x \to \infty} \frac{5x^3 - x}{2x^3 + 7}$$.'
+    a: '$$\frac{5}{2}$$: equal degrees, so take the ratio of leading coefficients.'
+  - q: 'Find $$\lim_{x \to -\infty} e^x$$.'
+    a: '0, so $$y = 0$$ is a horizontal asymptote on the left.'
+sources:
+  - title: Calculus Volume 1, section 4.6 "Limits at Infinity and Asymptotes"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Limits at infinity describe the **end behavior** of a function: what happens far out to the right or left of the graph. When the outputs level off at a number, the graph has a horizontal asymptote.
+
+## Rational functions: compare degrees
+
+For $$\frac{p(x)}{q(x)}$$ as $$x \to \pm\infty$$, only the highest-power terms matter:
+
+| Degrees | Limit | Horizontal asymptote |
+| --- | --- | --- |
+| top lower than bottom | 0 | $$y = 0$$ |
+| equal | ratio of leading coefficients | $$y = \frac{a}{b}$$ |
+| top higher than bottom | $$\pm\infty$$ | none |
+
+To show the work, divide every term by the highest power of $$x$$ in the denominator:
+
+$$
+\lim_{x \to \infty} \frac{2x + 1}{x - 1} = \lim_{x \to \infty} \frac{2 + \frac{1}{x}}{1 - \frac{1}{x}} = \frac{2 + 0}{1 - 0} = 2.
+$$
+
+## Other end behaviors worth memorizing
+
+- $$\lim_{x \to \infty} e^{-x} = 0$$ and $$\lim_{x \to -\infty} e^{x} = 0$$.
+- $$\lim_{x \to \infty} \ln x = \infty$$, but slower than any power of $$x$$.
+- $$\lim_{x \to \infty} \frac{\sin x}{x} = 0$$ by the Squeeze Theorem, since $$-\frac{1}{x} \leq \frac{\sin x}{x} \leq \frac{1}{x}$$.
+
+<Note title="Square roots and negative infinity">
+For $$x \to -\infty$$, $$\sqrt{x^2} = |x| = -x$$. So $$\lim_{x \to -\infty} \frac{\sqrt{4x^2 + 1}}{x} = -2$$, while the limit at $$+\infty$$ is 2. A function can have two different horizontal asymptotes.
+</Note>
+
+<WorkedExample title="Dividing by the highest power">
+Find $$\lim_{x \to \infty} \frac{3x^2 - 5}{6x^2 + 4x}$$.
+
+1. Divide every term by $$x^2$$: $$\frac{3 - \frac{5}{x^2}}{6 + \frac{4}{x}}$$.
+2. As $$x \to \infty$$, the fractions with $$x$$ in the denominator approach 0.
+
+**Answer:** $$\frac{3}{6} = \frac{1}{2}$$, so $$y = \frac{1}{2}$$ is a horizontal asymptote.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is $$\lim_{x \to \infty} \frac{-3x - 8}{x^{2} + 5}$$?
+
+**Answer:** $$0$$
+
+**Why:** The denominator has the higher degree, so it outgrows the numerator and the fraction approaches 0.
+
+**Working:** Dividing by $$x^2$$ gives $$\frac{-3/x - 8/x^2}{1 + 5/x^2}$$. The numerator approaches 0 and the denominator approaches $$1$$, so the limit is 0.
+
+**Mistakes to avoid**
+
+- $$-3$$: Comparing leading coefficients only gives the limit when the degrees are equal.
+- $$-\frac{8}{5}$$: This is the ratio of the constant terms, which only matters as x approaches 0.
+- $$\infty$$: The denominator grows faster than the numerator, so the fraction shrinks toward 0.

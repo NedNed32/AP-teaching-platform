@@ -1,0 +1,65 @@
+---
+objectives:
+  - 'Describe sampling distributions and apply the central limit theorem.'
+keyTerms:
+  - term: 'Sampling distribution'
+    definition: 'The distribution of a statistic over all possible samples of the same size.'
+  - term: 'Central limit theorem'
+    definition: 'For large n, the sampling distribution of the sample mean is approximately normal, whatever the population''s shape.'
+checks:
+  - q: 'How large a sample usually makes the CLT apply?'
+    a: 'n ≥ 30 is a common guideline.'
+  - q: 'What happens to the variability of a sampling distribution as n increases?'
+    a: 'It decreases.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+A **statistic** varies from sample to sample. Its **sampling distribution** describes that variation.
+
+## Sample means
+
+$$\mu_{\bar x} = \mu \qquad \sigma_{\bar x} = \frac{\sigma}{\sqrt n}$$
+
+The shape is approximately normal if the population is normal or, by the **central limit theorem**, if $$n \ge 30$$.
+
+Quadrupling the sample size halves the standard deviation of the sampling distribution.
+
+<Note title="Three distributions">
+Keep them apart: the population distribution, the distribution of one sample's data, and the sampling distribution of a statistic.
+</Note>
+
+<WorkedExample title="Using the CLT">
+Bags of chips have mean weight 28.5 g with SD 1.2 g (shape unknown). For random samples of 36 bags, find the probability that the sample mean is under 28.2 g.
+
+1. $$\sigma_{\bar x} = 1.2/6 = 0.2$$; normal by the CLT (n = 36).
+2. $$z = (28.2 - 28.5)/0.2 = -1.5$$.
+
+**Answer:** about 0.067.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A population has mean 80 and standard deviation 9 (shape unknown). For random samples of 64, what is the approximate probability that the sample mean exceeds 82.1?
+
+**Answer:** 0.031
+
+**Why:** By the CLT, x̄ is approximately normal with SD 9/√64 = 1.125.
+
+**Working:** z = (82.1 − 80)/1.125 = 1.87; P = 0.031.
+
+**Mistakes to avoid**
+
+- 0.4078: Use σ/√n for a sample mean.
+- 0.969: That is the area below.
+- 0: Divide σ by √n, not n.

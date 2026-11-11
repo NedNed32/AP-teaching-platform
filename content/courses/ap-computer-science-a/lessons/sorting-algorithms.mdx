@@ -1,0 +1,105 @@
+---
+objectives:
+  - Trace selection sort and insertion sort.
+keyTerms:
+  - term: Selection sort
+    definition: 'Repeatedly find the smallest remaining element and swap it into the next position.'
+  - term: Insertion sort
+    definition: 'Take each element in turn and insert it into its correct place among the already-sorted elements to its left.'
+checks:
+  - q: 'After k passes of selection sort, what is true of the first k elements?'
+    a: 'They are the k smallest values, in final sorted order.'
+  - q: 'Which sort is faster on data that is already nearly sorted?'
+    a: 'Insertion sort.'
+sources:
+  - title: CSAwesome, "Searching and Sorting"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+The exam expects you to trace two simple sorting algorithms and to recognize their state after a given number of passes.
+
+## Selection sort
+
+```java
+for (int i = 0; i < a.length - 1; i++) {
+    int minIndex = i;
+    for (int j = i + 1; j < a.length; j++) {
+        if (a[j] < a[minIndex]) minIndex = j;
+    }
+    int temp = a[i];
+    a[i] = a[minIndex];
+    a[minIndex] = temp;
+}
+```
+
+After pass k, the first k elements are the smallest values in final order.
+
+## Insertion sort
+
+```java
+for (int i = 1; i < a.length; i++) {
+    int key = a[i];
+    int j = i - 1;
+    while (j >= 0 && a[j] > key) {
+        a[j + 1] = a[j];
+        j--;
+    }
+    a[j + 1] = key;
+}
+```
+
+After pass k, the first k + 1 elements are sorted **among themselves** (but may not be in their final positions).
+
+<Note title="Telling them apart">
+If the front of the array holds the overall smallest values, it is selection sort. If the front is sorted but contains values that are not the smallest overall, it is insertion sort.
+</Note>
+
+<WorkedExample title="Two passes each">
+Starting from [5, 2, 9, 1, 6], show the array after two passes of each sort.
+
+1. Selection: pass 1 swaps 1 into index 0: [1, 2, 9, 5, 6]; pass 2 keeps 2: [1, 2, 9, 5, 6].
+2. Insertion: pass 1 inserts 2: [2, 5, 9, 1, 6]; pass 2 inserts 9: [2, 5, 9, 1, 6].
+
+**Answer:** selection [1, 2, 9, 5, 6]; insertion [2, 5, 9, 1, 6].
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The array `{5, 2, 18, 14, 11, 1}` is sorted into ascending order using selection sort. What are the contents of the array after 2 passes of the outer loop?
+
+**Answer:** `{1, 2, 18, 14, 11, 5}`
+
+**Why:** After 2 passes, the 2 smallest values are in place at the front.
+
+**Working:** Each pass of selection sort swaps the smallest remaining value into the next position. After 2: \{1, 2, 18, 14, 11, 5\}.
+
+**Mistakes to avoid**
+
+- `{2, 5, 18, 14, 11, 1}`: That is the result of insertion sort.
+- `{1, 2, 5, 14, 11, 18}`: That is one pass too many.
+- `{1, 2, 5, 11, 14, 18}`: The array is not fully sorted yet.
+
+### Worked exam question 2
+
+The array `{18, 1, 11, 7, 10}` is sorted into ascending order using selection sort. What are the contents of the array after 1 pass of the outer loop?
+
+**Answer:** `{1, 18, 11, 7, 10}`
+
+**Why:** After 1 passes, the 1 smallest values are in place at the front.
+
+**Working:** Each pass of selection sort swaps the smallest remaining value into the next position. After 1: \{1, 18, 11, 7, 10\}.
+
+**Mistakes to avoid**
+
+- `{1, 7, 11, 18, 10}`: That is one pass too many.
+- `{18, 1, 11, 7, 10}`: That is one pass too few.
+- `{1, 7, 10, 11, 18}`: The array is not fully sorted yet.

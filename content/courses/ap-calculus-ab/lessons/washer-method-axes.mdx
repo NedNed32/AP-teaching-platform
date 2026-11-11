@@ -1,0 +1,71 @@
+---
+objectives:
+  - Find volumes of revolution with a hole, about the x- or y-axis, using washers.
+keyTerms:
+  - term: Washer method
+    definition: '$$V = \pi\int_a^b \left([R(x)]^2 - [r(x)]^2\right)dx$$, with outer radius $$R$$ and inner radius $$r$$.'
+checks:
+  - q: 'The region between $$y = x$$ and $$y = x^2$$ is revolved about the x-axis. What are $$R$$ and $$r$$?'
+    a: '$$R = x$$ (farther curve) and $$r = x^2$$ (nearer curve), for $$0 \leq x \leq 1$$.'
+  - q: 'Why is $$\pi\int (R - r)^2\,dx$$ wrong?'
+    a: 'The washer area is $$\pi R^2 - \pi r^2$$, not $$\pi(R - r)^2$$.'
+sources:
+  - title: Calculus Volume 1, section 6.2 "Determining Volumes by Slicing"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When the region does not reach the axis of revolution, the solid has a hole through the middle. Each slice is then a washer: a disc with a smaller disc removed.
+
+## The washer method
+
+$$
+V = \pi\int_a^b \left([R(x)]^2 - [r(x)]^2\right)dx,
+$$
+
+where
+
+- $$R(x)$$ is the **outer** radius, from the axis to the farther boundary, and
+- $$r(x)$$ is the **inner** radius, from the axis to the nearer boundary.
+
+## About the x-axis
+
+For a region between $$y = f(x)$$ (top) and $$y = g(x)$$ (bottom), both above the x-axis: $$R = f(x)$$, $$r = g(x)$$.
+
+## About the y-axis
+
+Write the boundaries as $$x$$ in terms of $$y$$ and integrate $$dy$$: $$R$$ is the boundary farther from the y-axis, $$r$$ the nearer one.
+
+<Note title="Square first, then subtract">
+The area of a washer is $$\pi R^2 - \pi r^2$$. Writing $$\pi(R - r)^2$$ is one of the most common errors in the course, and it appears as a distractor in multiple choice.
+</Note>
+
+<WorkedExample title="A washer about the x-axis">
+Revolve the region between $$y = x$$ and $$y = x^2$$ about the x-axis. Find the volume.
+
+1. Intersections: $$x = 0$$ and $$x = 1$$; on $$(0, 1)$$, $$x > x^2$$.
+2. $$R = x$$, $$r = x^2$$.
+3. $$V = \pi\int_0^1 (x^2 - x^4)\,dx = \pi\left(\frac{1}{3} - \frac{1}{5}\right)$$.
+
+**Answer:** $$\frac{2\pi}{15} \approx 0.419$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The region enclosed by $$y = 2x$$ and $$y = x^2$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{64\pi}{15}$$. $$\pi\int_0^{2} \left[(2x)^2 - (x^2)^2\right]dx$$: outer radius squared minus inner radius squared. $$V = \pi\int_0^{2} (4x^2 - x^4)\,dx = \pi\left(\frac{4x^3}{3} - \frac{x^5}{5}\right)\Big|_0^{2} = \frac{64\pi}{15}$$.
+
+**Q.** The region enclosed by $$y = x$$ and $$y = x^2$$ is revolved about the x-axis. What is the volume of the resulting solid?
+
+**A.** $$\frac{2\pi}{15}$$. $$\pi\int_0^{1} \left[(x)^2 - (x^2)^2\right]dx$$: outer radius squared minus inner radius squared. $$V = \pi\int_0^{1} (x^2 - x^4)\,dx = \pi\left(\frac{x^3}{3} - \frac{x^5}{5}\right)\Big|_0^{1} = \frac{2\pi}{15}$$.

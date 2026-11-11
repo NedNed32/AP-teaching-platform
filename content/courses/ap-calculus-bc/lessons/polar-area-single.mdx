@@ -1,0 +1,274 @@
+---
+objectives:
+  - Find the area of a region bounded by a single polar curve.
+keyTerms:
+  - term: Polar area
+    definition: '$$A = \frac{1}{2}\int_\alpha^\beta [r(\theta)]^2\,d\theta$$, adding up thin circular sectors.'
+checks:
+  - q: 'Find the area inside $$r = 3$$ using the polar formula.'
+    a: '$$\frac{1}{2}\int_0^{2\pi} 9\,d\theta = 9\pi$$.'
+  - q: 'What are the limits for one petal of $$r = \sin(2\theta)$$?'
+    a: '$$0 \leq \theta \leq \frac{\pi}{2}$$, where $$r$$ goes from 0 back to 0.'
+sources:
+  - title: Calculus Volume 2, section 7.4 "Area and Arc Length in Polar Coordinates"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Rectangular areas add up thin rectangles. Polar areas add up thin **pie slices** (sectors) fanning out from the origin.
+
+## The formula
+
+A sector of radius $$r$$ and angle $$d\theta$$ has area $$\frac{1}{2}r^2\,d\theta$$. Adding them:
+
+$$
+A = \frac{1}{2}\int_\alpha^\beta [r(\theta)]^2\,d\theta.
+$$
+
+## Finding the limits
+
+The limits are the angles that sweep out the region exactly once. Useful ways to find them:
+
+- Where $$r = 0$$ (the curve passes through the origin), such as the ends of a petal.
+- Where the curve meets a given ray $$\theta = c$$.
+- Symmetry: compute half the region and double it.
+
+<Note title="Square the whole radius">
+$$r^2$$ means the whole expression squared: $$(1 + \cos\theta)^2 = 1 + 2\cos\theta + \cos^2\theta$$. On calculator questions you can enter $$\left(r(\theta)\right)^2$$ directly.
+</Note>
+
+<WorkedExample title="Area of the shaded cardioid region">
+Find the area of the region inside $$r = 1 + \cos\theta$$ for $$0 \leq \theta \leq \frac{\pi}{2}$$ (the shaded part of the figure in topic 9.7).
+
+1. $$A = \frac{1}{2}\int_0^{\pi/2} (1 + 2\cos\theta + \cos^2\theta)\,d\theta$$.
+2. Use $$\cos^2\theta = \frac{1 + \cos 2\theta}{2}$$: the integral is $$\left[\frac{3\theta}{2} + 2\sin\theta + \frac{\sin 2\theta}{4}\right]_0^{\pi/2} = \frac{3\pi}{4} + 2$$.
+3. Multiply by $$\frac{1}{2}$$.
+
+**Answer:** $$\frac{3\pi}{8} + 1 \approx 2.178$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + 2\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + 2\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** What is the area of one petal of the rose $$r = 4\sin(5\theta)$$?
+
+**A.** $$\frac{4\pi}{5}$$. $$\frac{1}{2}\int_0^{\pi/5} 16\sin^2(5\theta)\,d\theta = \frac{16\pi}{20}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{5}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{16}{2}\cdot\frac{\pi}{2\cdot 5} = \frac{4\pi}{5}$$.
+
+**Q.** What is the area of one petal of the rose $$r = 2\sin(3\theta)$$?
+
+**A.** $$\frac{\pi}{3}$$. $$\frac{1}{2}\int_0^{\pi/3} 4\sin^2(3\theta)\,d\theta = \frac{4\pi}{12}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{3}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{4}{2}\cdot\frac{\pi}{2\cdot 3} = \frac{\pi}{3}$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 3 + 2\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(3 + 2\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$3 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 2\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 2\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 3 + \cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(3 + \cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$3 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 3\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 3\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 3$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 4\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 4\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 4$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** What is the area of one petal of the rose $$r = 3\sin(5\theta)$$?
+
+**A.** $$\frac{9\pi}{20}$$. $$\frac{1}{2}\int_0^{\pi/5} 9\sin^2(5\theta)\,d\theta = \frac{9\pi}{20}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{5}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{9}{2}\cdot\frac{\pi}{2\cdot 5} = \frac{9\pi}{20}$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + \sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + \sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** What is the area of one petal of the rose $$r = 5\sin(5\theta)$$?
+
+**A.** $$\frac{5\pi}{4}$$. $$\frac{1}{2}\int_0^{\pi/5} 25\sin^2(5\theta)\,d\theta = \frac{25\pi}{20}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{5}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{25}{2}\cdot\frac{\pi}{2\cdot 5} = \frac{5\pi}{4}$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 2\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 2\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 3 + 2\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(3 + 2\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$3 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 2 + \sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(2 + \sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$2 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 4\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 4\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 4$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** What is the area of one petal of the rose $$r = 5\sin(3\theta)$$?
+
+**A.** $$\frac{25\pi}{12}$$. $$\frac{1}{2}\int_0^{\pi/3} 25\sin^2(3\theta)\,d\theta = \frac{25\pi}{12}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{3}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{25}{2}\cdot\frac{\pi}{2\cdot 3} = \frac{25\pi}{12}$$.
+
+**Q.** What is the area of one petal of the rose $$r = 2\sin(5\theta)$$?
+
+**A.** $$\frac{\pi}{5}$$. $$\frac{1}{2}\int_0^{\pi/5} 4\sin^2(5\theta)\,d\theta = \frac{4\pi}{20}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{5}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{4}{2}\cdot\frac{\pi}{2\cdot 5} = \frac{\pi}{5}$$.
+
+**Q.** What is the area of one petal of the rose $$r = 4\sin(3\theta)$$?
+
+**A.** $$\frac{4\pi}{3}$$. $$\frac{1}{2}\int_0^{\pi/3} 16\sin^2(3\theta)\,d\theta = \frac{16\pi}{12}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{3}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{16}{2}\cdot\frac{\pi}{2\cdot 3} = \frac{4\pi}{3}$$.
+
+**Q.** What is the area of one petal of the rose $$r = 3\sin(3\theta)$$?
+
+**A.** $$\frac{3\pi}{4}$$. $$\frac{1}{2}\int_0^{\pi/3} 9\sin^2(3\theta)\,d\theta = \frac{9\pi}{12}$$. One petal runs from $$\theta = 0$$ to $$\theta = \frac{\pi}{3}$$, where $$r = 0$$. Using $$\sin^2 u = \frac{1 - \cos 2u}{2}$$, the area is $$\frac{9}{2}\cdot\frac{\pi}{2\cdot 3} = \frac{3\pi}{4}$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 3 + \sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(3 + \sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$3 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 2 + \cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(2 + \cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$2 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + 3\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + 3\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 3$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + \sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + \sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + 3\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + 3\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 3$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + 3\cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + 3\cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 3$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 5 + \cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(5 + \cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$5 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + 2\sin\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + 2\sin\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 2$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** Which of the following gives the area of the region enclosed by the polar curve $$r = 4 + \cos\theta$$?
+
+**A.** $$\frac{1}{2}\int_0^{2\pi} \left(4 + \cos\theta\right)^2 d\theta$$. Polar area is half the integral of $$r^2$$ over one full trace. $$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$. Because $$4 > 1$$, $$r > 0$$ for all $$\theta$$ and the curve closes after $$2\pi$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$32.201$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 32.201$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$28.618$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 28.618$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$36.079$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 36.079$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$9.084$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 9.084$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$22.727$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 22.727$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$12.517$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 12.517$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$15.201$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 15.201$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$3.649$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 3.649$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$7.802$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 7.802$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$16.837$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 16.837$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$13.526$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 13.526$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$17.023$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 17.023$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$10.210$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 10.210$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$10.514$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 10.514$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$19.635$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 19.635$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$4.538$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 4.538$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$5.575$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 5.575$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$8.198$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 8.198$$.
+
+### Free-response practice: A polar region
+
+The curves $$r = 3 + 2\cos\theta$$ and $$r = 4$$ are drawn in the polar plane for $$0 \leq \theta \leq 2\pi$$.
+
+**(a)** Find the area of the region enclosed by $$r = 3 + 2\cos\theta$$.
+
+To earn the point: Uses the polar area formula. Model answer: $$\frac{1}{2}\int_0^{2\pi} \left(3 + 2\cos\theta\right)^2 d\theta$$
+
+To earn the point: Gives the area. Model answer: $$34.558$$
+
+**(b)** Find the area of the region inside $$r = 3 + 2\cos\theta$$ and outside $$r = 4$$.
+
+To earn the point: Finds the intersection angles. Model answer: $$\theta = \pm1.047$$
+
+To earn the point: Writes outer squared minus inner squared. Model answer: $$\frac{1}{2}\int_{-1.047}^{1.047} \left(r^2 - 4^2\right) d\theta$$
+
+To earn the point: Gives the area. Model answer: $$6.022$$
+
+**(c)** Find $$\frac{dr}{d\theta}$$ at $$\theta = 2$$. Is the curve moving toward or away from the origin at that angle? Explain.
+
+To earn the point: Gives the derivative. Model answer: $$\frac{dr}{d\theta} = -2\sin(2) \approx -1.819$$
+
+To earn the point: Interprets the sign, noting that $$r > 0$$. Model answer: Since $$r > 0$$ and $$\frac{dr}{d\theta} < 0$$, the curve is moving toward the origin.
+
+**(d)** Find the slope of the line tangent to $$r = 3 + 2\cos\theta$$ at $$\theta = 2$$.
+
+To earn the point: Uses $$\frac{dy/d\theta}{dx/d\theta}$$ with $$x = r\cos\theta$$ and $$y = r\sin\theta$$. Model answer: $$\frac{dy/d\theta}{dx/d\theta} = \frac{-2.556}{-1.214}$$
+
+To earn the point: Gives the slope. Model answer: $$2.105$$

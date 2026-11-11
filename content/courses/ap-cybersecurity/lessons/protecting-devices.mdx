@@ -1,0 +1,222 @@
+---
+objectives:
+  - 'Apply device hardening, least privilege and Linux file permissions.'
+keyTerms:
+  - term: 'Hardening'
+    definition: 'Reducing a device''s attack surface by removing unneeded services, applying patches and securing settings.'
+  - term: 'File permissions'
+    definition: 'Read (r), write (w) and execute (x) rights for the owner, group and others.'
+  - term: 'chmod'
+    definition: 'The Linux command that sets file permissions, often in octal (r = 4, w = 2, x = 1).'
+checks:
+  - q: 'What permissions does chmod 640 set?'
+    a: 'Owner rw-, group r--, others ---.'
+  - q: 'What octal value gives rwxr-x---?'
+    a: '750.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+## Hardening checklist
+
+- Install updates and patches.
+- Remove unneeded software and disable unused services and ports.
+- Enable host firewall, anti-malware and full-disk encryption.
+- Use standard (non-admin) accounts for daily work.
+- Lock screens automatically; enable remote wipe for mobile devices.
+
+## Linux permissions
+
+```text
+-rw-r----- kmurray staff 2048 Sep 18 10:45 report.txt
+ owner group others
+```
+
+Each group of three is converted to a digit: $$r = 4,\ w = 2,\ x = 1$$.
+
+| Symbolic | Octal |
+| --- | --- |
+| rwx | 7 |
+| rw- | 6 |
+| r-x | 5 |
+| r-- | 4 |
+| --- | 0 |
+
+So `rw-r-----` is 640, set with `chmod 640 report.txt`. Granting `777` (everyone can do everything) is almost never appropriate.
+
+<Note title="Least privilege for files">
+Give each user and group only the access they need. Sensitive files should not be readable by others.
+</Note>
+
+<WorkedExample title="Set permissions">
+A script must be readable, writable and executable by its owner, readable and executable by the group, and inaccessible to others. Which chmod command?
+
+1. Owner rwx = 7, group r-x = 5, others --- = 0.
+
+**Answer:** chmod 750.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A system administrator wants a file to have these permissions:
+
+```text
+-r-x------ admin staff 2048 Sep 18 10:45 backup.sh
+```
+
+Which command sets them?
+
+**Answer:** `chmod 500 backup.sh`
+
+**Why:** r-x = 5, --- = 0, --- = 0 (r = 4, w = 2, x = 1).
+
+**Working:** Owner r-x = 5, group --- = 0, others --- = 0: chmod 500.
+
+**Mistakes to avoid**
+
+- `chmod 400 backup.sh`: Recheck the owner's execute bit.
+- `chmod 540 backup.sh`: Recheck the group's read bit.
+- `chmod 777 backup.sh`: 777 gives everyone full access.
+
+### Worked exam question 2
+
+After running `chmod 441 payroll.xlsx`, what permissions does `payroll.xlsx` have?
+
+**Answer:** `-r--r----x`
+
+**Why:** Each digit is the sum of r = 4, w = 2, x = 1 for owner, group and others.
+
+**Working:** 4 = r--, 4 = r--, 1 = --x.
+
+**Mistakes to avoid**
+
+- `---xr--r--`: The first digit is the owner.
+- `-r--r--r--`: Each digit applies to a different class.
+- `-rw-r----x`: Recheck the write bit (2).
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A laptop containing customer data is stolen from a car. Which control would best protect the data?
+
+**A.** Full-disk encryption. Without the key, the data cannot be read.
+
+**Q.** Ransomware encrypts a company's files. Which preparation allows recovery without paying?
+
+**A.** Recent, offline backups that are tested regularly. Clean backups restore the data.
+
+**Q.** Malware spreads automatically from computer to computer across a network without any user action. What type is it?
+
+**A.** A worm. Worms self-propagate.
+
+**Q.** Why should employees use standard user accounts rather than administrator accounts for daily work?
+
+**A.** Malware running under a standard account has fewer privileges to damage the system. Least privilege limits damage.
+
+**Q.** Which action most reduces the risk of attackers exploiting known software vulnerabilities?
+
+**A.** Applying security patches promptly. Patches fix known vulnerabilities.
+
+**Q.** Which is the best example of device hardening?
+
+**A.** Disabling unused services and closing unneeded ports. Hardening reduces the attack surface.
+
+### Free-response practice: Device Security Analysis: lab-srv03
+
+An analyst is investigating the device lab-srv03 after an alert. Use the six sources below.
+
+**Source 1: Security policy**
+
+1. Files containing personal data must not be readable by users outside the owner's group.
+
+2. Remote administration (SSH, port 22) is permitted only from the IT subnet 10.0.20.0/24.
+
+3. Accounts are locked after 5 consecutive failed logins.
+
+4. Only HTTPS (443) may be accepted from outside the organization.
+
+**Source 2: Host firewall rules (inbound, first match)**
+
+```text
+#  Action  Source          Port
+1  ALLOW   any             443
+2  ALLOW   any             22
+3  ALLOW   any             23
+   (all other inbound traffic denied)
+```
+
+**Source 3: File permissions**
+
+```text
+-rw-r--r-- apatel staff  1820 notes.txt
+-rw-r--rw- apatel staff 48211 grades.db
+-rwxr-x--- apatel staff   902 backup.sh
+```
+
+**Source 4: Authentication log**
+
+```text
+02:13:58 sshd: Accepted publickey for apatel from 10.0.3.21
+02:14:02 sshd: Failed password for admin from 203.0.113.78
+02:14:04 sshd: Failed password for admin from 203.0.113.78
+02:14:06 sshd: Failed password for admin from 203.0.113.78
+02:14:08 sshd: Failed password for admin from 203.0.113.78
+02:14:10 sshd: Failed password for admin from 203.0.113.78
+02:14:14 sshd: Accepted password for admin from 203.0.113.78
+02:16:40 sudo: admin : COMMAND=/bin/cat /home/apatel/grades.db
+```
+
+**Source 5: Active network connections**
+
+```text
+Proto  Local        Remote               State
+tcp    lab-srv03:22   203.0.113.78:51544   ESTABLISHED
+tcp    lab-srv03:443  10.0.3.40:60122      ESTABLISHED
+```
+
+**Source 6: Change request**
+
+```text
+Proposed: run "chmod 740 grades.db" and replace firewall rule 2 with: ALLOW 10.0.20.0/24 22
+```
+
+On the real exam, this question also includes six sources about a single device; here they are generated for practice.
+
+**(a)** Identify one configuration on this device that violates the security policy. Cite evidence from the sources.
+
+To earn the point: Identifies a policy violation with evidence. Model answer: grades.db has permissions rw-r--rw-, so others can read it (Source 3), violating policy 1. Also, rule 2 allows SSH from any source (Source 2), violating policy 2. Rule 3 allows port 23 from anywhere, violating policy 4.
+
+**(b)** Describe the attack shown in the sources, citing specific evidence, and explain whether it succeeded.
+
+To earn the point: Identifies a brute-force (password-guessing) attack. Model answer: 5 failed passwords for admin from 203.0.113.78 within seconds (Source 4).
+
+To earn the point: Explains that it succeeded, with evidence. Model answer: An accepted password from the same address follows, the attacker read grades.db with sudo, and an SSH session from 203.0.113.78 is still established (Source 5).
+
+To earn the point: Notes the failed control. Model answer: Account lockout after 5 failures (policy 3) did not happen: 5 failures were allowed.
+
+**(c)** Describe the effect of running "chmod 740 grades.db" on who can access the file, and explain whether it brings the file into compliance.
+
+To earn the point: Correctly interprets the new permissions. Model answer: 740 = owner rwx, group r--, others ---.
+
+To earn the point: Explains compliance. Model answer: Others lose all access, so users outside the group can no longer read the personal data: it complies with policy 1.
+
+**(d)** Describe how replacing firewall rule 2 with "ALLOW 10.0.20.0/24 22" would affect network traffic and users of the device.
+
+To earn the point: Effect on attackers. Model answer: SSH from outside 10.0.20.0/24, including 203.0.113.78, would be denied by the implicit deny.
+
+To earn the point: Effect on legitimate users. Model answer: IT staff on 10.0.20.0/24 can still administer the device; other internal users lose SSH access.
+
+**(e)** Recommend one additional control to prevent a similar attack, and explain how it addresses the evidence.
+
+To earn the point: A relevant control with justification. Model answer: Enforce account lockout and multifactor authentication or key-only SSH logins, so password guessing cannot succeed; alert on repeated failures.

@@ -1,0 +1,173 @@
+---
+objectives:
+  - Implement standard algorithms that combine loops and selection.
+keyTerms:
+  - term: Accumulator
+    definition: 'A variable that collects a running total or count across loop passes.'
+  - term: Standard algorithms
+    definition: 'Sum, average, count matches, find minimum or maximum, check a property for all or some values, and work with digits.'
+checks:
+  - q: 'How should a running minimum be initialized?'
+    a: 'To the first value examined (or a value larger than any possible input).'
+  - q: 'To check whether all values pass a test, when can you stop early?'
+    a: 'As soon as one value fails.'
+sources:
+  - title: CSAwesome, "Iteration"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A handful of loop patterns appear again and again, on free-response questions especially. Recognize them and you can write most solutions quickly.
+
+## The patterns
+
+**Sum and average**
+
+```java
+int sum = 0;
+for (int i = 1; i <= n; i++) {
+    sum += i * i;
+}
+double avg = (double) sum / n;
+```
+
+**Count matches**
+
+```java
+int count = 0;
+for (int i = 1; i <= 100; i++) {
+    if (i % 7 == 0) count++;
+}
+```
+
+**Maximum**
+
+```java
+int max = first;
+// for each value v after the first:
+if (v > max) max = v;
+```
+
+**Check every value** (return as soon as one fails)
+
+```java
+for (int d = 2; d < n; d++) {
+    if (n % d == 0) return false;   // found a divisor: not prime
+}
+return true;
+```
+
+<Note title="Return placement">
+In "check every value" algorithms, `return true` goes **after** the loop. Putting it in an else inside the loop returns after checking only the first value.
+</Note>
+
+<WorkedExample title="Counting divisors">
+What does this method return for n = 12?
+
+```java
+public static int countDivisors(int n) {
+    int count = 0;
+    for (int d = 1; d <= n; d++) {
+        if (n % d == 0) count++;
+    }
+    return count;
+}
+```
+
+1. Divisors of 12: 1, 2, 3, 4, 6, 12.
+
+**Answer:** `6`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int n = 6218;
+int result = 0;
+while (n > 0) {
+    result += n % 10;
+    n /= 10;
+}
+System.out.println(result);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `17`
+
+**Why:** Each pass adds the last digit, then removes it.
+
+**Working:** The digits of 6218 add to 17.
+
+**Mistakes to avoid**
+
+- `11`: The loop also runs when n is a single digit.
+- `4`: result adds the digits, not 1 per pass.
+- `9`: The last digit is added on the first pass.
+
+### Free-response practice: Digit sums
+
+The class `NumberTools` contains static methods for working with the digits of positive integers.
+
+```java
+public class NumberTools {
+    /** Returns the sum of the digits of n. Precondition: n > 0 */
+    public static int digitSum(int n) { /* part (a) */ }
+    /** Returns how many integers from lo to hi, inclusive, have a digit sum divisible by k.
+        Precondition: 0 < lo <= hi, k > 0 */
+    public static int countDivisible(int lo, int hi, int k) { /* part (b) */ }
+}
+```
+
+For example, `digitSum(2407)` returns 13, and `countDivisible(43, 77, 4)` returns 8.
+
+**(a)** Write the method `digitSum`. You may not convert n to a String.
+
+To earn the point: Uses % 10 to get the last digit. Model answer: `sum += n % 10;`
+
+To earn the point: Uses / 10 to remove the last digit. Model answer: `n /= 10;`
+
+To earn the point: Loops until every digit is processed and returns the sum. Model answer:
+
+```java
+public static int digitSum(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+```
+
+**(b)** Write the method `countDivisible`. Assume `digitSum` works as specified, regardless of what you wrote in part (a). You must use `digitSum` appropriately.
+
+To earn the point: Loops over every integer from lo to hi, inclusive. Model answer: `for (int x = lo; x <= hi; x++)`
+
+To earn the point: Calls digitSum on each value. Model answer: `digitSum(x)`
+
+To earn the point: Tests divisibility with % and counts matches. Model answer: `if (digitSum(x) % k == 0) count++;`
+
+To earn the point: Returns the count. Model answer:
+
+```java
+public static int countDivisible(int lo, int hi, int k) {
+    int count = 0;
+    for (int x = lo; x <= hi; x++) {
+        if (digitSum(x) % k == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+```

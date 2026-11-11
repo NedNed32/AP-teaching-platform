@@ -1,0 +1,139 @@
+---
+objectives:
+  - 'Recognize fake login pages and suspicious URLs, and explain how credential theft works.'
+keyTerms:
+  - term: 'Credential harvesting'
+    definition: 'Collecting usernames and passwords, often with fake login pages.'
+  - term: 'Typosquatting'
+    definition: 'Registering domains that resemble real ones, such as paypa1.com.'
+  - term: 'HTTPS'
+    definition: 'HTTP encrypted with TLS; it protects data in transit but does not prove a site is legitimate.'
+checks:
+  - q: 'In the URL https://login.example.com.evil.net/signin, which domain actually hosts the page?'
+    a: 'evil.net.'
+  - q: 'Does a padlock icon prove a site is safe?'
+    a: 'No; it shows the connection is encrypted, not that the site is legitimate.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+A phishing link usually leads to a login page that looks real. Anything typed there goes to the attacker.
+
+## Reading a URL
+
+The **registered domain** is the part just before the top-level domain (.com, .net, .org), read from the right:
+
+| URL | Real domain |
+| --- | --- |
+| https://accounts.example.com/login | example.com |
+| https://example.com.secure-login.io/ | secure-login.io |
+| https://examp1e.com/ | examp1e.com (typosquat) |
+
+## Red flags
+
+- A domain that does not match the organization.
+- Lookalike characters (rn for m, 1 for l).
+- Unexpected login prompts after clicking a link in a message.
+- A site asking for more information than usual.
+
+Password managers help: they fill in credentials only on the exact domain they were saved for.
+
+<Note title="HTTPS is not trust">
+Attackers can get valid certificates for their own domains. The padlock means encrypted, not legitimate.
+</Note>
+
+<WorkedExample title="Spot the fake">
+Which URL is most likely legitimate for a bank at bankofexample.com: (a) https://bankofexample.com.verify-id.co/, (b) https://secure.bankofexample.com/login, (c) https://bankofexarnple.com/?
+
+1. (a) belongs to verify-id.co.
+2. (c) uses rn in place of m.
+3. (b) is a subdomain of bankofexample.com.
+
+**Answer:** (b).
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A user receives an email that appears to come from Brightmail, whose real website is `brightmail.org`. Which link most likely leads to a legitimate Brightmail login page?
+
+**A.** `https://login.brightmail.org/account`. Its registered domain is brightmail.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on brightmail.org.
+
+**Q.** A user receives an email that appears to come from Cloudnest, whose real website is `cloudnest.com`. Which link most likely leads to a legitimate Cloudnest login page?
+
+**A.** `https://login.cloudnest.com/account`. Its registered domain is cloudnest.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on cloudnest.com.
+
+**Q.** A user receives an email that appears to come from Brightmail, whose real website is `brightmail.net`. Which link most likely leads to a legitimate Brightmail login page?
+
+**A.** `https://login.brightmail.net/account`. Its registered domain is brightmail.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on brightmail.net.
+
+**Q.** A user receives an email that appears to come from Northbank, whose real website is `northbank.com`. Which link most likely leads to a legitimate Northbank login page?
+
+**A.** `https://login.northbank.com/account`. Its registered domain is northbank.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on northbank.com.
+
+**Q.** A user receives an email that appears to come from Medicore, whose real website is `medicore.com`. Which link most likely leads to a legitimate Medicore login page?
+
+**A.** `https://login.medicore.com/account`. Its registered domain is medicore.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on medicore.com.
+
+**Q.** A user receives an email that appears to come from Cloudnest, whose real website is `cloudnest.net`. Which link most likely leads to a legitimate Cloudnest login page?
+
+**A.** `https://login.cloudnest.net/account`. Its registered domain is cloudnest.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on cloudnest.net.
+
+**Q.** A user receives an email that appears to come from Medicore, whose real website is `medicore.net`. Which link most likely leads to a legitimate Medicore login page?
+
+**A.** `https://login.medicore.net/account`. Its registered domain is medicore.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on medicore.net.
+
+**Q.** A user receives an email that appears to come from Northbank, whose real website is `northbank.org`. Which link most likely leads to a legitimate Northbank login page?
+
+**A.** `https://login.northbank.org/account`. Its registered domain is northbank.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on northbank.org.
+
+**Q.** A user receives an email that appears to come from Brightmail, whose real website is `brightmail.com`. Which link most likely leads to a legitimate Brightmail login page?
+
+**A.** `https://login.brightmail.com/account`. Its registered domain is brightmail.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on brightmail.com.
+
+**Q.** A user receives an email that appears to come from Shopwell, whose real website is `shopwell.net`. Which link most likely leads to a legitimate Shopwell login page?
+
+**A.** `https://login.shopwell.net/account`. Its registered domain is shopwell.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on shopwell.net.
+
+**Q.** A user receives an email that appears to come from Shopwell, whose real website is `shopwell.com`. Which link most likely leads to a legitimate Shopwell login page?
+
+**A.** `https://login.shopwell.com/account`. Its registered domain is shopwell.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on shopwell.com.
+
+**Q.** A user receives an email that appears to come from Streamly, whose real website is `streamly.com`. Which link most likely leads to a legitimate Streamly login page?
+
+**A.** `https://login.streamly.com/account`. Its registered domain is streamly.com; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on streamly.com.
+
+**Q.** A user receives an email that appears to come from Cloudnest, whose real website is `cloudnest.org`. Which link most likely leads to a legitimate Cloudnest login page?
+
+**A.** `https://login.cloudnest.org/account`. Its registered domain is cloudnest.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on cloudnest.org.
+
+**Q.** A user receives an email that appears to come from Shopwell, whose real website is `shopwell.org`. Which link most likely leads to a legitimate Shopwell login page?
+
+**A.** `https://login.shopwell.org/account`. Its registered domain is shopwell.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on shopwell.org.
+
+**Q.** A user receives an email that appears to come from Northbank, whose real website is `northbank.net`. Which link most likely leads to a legitimate Northbank login page?
+
+**A.** `https://login.northbank.net/account`. Its registered domain is northbank.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on northbank.net.
+
+**Q.** A user receives an email that appears to come from Streamly, whose real website is `streamly.org`. Which link most likely leads to a legitimate Streamly login page?
+
+**A.** `https://login.streamly.org/account`. Its registered domain is streamly.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on streamly.org.
+
+**Q.** A user receives an email that appears to come from Medicore, whose real website is `medicore.org`. Which link most likely leads to a legitimate Medicore login page?
+
+**A.** `https://login.medicore.org/account`. Its registered domain is medicore.org; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on medicore.org.
+
+**Q.** A user receives an email that appears to come from Streamly, whose real website is `streamly.net`. Which link most likely leads to a legitimate Streamly login page?
+
+**A.** `https://login.streamly.net/account`. Its registered domain is streamly.net; "login" is a subdomain. The registered domain is the part immediately before the first single slash after the host, read from the right. Only the first link is hosted on streamly.net.

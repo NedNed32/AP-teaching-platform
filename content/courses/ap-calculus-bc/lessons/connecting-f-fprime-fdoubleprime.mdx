@@ -1,0 +1,206 @@
+---
+objectives:
+  - Connect the behaviors of $$f$$, $$f'$$ and $$f''$$ in graphs, tables and formulas.
+  - Justify conclusions about $$f$$ from information about its derivatives.
+keyTerms:
+  - term: Derivative hierarchy
+    definition: 'The sign of $$f''$$ describes the direction of $$f$$; the sign of $$f''''$$ describes the direction of $$f''$$ and the concavity of $$f$$.'
+checks:
+  - q: 'On an interval, $$f'' < 0$$ and $$f'''' > 0$$. Describe $$f$$.'
+    a: 'Decreasing and concave up: falling, but less and less steeply.'
+  - q: 'The graph of $$f''$$ has a relative maximum at $$x = 3$$. What does $$f$$ have there?'
+    a: 'A point of inflection.'
+sources:
+  - title: Calculus Volume 1, section 4.5 "Derivatives and the Shape of a Graph"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The AP exam's favorite graph is often not $$f$$ but $$f'$$. Being fluent in moving between the three levels, function, slope and bending, is one of the most valuable skills in the course.
+
+## The master table
+
+| If you know | Then $$f$$ is |
+| --- | --- |
+| $$f' > 0$$ | increasing |
+| $$f' < 0$$ | decreasing |
+| $$f'$$ changes $$+$$ to $$-$$ | at a relative maximum |
+| $$f'$$ changes $$-$$ to $$+$$ | at a relative minimum |
+| $$f'$$ increasing, or $$f'' > 0$$ | concave up |
+| $$f'$$ decreasing, or $$f'' < 0$$ | concave down |
+| $$f'$$ has a relative extremum, or $$f''$$ changes sign | at an inflection point |
+
+## Given the graph of f prime
+
+Two different readings of the same graph:
+
+- **Height** of $$f'$$ (above or below the axis) tells you about the **direction** of $$f$$.
+- **Slope** of $$f'$$ (rising or falling) tells you about the **concavity** of $$f$$.
+
+Mixing these two up is the most common error on graph-of-the-derivative questions.
+
+<Note title="Tables of signs">
+Some questions give a table with the signs of $$f'$$ and $$f''$$ on intervals. Treat each row as one of the four shapes (rising or falling, cup or cap) and sketch accordingly.
+</Note>
+
+<WorkedExample title="Reading f prime from data">
+A differentiable $$f$$ has $$f'(x) = (x - 1)^2(x - 4)$$. Find the relative extrema and inflection points of $$f$$.
+
+1. $$f'$$ changes sign only at $$x = 4$$ (from negative to positive), so $$f$$ has a relative minimum at $$x = 4$$; at $$x = 1$$ it does not change sign, so there is no extremum there.
+2. $$f''(x) = 2(x - 1)(x - 4) + (x - 1)^2 = (x - 1)(3x - 9) = 3(x - 1)(x - 3)$$.
+3. $$f''$$ changes sign at $$x = 1$$ and $$x = 3$$.
+
+**Answer:** relative minimum at $$x = 4$$; inflection points at $$x = 1$$ and $$x = 3$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+At what value of $$x$$ does the graph of $$f(x) = x^{3} - 6x^{2} + 3x - 4$$ have a point of inflection?
+
+**Answer:** $$2$$
+
+**Why:** $$f''(x) = 6x - 12$$ is zero and changes sign at $$x = 2$$.
+
+**Working:** $$f'(x) = 3x^{2} - 12x + 3$$ and $$f''(x) = 6x - 12$$. $$f''$$ is linear, so it changes sign at its zero, $$x = 2$$.
+
+**Mistakes to avoid**
+
+- $$-2$$: Sign error when solving f″(x) = 0.
+- $$3$$: This is −b/(2a), the vertex formula for a parabola, applied to the cubic's coefficients. Set f″(x) = 0 instead.
+- $$0$$: Inflection points are where f″ changes sign, not where f″ has its constant term.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+The graph of $$f'$$, the derivative of a function $$f$$, consists of line segments on $$0 \leq x \leq 6$$, as shown.
+
+<Figure src="assets/guides/connecting-f-fprime-fdoubleprime-1.svg" alt="Graph of f′: line segments through the points (0, -3), (1, -2), (2, 3), (3, -2), (4, 2), (5, 0), (6, 1)." caption="Graph for the question below." />
+
+**Q.** On which of the following intervals is the graph of $$f$$ concave down?
+
+**A.** $$(4, 5)$$. $$f'$$ is decreasing there, so $$f'' < 0$$. $$f$$ is concave down where $$f'$$ is decreasing, which on this graph means a segment sloping downward.
+
+The graph of $$f'$$, the derivative of a function $$f$$, consists of line segments on $$0 \leq x \leq 6$$, as shown.
+
+<Figure src="assets/guides/connecting-f-fprime-fdoubleprime-2.svg" alt="Graph of f′: line segments through the points (0, 3), (1, -2), (2, 0), (3, 1), (4, 1), (5, 3), (6, -3)." caption="Graph for the question below." />
+
+**Q.** On the open interval $$0 < x < 6$$, at how many values of $$x$$ does $$f$$ have a relative maximum?
+
+**A.** $$2$$. Count the places where f′ crosses the x-axis from above to below. $$f$$ has a relative maximum where $$f'$$ changes from positive to negative. On this graph that happens 2 times.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.745$$, $$x \approx 3.191$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.025$$, $$x \approx 3.772$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.061$$, $$x \approx 3.439$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.826$$, $$x \approx 3.666$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.636$$, $$x \approx 2.591$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.135$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$4$$. Graphing $$f'$$ shows it changes sign 4 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.950$$, $$x \approx 2.803$$, $$x \approx 3.301$$, $$x \approx 4.396$$, so $$f$$ has 4 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.945$$, $$x \approx 3.312$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.826$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.025$$, $$x \approx 3.772$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.135$$, $$x \approx 3.867$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.945$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.745$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.745$$, $$x \approx 3.191$$, $$x \approx 4.307$$, so $$f$$ has 3 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.950$$, $$x \approx 2.803$$, $$x \approx 3.301$$, so $$f$$ has 3 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.135$$, $$x \approx 3.867$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.950$$, $$x \approx 2.803$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.025$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.830$$, $$x \approx 2.686$$, $$x \approx 3.400$$, so $$f$$ has 3 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$4$$. Graphing $$f'$$ shows it changes sign 4 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.830$$, $$x \approx 2.686$$, $$x \approx 3.400$$, $$x \approx 4.379$$, so $$f$$ has 4 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.830$$, $$x \approx 2.686$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{4}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$2$$. Graphing $$f'$$ shows it changes sign 2 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.826$$, $$x \approx 3.666$$, so $$f$$ has 2 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$4$$. Graphing $$f'$$ shows it changes sign 4 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.636$$, $$x \approx 2.591$$, $$x \approx 3.477$$, $$x \approx 4.361$$, so $$f$$ has 4 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.061$$, $$x \approx 3.439$$, $$x \approx 4.213$$, so $$f$$ has 3 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.50\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 5$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.945$$, $$x \approx 3.312$$, $$x \approx 4.266$$, so $$f$$ has 3 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{3}\right) - 0.75\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 3$$?
+
+**A.** $$1$$. Graphing $$f'$$ shows it changes sign 1 time on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 1.061$$, so $$f$$ has 1 relative extrema.
+
+**Q.** The derivative of a function $$f$$ is $$f'(x) = \sin\left(\frac{x^2}{2}\right) - 0.25\cos x$$. How many relative extrema does $$f$$ have on the open interval $$0 < x < 4$$?
+
+**A.** $$3$$. Graphing $$f'$$ shows it changes sign 3 times on the interval. Relative extrema of $$f$$ occur where $$f'$$ changes sign. On the calculator, $$f'$$ has sign changes at $$x \approx 0.636$$, $$x \approx 2.591$$, $$x \approx 3.477$$, so $$f$$ has 3 relative extrema.

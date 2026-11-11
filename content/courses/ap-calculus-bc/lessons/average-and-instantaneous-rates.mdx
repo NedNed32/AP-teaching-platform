@@ -1,0 +1,94 @@
+---
+objectives:
+  - Compute average rates of change and interpret them as slopes of secant lines.
+  - Describe the instantaneous rate of change as the limit of average rates.
+keyTerms:
+  - term: Secant line
+    definition: 'A line through two points of a graph; its slope is the average rate of change between them.'
+  - term: Tangent line
+    definition: 'The line that touches the graph at a point with the same slope as the graph there; its slope is the instantaneous rate of change.'
+  - term: Difference quotient
+    definition: '$$\frac{f(a + h) - f(a)}{h}$$, the average rate of change from $$a$$ to $$a + h$$.'
+checks:
+  - q: 'Find the average rate of change of $$f(x) = x^2$$ on $$[1, 4]$$.'
+    a: '$$\frac{16 - 1}{3} = 5$$.'
+  - q: 'What happens to the secant line through $$(a, f(a))$$ and $$(a + h, f(a + h))$$ as $$h \to 0$$?'
+    a: 'It approaches the tangent line at $$x = a$$.'
+sources:
+  - title: Calculus Volume 1, section 3.1 "Defining the Derivative"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Unit 1 built limits; Unit 2 puts them to work. The first job is to make "rate of change at an instant" precise.
+
+<Figure src="assets/lessons/secant-tangent.svg" alt="A parabola with a secant line through two points and a dashed tangent line touching the curve at the left point." caption="As the second point slides toward the first, the secant turns into the tangent." />
+
+## Average rate of change
+
+Over an interval $$[a, b]$$, the average rate of change of $$f$$ is
+
+$$
+\frac{\Delta y}{\Delta x} = \frac{f(b) - f(a)}{b - a}.
+$$
+
+Geometrically, it is the slope of the **secant line** through $$(a, f(a))$$ and $$(b, f(b))$$. Its units are output units per input unit, for example meters per second.
+
+## Instantaneous rate of change
+
+Write the second input as $$a + h$$. The average rate becomes the **difference quotient** $$\frac{f(a + h) - f(a)}{h}$$. Letting $$h \to 0$$ gives the instantaneous rate:
+
+$$
+\lim_{h \to 0} \frac{f(a + h) - f(a)}{h}.
+$$
+
+When this limit exists it is the slope of the **tangent line** at $$x = a$$. In topic 2.2 it gets its name: the derivative $$f'(a)$$.
+
+<Note title="Average versus instantaneous wording">
+On the exam, "average rate of change over an interval" means a secant slope (no calculus needed). "Rate of change at $$t = 3$$" means a derivative. Read the question carefully: the two are often offered as competing answer choices.
+</Note>
+
+<WorkedExample title="From secants to a tangent">
+For $$f(x) = x^2$$, find the instantaneous rate of change at $$x = 3$$.
+
+1. Difference quotient: $$\frac{(3 + h)^2 - 9}{h} = \frac{6h + h^2}{h} = 6 + h$$ for $$h \neq 0$$.
+2. Take the limit: $$\lim_{h \to 0} (6 + h) = 6$$.
+
+**Answer:** the instantaneous rate of change at $$x = 3$$ is 6.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The temperature of a liquid, in degrees Celsius, is modeled by a differentiable function $$H$$ of time $$t$$, in minutes. Selected values are shown.
+
+*Temperature H(t)*
+
+| $$t$$ (minutes) | $$H(t)$$ (°C) |
+| --- | --- |
+| 0 | 21 |
+| 2 | 30 |
+| 5 | 39 |
+| 7 | 14 |
+| 10 | 53 |
+
+What is the average rate of change of $$H$$ over the interval $$2 \leq t \leq 7$$, in degrees Celsius per minute?
+
+**Answer:** $$-\frac{16}{5}$$
+
+**Why:** $$\frac{H(7) - H(2)}{7 - 2} = \frac{-16}{5}$$.
+
+**Working:** Average rate of change $$= \frac{H(7) - H(2)}{7 - 2} = \frac{14 - 30}{5} = -\frac{16}{5}$$ degrees per minute.
+
+**Mistakes to avoid**
+
+- $$-16$$: This is the total change in temperature; it still needs to be divided by the elapsed time.
+- $$-\frac{5}{16}$$: This divides time by temperature, which is upside down.
+- $$22$$: This is the average temperature, not the average rate of change.

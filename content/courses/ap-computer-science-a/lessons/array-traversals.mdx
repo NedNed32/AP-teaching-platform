@@ -1,0 +1,105 @@
+---
+objectives:
+  - Traverse arrays with indexed for loops and enhanced for loops.
+  - Know when an enhanced for loop cannot be used.
+keyTerms:
+  - term: Traversal
+    definition: 'Visiting each element of a collection, usually with a loop.'
+  - term: Enhanced for loop
+    definition: '`for (type item : array)`, which visits every element in order without an index.'
+checks:
+  - q: 'Can an enhanced for loop change the int values stored in an array?'
+    a: 'No. The loop variable is a copy of each element.'
+  - q: 'Which loop do you need to visit only the even indexes?'
+    a: 'An indexed for loop, such as `for (int i = 0; i < a.length; i += 2)`.'
+sources:
+  - title: CSAwesome, "Arrays"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Most array work is a loop that visits each element. Java offers two kinds of loops for this.
+
+## Indexed for loop
+
+```java
+for (int i = 0; i < arr.length; i++) {
+    arr[i] *= 2;            // can modify elements
+}
+```
+
+Use it when you need the index, need to modify elements, or want to skip or reverse.
+
+## Enhanced for loop
+
+```java
+int sum = 0;
+for (int value : arr) {
+    sum += value;
+}
+```
+
+Simpler and safer, but:
+
+- there is no index;
+- assigning to the loop variable does not change the array;
+- it always goes forward through every element.
+
+<Note title="Objects in an enhanced for loop">
+For an array of objects, the loop variable refers to each object, so calling a mutator such as `item.setPrice(0)` does change the objects. Only reassigning the variable itself has no effect.
+</Note>
+
+<WorkedExample title="Which loop changes the array?">
+`int[] a = {1, 2, 3};` What is in `a` after each segment?
+
+```java
+for (int x : a) { x = x * 10; }          // Segment 1
+for (int i = 0; i < a.length; i++) {      // Segment 2
+    a[i] = a[i] * 10;
+}
+```
+
+1. Segment 1 changes only the copies: `a` is still [1, 2, 3].
+2. Segment 2 writes through the index: `a` becomes [10, 20, 30].
+
+**Answer:** Segment 1 leaves the array unchanged; Segment 2 multiplies each element by 10.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int[] a = {3, 6, 4, 1, 4};
+for (int x : a) {
+    x = x * 2;
+}
+for (int i = 1; i < a.length; i += 2) {
+    a[i] = a[i] + 1;
+}
+for (int x : a) {
+    System.out.print(x + " ");
+}
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3 7 4 2 4`
+
+**Why:** The enhanced for loop changes only copies; the indexed loop changes the array.
+
+**Working:** The first loop has no effect on a. The second adds 1 at indexes 1, 3, …, giving \{3, 7, 4, 2, 4\}.
+
+**Mistakes to avoid**
+
+- `6 13 8 3 8`: Assigning to the enhanced-for variable does not change the array.
+- `4 6 5 1 5`: The indexed loop starts at 1.
+- `4 7 5 2 5`: The index increases by 2.

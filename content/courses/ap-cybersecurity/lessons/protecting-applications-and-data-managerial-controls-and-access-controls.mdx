@@ -1,0 +1,89 @@
+---
+objectives:
+  - 'Apply data classification, access control models and least privilege.'
+keyTerms:
+  - term: 'Role-based access control (RBAC)'
+    definition: 'Permissions are assigned to roles, and users receive roles.'
+  - term: 'Data classification'
+    definition: 'Labeling data by sensitivity (public, internal, confidential, restricted) to decide how it is protected.'
+  - term: 'Separation of duties'
+    definition: 'Dividing critical tasks so no single person can complete them alone.'
+checks:
+  - q: 'Why is RBAC easier to manage than assigning permissions to each user?'
+    a: 'Changing a role updates everyone in it, and new users simply get the right role.'
+  - q: 'What should happen to an employee''s access when they change jobs?'
+    a: 'Remove permissions they no longer need and grant only what the new role requires.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+## Managerial controls
+
+- **Data classification** policies.
+- **Retention and disposal** policies.
+- **Access reviews**: periodically confirm each user still needs their access.
+- **Separation of duties** and **least privilege**.
+- **Backups** (the 3-2-1 rule: three copies, two media types, one offsite).
+
+## Access control models
+
+| Model | Basis |
+| --- | --- |
+| discretionary (DAC) | owners choose who gets access (file permissions) |
+| role-based (RBAC) | access follows job role |
+| mandatory (MAC) | labels and clearances set by policy |
+| attribute-based (ABAC) | rules using attributes like time, location, department |
+
+<Note title="Privilege creep">
+Employees who move between jobs often keep old access. Regular access reviews remove it.
+</Note>
+
+<WorkedExample title="Choose a model">
+A hospital wants all nurses to view patient charts on their ward, and doctors to also edit them. Which model fits?
+
+1. Access depends on job role.
+
+**Answer:** role-based access control.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A team wants to confirm that a downloaded software installer has not been altered. Which technique should it use?
+
+**A.** Compare the file's hash with the hash published by the vendor. Hashes verify integrity.
+
+**Q.** Why should error messages on a website be generic, such as 'Something went wrong'?
+
+**A.** Detailed errors can reveal database or system details useful to attackers. Details belong in private logs.
+
+**Q.** A company stores user passwords. How should they be stored?
+
+**A.** As salted hashes using a slow password-hashing algorithm. Hashes cannot be reversed, and salts defeat precomputed tables.
+
+**Q.** Which statement correctly contrasts hashing and symmetric encryption?
+
+**A.** Encryption can be reversed with the key; hashing is one-way. That is the key difference.
+
+**Q.** Employees who move to new departments keep access to their old department's files. What practice fixes this?
+
+**A.** Regular access reviews that remove permissions no longer needed. This prevents privilege creep.
+
+**Q.** Access to hospital records is granted based on whether a user is a nurse, doctor or billing clerk. Which access control model is this?
+
+**A.** Role-based access control. Permissions follow the job role.
+
+**Q.** What is the most effective defense against SQL injection?
+
+**A.** Parameterized queries (prepared statements). They keep user input separate from the query's code.

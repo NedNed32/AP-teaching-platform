@@ -1,0 +1,98 @@
+---
+objectives:
+  - 'Reduce series and parallel combinations of resistors and find currents and voltages.'
+keyTerms:
+  - term: 'Series'
+    definition: 'Elements on a single path share the same current.'
+  - term: 'Parallel'
+    definition: 'Elements across the same two nodes share the same voltage.'
+checks:
+  - q: 'What is the equivalent of 6 Ω and 3 Ω in parallel?'
+    a: '2 Ω.'
+  - q: 'Adding a resistor in parallel does what to the total resistance?'
+    a: 'Decreases it.'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+$$R_{series} = R_1 + R_2 + \cdots \qquad \frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$$
+
+## Strategy
+
+1. Collapse combinations step by step to find $$R_{eq}$$.
+2. Find the total current from the source.
+3. Work backward, using $$V = IR$$, to find each branch's current and voltage.
+
+Parallel resistance is always smaller than the smallest branch.
+
+<Note title="Two-resistor shortcut">
+For two resistors in parallel, R = R1R2/(R1 + R2).
+</Note>
+
+<WorkedExample title="Mixed circuit">
+A 4 Ω resistor is in series with a parallel pair of 6 Ω and 3 Ω, across 18 V. Find the current in the 6 Ω resistor.
+
+1. $$R_{eq} = 4 + 2 = 6$$ Ω; $$I = 3$$ A.
+2. Parallel voltage: $$3 \times 2 = 6$$ V.
+3. $$I_6 = 6/6 = 1$$ A.
+
+**Answer:** 1 A.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A 5 Ω resistor is in series with a parallel pair of 9 Ω and 11 Ω, connected to an ideal 16 V battery. What is the current from the battery?
+
+**Answer:** $$1.61\ \mathrm{A}$$
+
+**Why:** Reduce the parallel pair, add the series resistor, then work back.
+
+**Working:** R_eq = 5 + 4.95 = 9.95 Ω; I = 1.61 A; I in 9 Ω = 0.884 A.
+
+**Mistakes to avoid**
+
+- $$0.64\ \mathrm{A}$$: R₂ and R₃ are in parallel.
+- $$3.2\ \mathrm{A}$$: Use the equivalent resistance.
+- $$3.23\ \mathrm{A}$$: Include R₁.
+
+### Worked exam question 2
+
+A 5 Ω resistor is in series with a parallel pair of 5 Ω and 4 Ω, connected to an ideal 9 V battery. What is the equivalent resistance?
+
+**Answer:** $$7.22\ \mathrm{\Omega}$$
+
+**Why:** Reduce the parallel pair, add the series resistor, then work back.
+
+**Working:** R_eq = 5 + 2.22 = 7.22 Ω; I = 1.25 A; I in 5 Ω = 0.554 A.
+
+**Mistakes to avoid**
+
+- $$14\ \mathrm{\Omega}$$: R₂ and R₃ are in parallel.
+- $$1.54\ \mathrm{\Omega}$$: R₁ is in series.
+- $$9.5\ \mathrm{\Omega}$$: Parallel: R₂R₃/(R₂ + R₃).
+
+### Worked exam question 3
+
+A 8 Ω resistor is in series with a parallel pair of 10 Ω and 7 Ω, connected to an ideal 23 V battery. What is the current in the 10 Ω resistor?
+
+**Answer:** $$0.782\ \mathrm{A}$$
+
+**Why:** Reduce the parallel pair, add the series resistor, then work back.
+
+**Working:** R_eq = 8 + 4.12 = 12.1 Ω; I = 1.9 A; I in 10 Ω = 0.782 A.
+
+**Mistakes to avoid**
+
+- $$0.949\ \mathrm{A}$$: The branches have different resistances.
+- $$2.3\ \mathrm{A}$$: Only part of the battery's voltage is across the pair.
+- $$1.12\ \mathrm{A}$$: That is the other branch.

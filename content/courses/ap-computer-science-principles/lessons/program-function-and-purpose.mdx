@@ -1,0 +1,136 @@
+---
+objectives:
+  - Describe the purpose and function of a program, including its inputs and outputs.
+keyTerms:
+  - term: Program
+    definition: 'A collection of statements that performs a specific task when run by a computer.'
+  - term: Event
+    definition: 'An action, such as a click or key press, that triggers part of a program to run.'
+  - term: Input and output
+    definition: 'Data sent to a program (from a user, sensor or file) and data the program produces.'
+checks:
+  - q: 'What is the difference between a program''s purpose and its function?'
+    a: 'The purpose is the problem it solves; the function is what it does when it runs.'
+  - q: 'What is event-driven programming?'
+    a: 'Code runs in response to events such as clicks or key presses.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Every program exists for a reason. Stating that reason and describing the program's behavior is the first step of the Create performance task.
+
+## Purpose and function
+
+- **Purpose**: the problem the program solves or the creative interest it pursues.
+- **Function**: what the program does when it runs, described through its inputs and outputs.
+
+## Inputs and outputs
+
+Inputs can be typed text, clicks, sensor data or files. Outputs can be visual, audible, tactile or textual. In **event-driven** programs, statements run when events occur rather than in a fixed order.
+
+| Program | Input | Output |
+| --- | --- | --- |
+| step counter | accelerometer readings | daily step total |
+| quiz app | button taps | score and feedback |
+
+<Note title="Code segments">
+A program is built from statements grouped into code segments. Describing what a segment does, without reading every line aloud, is a skill the exam tests often.
+</Note>
+
+<WorkedExample title="Purpose versus function">
+A program asks for a city name and displays the forecast. State its purpose and function.
+
+1. Purpose: help users plan their day for the weather.
+2. Function: input a city; output temperature and conditions.
+
+**Answer:** purpose is the user's goal; function is the input-to-output behavior.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** After user testing reveals problems, a developer returns to the design phase and revises the plan before writing more code. Which approach does this describe?
+
+**A.** Iterative development. Revisiting earlier phases based on feedback is iterative development.
+
+**Q.** In an event-driven program, when does the code attached to a button run?
+
+**A.** When the button-click event occurs. Event-driven code runs in response to events.
+
+**Q.** Two students work at one computer: one types the code while the other reviews each line and plans the next step, and they switch roles often. What is this practice called?
+
+**A.** Pair programming. A driver and a navigator working together is pair programming.
+
+**Q.** Which of the following is the best reason to include people with diverse backgrounds on a team designing an app?
+
+**A.** They can identify needs and possible biases that a less diverse team might miss. Diverse perspectives improve computing innovations.
+
+**Q.** A team builds a small part of an app, tests it, then adds another small part and tests again. Which development approach is this?
+
+**A.** Incremental development. Adding and testing one small piece at a time is incremental.
+
+**Q.** What is the primary purpose of comments in program code?
+
+**A.** To explain how the code works for people reading it, without affecting how it runs. Comments are documentation for programmers.
+
+**Q.** A programmer uses a procedure that was written by another student. What should the programmer do?
+
+**A.** Acknowledge the other student as the author of that code. Code written by others should be credited.
+
+**Q.** A weather app's purpose is to help people plan their day. Which statement describes the app's function rather than its purpose?
+
+**A.** It takes a location as input and displays the forecast for that location. Function describes what the program does: its inputs and outputs.
+
+### Free-response practice: Written response 1: program design, function and purpose
+
+A student wrote a program called **Recipe Scaler**. Its purpose is to let cooks make larger batches of a recipe without doing arithmetic by hand. In the program, the user enters the ingredient amounts and how many batches they want, and the program displays the new amount of each ingredient. The list `amounts` stores the amount of each ingredient in the original recipe. The program's main procedure is shown below.
+
+```text
+PROCEDURE scale(amounts, factor)
+{
+   result ← []
+   FOR EACH a IN amounts
+   {
+      IF (a > 0)
+      {
+         APPEND(result, a * factor)
+      }
+      ELSE
+      {
+         APPEND(result, 0)
+      }
+   }
+   RETURN (result)
+}
+```
+
+On the actual exam, these questions refer to your own Create performance task program. Answer them here for the sample program.
+
+**(a)** Identify the expected users of the program and describe one way the program's design meets the needs of those users.
+
+To earn the point: Identifies a specific group of users. Model answer: Home cooks preparing food for more people than a recipe serves.
+
+To earn the point: Describes a design feature and connects it to a need of those users. Model answer: The program asks only for simple input (the user enters the ingredient amounts and how many batches they want) and gives a clear result (the program displays the new amount of each ingredient), which helps them let cooks make larger batches of a recipe without doing arithmetic by hand.
+
+**(b)** Describe one input to the program and the output it produces. Explain how the output relates to the program's purpose.
+
+To earn the point: Describes an input and the corresponding output. Model answer: For example, scale([7, 2, 5, 8], 2) returns [14, 4, 10, 16].
+
+To earn the point: Explains how the output serves the purpose. Model answer: The result shows the user the information they need to let cooks make larger batches of a recipe without doing arithmetic by hand.
+
+**(c)** Describe how a programmer could use iterative or incremental development, including testing, while creating this program.
+
+To earn the point: Describes building or refining the program in stages. Model answer: First write and test scale on its own with known lists, then add the input screen, then the display of results.
+
+To earn the point: Describes testing with specific inputs and using the results to revise the program. Model answer: Test scale([0, 2], 2), which should give [0, 4], because the ELSE branch appends 0 for an amount that is not positive; if it does not, fix the procedure before adding features.

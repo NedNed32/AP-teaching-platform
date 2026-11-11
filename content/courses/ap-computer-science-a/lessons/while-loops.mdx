@@ -1,0 +1,199 @@
+---
+objectives:
+  - Write and trace while loops.
+  - Identify infinite loops and loops that never run.
+keyTerms:
+  - term: while loop
+    definition: 'Repeats its body as long as its condition is true, checking the condition before each pass.'
+  - term: Infinite loop
+    definition: 'A loop whose condition never becomes false.'
+checks:
+  - q: 'How many times does `while (x > 10)` run if x starts at 5?'
+    a: 'Zero.'
+  - q: 'What usually causes an infinite loop?'
+    a: 'Forgetting to update the variable in the condition.'
+sources:
+  - title: CSAwesome, "Iteration"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A `while` loop repeats as long as a condition holds. It is the natural choice when you do not know in advance how many passes you need.
+
+## Structure
+
+```java
+int n = 1;               // initialize
+while (n < 100) {        // test
+    n *= 2;              // update
+}
+System.out.println(n);   // 128
+```
+
+Every while loop needs three things: an initialized variable, a condition that tests it, and an update inside the body that eventually makes the condition false.
+
+## Tracing
+
+| pass | n before | condition | n after |
+| --- | --- | --- | --- |
+| 1 | 1 | true | 2 |
+| 2 | 2 | true | 4 |
+| ... | ... | ... | ... |
+| 7 | 64 | true | 128 |
+| | 128 | false | |
+
+## Digit processing
+
+A classic while-loop pattern extracts digits:
+
+```java
+int num = 4729, sum = 0;
+while (num > 0) {
+    sum += num % 10;   // last digit
+    num /= 10;         // drop the last digit
+}
+// sum is 22
+```
+
+<Note title="Zero passes is possible">
+Because the condition is checked first, a while loop may not run at all. If its first test is false, the body is skipped.
+</Note>
+
+<WorkedExample title="Counting passes">
+How many times does the body run, and what is printed?
+
+```java
+int k = 50, count = 0;
+while (k >= 5) {
+    k -= 7;
+    count++;
+}
+System.out.println(count + " " + k);
+```
+
+1. k goes 50, 43, 36, 29, 22, 15, 8, 1.
+2. The body runs for 50, 43, 36, 29, 22, 15 and 8: seven passes.
+
+**Answer:** `7 1`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int x = 30;
+int count = 0;
+while (x > 3) {
+    x -= 7;
+    count++;
+}
+System.out.println(count + " " + x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `4 2`
+
+**Why:** The loop runs 4 times and stops when x is 2.
+
+**Working:** x goes 30, 23, … and the loop ends at x = 2 after 4 passes.
+
+**Mistakes to avoid**
+
+- `3 9`: The loop runs once more: the condition is still true at that point.
+- `4 9`: x is decreased inside the loop on the last iteration too.
+- `5 -5`: The loop stops as soon as x is no longer greater than the limit.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int n = 6218;
+int result = 0;
+while (n > 0) {
+    result += n % 10;
+    n /= 10;
+}
+System.out.println(result);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `17`
+
+**Why:** Each pass adds the last digit, then removes it.
+
+**Working:** The digits of 6218 add to 17.
+
+**Mistakes to avoid**
+
+- `11`: The loop also runs when n is a single digit.
+- `4`: result adds the digits, not 1 per pass.
+- `9`: The last digit is added on the first pass.
+
+### Free-response practice: Digit sums
+
+The class `NumberTools` contains static methods for working with the digits of positive integers.
+
+```java
+public class NumberTools {
+    /** Returns the sum of the digits of n. Precondition: n > 0 */
+    public static int digitSum(int n) { /* part (a) */ }
+    /** Returns how many integers from lo to hi, inclusive, have a digit sum divisible by k.
+        Precondition: 0 < lo <= hi, k > 0 */
+    public static int countDivisible(int lo, int hi, int k) { /* part (b) */ }
+}
+```
+
+For example, `digitSum(2407)` returns 13, and `countDivisible(43, 77, 4)` returns 8.
+
+**(a)** Write the method `digitSum`. You may not convert n to a String.
+
+To earn the point: Uses % 10 to get the last digit. Model answer: `sum += n % 10;`
+
+To earn the point: Uses / 10 to remove the last digit. Model answer: `n /= 10;`
+
+To earn the point: Loops until every digit is processed and returns the sum. Model answer:
+
+```java
+public static int digitSum(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+```
+
+**(b)** Write the method `countDivisible`. Assume `digitSum` works as specified, regardless of what you wrote in part (a). You must use `digitSum` appropriately.
+
+To earn the point: Loops over every integer from lo to hi, inclusive. Model answer: `for (int x = lo; x <= hi; x++)`
+
+To earn the point: Calls digitSum on each value. Model answer: `digitSum(x)`
+
+To earn the point: Tests divisibility with % and counts matches. Model answer: `if (digitSum(x) % k == 0) count++;`
+
+To earn the point: Returns the count. Model answer:
+
+```java
+public static int countDivisible(int lo, int hi, int k) {
+    int count = 0;
+    for (int x = lo; x <= hi; x++) {
+        if (digitSum(x) % k == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+```

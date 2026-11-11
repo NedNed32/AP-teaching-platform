@@ -1,0 +1,106 @@
+---
+objectives:
+  - Find points on an implicitly defined curve with horizontal or vertical tangent lines.
+  - Analyze concavity and extrema of implicit relations.
+keyTerms:
+  - term: Horizontal tangent
+    definition: 'Where $$\frac{dy}{dx} = 0$$: the numerator of $$\frac{dy}{dx}$$ is 0 and the denominator is not.'
+  - term: Vertical tangent
+    definition: 'Where the denominator of $$\frac{dy}{dx}$$ is 0 and the numerator is not.'
+checks:
+  - q: 'For $$x^2 + y^2 = 9$$, where are the tangents vertical?'
+    a: '$$\frac{dy}{dx} = -\frac{x}{y}$$; the denominator is 0 when $$y = 0$$, at $$(\pm 3, 0)$$.'
+  - q: 'Why must points also satisfy the original equation?'
+    a: 'The tangent must be at a point on the curve; the derivative condition alone gives a line, not points of the curve.'
+sources:
+  - title: Calculus Volume 1, section 3.8 "Implicit Differentiation"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Implicit curves such as circles, ellipses and more exotic shapes can have horizontal and vertical tangents, highest and lowest points, and changes in concavity. The tools are the same as for ordinary functions, plus one extra step: solve together with the curve's equation.
+
+## Horizontal and vertical tangents
+
+Write $$\frac{dy}{dx} = \frac{N}{D}$$.
+
+| Tangent | Condition |
+| --- | --- |
+| Horizontal | $$N = 0$$ and $$D \neq 0$$ |
+| Vertical | $$D = 0$$ and $$N \neq 0$$ |
+
+Each condition gives an equation relating $$x$$ and $$y$$. **Solve it together with the original equation** to get the actual points.
+
+## Highest and lowest points
+
+A highest or lowest point of an implicit curve has a horizontal tangent. Use the Second Derivative Test with $$\frac{d^2y}{dx^2}$$ at that point to decide which.
+
+<Note title="Both zero is a special case">
+If both $$N$$ and $$D$$ are 0 at a point, the derivative formula gives $$\frac{0}{0}$$ and you cannot conclude anything directly. Such points need a closer look (they are rare on the exam).
+</Note>
+
+<WorkedExample title="Horizontal tangents on a tilted ellipse">
+For $$x^2 - xy + y^2 = 3$$, $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}$$. Find the points with horizontal tangents.
+
+1. Numerator zero: $$y = 2x$$.
+2. Substitute into the curve: $$x^2 - 2x^2 + 4x^2 = 3x^2 = 3$$, so $$x = \pm 1$$.
+3. Points: $$(1, 2)$$ and $$(-1, -2)$$. Check the denominator: $$2(2) - 1 = 3 \neq 0$$ and $$-4 + 1 = -3 \neq 0$$.
+
+**Answer:** horizontal tangents at $$(1, 2)$$ and $$(-1, -2)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the curve $$x^2 - xy + y^2 = 12$$, for which $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}$$. At which points on the curve is the tangent line horizontal?
+
+**A.** $$(2, 4) \text{ and } (-2, -4)$$. Horizontal tangents need $$y - 2x = 0$$. Substituting $$y = 2x$$ gives $$3x^2 = 12$$. $$\frac{dy}{dx} = 0$$ when $$y = 2x$$ (and $$2y - x \neq 0$$). Then $$x^2 - 2x^2 + 4x^2 = 3x^2 = 12$$, so $$x = \pm 2$$, giving $$(2, 4)$$ and $$(-2, -4)$$.
+
+**Q.** Consider the curve $$x^2 - xy + y^2 = 48$$, for which $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}$$. At which points on the curve is the tangent line horizontal?
+
+**A.** $$(4, 8) \text{ and } (-4, -8)$$. Horizontal tangents need $$y - 2x = 0$$. Substituting $$y = 2x$$ gives $$3x^2 = 48$$. $$\frac{dy}{dx} = 0$$ when $$y = 2x$$ (and $$2y - x \neq 0$$). Then $$x^2 - 2x^2 + 4x^2 = 3x^2 = 48$$, so $$x = \pm 4$$, giving $$(4, 8)$$ and $$(-4, -8)$$.
+
+**Q.** Consider the curve $$x^2 - xy + y^2 = 3$$, for which $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}$$. At which points on the curve is the tangent line horizontal?
+
+**A.** $$(1, 2) \text{ and } (-1, -2)$$. Horizontal tangents need $$y - 2x = 0$$. Substituting $$y = 2x$$ gives $$3x^2 = 3$$. $$\frac{dy}{dx} = 0$$ when $$y = 2x$$ (and $$2y - x \neq 0$$). Then $$x^2 - 2x^2 + 4x^2 = 3x^2 = 3$$, so $$x = \pm 1$$, giving $$(1, 2)$$ and $$(-1, -2)$$.
+
+**Q.** Consider the curve $$x^2 - xy + y^2 = 27$$, for which $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}$$. At which points on the curve is the tangent line horizontal?
+
+**A.** $$(3, 6) \text{ and } (-3, -6)$$. Horizontal tangents need $$y - 2x = 0$$. Substituting $$y = 2x$$ gives $$3x^2 = 27$$. $$\frac{dy}{dx} = 0$$ when $$y = 2x$$ (and $$2y - x \neq 0$$). Then $$x^2 - 2x^2 + 4x^2 = 3x^2 = 27$$, so $$x = \pm 3$$, giving $$(3, 6)$$ and $$(-3, -6)$$.
+
+### Free-response practice: An implicitly defined curve
+
+Consider the curve given by $$x^2 + xy + y^2 = 48$$.
+
+**(a)** Show that $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$.
+
+To earn the point: Differentiates implicitly, using the product rule on the $$xy$$ term. Model answer: $$2x + \left(y + x\frac{dy}{dx}\right) + 2y\frac{dy}{dx} = 0$$
+
+To earn the point: Solves for $$\frac{dy}{dx}$$ to reach the given expression. Model answer: $$\frac{dy}{dx}(x + 2y) = -(2x + y)$$
+
+**(b)** Write an equation for the line tangent to the curve at the point $$(4, 4)$$.
+
+To earn the point: Finds the slope and writes the line. Model answer: $$\frac{dy}{dx} = -1$$, so $$y - 4 = -1(x - 4)$$
+
+**(c)** Find the coordinates of every point on the curve at which the tangent line is horizontal.
+
+To earn the point: Sets the numerator equal to zero. Model answer: $$2x + y = 0$$, so $$y = -2x$$
+
+To earn the point: Substitutes into the curve and solves. Model answer: $$3x^2 = 48$$, so $$x = \pm 4$$
+
+To earn the point: Gives both points. Model answer: $$(4, -8)$$ and $$(-4, 8)$$
+
+**(d)** Find $$\frac{d^2y}{dx^2}$$ at the point $$(4, 4)$$.
+
+To earn the point: Differentiates $$\frac{dy}{dx}$$ with the quotient rule, treating $$y$$ as a function of $$x$$. Model answer: $$\frac{d^2y}{dx^2} = -\frac{(2 + y')(x + 2y) - (2x + y)(1 + 2y')}{(x + 2y)^2}$$
+
+To earn the point: Gives the correct value. Model answer: $$-\frac{1}{6}$$

@@ -1,0 +1,351 @@
+---
+objectives:
+  - Write differential equations that model verbal descriptions of rates.
+  - Interpret a differential equation in context.
+keyTerms:
+  - term: Differential equation
+    definition: 'An equation involving a function and one or more of its derivatives, such as $$\frac{dy}{dt} = ky$$.'
+  - term: Proportional
+    definition: '"$$A$$ is proportional to $$B$$" means $$A = kB$$ for some constant $$k$$.'
+checks:
+  - q: 'The rate of change of $$P$$ is proportional to the square root of $$P$$. Write the equation.'
+    a: '$$\frac{dP}{dt} = k\sqrt{P}$$.'
+  - q: 'A drink cools at a rate proportional to the difference between its temperature $$T$$ and room temperature 20. Write the equation.'
+    a: '$$\frac{dT}{dt} = k(T - 20)$$, with $$k < 0$$.'
+sources:
+  - title: Calculus Volume 2, section 4.1 "Basics of Differential Equations"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Many laws of nature describe how fast something changes rather than what it is: populations grow in proportion to their size, hot coffee cools faster when it is much hotter than the room. Such statements are **differential equations**.
+
+## Translating words into equations
+
+| Statement | Differential equation |
+| --- | --- |
+| rate of change of $$y$$ is proportional to $$y$$ | $$\frac{dy}{dt} = ky$$ |
+| rate is proportional to the square of $$y$$ | $$\frac{dy}{dt} = ky^2$$ |
+| rate is inversely proportional to $$y$$ | $$\frac{dy}{dt} = \frac{k}{y}$$ |
+| rate is proportional to the difference between $$y$$ and 50 | $$\frac{dy}{dt} = k(y - 50)$$ |
+
+## Reading a differential equation
+
+A differential equation gives the slope of the solution at every point. Without solving it you can still answer:
+
+- **Is $$y$$ increasing?** Check the sign of $$\frac{dy}{dt}$$ at the point.
+- **Is the solution concave up?** Differentiate the equation implicitly to get $$\frac{d^2y}{dt^2}$$, then check its sign.
+- **Where is $$y$$ constant?** Where $$\frac{dy}{dt} = 0$$ for all $$t$$ (equilibrium solutions).
+
+<Note title="Second derivatives from the equation">
+For $$\frac{dy}{dx} = x + y$$, differentiate both sides: $$\frac{d^2y}{dx^2} = 1 + \frac{dy}{dx} = 1 + x + y$$. Remember that $$y$$ depends on $$x$$, so its derivative is $$\frac{dy}{dx}$$, not 0.
+</Note>
+
+<WorkedExample title="Increasing and concavity at a point">
+A solution of $$\frac{dy}{dx} = xy - 2$$ passes through $$(1, 3)$$. Is it increasing there, and is it concave up?
+
+1. $$\frac{dy}{dx} = 1 \cdot 3 - 2 = 1 > 0$$: increasing.
+2. $$\frac{d^2y}{dx^2} = y + x\frac{dy}{dx} = 3 + 1 \cdot 1 = 4 > 0$$: concave up.
+
+**Answer:** increasing and concave up at $$(1, 3)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 5y$$?
+
+**A.** $$y = 7e^{5x}$$. $$y' = 35e^{5x} = 5y$$. Substitute each candidate into $$y' = 5y$$. Only a constant multiple of $$e^{5x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 2y$$?
+
+**A.** $$y = 7e^{2x}$$. $$y' = 14e^{2x} = 2y$$. Substitute each candidate into $$y' = 2y$$. Only a constant multiple of $$e^{2x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 4y = 0$$?
+
+**A.** $$y = \sin(2x)$$. $$y'' = -4\sin(2x)$$, so $$y'' + 4y = 0$$. Substitute each candidate. For $$y = \sin(2x)$$: $$y' = 2\cos(2x)$$, $$y'' = -4\sin(2x) = -4y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 25y = 0$$?
+
+**A.** $$y = \sin(5x)$$. $$y'' = -25\sin(5x)$$, so $$y'' + 25y = 0$$. Substitute each candidate. For $$y = \sin(5x)$$: $$y' = 5\cos(5x)$$, $$y'' = -25\sin(5x) = -25y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 16y = 0$$?
+
+**A.** $$y = \sin(4x)$$. $$y'' = -16\sin(4x)$$, so $$y'' + 16y = 0$$. Substitute each candidate. For $$y = \sin(4x)$$: $$y' = 4\cos(4x)$$, $$y'' = -16\sin(4x) = -16y$$.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 3y$$?
+
+**A.** $$y = 7e^{3x}$$. $$y' = 21e^{3x} = 3y$$. Substitute each candidate into $$y' = 3y$$. Only a constant multiple of $$e^{3x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$\frac{dy}{dx} = 4y$$?
+
+**A.** $$y = 7e^{4x}$$. $$y' = 28e^{4x} = 4y$$. Substitute each candidate into $$y' = 4y$$. Only a constant multiple of $$e^{4x}$$ works.
+
+**Q.** Which of the following functions is a solution to the differential equation $$y'' + 9y = 0$$?
+
+**A.** $$y = \sin(3x)$$. $$y'' = -9\sin(3x)$$, so $$y'' + 9y = 0$$. Substitute each candidate. For $$y = \sin(3x)$$: $$y' = 3\cos(3x)$$, $$y'' = -9\sin(3x) = -9y$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -2)$$: $$-2 - 3 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, -3)$$: $$2 - 4 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = -2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, 3)$$: $$2 - (-2) = 4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-13$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 2)$$: $$-6 - 7 = -13$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-10$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -2)$$: $$-4 - 6 = -10$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -1)$$: $$-2 - 2 = -4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 8$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 1)$$: $$6 - 8 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 9$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 0)$$: $$6 - 9 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, 1)$$: $$4 - 3 = 1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 3)$$: $$-4 - 1 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-8$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 0)$$: $$-4 - 4 = -8$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, 3)$$: $$4 - 1 = 3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 2)$$: $$6 - 7 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 2)$$: $$-4 - 2 = -6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 10$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -1)$$: $$6 - 10 = -4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-14$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 8$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 1)$$: $$-6 - 8 = -14$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-16$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 10$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -1)$$: $$-6 - 10 = -16$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-12$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 3)$$: $$-6 - 6 = -12$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-17$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 11$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -2)$$: $$-6 - 11 = -17$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-9$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 5$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -1)$$: $$-4 - 5 = -9$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, -2)$$: $$2 - 3 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 12$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -3)$$: $$6 - 12 = -6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-18$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 12$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -3)$$: $$-6 - 12 = -18$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 5$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -1)$$: $$4 - 5 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -3)$$: $$-2 - 4 = -6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = -1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, 2)$$: $$2 - (-1) = 3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -2)$$: $$4 - 6 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-11$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -3)$$: $$-4 - 7 = -11$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, 0)$$: $$-2 - 1 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 11$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -2)$$: $$6 - 11 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-7$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 1)$$: $$-4 - 3 = -7$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -3)$$: $$4 - 7 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-15$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 9$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 0)$$: $$-6 - 9 = -15$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = -3$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$-3.4$$. Slope $$= -1 + (-3) = -4$$; $$f(-0.9) \approx -3 + (-4)(0.1)$$. At $$(-1, -3)$$, $$\frac{dy}{dx} = -4$$. The tangent line gives $$f(-0.9) \approx -3 + (-4)(0.1) = -3.4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = -1$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$-1.2$$. Slope $$= -1 + (-1) = -2$$; $$f(-0.9) \approx -1 + (-2)(0.1)$$. At $$(-1, -1)$$, $$\frac{dy}{dx} = -2$$. The tangent line gives $$f(-0.9) \approx -1 + (-2)(0.1) = -1.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = -2$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$-2.2$$. Slope $$= 0 + (-2) = -2$$; $$f(0.1) \approx -2 + (-2)(0.1)$$. At $$(0, -2)$$, $$\frac{dy}{dx} = -2$$. The tangent line gives $$f(0.1) \approx -2 + (-2)(0.1) = -2.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = 3$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$3.5$$. Slope $$= 2 + (3) = 5$$; $$f(2.1) \approx 3 + 5(0.1)$$. At $$(2, 3)$$, $$\frac{dy}{dx} = 5$$. The tangent line gives $$f(2.1) \approx 3 + 5(0.1) = 3.5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = 4$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$4.5$$. Slope $$= 1 + (4) = 5$$; $$f(1.1) \approx 4 + 5(0.1)$$. At $$(1, 4)$$, $$\frac{dy}{dx} = 5$$. The tangent line gives $$f(1.1) \approx 4 + 5(0.1) = 4.5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = -1$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$-1.1$$. Slope $$= 0 + (-1) = -1$$; $$f(0.1) \approx -1 + (-1)(0.1)$$. At $$(0, -1)$$, $$\frac{dy}{dx} = -1$$. The tangent line gives $$f(0.1) \approx -1 + (-1)(0.1) = -1.1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = 2$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$2.2$$. Slope $$= 0 + (2) = 2$$; $$f(0.1) \approx 2 + 2(0.1)$$. At $$(0, 2)$$, $$\frac{dy}{dx} = 2$$. The tangent line gives $$f(0.1) \approx 2 + 2(0.1) = 2.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = -2$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$-2.4$$. Slope $$= -2 + (-2) = -4$$; $$f(-1.9) \approx -2 + (-4)(0.1)$$. At $$(-2, -2)$$, $$\frac{dy}{dx} = -4$$. The tangent line gives $$f(-1.9) \approx -2 + (-4)(0.1) = -2.4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = 3$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$3.1$$. Slope $$= -2 + (3) = 1$$; $$f(-1.9) \approx 3 + 1(0.1)$$. At $$(-2, 3)$$, $$\frac{dy}{dx} = 1$$. The tangent line gives $$f(-1.9) \approx 3 + 1(0.1) = 3.1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = -2$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$-2.3$$. Slope $$= -1 + (-2) = -3$$; $$f(-0.9) \approx -2 + (-3)(0.1)$$. At $$(-1, -2)$$, $$\frac{dy}{dx} = -3$$. The tangent line gives $$f(-0.9) \approx -2 + (-3)(0.1) = -2.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = 4$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$4.6$$. Slope $$= 2 + (4) = 6$$; $$f(2.1) \approx 4 + 6(0.1)$$. At $$(2, 4)$$, $$\frac{dy}{dx} = 6$$. The tangent line gives $$f(2.1) \approx 4 + 6(0.1) = 4.6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = -3$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$-3.5$$. Slope $$= -2 + (-3) = -5$$; $$f(-1.9) \approx -3 + (-5)(0.1)$$. At $$(-2, -3)$$, $$\frac{dy}{dx} = -5$$. The tangent line gives $$f(-1.9) \approx -3 + (-5)(0.1) = -3.5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = 3$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$3.3$$. Slope $$= 0 + (3) = 3$$; $$f(0.1) \approx 3 + 3(0.1)$$. At $$(0, 3)$$, $$\frac{dy}{dx} = 3$$. The tangent line gives $$f(0.1) \approx 3 + 3(0.1) = 3.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = 3$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$3.2$$. Slope $$= -1 + (3) = 2$$; $$f(-0.9) \approx 3 + 2(0.1)$$. At $$(-1, 3)$$, $$\frac{dy}{dx} = 2$$. The tangent line gives $$f(-0.9) \approx 3 + 2(0.1) = 3.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = -1$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$-0.9$$. Slope $$= 2 + (-1) = 1$$; $$f(2.1) \approx -1 + 1(0.1)$$. At $$(2, -1)$$, $$\frac{dy}{dx} = 1$$. The tangent line gives $$f(2.1) \approx -1 + 1(0.1) = -0.9$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = 4$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$4.3$$. Slope $$= -1 + (4) = 3$$; $$f(-0.9) \approx 4 + 3(0.1)$$. At $$(-1, 4)$$, $$\frac{dy}{dx} = 3$$. The tangent line gives $$f(-0.9) \approx 4 + 3(0.1) = 4.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = 1$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$1.3$$. Slope $$= 2 + (1) = 3$$; $$f(2.1) \approx 1 + 3(0.1)$$. At $$(2, 1)$$, $$\frac{dy}{dx} = 3$$. The tangent line gives $$f(2.1) \approx 1 + 3(0.1) = 1.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = 4$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$4.4$$. Slope $$= 0 + (4) = 4$$; $$f(0.1) \approx 4 + 4(0.1)$$. At $$(0, 4)$$, $$\frac{dy}{dx} = 4$$. The tangent line gives $$f(0.1) \approx 4 + 4(0.1) = 4.4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = 2$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$2.3$$. Slope $$= 1 + (2) = 3$$; $$f(1.1) \approx 2 + 3(0.1)$$. At $$(1, 2)$$, $$\frac{dy}{dx} = 3$$. The tangent line gives $$f(1.1) \approx 2 + 3(0.1) = 2.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = 1$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$1.1$$. Slope $$= 0 + (1) = 1$$; $$f(0.1) \approx 1 + 1(0.1)$$. At $$(0, 1)$$, $$\frac{dy}{dx} = 1$$. The tangent line gives $$f(0.1) \approx 1 + 1(0.1) = 1.1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = 3$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$3.4$$. Slope $$= 1 + (3) = 4$$; $$f(1.1) \approx 3 + 4(0.1)$$. At $$(1, 3)$$, $$\frac{dy}{dx} = 4$$. The tangent line gives $$f(1.1) \approx 3 + 4(0.1) = 3.4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = 1$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$1.2$$. Slope $$= 1 + (1) = 2$$; $$f(1.1) \approx 1 + 2(0.1)$$. At $$(1, 1)$$, $$\frac{dy}{dx} = 2$$. The tangent line gives $$f(1.1) \approx 1 + 2(0.1) = 1.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = 2$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$2.4$$. Slope $$= 2 + (2) = 4$$; $$f(2.1) \approx 2 + 4(0.1)$$. At $$(2, 2)$$, $$\frac{dy}{dx} = 4$$. The tangent line gives $$f(2.1) \approx 2 + 4(0.1) = 2.4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = -3$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$-3.2$$. Slope $$= 1 + (-3) = -2$$; $$f(1.1) \approx -3 + (-2)(0.1)$$. At $$(1, -3)$$, $$\frac{dy}{dx} = -2$$. The tangent line gives $$f(1.1) \approx -3 + (-2)(0.1) = -3.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = 1$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$0.9$$. Slope $$= -2 + (1) = -1$$; $$f(-1.9) \approx 1 + (-1)(0.1)$$. At $$(-2, 1)$$, $$\frac{dy}{dx} = -1$$. The tangent line gives $$f(-1.9) \approx 1 + (-1)(0.1) = 0.9$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(0) = -3$$. Using the tangent line at $$x = 0$$, what is the approximation of $$f(0.1)$$?
+
+**A.** $$-3.3$$. Slope $$= 0 + (-3) = -3$$; $$f(0.1) \approx -3 + (-3)(0.1)$$. At $$(0, -3)$$, $$\frac{dy}{dx} = -3$$. The tangent line gives $$f(0.1) \approx -3 + (-3)(0.1) = -3.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = 4$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$4.2$$. Slope $$= -2 + (4) = 2$$; $$f(-1.9) \approx 4 + 2(0.1)$$. At $$(-2, 4)$$, $$\frac{dy}{dx} = 2$$. The tangent line gives $$f(-1.9) \approx 4 + 2(0.1) = 4.2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(1) = -2$$. Using the tangent line at $$x = 1$$, what is the approximation of $$f(1.1)$$?
+
+**A.** $$-2.1$$. Slope $$= 1 + (-2) = -1$$; $$f(1.1) \approx -2 + (-1)(0.1)$$. At $$(1, -2)$$, $$\frac{dy}{dx} = -1$$. The tangent line gives $$f(1.1) \approx -2 + (-1)(0.1) = -2.1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-2) = -1$$. Using the tangent line at $$x = -2$$, what is the approximation of $$f(-1.9)$$?
+
+**A.** $$-1.3$$. Slope $$= -2 + (-1) = -3$$; $$f(-1.9) \approx -1 + (-3)(0.1)$$. At $$(-2, -1)$$, $$\frac{dy}{dx} = -3$$. The tangent line gives $$f(-1.9) \approx -1 + (-3)(0.1) = -1.3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(2) = -3$$. Using the tangent line at $$x = 2$$, what is the approximation of $$f(2.1)$$?
+
+**A.** $$-3.1$$. Slope $$= 2 + (-3) = -1$$; $$f(2.1) \approx -3 + (-1)(0.1)$$. At $$(2, -3)$$, $$\frac{dy}{dx} = -1$$. The tangent line gives $$f(2.1) \approx -3 + (-1)(0.1) = -3.1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x + y$$ with $$f(-1) = 2$$. Using the tangent line at $$x = -1$$, what is the approximation of $$f(-0.9)$$?
+
+**A.** $$2.1$$. Slope $$= -1 + (2) = 1$$; $$f(-0.9) \approx 2 + 1(0.1)$$. At $$(-1, 2)$$, $$\frac{dy}{dx} = 1$$. The tangent line gives $$f(-0.9) \approx 2 + 1(0.1) = 2.1$$.

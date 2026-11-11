@@ -1,0 +1,109 @@
+---
+objectives:
+  - Read data from a text file with Scanner and File.
+  - Process each line or value until the end of the file.
+keyTerms:
+  - term: File input
+    definition: 'Reading data from a file using `new Scanner(new File("name.txt"))`.'
+  - term: hasNext / hasNextLine
+    definition: 'Scanner methods that report whether more input remains.'
+checks:
+  - q: 'Which Scanner method checks whether another line remains?'
+    a: 'hasNextLine().'
+  - q: 'Why must file-reading code handle or declare an exception?'
+    a: 'Opening a file can throw a FileNotFoundException if the file does not exist.'
+sources:
+  - title: Java API, class Scanner
+    publisher: Oracle
+    url: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Real data sets usually live in files. A `Scanner` can read from a file the same way it reads from the keyboard.
+
+## Reading a file
+
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public static double average(String filename) throws FileNotFoundException {
+    Scanner in = new Scanner(new File(filename));
+    double sum = 0;
+    int count = 0;
+    while (in.hasNextDouble()) {
+        sum += in.nextDouble();
+        count++;
+    }
+    in.close();
+    return sum / count;
+}
+```
+
+## Line by line
+
+```java
+while (in.hasNextLine()) {
+    String line = in.nextLine();
+    String[] parts = line.split(",");
+    // parts[0], parts[1], ...
+}
+```
+
+`split(",")` breaks a line of comma-separated values into an array of Strings; convert numbers with `Integer.parseInt` or `Double.parseDouble`.
+
+<Note title="Loop until the data runs out">
+You usually do not know how many values a file contains, so a `while` loop testing `hasNext...()` is the natural structure.
+</Note>
+
+<WorkedExample title="Counting lines that match">
+A file has one word per line. Write a loop that counts words longer than five letters.
+
+```java
+int count = 0;
+while (in.hasNextLine()) {
+    String word = in.nextLine();
+    if (word.length() > 5) count++;
+}
+```
+
+**Answer:** loop with `hasNextLine`, read with `nextLine`, and count with a condition.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A text file contains the following tokens, separated by spaces.
+
+```java
+15 12 x 10 5 3
+```
+
+What is printed by this code segment, where `in` is a `Scanner` reading the file?
+
+```java
+int sum = 0;
+while (in.hasNextInt()) {
+    sum += in.nextInt();
+}
+System.out.println(sum);
+```
+
+**Answer:** `27`
+
+**Why:** hasNextInt() is false at "x", so the loop stops there.
+
+**Working:** The loop adds 15 + 12 = 27, then hasNextInt() returns false at "x".
+
+**Mistakes to avoid**
+
+- `45`: The loop stops at the first token that is not an int.
+- `2`: sum adds the values, not one per value.
+- `15`: The last int before the word is also read.

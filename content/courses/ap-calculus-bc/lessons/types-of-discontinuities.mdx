@@ -1,0 +1,78 @@
+---
+objectives:
+  - Classify discontinuities as removable, jump or infinite.
+  - Identify each type from a graph or formula.
+keyTerms:
+  - term: Removable discontinuity
+    definition: 'The limit exists, but the function is undefined there or its value differs from the limit (a hole).'
+  - term: Jump discontinuity
+    definition: 'Both one-sided limits exist but are different.'
+  - term: Infinite discontinuity
+    definition: 'At least one one-sided limit is infinite; the graph has a vertical asymptote.'
+checks:
+  - q: 'What type of discontinuity does $$\frac{x^2 - 1}{x - 1}$$ have at $$x = 1$$?'
+    a: 'Removable: it simplifies to $$x + 1$$, so the limit is 2, but the function is undefined at 1.'
+  - q: 'What type does $$\frac{1}{x - 4}$$ have at $$x = 4$$?'
+    a: 'Infinite: the outputs grow without bound near 4.'
+sources:
+  - title: Calculus Volume 1, section 2.4 "Continuity"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+A function is **discontinuous** at a point when you cannot draw its graph through that point without lifting your pencil. There are three ways this can happen, and each one has a different limit behavior.
+
+<Figure src="assets/lessons/discontinuity-types.svg" alt="Three pieces of one graph: on the left, a line with a hole at x = -3 and a separate dot above it; in the middle, a horizontal segment that jumps at x = -1; on the right, a curve with a vertical asymptote at x = 3." caption="Removable at x = −3, jump at x = −1, infinite at x = 3." />
+
+## The three types
+
+| Type | One-sided limits | Picture |
+| --- | --- | --- |
+| **Removable** | Both exist and are equal | A hole, possibly with a dot elsewhere |
+| **Jump** | Both exist but differ | The graph jumps to a new height |
+| **Infinite** | At least one is $$\pm\infty$$ | A vertical asymptote |
+
+A fourth, rarer kind is an **oscillating** discontinuity, like $$\sin\left(\frac{1}{x}\right)$$ at 0, where the values never settle.
+
+## Recognizing them from formulas
+
+- **Rational functions:** factor. A factor that cancels from the denominator gives a **removable** discontinuity; a factor that remains gives an **infinite** one.
+- **Piecewise functions:** compare the left and right pieces at the break. Different limits give a **jump**.
+
+<Note title="Why the name removable">
+A removable discontinuity can be fixed by redefining the function at a single point to equal the limit. A jump or infinite discontinuity cannot be repaired that way (topic 1.13).
+</Note>
+
+<WorkedExample title="Classifying from a formula">
+Classify the discontinuities of $$f(x) = \frac{x^2 - 9}{x^2 - x - 6}$$.
+
+1. Factor: $$\frac{(x - 3)(x + 3)}{(x - 3)(x + 2)}$$.
+2. At $$x = 3$$ the factor cancels; the simplified form $$\frac{x + 3}{x + 2}$$ gives the limit $$\frac{6}{5}$$. **Removable.**
+3. At $$x = -2$$ the denominator is 0 but the numerator is $$1$$. **Infinite** (vertical asymptote).
+
+**Answer:** removable at $$x = 3$$, infinite at $$x = -2$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = \frac{x^{2} - 7x + 12}{x^{2} - 2x - 8}$$. Which of the following lists every vertical asymptote of the graph of $$f$$?
+
+**Answer:** $$x = -2$$
+
+**Why:** The factor $$x - 4$$ cancels, leaving a hole at $$x = 4$$. Only $$x = -2$$ makes the simplified denominator zero.
+
+**Working:** Factor: $$f(x) = \frac{(x - 4)(x - 3)}{(x - 4)(x + 2)}$$. The common factor gives a hole at $$x = 4$$; near $$x = -2$$ the denominator approaches 0 while the numerator does not, so $$x = -2$$ is the only vertical asymptote.
+
+**Mistakes to avoid**
+
+- $$x = 4 \text{ and } x = -2$$: At $$x = 4$$ the numerator is also zero; the common factor cancels, giving a removable discontinuity (a hole), not an asymptote.
+- $$x = 4$$: $$x = 4$$ is a hole, because its factor cancels.
+- $$x = 3$$: $$x = 3$$ is a zero of the numerator, so it is an x-intercept, not an asymptote.

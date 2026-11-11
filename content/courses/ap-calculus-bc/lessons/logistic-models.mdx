@@ -1,0 +1,94 @@
+---
+objectives:
+  - Interpret the logistic differential equation and its carrying capacity.
+  - Find the limiting value and the point of fastest growth without solving.
+keyTerms:
+  - term: Logistic equation
+    definition: '$$\frac{dP}{dt} = kP\left(1 - \frac{P}{L}\right)$$, growth that slows as $$P$$ approaches the carrying capacity $$L$$.'
+  - term: Carrying capacity
+    definition: 'The limiting value $$L$$ that the population approaches as $$t \to \infty$$ (for $$P(0) > 0$$).'
+checks:
+  - q: 'For $$\frac{dP}{dt} = 0.3P(1 - \frac{P}{800})$$, what is $$\lim_{t \to \infty} P(t)$$ if $$P(0) = 50$$?'
+    a: '800.'
+  - q: 'At what population is that growth fastest?'
+    a: '$$\frac{L}{2} = 400$$.'
+sources:
+  - title: Calculus Volume 2, section 4.4 "The Logistic Equation"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Exponential growth cannot last forever: food, space or resources eventually run short. The logistic model builds in a ceiling, the **carrying capacity**, and growth slows as the population approaches it.
+
+## The equation
+
+$$
+\frac{dP}{dt} = kP\left(1 - \frac{P}{L}\right) \qquad\text{or equivalently}\qquad \frac{dP}{dt} = \frac{k}{L}P(L - P).
+$$
+
+- When $$P$$ is small, $$1 - \frac{P}{L} \approx 1$$ and growth is nearly exponential.
+- When $$P$$ is near $$L$$, the factor is near 0 and growth stalls.
+
+## What you can read without solving
+
+| Question | Answer |
+| --- | --- |
+| Limiting value as $$t \to \infty$$ | $$L$$ (if $$P(0) > 0$$) |
+| Population when growing fastest | $$\frac{L}{2}$$ (the inflection point) |
+| Equilibrium solutions | $$P = 0$$ and $$P = L$$ |
+| If $$P(0) > L$$ | $$P$$ decreases toward $$L$$ |
+
+The fastest growth is at $$\frac{L}{2}$$ because $$\frac{dP}{dt}$$ is a downward parabola in $$P$$ with its peak halfway between its zeros.
+
+<Note title="Rewrite into standard form">
+An equation like $$\frac{dy}{dt} = 0.002y(500 - y)$$ is logistic with $$L = 500$$. Factor to find $$L$$ before answering.
+</Note>
+
+<WorkedExample title="Reading a logistic model">
+A rumor spreads according to $$\frac{dR}{dt} = 0.004R(1000 - R)$$, with $$R(0) = 20$$. Find $$\lim_{t \to \infty} R(t)$$ and the value of $$R$$ when the rumor spreads fastest.
+
+1. The factor $$(1000 - R)$$ shows $$L = 1000$$.
+2. Fastest growth at $$\frac{L}{2} = 500$$.
+
+**Answer:** $$R \to 1000$$; the rumor spreads fastest when 500 people have heard it.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A population satisfies $$\frac{dP}{dt} = 0.01P(800 - P)$$ with $$P(0) = 80$$. What is $$\lim_{t \to \infty} P(t)$$?
+
+**Answer:** $$800$$
+
+**Why:** The carrying capacity: the factor $$(800 - P)$$ makes growth stop at $$P = 800$$.
+
+**Working:** Since $$0 < P(0) < 800$$, $$\frac{dP}{dt} > 0$$ and $$P$$ increases toward the equilibrium $$P = 800$$.
+
+**Mistakes to avoid**
+
+- $$400$$: This is where the population grows fastest, not its limit.
+- $$\infty$$: Logistic growth levels off; it does not grow without bound.
+- $$80$$: The population changes from its initial value; it is not constant.
+
+### Worked exam question 2
+
+A population satisfies $$\frac{dP}{dt} = 0.002P(1200 - P)$$ with $$P(0) = 60$$. For what value of $$P$$ is the population growing fastest?
+
+**Answer:** $$600$$
+
+**Why:** Half the carrying capacity, where the parabola $$\frac{dP}{dt}$$ in $$P$$ has its maximum.
+
+**Working:** $$\frac{dP}{dt} = 0.002P(1200 - P)$$ is a downward parabola in $$P$$ with zeros at 0 and 1200, so it is largest at $$P = 600$$.
+
+**Mistakes to avoid**
+
+- $$1200$$: At the carrying capacity the growth rate is 0.
+- $$60$$: The initial population is not where growth is fastest.
+- $$300$$: The maximum of $$P(L - P)$$ is at $$\frac{L}{2}$$.

@@ -1,0 +1,95 @@
+---
+objectives:
+  - 'Choose between chi-square tests for homogeneity and independence, state hypotheses, and compute expected counts.'
+keyTerms:
+  - term: 'Test for homogeneity'
+    definition: 'Compares the distribution of one categorical variable across several populations or treatments.'
+  - term: 'Test for independence'
+    definition: 'Tests for an association between two categorical variables in one population.'
+  - term: 'Expected count'
+    definition: '(row total × column total) / table total.'
+checks:
+  - q: 'What condition do expected counts need to meet?'
+    a: 'All expected counts at least 5.'
+  - q: 'What are the degrees of freedom for a 3 × 4 table?'
+    a: '(3 − 1)(4 − 1) = 6.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+| Test | Data | H₀ |
+| --- | --- | --- |
+| homogeneity | separate samples from several populations | the distribution is the same in every population |
+| independence | one sample, two variables | the two variables are independent (no association) |
+
+$$\text{expected} = \frac{\text{row total} \times \text{column total}}{\text{table total}}$$
+
+**Conditions**: random samples or random assignment, 10% condition, all expected counts at least 5.
+
+<Note title="Same calculation">
+Both tests compute the statistic the same way; they differ in how the data were collected and how the hypotheses are worded.
+</Note>
+
+<WorkedExample title="Expected count">
+In a table of 200 people, a row total is 80 and a column total is 50. Find the expected count for that cell.
+
+1. $$80 \times 50 / 200$$.
+
+**Answer:** 20.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+*Observed counts*
+
+| Group | Option A | Option B |
+| --- | --- | --- |
+| Group 1 | 10 | 42 |
+| Group 2 | 24 | 12 |
+
+Assuming the null hypothesis of a chi-square test is true, what is the expected count for Group 1, Option A?
+
+**Answer:** 20.09
+
+**Why:** Expected = (row total × column total) / table total.
+
+**Working:** 52 × 34 / 88 = 20.09.
+
+**Mistakes to avoid**
+
+- 10: That is the observed count.
+- 22: Expected counts depend on the row and column totals.
+- 10.05: Divide by the table total once.
+
+### Worked exam question 2
+
+*Observed counts*
+
+| Group | Option A | Option B | Option C |
+| --- | --- | --- | --- |
+| Group 1 | 52 | 32 | 28 |
+| Group 2 | 35 | 37 | 26 |
+
+For a chi-square test of homogeneity on these counts, what are the test statistic and degrees of freedom?
+
+**Answer:** χ² = 2.84, df = 2, p-value = 0.242
+
+**Why:** χ² = Σ(O − E)²/E with df = (rows − 1)(columns − 1).
+
+**Working:** χ² = 2.84 with df = 2; p-value = 0.242.
+
+**Mistakes to avoid**
+
+- χ² = 2.84, df = 5, p-value = 0.725: For a two-way table, df = (r − 1)(c − 1).
+- χ² = 0.0135, df = 2, p-value = 0.9933: Do not divide by the total.
+- χ² = 1.68, df = 2, p-value = 0.4307: Do not take a square root.

@@ -1,0 +1,76 @@
+---
+objectives:
+  - State the three conditions for continuity at a point.
+  - Justify whether a function is continuous at a point using the definition.
+keyTerms:
+  - term: Continuous at a point
+    definition: '$$f$$ is continuous at $$x = c$$ when $$f(c)$$ is defined, $$\lim_{x \to c} f(x)$$ exists, and the two are equal.'
+checks:
+  - q: 'Is $$f$$ continuous at 2 if $$\lim_{x \to 2} f(x) = 5$$ and $$f(2) = 5$$?'
+    a: 'Yes. All three conditions hold.'
+  - q: 'A function has $$\lim_{x \to 1^-} f(x) = 4$$, $$\lim_{x \to 1^+} f(x) = 4$$ and $$f(1) = 3$$. Which condition fails?'
+    a: 'The third: the limit (4) does not equal the value (3).'
+sources:
+  - title: Calculus Volume 1, section 2.4 "Continuity"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Informally, a continuous function is one whose graph has no breaks. To *justify* continuity on the AP exam you need the precise version, which turns that picture into three checks.
+
+## The definition
+
+A function $$f$$ is **continuous at $$x = c$$** if all three hold:
+
+1. $$f(c)$$ is defined.
+2. $$\lim_{x \to c} f(x)$$ exists (both one-sided limits exist and agree).
+3. $$\lim_{x \to c} f(x) = f(c)$$.
+
+Condition 3 is the heart of it: the value of the function is exactly what the nearby values predict.
+
+## How each type of discontinuity fails
+
+| Discontinuity | Condition that fails |
+| --- | --- |
+| Hole, $$f(c)$$ undefined | 1 |
+| Jump | 2 |
+| Hole with a misplaced dot | 3 |
+| Vertical asymptote | 2 (and often 1) |
+
+<Note title="Writing the justification">
+A full-credit justification computes the left-hand limit, the right-hand limit and the function value, then states that they are all equal (or which ones are not). Saying the graph has no break is not enough.
+</Note>
+
+<WorkedExample title="Checking a piecewise function">
+Let $$f(x) = x^2 + 1$$ for $$x \leq 2$$ and $$f(x) = 3x - 1$$ for $$x > 2$$. Is $$f$$ continuous at $$x = 2$$?
+
+1. $$f(2) = 2^2 + 1 = 5$$, so $$f(2)$$ is defined.
+2. $$\lim_{x \to 2^-} f(x) = 5$$ and $$\lim_{x \to 2^+} f(x) = 3(2) - 1 = 5$$, so the limit exists and equals 5.
+3. $$\lim_{x \to 2} f(x) = 5 = f(2)$$.
+
+**Answer:** yes, $$f$$ is continuous at $$x = 2$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = \begin{cases} kx + 14 & x < 2 \\ x^{2} + 4 & x \geq 2 \end{cases}$$ where $$k$$ is a constant. For what value of $$k$$ is $$f$$ continuous at $$x = 2$$?
+
+**Answer:** $$-3$$
+
+**Why:** Continuity needs $$k(2) + 14 = (2)^2 + 4$$, which gives $$k = -3$$.
+
+**Working:** $$f$$ is continuous at $$2$$ when the left-hand limit equals $$f(2) = 8$$. The left-hand limit is $$2k + 14$$, so $$2k + 14 = 8$$ and $$k = -3$$.
+
+**Mistakes to avoid**
+
+- $$11$$: This comes from a sign error when moving the constant term across the equation.
+- $$4$$: This matches the slopes of the two pieces, which is the condition for differentiability, not continuity.
+- $$-6$$: This forgets to divide by $$2$$ when solving for $$k$$.

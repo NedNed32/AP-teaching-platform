@@ -1,0 +1,74 @@
+---
+objectives:
+  - Explain what an undecidable problem is.
+keyTerms:
+  - term: Decidable problem
+    definition: 'A decision problem for which an algorithm can be written that gives a correct yes or no answer for every input.'
+  - term: Undecidable problem
+    definition: 'A problem for which no algorithm can always give a correct yes or no answer.'
+checks:
+  - q: 'Is "Is this number even?" decidable?'
+    a: 'Yes; checking n MOD 2 always gives the right answer.'
+  - q: 'Name a famous undecidable problem.'
+    a: 'The halting problem: deciding whether any given program will eventually stop.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Some problems cannot be solved by any algorithm, no matter how fast the computer.
+
+## Decidable and undecidable
+
+- **Decidable**: an algorithm always gives the correct yes or no answer. "Is n prime?" is decidable.
+- **Undecidable**: no algorithm can be correct for every input.
+
+## The halting problem
+
+Alan Turing proved that no algorithm can decide, for every program and input, whether the program eventually stops or runs forever. This is the **halting problem**.
+
+<Note title="Some instances can still be solved">
+Undecidable means no single algorithm works for **all** inputs. For many specific programs, you can still tell whether they halt.
+</Note>
+
+<WorkedExample title="Undecidable versus slow">
+How does an undecidable problem differ from one that takes unreasonable time?
+
+1. An unreasonable-time problem has an algorithm; it is just too slow for large inputs.
+2. An undecidable problem has no algorithm that is always correct, however much time is allowed.
+
+**Answer:** undecidable is about impossibility, not speed.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Why might a programmer use a heuristic to plan delivery routes through hundreds of stops?
+
+**A.** Finding the guaranteed best route would take unreasonable time, so a good-enough route found quickly is preferred. Heuristics trade optimality for speed.
+
+**Q.** An algorithm compares every element of a list with every other element. For a list of n elements, its number of steps grows like which expression?
+
+**A.** n squared, which is reasonable time. Polynomial growth is considered reasonable.
+
+**Q.** An algorithm checks every possible subset of n items to find the best combination. How does its run time grow?
+
+**A.** Exponentially, so it does not run in reasonable time. There are 2 to the n subsets.
+
+**Q.** What does it mean for a problem to be undecidable?
+
+**A.** No algorithm can give a correct yes-or-no answer for every input. That is the definition of undecidable.
+
+**Q.** Which of the following is an example of a decision problem?
+
+**A.** Is there a route between two cities that is shorter than 300 miles?. A decision problem has a yes-or-no answer.

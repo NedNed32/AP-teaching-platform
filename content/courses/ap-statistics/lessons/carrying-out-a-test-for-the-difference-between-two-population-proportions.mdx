@@ -1,0 +1,57 @@
+---
+objectives:
+  - 'Carry out a two-sample z test for proportions and conclude in context.'
+keyTerms:
+  - term: 'Two-sample z statistic'
+    definition: 'z = (p̂₁ − p̂₂) / √(p̂c(1 − p̂c)(1/n₁ + 1/n₂)).'
+checks:
+  - q: 'What standard error does the test use?'
+    a: 'The pooled one, √(p̂c(1 − p̂c)(1/n₁ + 1/n₂)).'
+  - q: 'If a randomized experiment rejects H₀, what can be concluded?'
+    a: 'The treatment caused the difference, for units like those in the experiment.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$z = \frac{(\hat p_1 - \hat p_2) - 0}{\sqrt{\hat p_c(1 - \hat p_c)\left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}}$$
+
+Find the p-value from the standard normal distribution in the direction of Hₐ, compare with α, and conclude in context. With random assignment, a significant result supports a **causal** conclusion.
+
+<Note title="Statistical versus practical significance">
+With large samples, tiny differences can be statistically significant but unimportant in practice.
+</Note>
+
+<WorkedExample title="Test">
+Using p̂₁ = 0.30, p̂₂ = 0.20, n₁ = n₂ = 150 (p̂c = 0.25), test Hₐ: p₁ − p₂ > 0.
+
+1. SE = $$\sqrt{0.25(0.75)(2/150)} = 0.05$$.
+2. $$z = 0.10/0.05 = 2.0$$; p-value ≈ 0.023.
+
+**Answer:** reject H₀ at α = 0.05: convincing evidence that p₁ is greater than p₂.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+In a randomized experiment, 80 of 210 subjects improved with treatment 1 and 128 of 250 improved with treatment 2. For a test of H₀: p₁ − p₂ = 0, what is the test statistic?
+
+**Answer:** -2.81
+
+**Why:** Pooled p̂c = 0.4522; z = (p̂₁ − p̂₂)/√(p̂c(1 − p̂c)(1/n₁ + 1/n₂)).
+
+**Working:** p̂₁ = 0.381, p̂₂ = 0.512, SE = 0.0466, z = -2.81.
+
+**Mistakes to avoid**
+
+- -2.84: The test uses the pooled proportion, because H₀ assumes p₁ = p₂.
+- -5.65: Use (1/n₁ + 1/n₂).
+- -0.13: Divide the difference by its standard error.

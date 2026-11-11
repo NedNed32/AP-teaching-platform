@@ -1,0 +1,101 @@
+---
+objectives:
+  - Describe curves defined by parametric equations.
+  - Find $$\frac{dy}{dx}$$ for a parametric curve and tangent lines to it.
+keyTerms:
+  - term: Parametric equations
+    definition: 'A pair $$x = x(t)$$, $$y = y(t)$$ giving the coordinates of a point as functions of a parameter $$t$$.'
+  - term: Parametric slope
+    definition: '$$\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$$, provided $$\frac{dx}{dt} \neq 0$$.'
+checks:
+  - q: 'For $$x = t^2$$, $$y = t^3$$, find $$\frac{dy}{dx}$$ at $$t = 2$$.'
+    a: '$$\frac{3t^2}{2t} = \frac{12}{4} = 3$$.'
+  - q: 'When does a parametric curve have a vertical tangent?'
+    a: 'When $$\frac{dx}{dt} = 0$$ and $$\frac{dy}{dt} \neq 0$$.'
+sources:
+  - title: Calculus Volume 2, sections 7.1 and 7.2
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+A function $$y = f(x)$$ tells you *where* a curve is. Parametric equations also tell you *when*: each value of the parameter $$t$$, often time, gives a point $$(x(t), y(t))$$. They can draw loops and vertical lines that no function can.
+
+## Slope of a parametric curve
+
+By the chain rule, $$\frac{dy}{dt} = \frac{dy}{dx}\cdot\frac{dx}{dt}$$, so
+
+$$
+\frac{dy}{dx} = \frac{dy/dt}{dx/dt}.
+$$
+
+| Condition | Tangent line |
+| --- | --- |
+| $$\frac{dy}{dt} = 0$$, $$\frac{dx}{dt} \neq 0$$ | horizontal |
+| $$\frac{dx}{dt} = 0$$, $$\frac{dy}{dt} \neq 0$$ | vertical |
+
+## Tangent lines
+
+At a parameter value $$t_0$$, the point is $$(x(t_0), y(t_0))$$ and the slope is $$\frac{dy}{dx}$$ at $$t_0$$. Then use point-slope form as usual.
+
+<Note title="Direction of motion">
+The sign of $$\frac{dx}{dt}$$ says whether the point moves right or left; the sign of $$\frac{dy}{dt}$$ says up or down. Arrows on a parametric graph show this orientation.
+</Note>
+
+<WorkedExample title="Tangent line to a parametric curve">
+Find the tangent line to $$x = 2\cos t$$, $$y = 3\sin t$$ at $$t = \frac{\pi}{4}$$.
+
+1. Point: $$\left(\sqrt{2}, \frac{3\sqrt{2}}{2}\right)$$.
+2. $$\frac{dx}{dt} = -2\sin t$$, $$\frac{dy}{dt} = 3\cos t$$, so $$\frac{dy}{dx} = -\frac{3\cos t}{2\sin t} = -\frac{3}{2}$$ at $$t = \frac{\pi}{4}$$.
+
+**Answer:** $$y - \frac{3\sqrt{2}}{2} = -\frac{3}{2}\left(x - \sqrt{2}\right)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A curve is defined by $$x = t^{2} + t$$ and $$y = t^{3} - t$$. What is $$\frac{dy}{dx}$$ at $$t = -2$$?
+
+**Answer:** $$-\frac{11}{3}$$
+
+**Why:** $$\frac{dy/dt}{dx/dt} = \frac{11}{-3}$$.
+
+**Working:** $$\frac{dx}{dt} = 2t + 1$$ and $$\frac{dy}{dt} = 3t^{2} - 1$$. At $$t = -2$$: $$\frac{11}{-3}$$.
+
+**Mistakes to avoid**
+
+- $$-\frac{3}{11}$$: This is $$\frac{dx/dt}{dy/dt}$$, upside down.
+- $$11$$: This is $$\frac{dy}{dt}$$ alone.
+- $$-6$$: This divides second derivatives, which is not the slope.
+
+### Free-response practice: Motion in the plane
+
+A particle moves in the xy-plane so that for $$0 \leq t \leq 4$$, $$\frac{dx}{dt} = 3\sin\left(\frac{t^2}{3}\right) + 1$$ and $$\frac{dy}{dt} = \cos(t)\,e^{t/4}$$. At $$t = 0$$ the particle is at $$(-2, -1)$$.
+
+**(a)** Find the speed of the particle and its acceleration vector at $$t = 3.5$$.
+
+To earn the point: Gives the speed. Model answer: $$\sqrt{x'(3.5)^2 + y'(3.5)^2} \approx 2.661$$
+
+To earn the point: Gives the acceleration vector. Model answer: $$\langle x''(3.5), y''(3.5) \rangle \approx \langle -4.119, 0.280 \rangle$$
+
+**(b)** Find the slope of the line tangent to the path of the particle at $$t = 3.5$$.
+
+To earn the point: Divides the velocity components. Model answer: $$\frac{dy/dt}{dx/dt} \approx 1.576$$
+
+**(c)** Find the position of the particle at $$t = 4$$.
+
+To earn the point: Uses the initial position with the integral of each component. Model answer: $$x(4) = -2 + \int_0^{4} x'(t)\,dt$$
+
+To earn the point: Gives both coordinates. Model answer: $$(4.693, -3.590)$$
+
+**(d)** Find the total distance traveled by the particle over $$0 \leq t \leq 4$$.
+
+To earn the point: Integrates the speed. Model answer: $$\int_0^{4} \sqrt{x'(t)^2 + y'(t)^2}\,dt$$
+
+To earn the point: Gives the distance. Model answer: $$10.928$$

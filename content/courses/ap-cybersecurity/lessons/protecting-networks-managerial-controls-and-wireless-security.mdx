@@ -1,0 +1,85 @@
+---
+objectives:
+  - 'Apply policies and wireless security settings to protect networks.'
+keyTerms:
+  - term: 'Acceptable use policy'
+    definition: 'Rules for how users may use an organization''s network and devices.'
+  - term: 'WPA3'
+    definition: 'The current Wi-Fi security standard, providing stronger encryption and protection against password guessing.'
+checks:
+  - q: 'Which Wi-Fi security protocol should be avoided because it is easily broken?'
+    a: 'WEP (and WPA with TKIP).'
+  - q: 'Why change a router''s default administrator password?'
+    a: 'Default credentials are publicly known.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+## Managerial controls
+
+- **Acceptable use policies**, password policies, and change management.
+- **Network documentation** and inventories of authorized devices.
+- **Training** and **audits**.
+
+## Wireless security
+
+| Setting | Recommendation |
+| --- | --- |
+| encryption | WPA3 (or WPA2-AES); never WEP |
+| passphrase | long and unique |
+| admin credentials | change defaults |
+| guest network | separate from internal devices |
+| WPS | disable |
+| firmware | keep updated |
+| enterprise | WPA3-Enterprise with individual logins (802.1X) |
+
+<Note title="Individual credentials">
+With one shared Wi-Fi password, a departing employee keeps access. Enterprise authentication gives each user their own login that can be revoked.
+</Note>
+
+<WorkedExample title="Audit findings">
+A café router uses WEP and the default admin password 'admin'. List two fixes.
+
+1. WEP can be cracked in minutes.
+2. Default passwords are publicly known.
+
+**Answer:** switch to WPA3 (or WPA2-AES) and set a strong, unique admin password.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Why is a single shared Wi-Fi password a weakness for a large organization?
+
+**A.** Access cannot be revoked for one person without changing it for everyone. Individual credentials (enterprise authentication) solve this.
+
+**Q.** Where should a company place its public web server?
+
+**A.** In a DMZ separated from the internal network by firewalls. It isolates internet-facing systems.
+
+**Q.** Why should smart cameras and other IoT devices be placed on their own VLAN?
+
+**A.** If an IoT device is compromised, segmentation limits the attacker's access to other systems. Segmentation contains breaches.
+
+**Q.** Which policy is a managerial control for network security?
+
+**A.** An acceptable use policy that users must agree to. Policies are managerial controls.
+
+**Q.** An attacker sends forged ARP replies so that traffic on a local network passes through the attacker's computer. What is this?
+
+**A.** ARP spoofing, an on-path (man-in-the-middle) attack. It redirects local traffic through the attacker.
+
+**Q.** A school's Wi-Fi still uses WEP encryption. What should replace it?
+
+**A.** WPA3 (or WPA2 with AES). WEP can be cracked quickly.

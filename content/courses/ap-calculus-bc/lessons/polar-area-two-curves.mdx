@@ -1,0 +1,162 @@
+---
+objectives:
+  - Find the area of a region between two polar curves.
+keyTerms:
+  - term: Area between polar curves
+    definition: '$$A = \frac{1}{2}\int_\alpha^\beta \left([R(\theta)]^2 - [r(\theta)]^2\right)d\theta$$, with $$R$$ the outer curve and $$r$$ the inner one.'
+checks:
+  - q: 'Find the area between $$r = 2$$ and $$r = 1$$.'
+    a: '$$\frac{1}{2}\int_0^{2\pi}(4 - 1)\,d\theta = 3\pi$$.'
+  - q: 'Why is $$\frac{1}{2}\int (R - r)^2\,d\theta$$ wrong?'
+    a: 'Sector areas subtract as $$\frac{1}{2}R^2 - \frac{1}{2}r^2$$, the same washer idea as in volumes.'
+sources:
+  - title: Calculus Volume 2, section 7.4 "Area and Arc Length in Polar Coordinates"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Regions between two polar curves are like polar washers: subtract the inner sector from the outer one.
+
+## The formula
+
+On an interval of angles where $$R(\theta) \geq r(\theta) \geq 0$$:
+
+$$
+A = \frac{1}{2}\int_\alpha^\beta \left([R(\theta)]^2 - [r(\theta)]^2\right)d\theta.
+$$
+
+## Steps
+
+1. Sketch both curves.
+2. Find intersection angles by setting $$R(\theta) = r(\theta)$$.
+3. Decide which curve is farther from the origin on each interval.
+4. Integrate outer squared minus inner squared; split the integral if the roles switch.
+
+<Note title="Intersections can hide at the origin">
+Two polar curves may both pass through the origin at different angles. Setting the equations equal will not find that intersection; check where each curve has $$r = 0$$.
+</Note>
+
+<WorkedExample title="Inside a circle, outside a cardioid">
+Find the area inside $$r = 3\cos\theta$$ and outside $$r = 1 + \cos\theta$$.
+
+1. Intersections: $$3\cos\theta = 1 + \cos\theta$$ gives $$\cos\theta = \frac{1}{2}$$, $$\theta = \pm\frac{\pi}{3}$$.
+2. Between them, the circle is outside.
+3. $$A = \frac{1}{2}\int_{-\pi/3}^{\pi/3}\left(9\cos^2\theta - (1 + \cos\theta)^2\right)d\theta = \int_0^{\pi/3}\left(8\cos^2\theta - 2\cos\theta - 1\right)d\theta$$.
+4. $$= \left[4\theta + 2\sin 2\theta - 2\sin\theta - \theta\right]_0^{\pi/3} = \pi + \sqrt{3} - \sqrt{3}$$.
+
+**Answer:** $$\pi$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$32.201$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 32.201$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$28.618$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 28.618$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$36.079$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 36.079$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$9.084$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 9.084$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$22.727$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 22.727$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$12.517$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 12.517$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$15.201$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 15.201$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$3.649$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 3.649$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$7.802$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 7.802$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$16.837$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 16.837$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$13.526$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 13.526$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$17.023$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(4 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 17.023$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$10.210$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 10.210$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$10.514$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(3 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 10.514$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$19.635$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(3 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 19.635$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$4.538$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 1\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 4.538$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \frac{\pi}{2}$$?
+
+**A.** $$5.575$$. $$\frac{1}{2}\int_0^{\frac{\pi}{2}} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\frac{\pi}{2}} \left(2 + 1.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 5.575$$.
+
+**Q.** What is the area of the region bounded by the polar curve $$r = 2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}$$ and the rays $$\theta = 0$$ and $$\theta = \pi$$?
+
+**A.** $$8.198$$. $$\frac{1}{2}\int_0^{\pi} r^2\,d\theta$$ on the calculator. $$A = \frac{1}{2}\int_0^{\pi} \left(2 + 0.5\sin^2\theta + \frac{\cos 3\theta}{2}\right)^2 d\theta \approx 8.198$$.
+
+### Free-response practice: A polar region
+
+The curves $$r = 3 + 2\cos\theta$$ and $$r = 4$$ are drawn in the polar plane for $$0 \leq \theta \leq 2\pi$$.
+
+**(a)** Find the area of the region enclosed by $$r = 3 + 2\cos\theta$$.
+
+To earn the point: Uses the polar area formula. Model answer: $$\frac{1}{2}\int_0^{2\pi} \left(3 + 2\cos\theta\right)^2 d\theta$$
+
+To earn the point: Gives the area. Model answer: $$34.558$$
+
+**(b)** Find the area of the region inside $$r = 3 + 2\cos\theta$$ and outside $$r = 4$$.
+
+To earn the point: Finds the intersection angles. Model answer: $$\theta = \pm1.047$$
+
+To earn the point: Writes outer squared minus inner squared. Model answer: $$\frac{1}{2}\int_{-1.047}^{1.047} \left(r^2 - 4^2\right) d\theta$$
+
+To earn the point: Gives the area. Model answer: $$6.022$$
+
+**(c)** Find $$\frac{dr}{d\theta}$$ at $$\theta = 2$$. Is the curve moving toward or away from the origin at that angle? Explain.
+
+To earn the point: Gives the derivative. Model answer: $$\frac{dr}{d\theta} = -2\sin(2) \approx -1.819$$
+
+To earn the point: Interprets the sign, noting that $$r > 0$$. Model answer: Since $$r > 0$$ and $$\frac{dr}{d\theta} < 0$$, the curve is moving toward the origin.
+
+**(d)** Find the slope of the line tangent to $$r = 3 + 2\cos\theta$$ at $$\theta = 2$$.
+
+To earn the point: Uses $$\frac{dy/d\theta}{dx/d\theta}$$ with $$x = r\cos\theta$$ and $$y = r\sin\theta$$. Model answer: $$\frac{dy/d\theta}{dx/d\theta} = \frac{-2.556}{-1.214}$$
+
+To earn the point: Gives the slope. Model answer: $$2.105$$

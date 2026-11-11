@@ -1,0 +1,331 @@
+---
+objectives:
+  - Trace nested loops and count how many times the inner body runs.
+keyTerms:
+  - term: Nested loop
+    definition: 'A loop inside another loop; the inner loop runs completely for each pass of the outer loop.'
+checks:
+  - q: 'An outer loop runs 4 times and an inner loop runs 5 times per outer pass. How many times does the inner body run?'
+    a: '20.'
+  - q: 'In a triangular pattern where the inner loop runs i times for i = 1 to 5, how many total inner passes are there?'
+    a: '1 + 2 + 3 + 4 + 5 = 15.'
+sources:
+  - title: CSAwesome, "Iteration" (nested loops)
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A loop inside a loop processes pairs: every row and column, every pair of items, every pattern line and character.
+
+## How nesting runs
+
+```java
+for (int r = 1; r <= 3; r++) {
+    for (int c = 1; c <= 4; c++) {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+The inner loop runs **completely** (4 times) for **each** pass of the outer loop (3 times): 12 stars in 3 rows.
+
+## Inner bounds that depend on the outer variable
+
+```java
+for (int r = 1; r <= 4; r++) {
+    for (int c = 1; c <= r; c++) {
+        System.out.print(c);
+    }
+    System.out.println();
+}
+```
+
+Output:
+
+```text
+1
+12
+123
+1234
+```
+
+Total inner passes: $$1 + 2 + 3 + 4 = 10$$.
+
+<Note title="Count with a sum">
+When the inner loop's bound changes with the outer variable, add up the inner counts for each outer pass rather than multiplying.
+</Note>
+
+<WorkedExample title="Counting inner passes">
+How many times is `x++` executed?
+
+```java
+int x = 0;
+for (int i = 0; i < 5; i++) {
+    for (int j = i; j < 5; j++) {
+        x++;
+    }
+}
+```
+
+1. For i = 0 to 4, the inner loop runs 5, 4, 3, 2, 1 times.
+2. Sum: 15.
+
+**Answer:** 15.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `9`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i up to 3. The total is 9.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 5. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 5. The total is 30.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 5. The total is 24.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `30`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 4. The total is 30.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i + 1; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i + 1 up to 5. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 5. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from 0 up to 3. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i + 1; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `14`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i + 1 up to 5. The total is 14.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from i up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `24`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 3. The total is 24.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from 0 up to 2. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 2. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `14`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 4. The total is 14.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 4. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i + 1; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `9`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i + 1 up to 4. The total is 9.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 3. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 4; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 3. The total is 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `6`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 2. The total is 6.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `18`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from i up to 5. The total is 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 5; i++) { for (int j = 0; j < 3; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. Add the inner-loop counts for each value of i. For each i from 0 to 4, the inner loop runs from 0 up to 2. The total is 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 3; i++) { for (int j = i; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `12`. Add the inner-loop counts for each value of i. For each i from 0 to 2, the inner loop runs from i up to 4. The total is 12.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 4; i++) { for (int j = 0; j < 5; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. Add the inner-loop counts for each value of i. For each i from 0 to 3, the inner loop runs from 0 up to 4. The total is 20.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 0; i < 6; i++) { for (int j = i; j < 6; j++) { count++; } } System.out.println(count); ``` What is printed as a result of executing the code segment?
+
+**A.** `21`. Add the inner-loop counts for each value of i. For each i from 0 to 5, the inner loop runs from i up to 5. The total is 21.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 12; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `66`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 12 gives 66.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 7; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `21`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 7 gives 21.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 8; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `28`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 8 gives 28.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 5; i++) { for (int j = 1; j <= 5; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `25`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 5 gives 25.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 10; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `55`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 10 gives 55.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 10; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `45`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 10 gives 45.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 9; i++) { for (int j = 1; j < 9; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `36`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 9 gives 36.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 11; i++) { for (int j = 1; j < 11; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `44`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 11 gives 44.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 12; i++) { for (int j = 1; j <= 12; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `144`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 12 gives 144.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 6; i++) { for (int j = 1; j < 6; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `18`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 6 gives 18.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 9; i++) { for (int j = 1; j <= 9; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `81`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 9 gives 81.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 8; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `36`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 8 gives 36.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 11; i++) { for (int j = 1; j <= 11; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `121`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 11 gives 121.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 9; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `36`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 9 gives 36.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 7; i++) { for (int j = 1; j < 7; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `21`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 7 gives 21.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 11; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `66`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 11 gives 66.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 7; i++) { for (int j = 1; j <= 7; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `49`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 7 gives 49.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 10; i++) { for (int j = 1; j < 10; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `40`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 10 gives 40.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 11; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `55`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 11 gives 55.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 6; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `21`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 6 gives 21.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 12; i++) { for (int j = 1; j < 12; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `48`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 12 gives 48.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 12; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `78`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 12 gives 78.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 5; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `15`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 5 gives 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 7; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `28`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 7 gives 28.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 10; i++) { for (int j = 1; j <= 10; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `100`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 10 gives 100.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 5; i++) { for (int j = 1; j < 5; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `15`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 5 gives 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 9; i++) { for (int j = 1; j <= i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `45`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 9 gives 45.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 5; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `10`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 5 gives 10.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 6; i++) { for (int j = 1; j <= 6; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `36`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 6 gives 36.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 6; i++) { for (int j = 1; j < i; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `15`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 6 gives 15.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 8; i++) { for (int j = 1; j <= 8; j++) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `64`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 8 gives 64.
+
+**Q.** Consider the following code segment. ```java int count = 0; for (int i = 1; i <= 8; i++) { for (int j = 1; j < 8; j *= 2) { count++; } } ``` How many times is `count++` executed?
+
+**A.** `24`. Add the inner-loop executions for each value of i. Summing the inner loop's executions over i = 1 to 8 gives 24.

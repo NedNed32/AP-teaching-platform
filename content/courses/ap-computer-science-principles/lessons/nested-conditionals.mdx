@@ -1,0 +1,147 @@
+---
+objectives:
+  - Trace nested conditional statements and write equivalent conditions.
+keyTerms:
+  - term: Nested conditional
+    definition: 'A conditional statement inside another conditional statement.'
+checks:
+  - q: 'When does the inner IF of a nested conditional get checked?'
+    a: 'Only when the outer condition leads to the block that contains it.'
+  - q: 'What single condition is equivalent to IF (a) containing IF (b)?'
+    a: '`a AND b`.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Placing conditionals inside each other lets a program make a sequence of decisions.
+
+```text
+IF (temp > 30)
+{
+   DISPLAY ("hot")
+}
+ELSE
+{
+   IF (temp > 15)
+   {
+      DISPLAY ("mild")
+   }
+   ELSE
+   {
+      DISPLAY ("cold")
+   }
+}
+```
+
+The inner IF runs only when temp is 30 or less, so "mild" means 15 is less than temp and temp ≤ 30.
+
+<Note title="Order matters">
+When ranges overlap, check the most specific or most extreme case first. Writing `temp > 15` before `temp > 30` would label every hot day as mild.
+</Note>
+
+<WorkedExample title="Ticket prices">
+Children (age under 12) pay 5, seniors (age 65 or more) pay 7, and everyone else pays 10, except that everyone pays 4 on Tuesday. Which check should come first?
+
+1. The Tuesday rule overrides age, so it is the outer condition.
+2. Inside its ELSE, check the age groups.
+
+**Answer:** check the day first, then nest the age conditions in its ELSE block.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```text
+IF (age < 13)
+{
+   price ← 5
+}
+ELSE
+{
+   IF (member)
+   {
+      price ← 8
+   }
+   ELSE
+   {
+      IF (age ≥ 42)
+      {
+         price ← 7
+      }
+      ELSE
+      {
+         price ← 12
+      }
+   }
+}
+DISPLAY (price)
+```
+
+What is displayed when age is 54 and member is true?
+
+**Answer:** `8`
+
+**Why:** Follow the outer condition first, then the nested ones.
+
+**Working:** age &lt; 13 is false; member is true. So price is 8.
+
+**Mistakes to avoid**
+
+- `5`: Check each condition in order with the given values.
+- `7`: Check each condition in order with the given values.
+- `12`: Check each condition in order with the given values.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```text
+IF (age < 21)
+{
+   price ← 5
+}
+ELSE
+{
+   IF (member)
+   {
+      price ← 8
+   }
+   ELSE
+   {
+      IF (age ≥ 39)
+      {
+         price ← 7
+      }
+      ELSE
+      {
+         price ← 12
+      }
+   }
+}
+DISPLAY (price)
+```
+
+What is displayed when age is 45 and member is false?
+
+**Answer:** `7`
+
+**Why:** Follow the outer condition first, then the nested ones.
+
+**Working:** age &lt; 21 is false; member is false; age ≥ 39 is true. So price is 7.
+
+**Mistakes to avoid**
+
+- `5`: Check each condition in order with the given values.
+- `8`: Check each condition in order with the given values.
+- `12`: Check each condition in order with the given values.

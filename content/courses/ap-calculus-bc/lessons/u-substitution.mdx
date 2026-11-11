@@ -1,0 +1,148 @@
+---
+objectives:
+  - Integrate composite functions using u-substitution.
+  - Change the limits of integration for definite integrals.
+keyTerms:
+  - term: u-substitution
+    definition: 'Replacing an inner function with $$u$$ and its derivative times $$dx$$ with $$du$$, reversing the chain rule.'
+checks:
+  - q: 'Find $$\int 2x\cos(x^2)\,dx$$.'
+    a: '$$u = x^2$$, $$du = 2x\,dx$$: $$\sin(x^2) + C$$.'
+  - q: 'Find $$\int_0^1 e^{3x}\,dx$$.'
+    a: '$$\frac{1}{3}e^{3x}\big|_0^1 = \frac{e^3 - 1}{3}$$.'
+sources:
+  - title: Calculus Volume 1, section 5.5 "Substitution"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The chain rule produces derivatives like $$2x\cos(x^2)$$: an outer derivative evaluated at an inside function, times the inside's derivative. u-substitution recognizes that pattern and undoes it.
+
+## The method
+
+1. Choose $$u$$, usually the inside of a composite function.
+2. Compute $$du = u'(x)\,dx$$.
+3. Rewrite the whole integral in terms of $$u$$ and $$du$$. Adjust constant factors if needed.
+4. Integrate in $$u$$.
+5. Substitute back to $$x$$ (for indefinite integrals).
+
+## Definite integrals: change the limits
+
+With a definite integral, convert the limits to $$u$$-values and never go back to $$x$$:
+
+$$
+\int_0^2 x(x^2 + 1)^3\,dx \quad u = x^2 + 1,\; du = 2x\,dx \quad = \frac{1}{2}\int_1^5 u^3\,du = \frac{1}{8}u^4\Big|_1^5 = \frac{625 - 1}{8} = 78.
+$$
+
+## Fixing constants
+
+If $$du$$ is off by a **constant**, compensate: with $$u = 3x$$, $$du = 3\,dx$$, so $$dx = \frac{1}{3}du$$. If it is off by a **variable** factor, the substitution does not work as chosen.
+
+<Note title="Common choices for u">
+The expression inside a power, root, exponential, logarithm or trig function; or a denominator whose derivative appears in the numerator, which leads to $$\ln|u|$$.
+</Note>
+
+<WorkedExample title="Substitution with a logarithm">
+Find $$\int \frac{x}{x^2 + 4}\,dx$$.
+
+1. $$u = x^2 + 4$$, $$du = 2x\,dx$$, so $$x\,dx = \frac{1}{2}du$$.
+2. $$\frac{1}{2}\int \frac{1}{u}\,du = \frac{1}{2}\ln|u| + C$$.
+
+**Answer:** $$\frac{1}{2}\ln(x^2 + 4) + C$$ (no absolute value needed since $$x^2 + 4 > 0$$).
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 2\right)dx$$?
+
+**A.** $$\frac{5}{4}$$. With $$u = x^2 + 2$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{2}^{3} u\,du$$. $$\frac{1}{2}\int_{2}^{3} u\,du = \frac{1}{2} \cdot \frac{u^{2}}{2}\Big|_{2}^{3} = \frac{9 - 4}{4} = \frac{5}{4}$$.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 2\right)^{3}dx$$?
+
+**A.** $$\frac{65}{8}$$. With $$u = x^2 + 2$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{2}^{3} u^{3}\,du$$. $$\frac{1}{2}\int_{2}^{3} u^{3}\,du = \frac{1}{2} \cdot \frac{u^{4}}{4}\Big|_{2}^{3} = \frac{81 - 16}{8} = \frac{65}{8}$$.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 1\right)^{3}dx$$?
+
+**A.** $$\frac{15}{8}$$. With $$u = x^2 + 1$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{1}^{2} u^{3}\,du$$. $$\frac{1}{2}\int_{1}^{2} u^{3}\,du = \frac{1}{2} \cdot \frac{u^{4}}{4}\Big|_{1}^{2} = \frac{16 - 1}{8} = \frac{15}{8}$$.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 1\right)dx$$?
+
+**A.** $$\frac{3}{4}$$. With $$u = x^2 + 1$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{1}^{2} u\,du$$. $$\frac{1}{2}\int_{1}^{2} u\,du = \frac{1}{2} \cdot \frac{u^{2}}{2}\Big|_{1}^{2} = \frac{4 - 1}{4} = \frac{3}{4}$$.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 1\right)^{2}dx$$?
+
+**A.** $$\frac{7}{6}$$. With $$u = x^2 + 1$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{1}^{2} u^{2}\,du$$. $$\frac{1}{2}\int_{1}^{2} u^{2}\,du = \frac{1}{2} \cdot \frac{u^{3}}{3}\Big|_{1}^{2} = \frac{8 - 1}{6} = \frac{7}{6}$$.
+
+**Q.** What is $$\int_0^{1} x\left(x^2 + 2\right)^{2}dx$$?
+
+**A.** $$\frac{19}{6}$$. With $$u = x^2 + 2$$, $$du = 2x\,dx$$, the integral is $$\frac{1}{2}\int_{2}^{3} u^{2}\,du$$. $$\frac{1}{2}\int_{2}^{3} u^{2}\,du = \frac{1}{2} \cdot \frac{u^{3}}{3}\Big|_{2}^{3} = \frac{27 - 8}{6} = \frac{19}{6}$$.
+
+**Q.** What is $$\int_0^{\pi/6} \sin(6x)\,dx$$?
+
+**A.** $$\frac{1}{3}$$. $$-\frac{1}{6}\cos(6x)\Big|_0^{\pi/6} = -\frac{1}{6}(-1 - 1) = \frac{2}{6}$$. $$\int \sin(6x)\,dx = -\frac{1}{6}\cos(6x) + C$$. Evaluating: $$-\frac{1}{6}\left[\cos\pi - \cos 0\right] = \frac{2}{6}$$.
+
+**Q.** What is $$\int_0^{\pi/2} \sin(2x)\,dx$$?
+
+**A.** $$1$$. $$-\frac{1}{2}\cos(2x)\Big|_0^{\pi/2} = -\frac{1}{2}(-1 - 1) = \frac{2}{2}$$. $$\int \sin(2x)\,dx = -\frac{1}{2}\cos(2x) + C$$. Evaluating: $$-\frac{1}{2}\left[\cos\pi - \cos 0\right] = \frac{2}{2}$$.
+
+**Q.** What is $$\int_0^{9} \frac{1}{x + 3}\,dx$$?
+
+**A.** $$\ln 4$$. $$\ln|x + 3|\Big|_0^{9} = \ln 12 - \ln 3 = \ln 4$$. $$\int \frac{dx}{x + 3} = \ln|x + 3| + C$$, so the integral is $$\ln\frac{12}{3} = \ln 4$$.
+
+**Q.** What is $$\int_0^{\pi/5} \sin(5x)\,dx$$?
+
+**A.** $$\frac{2}{5}$$. $$-\frac{1}{5}\cos(5x)\Big|_0^{\pi/5} = -\frac{1}{5}(-1 - 1) = \frac{2}{5}$$. $$\int \sin(5x)\,dx = -\frac{1}{5}\cos(5x) + C$$. Evaluating: $$-\frac{1}{5}\left[\cos\pi - \cos 0\right] = \frac{2}{5}$$.
+
+**Q.** What is $$\int_0^{10} \frac{1}{x + 2}\,dx$$?
+
+**A.** $$\ln 6$$. $$\ln|x + 2|\Big|_0^{10} = \ln 12 - \ln 2 = \ln 6$$. $$\int \frac{dx}{x + 2} = \ln|x + 2| + C$$, so the integral is $$\ln\frac{12}{2} = \ln 6$$.
+
+**Q.** What is $$\int_0^{\pi/4} \sin(4x)\,dx$$?
+
+**A.** $$\frac{1}{2}$$. $$-\frac{1}{4}\cos(4x)\Big|_0^{\pi/4} = -\frac{1}{4}(-1 - 1) = \frac{2}{4}$$. $$\int \sin(4x)\,dx = -\frac{1}{4}\cos(4x) + C$$. Evaluating: $$-\frac{1}{4}\left[\cos\pi - \cos 0\right] = \frac{2}{4}$$.
+
+**Q.** What is $$\int_0^{6} \frac{1}{x + 2}\,dx$$?
+
+**A.** $$\ln 4$$. $$\ln|x + 2|\Big|_0^{6} = \ln 8 - \ln 2 = \ln 4$$. $$\int \frac{dx}{x + 2} = \ln|x + 2| + C$$, so the integral is $$\ln\frac{8}{2} = \ln 4$$.
+
+**Q.** What is $$\int_0^{8} \frac{1}{x + 2}\,dx$$?
+
+**A.** $$\ln 5$$. $$\ln|x + 2|\Big|_0^{8} = \ln 10 - \ln 2 = \ln 5$$. $$\int \frac{dx}{x + 2} = \ln|x + 2| + C$$, so the integral is $$\ln\frac{10}{2} = \ln 5$$.
+
+**Q.** What is $$\int_0^{6} \frac{1}{x + 3}\,dx$$?
+
+**A.** $$\ln 3$$. $$\ln|x + 3|\Big|_0^{6} = \ln 9 - \ln 3 = \ln 3$$. $$\int \frac{dx}{x + 3} = \ln|x + 3| + C$$, so the integral is $$\ln\frac{9}{3} = \ln 3$$.
+
+**Q.** What is $$\int_0^{2} \frac{1}{x + 2}\,dx$$?
+
+**A.** $$\ln 2$$. $$\ln|x + 2|\Big|_0^{2} = \ln 4 - \ln 2 = \ln 2$$. $$\int \frac{dx}{x + 2} = \ln|x + 2| + C$$, so the integral is $$\ln\frac{4}{2} = \ln 2$$.
+
+**Q.** What is $$\int_0^{\pi/3} \sin(3x)\,dx$$?
+
+**A.** $$\frac{2}{3}$$. $$-\frac{1}{3}\cos(3x)\Big|_0^{\pi/3} = -\frac{1}{3}(-1 - 1) = \frac{2}{3}$$. $$\int \sin(3x)\,dx = -\frac{1}{3}\cos(3x) + C$$. Evaluating: $$-\frac{1}{3}\left[\cos\pi - \cos 0\right] = \frac{2}{3}$$.
+
+**Q.** What is $$\int_0^{4} \frac{1}{x + 2}\,dx$$?
+
+**A.** $$\ln 3$$. $$\ln|x + 2|\Big|_0^{4} = \ln 6 - \ln 2 = \ln 3$$. $$\int \frac{dx}{x + 2} = \ln|x + 2| + C$$, so the integral is $$\ln\frac{6}{2} = \ln 3$$.
+
+**Q.** What is $$\int_0^{12} \frac{1}{x + 3}\,dx$$?
+
+**A.** $$\ln 5$$. $$\ln|x + 3|\Big|_0^{12} = \ln 15 - \ln 3 = \ln 5$$. $$\int \frac{dx}{x + 3} = \ln|x + 3| + C$$, so the integral is $$\ln\frac{15}{3} = \ln 5$$.
+
+**Q.** What is $$\int_0^{3} \frac{1}{x + 3}\,dx$$?
+
+**A.** $$\ln 2$$. $$\ln|x + 3|\Big|_0^{3} = \ln 6 - \ln 3 = \ln 2$$. $$\int \frac{dx}{x + 3} = \ln|x + 3| + C$$, so the integral is $$\ln\frac{6}{3} = \ln 2$$.
+
+**Q.** What is $$\int_0^{15} \frac{1}{x + 3}\,dx$$?
+
+**A.** $$\ln 6$$. $$\ln|x + 3|\Big|_0^{15} = \ln 18 - \ln 3 = \ln 6$$. $$\int \frac{dx}{x + 3} = \ln|x + 3| + C$$, so the integral is $$\ln\frac{18}{3} = \ln 6$$.

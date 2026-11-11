@@ -1,0 +1,76 @@
+---
+objectives:
+  - Find the average value of a function on an interval.
+  - Interpret average value in context.
+keyTerms:
+  - term: Average value
+    definition: '$$f_{\text{avg}} = \frac{1}{b - a}\int_a^b f(x)\,dx$$.'
+checks:
+  - q: 'Find the average value of $$f(x) = x^2$$ on $$[0, 3]$$.'
+    a: '$$\frac{1}{3}\int_0^3 x^2\,dx = \frac{1}{3}(9) = 3$$.'
+  - q: 'How does average value differ from average rate of change?'
+    a: 'Average value averages the outputs (uses an integral); average rate of change is a slope $$\frac{f(b) - f(a)}{b - a}$$.'
+sources:
+  - title: Calculus Volume 1, section 5.3 "The Fundamental Theorem of Calculus" (Mean Value Theorem for Integrals)
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+To average a list of numbers you add them and divide by how many there are. To average a function over an interval you do the same thing continuously: integrate, then divide by the length.
+
+## The formula
+
+$$
+f_{\text{avg}} = \frac{1}{b - a}\int_a^b f(x)\,dx.
+$$
+
+Geometrically, it is the height of the rectangle on $$[a, b]$$ with the same area as the region under $$f$$.
+
+## In context
+
+If $$T(t)$$ is temperature over a day, its average value is the average temperature for the day, measured in degrees. Its units are the units of $$f$$, not of the integral.
+
+## Mean Value Theorem for integrals
+
+If $$f$$ is continuous on $$[a, b]$$, it actually *equals* its average value at least once: $$f(c) = f_{\text{avg}}$$ for some $$c$$ in $$[a, b]$$.
+
+<Note title="Average value versus average rate of change">
+Average **value** of $$f$$: $$\frac{1}{b - a}\int_a^b f(x)\,dx$$. Average **rate of change** of $$f$$: $$\frac{f(b) - f(a)}{b - a}$$. The exam frequently offers one as a distractor for the other.
+</Note>
+
+<WorkedExample title="Average from a table">
+The rate of traffic $$R(t)$$, in cars per minute, is shown. Estimate the average rate over $$0 \leq t \leq 20$$ with a trapezoidal sum.
+
+| $$t$$ | 0 | 5 | 15 | 20 |
+| --- | --- | --- | --- | --- |
+| $$R(t)$$ | 10 | 14 | 20 | 12 |
+
+1. Trapezoidal sum: $$\frac{5}{2}(24) + \frac{10}{2}(34) + \frac{5}{2}(32) = 60 + 170 + 80 = 310$$.
+2. Divide by the length, 20.
+
+**Answer:** about $$15.5$$ cars per minute.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is the average value of $$f(x) = -3x^{2} + 3$$ on the interval $$[0, 3]$$?
+
+**Answer:** $$-6$$
+
+**Why:** $$\frac{1}{3}\int_0^{3} f(x)\,dx = \frac{1}{3}\left(-18\right)$$.
+
+**Working:** Average value $$= \frac{1}{3 - 0}\int_0^{3} (-3x^{2} + 3)\,dx = \frac{1}{3}\left[-x^3 + 3x\right]_0^{3} = -6$$.
+
+**Mistakes to avoid**
+
+- $$-\frac{21}{2}$$: This averages the endpoint values, which only works for linear functions.
+- $$-18$$: This is the integral; divide by the length of the interval.
+- $$-9$$: This is the average rate of change of f, not the average value.

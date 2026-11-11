@@ -1,0 +1,77 @@
+---
+objectives:
+  - Classify a series as absolutely convergent, conditionally convergent, or divergent.
+keyTerms:
+  - term: Absolutely convergent
+    definition: '$$\sum |a_n|$$ converges. Then $$\sum a_n$$ also converges.'
+  - term: Conditionally convergent
+    definition: '$$\sum a_n$$ converges but $$\sum |a_n|$$ diverges.'
+checks:
+  - q: 'Classify $$\sum \frac{(-1)^n}{n^2}$$.'
+    a: 'Absolutely convergent: $$\sum \frac{1}{n^2}$$ converges.'
+  - q: 'Classify $$\sum \frac{(-1)^n}{\sqrt{n}}$$.'
+    a: 'Conditionally convergent: it converges by the alternating series test, but $$\sum \frac{1}{\sqrt{n}}$$ diverges.'
+sources:
+  - title: Calculus Volume 2, section 5.5 "Alternating Series"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Some series converge only because their signs alternate and cancel; others would converge even with every sign made positive. The difference is subtle but tested every year.
+
+## Three possible outcomes
+
+| Classification | $$\sum \lvert a_n\rvert$$ | $$\sum a_n$$ |
+| --- | --- | --- |
+| absolutely convergent | converges | converges |
+| conditionally convergent | diverges | converges |
+| divergent | diverges | diverges |
+
+**Absolute convergence implies convergence**: if the series of absolute values converges, the original series does too.
+
+## The routine
+
+1. Test $$\sum |a_n|$$ (p-series, comparison, ratio test). If it converges, the series is **absolutely** convergent.
+2. If not, test $$\sum a_n$$ itself, usually with the alternating series test. If it converges, it is **conditionally** convergent.
+3. Otherwise it diverges.
+
+<Note title="Why it matters">
+Rearranging the terms of a conditionally convergent series can change its sum; an absolutely convergent series has the same sum in any order. Power series converge absolutely inside their interval, which is why they behave so well.
+</Note>
+
+<WorkedExample title="Classifying a series">
+Classify $$\sum_{n=1}^{\infty} \frac{(-1)^n\, n}{n^2 + 1}$$.
+
+1. Absolute values: $$\frac{n}{n^2 + 1}$$. Limit comparison with $$\frac{1}{n}$$ gives ratio $$\to 1$$, and $$\sum \frac{1}{n}$$ diverges. Not absolutely convergent.
+2. Alternating series test: $$\frac{n}{n^2 + 1} \to 0$$, and it decreases for $$n \geq 1$$ (its derivative $$\frac{1 - x^2}{(x^2 + 1)^2} \leq 0$$).
+
+**Answer:** conditionally convergent.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which of the following best describes $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$?
+
+**A.** It converges conditionally.. alternating series test, but the harmonic series diverges. Test the absolute values first, then the series itself: alternating series test, but the harmonic series diverges.
+
+**Q.** Which of the following best describes $$\sum_{n=1}^{\infty} \frac{n}{n + 1}$$?
+
+**A.** It diverges.. terms approach 1, not 0 (nth term test). Test the absolute values first, then the series itself: terms approach 1, not 0 (nth term test).
+
+**Q.** Which of the following best describes $$\sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n}}$$?
+
+**A.** It converges conditionally.. alternating series test, but p = 1/2 for the absolute values. Test the absolute values first, then the series itself: alternating series test, but p = 1/2 for the absolute values.
+
+**Q.** Which of the following best describes $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}$$?
+
+**A.** It converges absolutely.. absolute values form a p-series with p = 3. Test the absolute values first, then the series itself: absolute values form a p-series with p = 3.

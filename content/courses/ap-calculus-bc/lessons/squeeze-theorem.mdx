@@ -1,0 +1,103 @@
+---
+objectives:
+  - Use the Squeeze Theorem to find a limit by trapping a function between two others.
+  - Justify $$\lim_{x \to 0} \frac{\sin x}{x} = 1$$.
+keyTerms:
+  - term: Squeeze Theorem
+    definition: 'If $$g(x) \leq f(x) \leq h(x)$$ near $$a$$ and $$\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$$, then $$\lim_{x \to a} f(x) = L$$.'
+checks:
+  - q: 'Find $$\lim_{x \to 0} x^2 \cos\left(\frac{1}{x}\right)$$.'
+    a: '0. Since $$-1 \leq \cos\left(\frac{1}{x}\right) \leq 1$$, the expression is between $$-x^2$$ and $$x^2$$, both of which approach 0.'
+  - q: 'If $$3 - x^2 \leq f(x) \leq 3 + x^2$$ for all $$x$$, what is $$\lim_{x \to 0} f(x)$$?'
+    a: '3.'
+sources:
+  - title: Calculus Volume 1, section 2.3 "The Limit Laws" (The Squeeze Theorem)
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Some functions are too wild to evaluate directly but can be trapped between two well-behaved ones. If the two outer functions head to the same place, the one in the middle has no choice but to go there too.
+
+## The theorem
+
+If $$g(x) \leq f(x) \leq h(x)$$ for all $$x$$ near $$a$$ (except possibly at $$a$$), and
+
+$$
+\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L,
+$$
+
+then $$\lim_{x \to a} f(x) = L$$.
+
+## Using it with oscillating factors
+
+The most common setting is a product of something that shrinks to 0 and something that is merely bounded. Since $$-1 \leq \sin\left(\frac{1}{x}\right) \leq 1$$,
+
+$$
+-|x| \leq x \sin\left(\frac{1}{x}\right) \leq |x|.
+$$
+
+Both $$-|x|$$ and $$|x|$$ approach 0 as $$x \to 0$$, so $$\lim_{x \to 0} x \sin\left(\frac{1}{x}\right) = 0$$, even though $$\sin\left(\frac{1}{x}\right)$$ alone has no limit at 0.
+
+## Why sin x over x approaches 1
+
+A geometric argument with the unit circle shows that for small positive $$x$$,
+
+$$
+\cos x \leq \frac{\sin x}{x} \leq 1.
+$$
+
+As $$x \to 0$$, $$\cos x \to 1$$, so the Squeeze Theorem gives $$\lim_{x \to 0} \frac{\sin x}{x} = 1$$. This limit is what makes the derivative of $$\sin x$$ equal $$\cos x$$ (topic 2.7).
+
+<Note title="Writing a squeeze justification">
+On a free-response question, state the inequality, state that both bounding functions have the same limit, and name the Squeeze Theorem. All three parts earn the point.
+</Note>
+
+<WorkedExample title="Squeezing a bounded factor">
+Find $$\lim_{x \to 0} x^4 \cos\left(\frac{2}{x}\right)$$.
+
+1. For $$x \neq 0$$: $$-1 \leq \cos\left(\frac{2}{x}\right) \leq 1$$.
+2. Multiply by $$x^4 \geq 0$$: $$-x^4 \leq x^4 \cos\left(\frac{2}{x}\right) \leq x^4$$.
+3. $$\lim_{x \to 0} (-x^4) = 0$$ and $$\lim_{x \to 0} x^4 = 0$$.
+
+**Answer:** by the Squeeze Theorem, the limit is 0.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is $$\lim_{x \to 0} \frac{\sin(8x)}{2x}$$?
+
+**Answer:** $$4$$
+
+**Why:** Write it as $$\frac{8}{2} \cdot \frac{\sin(8x)}{8x}$$; the second factor approaches 1.
+
+**Working:** Using $$\lim_{u \to 0} \frac{\sin u}{u} = 1$$ with $$u = 8x$$: $$\frac{\sin(8x)}{2x} = \frac{8}{2} \cdot \frac{\sin(8x)}{8x} \to \frac{8}{2}$$.
+
+**Mistakes to avoid**
+
+- $$1$$: $$\frac{\sin u}{u} \to 1$$ only when the angle and the denominator match. Here they differ by a factor of $$\frac{8}{2}$$.
+- $$\frac{1}{4}$$: This inverts the ratio of the coefficients.
+- $$0$$: Substitution gives $$\frac{0}{0}$$, which is indeterminate, not 0.
+
+### Worked exam question 2
+
+The functions $$f$$, $$g$$, and $$h$$ satisfy $$g(x) \leq f(x) \leq h(x)$$ for all $$x$$, where $$g(x) = 7 - 4(x + 2)^2$$ and $$h(x) = 7 + 4(x + 2)^2$$. What is $$\lim_{x \to -2} f(x)$$?
+
+**Answer:** $$7$$
+
+**Why:** Both $$g$$ and $$h$$ approach $$7$$ as $$x \to -2$$, so the Squeeze Theorem forces $$f$$ to approach $$7$$ too.
+
+**Working:** $$\lim_{x \to -2} g(x) = 7$$ and $$\lim_{x \to -2} h(x) = 7$$. Since $$f$$ is trapped between them, the Squeeze Theorem gives $$\lim_{x \to -2} f(x) = 7$$.
+
+**Mistakes to avoid**
+
+- $$-2$$: This is the input value being approached, not the output.
+- $$14$$: This adds the limits of $$g$$ and $$h$$; the squeeze gives their common value.
+- It cannot be determined without a formula for $$f$$.: The Squeeze Theorem determines the limit without a formula for $$f$$, because the bounds share the same limit.

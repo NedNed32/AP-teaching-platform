@@ -1,0 +1,67 @@
+---
+objectives:
+  - Trace assignment statements in AP pseudocode.
+keyTerms:
+  - term: Variable
+    definition: 'A named abstraction that holds a value; its value can change.'
+  - term: Assignment
+    definition: 'Written `a ← expression`: evaluate the expression, then store the result in a.'
+checks:
+  - q: 'After `a ← 3`, `b ← a`, `a ← 7`, what is b?'
+    a: '3. b received a copy of the value, not a link to a.'
+  - q: 'What does a variable hold after several assignments?'
+    a: 'Only the most recently assigned value.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: AP Computer Science Principles exam reference sheet (in the course and exam description)
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+reviewed: false
+---
+
+The AP exam writes code in its own **pseudocode**, described on the exam reference sheet. Assignment uses an arrow.
+
+## Assignment
+
+```text
+a ← 5
+b ← a + 2
+a ← b * 3
+DISPLAY (a)
+```
+
+Evaluate the right side using current values, then store it in the variable on the left. Here b is 7 and a becomes 21, so 21 is displayed.
+
+Use meaningful names (`score`, `totalCost`) so code explains itself. Variables can hold numbers, Booleans, strings or lists.
+
+<Note title="One value at a time">
+A variable holds only its most recent value. Assigning to it again replaces the old value.
+</Note>
+
+<WorkedExample title="Swapping values">
+What is displayed?
+
+```text
+x ← 4
+y ← 9
+x ← y
+y ← x
+DISPLAY (x)
+DISPLAY (y)
+```
+
+1. After `x ← y`, x is 9; the 4 is lost.
+2. `y ← x` stores 9 in y.
+
+**Answer:** 9 9. A correct swap needs a temporary variable.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.

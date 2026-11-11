@@ -1,0 +1,256 @@
+---
+objectives:
+  - Estimate a derivative at a point from a table of values or a graph.
+  - Use a calculator to find a numerical derivative.
+keyTerms:
+  - term: Symmetric difference quotient
+    definition: '$$\frac{f(a + h) - f(a - h)}{2h}$$, an estimate of $$f''(a)$$ using points on both sides.'
+checks:
+  - q: 'A table gives $$f(2) = 5$$ and $$f(6) = 17$$. Estimate $$f''(4)$$.'
+    a: '$$\frac{17 - 5}{6 - 2} = 3$$.'
+  - q: 'What units does the estimate have if $$f$$ is in meters and $$x$$ in seconds?'
+    a: 'Meters per second.'
+sources:
+  - title: Calculus Volume 1, section 3.1 "Defining the Derivative"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Real data rarely comes with a formula. Free-response questions often give a table of measurements and ask you to estimate a derivative. The answer is always a secant slope.
+
+## From a table
+
+To estimate $$f'(a)$$, use the two table values that **bracket** $$a$$ most closely:
+
+$$
+f'(a) \approx \frac{f(x_2) - f(x_1)}{x_2 - x_1}, \qquad x_1 < a < x_2.
+$$
+
+If $$a$$ is itself a table entry, the symmetric choice $$\frac{f(a + h) - f(a - h)}{2h}$$ is usually more accurate than a one-sided quotient.
+
+## From a graph
+
+Draw (or imagine) the tangent line at the point and read two points on it. The slope of that line estimates the derivative. Where the graph is a straight segment, the derivative equals the slope of the segment exactly.
+
+## With a calculator
+
+On calculator-active questions, use the numerical derivative feature, for example `nDeriv` on TI calculators. Report answers correct to three decimal places.
+
+<Note title="Show the difference quotient">
+An AP grader wants to see the quotient itself, such as $$\frac{H(7) - H(5)}{7 - 5}$$, not just a number. Include the units when the question has a context.
+</Note>
+
+<WorkedExample title="Estimating from data with units">
+The temperature $$T(t)$$, in °C, of a cooling drink at time $$t$$ minutes:
+
+| $$t$$ | 0 | 4 | 10 | 15 |
+| --- | --- | --- | --- | --- |
+| $$T(t)$$ | 80 | 66 | 51 | 43 |
+
+Estimate $$T'(7)$$.
+
+1. The closest bracketing values are $$t = 4$$ and $$t = 10$$.
+2. $$\frac{T(10) - T(4)}{10 - 4} = \frac{51 - 66}{6} = -2.5$$.
+
+**Answer:** $$T'(7) \approx -2.5$$ °C per minute: the drink is cooling at about 2.5 degrees per minute.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The temperature of a liquid, in degrees Celsius, is modeled by a differentiable function $$H$$ of time $$t$$, in minutes. Selected values are shown.
+
+*Temperature H(t)*
+
+| $$t$$ (minutes) | $$H(t)$$ (°C) |
+| --- | --- |
+| 0 | 34 |
+| 2 | 26 |
+| 5 | 16 |
+| 7 | 47 |
+| 10 | 17 |
+
+What is the average rate of change of $$H$$ over the interval $$5 \leq t \leq 10$$, in degrees Celsius per minute?
+
+**Answer:** $$\frac{1}{5}$$
+
+**Why:** $$\frac{H(10) - H(5)}{10 - 5} = \frac{1}{5}$$.
+
+**Working:** Average rate of change $$= \frac{H(10) - H(5)}{10 - 5} = \frac{17 - 16}{5} = \frac{1}{5}$$ degrees per minute.
+
+**Mistakes to avoid**
+
+- $$1$$: This is the total change in temperature; it still needs to be divided by the elapsed time.
+- $$5$$: This divides time by temperature, which is upside down.
+- $$\frac{33}{2}$$: This is the average temperature, not the average rate of change.
+
+### Worked exam question 2
+
+The function $$g$$ is differentiable. Selected values of $$g$$ are shown.
+
+*Values of g*
+
+| $$x$$ | $$g(x)$$ |
+| --- | --- |
+| 1 | -1 |
+| 3 | 12 |
+| 4 | 7 |
+| 6 | -8 |
+| 9 | -8 |
+
+Using the data in the table and the values on either side of $$x = 4$$, what is the best estimate of $$g'(4)$$?
+
+**Answer:** $$-\frac{20}{3}$$
+
+**Why:** $$\frac{g(6) - g(3)}{6 - 3} = \frac{-20}{3}$$.
+
+**Working:** The slope of the secant line through the neighboring points estimates the derivative: $$g'(4) \approx \frac{-8 - (12)}{3} = -\frac{20}{3}$$.
+
+**Mistakes to avoid**
+
+- $$\frac{7}{4}$$: This divides the output by the input, which is not a rate of change.
+- $$-15$$: This forgets to divide by the change in x.
+- $$-20$$: This is the change in g without dividing by the change in x.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$0.690$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 2.5} \approx 0.690$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$-0.856$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 1.2} \approx -0.856$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.923$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 1.5} \approx 0.923$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.106$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 1.5} \approx 0.106$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.296$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 2} \approx 0.296$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.800$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 2} \approx 0.800$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.077$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 2} \approx 0.077$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.264$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 0.5} \approx 0.264$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.918$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 0.5} \approx 0.918$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.022$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 1.2} \approx 0.022$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.289$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 1.2} \approx 0.289$$.
+
+**Q.** Let $$f(x) = \frac{e^{x}}{1 + x^2}$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$0.521$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\frac{e^{x}}{1 + x^2}\right)\right|_{x = 2.5} \approx 0.521$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$-1.193$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 1.5} \approx -1.193$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$1.104$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 1.5} \approx 1.104$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.455$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 0.5} \approx 0.455$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-0.103$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 2.5} \approx -0.103$$.
+
+**Q.** Let $$f(x) = \ln(x^2 + 1)$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$0.984$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\ln(x^2 + 1)\right)\right|_{x = 1.2} \approx 0.984$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-1.404$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 2.5} \approx -1.404$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(2)$$?
+
+**A.** $$0.000$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 2} \approx 0.000$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(2.5)$$?
+
+**A.** $$-1.200$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 2.5} \approx -1.200$$.
+
+**Q.** Let $$f(x) = x \sin x$$. What is the value of $$f'(1.2)$$?
+
+**A.** $$1.367$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x \sin x\right)\right|_{x = 1.2} \approx 1.367$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(2)$$?
+
+**A.** $$-1.433$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 2} \approx -1.433$$.
+
+**Q.** Let $$f(x) = \sqrt{x}\,\cos x$$. What is the value of $$f'(0.5)$$?
+
+**A.** $$0.282$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(\sqrt{x}\,\cos x\right)\right|_{x = 0.5} \approx 0.282$$.
+
+**Q.** Let $$f(x) = x^2 e^{-x}$$. What is the value of $$f'(1.5)$$?
+
+**A.** $$0.167$$. Use the calculator's numerical derivative (or the correct rule) at the given input. On a graphing calculator, evaluate $$\left.\frac{d}{dx}\left(x^2 e^{-x}\right)\right|_{x = 1.5} \approx 0.167$$.
+
+### Free-response practice: Rate of people entering a park
+
+People enter an amusement park at a rate modeled by a differentiable function $$P$$, where $$P(t)$$ is measured in people per minute and $$t$$ is measured in minutes. Selected values are shown.
+
+*Values of P(t)*
+
+| $$t$$ (minutes) | $$P(t)$$ (people per minute) |
+| --- | --- |
+| 0 | 60 |
+| 3 | 71 |
+| 5 | 40 |
+| 9 | 71 |
+| 12 | 77 |
+
+**(a)** Use the data to estimate $$P'(7)$$. Show the computations and indicate units.
+
+To earn the point: Uses a difference quotient on the interval containing the time. Model answer: $$\frac{P(9) - P(5)}{9 - 5} = \frac{31}{4}$$
+
+To earn the point: Gives correct units. Model answer: people per minute per minute
+
+**(b)** Use a trapezoidal sum with the four subintervals shown in the table to approximate $$\int_0^{12} P(t)\,dt$$. Explain the meaning of this integral in the context of the problem.
+
+To earn the point: Sets up the trapezoidal sum with unequal widths. Model answer: $$\frac{3}{2}(60 + 71)$$ + $$\frac{2}{2}(71 + 40)$$ + $$\frac{4}{2}(40 + 71)$$ + $$\frac{3}{2}(71 + 77)$$
+
+To earn the point: Gives the correct value. Model answer: $$\frac{1503}{2}$$
+
+To earn the point: Interprets the integral with units. Model answer: The total number of people who enter the park during the first 12 minutes.
+
+**(c)** Must there be a time $$c$$, for $$3 < c < 9$$, such that $$P'(c) = 0$$? Justify your answer.
+
+To earn the point: Answers yes, citing the Mean Value Theorem (or Rolle's Theorem) with its conditions. Model answer: Yes. $$P$$ is differentiable (so continuous), and $$P(3) = P(9) = 71$$. By the Mean Value Theorem there is a $$c$$ with $$P'(c) = \frac{71 - 71}{6} = 0$$.
+
+**(d)** Must there be a time $$t$$, for $$0 < t < 3$$, at which $$P(t) = 69$$? Justify your answer.
+
+To earn the point: Answers yes, citing the Intermediate Value Theorem and continuity. Model answer: Yes. $$P$$ is continuous, and $$69$$ is between $$P(0) = 60$$ and $$P(3) = 71$$, so the IVT guarantees such a $$t$$.

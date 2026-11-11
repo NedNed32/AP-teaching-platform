@@ -1,0 +1,64 @@
+---
+objectives:
+  - 'Analyze LR circuits with differential equations and limiting behavior.'
+keyTerms:
+  - term: 'LR time constant'
+    definition: 'τ = L/R.'
+checks:
+  - q: 'Immediately after a switch closes, how does an inductor behave?'
+    a: 'Like a break: no current through it.'
+  - q: 'After a long time?'
+    a: 'Like a wire.'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+Switch closed at $$t = 0$$ (emf ε, resistance R, inductance L):
+
+$$\varepsilon - IR - L\frac{dI}{dt} = 0 \quad\Rightarrow\quad I(t) = \frac{\varepsilon}{R}\left(1 - e^{-tR/L}\right)$$
+
+When the source is removed, the current decays: $$I = I_0e^{-tR/L}$$.
+
+| Time | Capacitor | Inductor |
+| --- | --- | --- |
+| just after switching | acts like a wire | acts like a break |
+| long after | acts like a break | acts like a wire |
+
+<Note title="Continuity">
+Current through an inductor cannot change instantaneously, just as voltage across a capacitor cannot.
+</Note>
+
+<WorkedExample title="Current after one time constant">
+A 12 V battery, 4.0 Ω resistor and 2.0 H inductor are connected. Find τ and I after 0.50 s.
+
+1. $$\tau = 2.0/4.0 = 0.50$$ s.
+2. $$I = 3.0(1 - e^{-1}) = 3.0(0.632)$$.
+
+**Answer:** τ = 0.50 s; about 1.9 A.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+An ideal 11 V battery is connected at $$t = 0$$ to a 11 Ω resistor and a 1.8 H inductor in series. What is the current at $$t = 0.164$$ s?
+
+**Answer:** $$0.633\ \mathrm{A}$$
+
+**Why:** τ = L/R = 0.164 s; I = (ε/R)(1 − e^(−t/τ)).
+
+**Working:** I = (11/11)(1 − e^(−0.164/0.164)) = 0.633 A.
+
+**Mistakes to avoid**
+
+- $$1\ \mathrm{A}$$: The current has not reached its final value.
+- $$0.367\ \mathrm{A}$$: The current grows from zero.
+- $$0.961\ \mathrm{A}$$: τ = L/R.

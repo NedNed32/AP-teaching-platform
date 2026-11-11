@@ -1,0 +1,88 @@
+---
+objectives:
+  - State the Intermediate Value Theorem and check its hypothesis.
+  - Use the IVT to justify that an equation has a solution in an interval.
+keyTerms:
+  - term: Intermediate Value Theorem
+    definition: 'If $$f$$ is continuous on $$[a, b]$$ and $$k$$ is between $$f(a)$$ and $$f(b)$$, then $$f(c) = k$$ for at least one $$c$$ in $$[a, b]$$.'
+checks:
+  - q: 'A continuous function has $$f(1) = -2$$ and $$f(3) = 5$$. Must $$f(c) = 0$$ for some $$c$$ in $$(1, 3)$$?'
+    a: 'Yes, by the IVT, since 0 is between $$-2$$ and 5.'
+  - q: 'If $$f(1) = 2$$ and $$f(3) = 6$$ but $$f$$ is not continuous, must $$f$$ take the value 4?'
+    a: 'No. Without continuity, the IVT does not apply; the graph could jump over 4.'
+sources:
+  - title: Calculus Volume 1, section 2.4 "Continuity" (The Intermediate Value Theorem)
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+If you hike from a valley at 200 meters to a summit at 900 meters, at some moment you were at exactly 500 meters. You could not skip it, because your path was continuous. That common-sense fact is the Intermediate Value Theorem.
+
+<Figure src="assets/lessons/ivt.svg" alt="A continuous curve rising from below the x-axis at x = 0 to above y = 2 at x = 5, crossing a horizontal line at y = 1." caption="A continuous f must cross every height between f(a) and f(b)." />
+
+## The theorem
+
+If
+
+1. $$f$$ is **continuous** on the closed interval $$[a, b]$$, and
+2. $$k$$ is any number **between** $$f(a)$$ and $$f(b)$$,
+
+then there is at least one $$c$$ in $$[a, b]$$ with $$f(c) = k$$.
+
+The IVT promises existence, not location or uniqueness: there may be several such $$c$$, and the theorem does not tell you where they are.
+
+## Typical uses
+
+- **Roots.** If $$f(a)$$ and $$f(b)$$ have opposite signs, $$f$$ has a zero between $$a$$ and $$b$$.
+- **Tables.** Count sign changes between consecutive entries to find the minimum number of zeros.
+- **Context.** A temperature that is 60 at 8 a.m. and 75 at noon was 70 at some time in between.
+
+<Note title="Full-credit IVT justification">
+State that the function is continuous on the interval (or that it is differentiable, which implies continuity), give the two endpoint values, note that the target value lies between them, and conclude with the IVT. Missing the continuity statement loses the point.
+</Note>
+
+<WorkedExample title="Proving a root exists">
+Show that $$x^3 + x - 1 = 0$$ has a solution between 0 and 1.
+
+1. $$f(x) = x^3 + x - 1$$ is a polynomial, so it is continuous on $$[0, 1]$$.
+2. $$f(0) = -1$$ and $$f(1) = 1$$.
+3. 0 is between $$-1$$ and 1.
+
+**Answer:** by the Intermediate Value Theorem, $$f(c) = 0$$ for some $$c$$ in $$(0, 1)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The function $$f$$ is continuous on the closed interval $$[0, 4]$$. Selected values of $$f$$ are shown in the table.
+
+*Values of f*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| 0 | -3 |
+| 1 | -2 |
+| 2 | -3 |
+| 3 | 1 |
+| 4 | -3 |
+
+What is the least number of solutions that the equation $$f(x) = 0$$ must have on the interval $$[0, 4]$$?
+
+**Answer:** $$2$$
+
+**Why:** The sign of $$f$$ changes 2 times between consecutive table values, and the Intermediate Value Theorem guarantees a zero in each such interval.
+
+**Working:** Because $$f$$ is continuous, the Intermediate Value Theorem guarantees a solution of $$f(x) = 0$$ on every interval where the values change sign. Counting the sign changes in the table gives 2.
+
+**Mistakes to avoid**
+
+- $$1$$: This undercounts: each sign change between consecutive values guarantees its own zero.
+- $$3$$: The IVT only guarantees zeros where the sign changes; other zeros are possible but not required.
+- $$4$$: The IVT only guarantees zeros where the sign changes; other zeros are possible but not required.

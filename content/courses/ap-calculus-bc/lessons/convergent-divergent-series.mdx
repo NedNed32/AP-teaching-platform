@@ -1,0 +1,88 @@
+---
+objectives:
+  - Define an infinite series as the limit of its partial sums.
+  - Decide convergence from the partial sums.
+keyTerms:
+  - term: Infinite series
+    definition: '$$\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots$$.'
+  - term: Partial sum
+    definition: '$$S_N = \sum_{n=1}^{N} a_n$$, the sum of the first $$N$$ terms.'
+  - term: Convergent series
+    definition: 'A series whose partial sums approach a finite limit $$S$$, called its sum.'
+checks:
+  - q: 'The partial sums of a series are $$S_N = 3 - \frac{1}{N}$$. Does the series converge?'
+    a: 'Yes, to 3.'
+  - q: 'Does $$\sum_{n=1}^\infty 1$$ converge?'
+    a: 'No. $$S_N = N$$ grows without bound.'
+sources:
+  - title: Calculus Volume 2, section 5.2 "Infinite Series"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Can you add infinitely many numbers and get a finite answer? Walk halfway to a wall, then half the remaining distance, then half again: the steps $$\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots$$ add up to exactly 1. Unit 10 makes sense of sums like this.
+
+## Partial sums
+
+An infinite series $$\sum a_n$$ is defined through its **partial sums**:
+
+$$
+S_1 = a_1, \quad S_2 = a_1 + a_2, \quad \ldots, \quad S_N = \sum_{n=1}^{N} a_n.
+$$
+
+If $$\lim_{N \to \infty} S_N = S$$ is finite, the series **converges** and its sum is $$S$$. Otherwise it **diverges**.
+
+## Telescoping series
+
+Some partial sums collapse:
+
+$$
+\sum_{n=1}^{N}\left(\frac{1}{n} - \frac{1}{n + 1}\right) = 1 - \frac{1}{N + 1} \to 1.
+$$
+
+## Two sequences, not one
+
+Keep straight the difference between the **terms** $$a_n$$ and the **partial sums** $$S_N$$. The terms of $$\sum \frac{1}{n}$$ approach 0, yet the partial sums grow without bound (topic 10.5).
+
+<Note title="What the tests do">
+For most series you cannot find $$S_N$$ in closed form. Topics 10.3 to 10.9 give tests that decide convergence without finding the sum.
+</Note>
+
+<WorkedExample title="Sum from partial sums">
+The partial sums of $$\sum a_n$$ are $$S_N = \frac{2N}{N + 3}$$. Find $$a_1$$ and the sum of the series.
+
+1. $$a_1 = S_1 = \frac{2}{4} = \frac{1}{2}$$.
+2. $$\lim_{N \to \infty}\frac{2N}{N + 3} = 2$$.
+
+**Answer:** $$a_1 = \frac{1}{2}$$, and the series converges to 2.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Which of the following series converge?
+
+I. $$\sum_{n=1}^{\infty} \cos\left(\frac{1}{n}\right)$$
+
+II. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}$$
+
+III. $$\sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$
+
+**Answer:** II and III only
+
+**Why:** I: diverges (terms approach 1 (nth term test)). II: converges (absolute values form a p-series with p = 3). III: converges (alternating series test, but the harmonic series diverges).
+
+**Working:** Series I diverges: terms approach 1 (nth term test). Series II converges: absolute values form a p-series with p = 3. Series III converges: alternating series test, but the harmonic series diverges.
+
+**Mistakes to avoid**
+
+- I and III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- III only: Check each series with an appropriate test: I diverges, II converges, III converges.
+- None of them: Check each series with an appropriate test: I diverges, II converges, III converges.

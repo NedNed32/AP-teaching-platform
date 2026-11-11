@@ -1,0 +1,179 @@
+---
+objectives:
+  - Compute $$\frac{d^2y}{dx^2}$$ for a parametric curve and use it to find concavity.
+keyTerms:
+  - term: Parametric second derivative
+    definition: '$$\frac{d^2y}{dx^2} = \frac{\frac{d}{dt}\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}}$$.'
+checks:
+  - q: 'For $$x = t^2$$, $$y = t^3$$, find $$\frac{d^2y}{dx^2}$$.'
+    a: '$$\frac{dy}{dx} = \frac{3t}{2}$$; $$\frac{d}{dt} = \frac{3}{2}$$; divide by $$2t$$: $$\frac{3}{4t}$$.'
+  - q: 'What common mistake gives $$\frac{d^2y}{dx^2}$$ as $$\frac{y''''(t)}{x''''(t)}$$?'
+    a: 'Dividing second derivatives; the correct formula differentiates $$\frac{dy}{dx}$$ with respect to $$t$$ and divides by $$\frac{dx}{dt}$$.'
+sources:
+  - title: Calculus Volume 2, section 7.2 "Calculus of Parametric Curves"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Concavity of a parametric curve is still governed by $$\frac{d^2y}{dx^2}$$, but there is a trap: you cannot simply divide $$y''(t)$$ by $$x''(t)$$.
+
+## The formula
+
+$$\frac{dy}{dx}$$ is itself a function of $$t$$. To differentiate it with respect to $$x$$, use the same parametric rule again:
+
+$$
+\frac{d^2y}{dx^2} = \frac{d}{dx}\left(\frac{dy}{dx}\right) = \frac{\frac{d}{dt}\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}}.
+$$
+
+## Steps
+
+1. Find $$\frac{dy}{dx} = \frac{y'(t)}{x'(t)}$$ and simplify.
+2. Differentiate that expression with respect to $$t$$.
+3. Divide by $$x'(t)$$.
+4. Positive means concave up; negative means concave down.
+
+<Note title="Simplify first">
+Simplifying $$\frac{dy}{dx}$$ before differentiating (for instance $$\frac{3t^2}{2t} = \frac{3t}{2}$$) makes step 2 much easier and avoids a quotient rule.
+</Note>
+
+<WorkedExample title="Concavity on a curve">
+For $$x = t + 1$$, $$y = t^3 - 3t$$, where is the curve concave up?
+
+1. $$\frac{dy}{dx} = \frac{3t^2 - 3}{1} = 3t^2 - 3$$.
+2. $$\frac{d}{dt}(3t^2 - 3) = 6t$$.
+3. $$\frac{d^2y}{dx^2} = \frac{6t}{1} = 6t$$.
+
+**Answer:** concave up for $$t > 0$$, that is, for $$x > 1$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{17}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 5}{2t} = \frac{3t}{2} - \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{5}{2t^2}$$, which is $$\frac{17}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{17}{32}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$-\frac{1}{2}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 5}{2t} = \frac{3t}{2} + \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{5}{2t^2}$$, which is $$-1$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$-\frac{1}{2}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$\frac{1}{2}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 5}{2t} = \frac{3t}{2} + \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{5}{2t^2}$$, which is $$-1$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$\frac{1}{2}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 4t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$\frac{7}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 4}{2t} = \frac{3t}{2} - \frac{4}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{4}{2t^2}$$, which is $$\frac{7}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\frac{7}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{3}{16}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 6}{2t} = \frac{3t}{2} + \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{6}{2t^2}$$, which is $$\frac{3}{4}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{3}{16}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-2$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 5}{2t} = \frac{3t}{2} - \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{5}{2t^2}$$, which is $$4$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-2$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{7}{16}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 2}{2t} = \frac{3t}{2} - \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{2}{2t^2}$$, which is $$\frac{7}{4}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{7}{16}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$-\frac{3}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 6}{2t} = \frac{3t}{2} + \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{6}{2t^2}$$, which is $$-\frac{3}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$-\frac{3}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 4t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{1}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 4}{2t} = \frac{3t}{2} + \frac{4}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{4}{2t^2}$$, which is $$1$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{1}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$\frac{3}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 6}{2t} = \frac{3t}{2} + \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{6}{2t^2}$$, which is $$-\frac{3}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$\frac{3}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 4t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{7}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 4}{2t} = \frac{3t}{2} - \frac{4}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{4}{2t^2}$$, which is $$\frac{7}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{7}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{9}{16}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 6}{2t} = \frac{3t}{2} - \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{6}{2t^2}$$, which is $$\frac{9}{4}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{9}{16}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{1}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 2}{2t} = \frac{3t}{2} + \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{2}{2t^2}$$, which is $$\frac{1}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{1}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 3t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{3}{2}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 3}{2t} = \frac{3t}{2} - \frac{3}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{3}{2t^2}$$, which is $$3$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{3}{2}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{9}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 6}{2t} = \frac{3t}{2} - \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{6}{2t^2}$$, which is $$\frac{9}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{9}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{11}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 1}{2t} = \frac{3t}{2} + \frac{1}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{1}{2t^2}$$, which is $$\frac{11}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{11}{32}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 3t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{9}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 3}{2t} = \frac{3t}{2} + \frac{3}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{3}{2t^2}$$, which is $$\frac{9}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{9}{32}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{5}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 2}{2t} = \frac{3t}{2} - \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{2}{2t^2}$$, which is $$\frac{5}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{5}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 6t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$\frac{9}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 6}{2t} = \frac{3t}{2} - \frac{6}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{6}{2t^2}$$, which is $$\frac{9}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\frac{9}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$\frac{1}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 2}{2t} = \frac{3t}{2} + \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{2}{2t^2}$$, which is $$\frac{1}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\frac{1}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$-\frac{1}{2}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 1}{2t} = \frac{3t}{2} + \frac{1}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{1}{2t^2}$$, which is $$1$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$-\frac{1}{2}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{5}{16}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 2}{2t} = \frac{3t}{2} + \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{2}{2t^2}$$, which is $$\frac{5}{4}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{5}{16}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 4t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = -1$$?
+
+**A.** $$\frac{1}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 4}{2t} = \frac{3t}{2} + \frac{4}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{4}{2t^2}$$, which is $$-\frac{1}{2}$$ at $$t = -1$$. Dividing by $$2t = -2$$ gives $$\frac{1}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 2t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$\frac{5}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 2}{2t} = \frac{3t}{2} - \frac{2}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{2}{2t^2}$$, which is $$\frac{5}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\frac{5}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$2$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 5}{2t} = \frac{3t}{2} - \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{5}{2t^2}$$, which is $$4$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$2$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 4t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$-\frac{1}{4}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 4}{2t} = \frac{3t}{2} + \frac{4}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{4}{2t^2}$$, which is $$-\frac{1}{2}$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$-\frac{1}{4}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - 3t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{15}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 3}{2t} = \frac{3t}{2} - \frac{3}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{3}{2t^2}$$, which is $$\frac{15}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{15}{32}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} - t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{13}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 - 1}{2t} = \frac{3t}{2} - \frac{1}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} + \frac{1}{2t^2}$$, which is $$\frac{13}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{13}{32}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 1$$?
+
+**A.** $$\frac{1}{2}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 1}{2t} = \frac{3t}{2} + \frac{1}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{1}{2t^2}$$, which is $$1$$ at $$t = 1$$. Dividing by $$2t = 2$$ gives $$\frac{1}{2}$$.
+
+**Q.** For the curve $$x = t^2$$, $$y = t^{3} + 5t$$, what is $$\frac{d^2y}{dx^2}$$ at $$t = 2$$?
+
+**A.** $$\frac{7}{32}$$. Differentiate $$\frac{dy}{dx}$$ with respect to $$t$$, then divide by $$\frac{dx}{dt} = 2t$$. $$\frac{dy}{dx} = \frac{3t^2 + 5}{2t} = \frac{3t}{2} + \frac{5}{2t}$$. Its $$t$$-derivative is $$\frac{3}{2} - \frac{5}{2t^2}$$, which is $$\frac{7}{8}$$ at $$t = 2$$. Dividing by $$2t = 4$$ gives $$\frac{7}{32}$$.

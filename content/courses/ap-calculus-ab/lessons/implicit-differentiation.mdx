@@ -1,0 +1,270 @@
+---
+objectives:
+  - Find $$\frac{dy}{dx}$$ for curves defined implicitly by an equation in $$x$$ and $$y$$.
+keyTerms:
+  - term: Implicit relation
+    definition: 'An equation in $$x$$ and $$y$$, such as $$x^2 + y^2 = 25$$, that is not solved for $$y$$.'
+  - term: Implicit differentiation
+    definition: 'Differentiating both sides with respect to $$x$$, treating $$y$$ as a function of $$x$$ and using the chain rule on every $$y$$ term.'
+checks:
+  - q: 'Find $$\frac{dy}{dx}$$ for $$y^3 + x = 4$$.'
+    a: '$$3y^2 y'' + 1 = 0$$, so $$y'' = -\frac{1}{3y^2}$$.'
+  - q: 'What is $$\frac{d}{dx}(xy)$$?'
+    a: '$$y + x\frac{dy}{dx}$$, by the product rule.'
+sources:
+  - title: Calculus Volume 1, section 3.8 "Implicit Differentiation"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The circle $$x^2 + y^2 = 25$$ is not the graph of a single function, yet it clearly has a slope at most points. Implicit differentiation finds that slope without solving for $$y$$.
+
+## The method
+
+1. Differentiate **both sides** of the equation with respect to $$x$$.
+2. Every time you differentiate a term containing $$y$$, multiply by $$\frac{dy}{dx}$$ (chain rule), because $$y$$ depends on $$x$$.
+3. Collect the $$\frac{dy}{dx}$$ terms on one side and factor.
+4. Solve for $$\frac{dy}{dx}$$.
+
+For the circle: $$2x + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{x}{y}$$.
+
+The answer usually contains both $$x$$ and $$y$$. To get a number, substitute **both coordinates** of a point on the curve.
+
+## Typical terms
+
+| Term | Derivative with respect to $$x$$ |
+| --- | --- |
+| $$y^2$$ | $$2y\,y'$$ |
+| $$xy$$ | $$y + x\,y'$$ |
+| $$\sin y$$ | $$\cos y \cdot y'$$ |
+| $$e^{y}$$ | $$e^{y}\,y'$$ |
+
+<Note title="The product rule hides in xy">
+Forgetting the product rule on terms like $$xy$$ or $$x^2y^3$$ is the most common implicit-differentiation error. Each such term produces two pieces.
+</Note>
+
+<WorkedExample title="Slope on a tilted ellipse">
+Find the slope of $$x^2 + xy + y^2 = 7$$ at $$(1, 2)$$.
+
+1. Differentiate: $$2x + (y + xy') + 2yy' = 0$$.
+2. Collect: $$y'(x + 2y) = -(2x + y)$$, so $$y' = -\frac{2x + y}{x + 2y}$$.
+3. At $$(1, 2)$$: $$-\frac{2 + 2}{1 + 4}$$.
+
+**Answer:** the slope is $$-\frac{4}{5}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(-12, 5)$$?
+
+**A.** $$\frac{12}{5}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-12}{5}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-12, 5)$$ this is $$\frac{12}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(6, 8)$$?
+
+**A.** $$-\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{6}{8}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(6, 8)$$ this is $$-\frac{3}{4}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(2, 1)$$?
+
+**A.** $$-\frac{5}{4}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(2, 1)$$, $$y' = -\frac{5}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(-4, -3)$$?
+
+**A.** $$-\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-4}{-3}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-4, -3)$$ this is $$-\frac{4}{3}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(-3, 4)$$?
+
+**A.** $$\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-3}{4}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-3, 4)$$ this is $$\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(-5, -12)$$?
+
+**A.** $$-\frac{5}{12}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-5}{-12}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-5, -12)$$ this is $$-\frac{5}{12}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 13$$, what is $$\frac{dy}{dx}$$ at the point $$(1, 3)$$?
+
+**A.** $$-\frac{5}{7}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(1, 3)$$, $$y' = -\frac{5}{7}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(4, -3)$$?
+
+**A.** $$\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{4}{-3}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(4, -3)$$ this is $$\frac{4}{3}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-2, -1)$$?
+
+**A.** $$-\frac{5}{4}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-2, -1)$$, $$y' = -\frac{5}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(-5, 12)$$?
+
+**A.** $$\frac{5}{12}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-5}{12}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-5, 12)$$ this is $$\frac{5}{12}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(5, 12)$$?
+
+**A.** $$-\frac{5}{12}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{5}{12}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(5, 12)$$ this is $$-\frac{5}{12}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-1, -2)$$?
+
+**A.** $$-\frac{4}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-1, -2)$$, $$y' = -\frac{4}{5}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(1, 2)$$?
+
+**A.** $$-\frac{4}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(1, 2)$$, $$y' = -\frac{4}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(-6, -8)$$?
+
+**A.** $$-\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-6}{-8}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-6, -8)$$ this is $$-\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(8, -6)$$?
+
+**A.** $$\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{8}{-6}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(8, -6)$$ this is $$\frac{4}{3}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(3, -1)$$?
+
+**A.** $$-5$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(3, -1)$$, $$y' = -5$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(-6, 8)$$?
+
+**A.** $$\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-6}{8}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-6, 8)$$ this is $$\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(8, 6)$$?
+
+**A.** $$-\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{8}{6}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(8, 6)$$ this is $$-\frac{4}{3}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(-12, -5)$$?
+
+**A.** $$-\frac{12}{5}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-12}{-5}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-12, -5)$$ this is $$-\frac{12}{5}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 19$$, what is $$\frac{dy}{dx}$$ at the point $$(3, 2)$$?
+
+**A.** $$-\frac{8}{7}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(3, 2)$$, $$y' = -\frac{8}{7}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(3, 4)$$?
+
+**A.** $$-\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{3}{4}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(3, 4)$$ this is $$-\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(12, 5)$$?
+
+**A.** $$-\frac{12}{5}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{12}{5}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(12, 5)$$ this is $$-\frac{12}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(-8, 6)$$?
+
+**A.** $$\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-8}{6}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-8, 6)$$ this is $$\frac{4}{3}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 19$$, what is $$\frac{dy}{dx}$$ at the point $$(2, 3)$$?
+
+**A.** $$-\frac{7}{8}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(2, 3)$$, $$y' = -\frac{7}{8}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(5, -12)$$?
+
+**A.** $$\frac{5}{12}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{5}{-12}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(5, -12)$$ this is $$\frac{5}{12}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 19$$, what is $$\frac{dy}{dx}$$ at the point $$(-2, -3)$$?
+
+**A.** $$-\frac{7}{8}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-2, -3)$$, $$y' = -\frac{7}{8}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(1, -3)$$?
+
+**A.** $$-\frac{1}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(1, -3)$$, $$y' = -\frac{1}{5}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(3, -2)$$?
+
+**A.** $$4$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(3, -2)$$, $$y' = 4$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 13$$, what is $$\frac{dy}{dx}$$ at the point $$(3, 1)$$?
+
+**A.** $$-\frac{7}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(3, 1)$$, $$y' = -\frac{7}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(6, -8)$$?
+
+**A.** $$\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{6}{-8}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(6, -8)$$ this is $$\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 100$$ at the point $$(-8, -6)$$?
+
+**A.** $$-\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-8}{-6}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-8, -6)$$ this is $$-\frac{4}{3}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(-4, 3)$$?
+
+**A.** $$\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-4}{3}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-4, 3)$$ this is $$\frac{4}{3}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-2, 3)$$?
+
+**A.** $$\frac{1}{4}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-2, 3)$$, $$y' = \frac{1}{4}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-1, 3)$$?
+
+**A.** $$-\frac{1}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-1, 3)$$, $$y' = -\frac{1}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(-3, -4)$$?
+
+**A.** $$-\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{-3}{-4}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(-3, -4)$$ this is $$-\frac{3}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 169$$ at the point $$(12, -5)$$?
+
+**A.** $$\frac{12}{5}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{12}{-5}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(12, -5)$$ this is $$\frac{12}{5}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(4, 3)$$?
+
+**A.** $$-\frac{4}{3}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{4}{3}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(4, 3)$$ this is $$-\frac{4}{3}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 13$$, what is $$\frac{dy}{dx}$$ at the point $$(-1, -3)$$?
+
+**A.** $$-\frac{5}{7}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-1, -3)$$, $$y' = -\frac{5}{7}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-3, 1)$$?
+
+**A.** $$-5$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-3, 1)$$, $$y' = -5$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(2, -3)$$?
+
+**A.** $$\frac{1}{4}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(2, -3)$$, $$y' = \frac{1}{4}$$.
+
+**Q.** What is the slope of the line tangent to the curve $$x^2 + y^2 = 25$$ at the point $$(3, -4)$$?
+
+**A.** $$\frac{3}{4}$$. $$2x + 2y\frac{dy}{dx} = 0$$ gives $$\frac{dy}{dx} = -\frac{x}{y} = -\frac{3}{-4}$$. Differentiate implicitly: $$2x + 2y\,y' = 0$$, so $$y' = -\frac{x}{y}$$. At $$(3, -4)$$ this is $$\frac{3}{4}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 13$$, what is $$\frac{dy}{dx}$$ at the point $$(-3, -1)$$?
+
+**A.** $$-\frac{7}{5}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-3, -1)$$, $$y' = -\frac{7}{5}$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 7$$, what is $$\frac{dy}{dx}$$ at the point $$(-3, 2)$$?
+
+**A.** $$4$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-3, 2)$$, $$y' = 4$$.
+
+**Q.** For the curve $$x^2 + xy + y^2 = 19$$, what is $$\frac{dy}{dx}$$ at the point $$(-3, -2)$$?
+
+**A.** $$-\frac{8}{7}$$. $$2x + y + x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$, so $$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$$. Implicit differentiation with the product rule on $$xy$$: $$2x + (y + xy') + 2yy' = 0$$. Solving, $$y' = -\frac{2x + y}{x + 2y}$$; at $$(-3, -2)$$, $$y' = -\frac{8}{7}$$.
+
+### Free-response practice: An implicitly defined curve
+
+Consider the curve given by $$x^2 - xy + y^2 = 3$$.
+
+**(a)** Show that $$\frac{dy}{dx} = -\frac{2x - y}{-x + 2y}$$.
+
+To earn the point: Differentiates implicitly, using the product rule on the $$xy$$ term. Model answer: $$2x - \left(y + x\frac{dy}{dx}\right) + 2y\frac{dy}{dx} = 0$$
+
+To earn the point: Solves for $$\frac{dy}{dx}$$ to reach the given expression. Model answer: $$\frac{dy}{dx}(-x + 2y) = -(2x - y)$$
+
+**(b)** Write an equation for the line tangent to the curve at the point $$(-1, 1)$$.
+
+To earn the point: Finds the slope and writes the line. Model answer: $$\frac{dy}{dx} = 1$$, so $$y - 1 = 1(x + 1)$$
+
+**(c)** Find the coordinates of every point on the curve at which the tangent line is horizontal.
+
+To earn the point: Sets the numerator equal to zero. Model answer: $$2x - y = 0$$, so $$y = 2x$$
+
+To earn the point: Substitutes into the curve and solves. Model answer: $$3x^2 = 3$$, so $$x = \pm 1$$
+
+To earn the point: Gives both points. Model answer: $$(1, 2)$$ and $$(-1, -2)$$
+
+**(d)** Find $$\frac{d^2y}{dx^2}$$ at the point $$(-1, 1)$$.
+
+To earn the point: Differentiates $$\frac{dy}{dx}$$ with the quotient rule, treating $$y$$ as a function of $$x$$. Model answer: $$\frac{d^2y}{dx^2} = -\frac{(2 - y')(-x + 2y) - (2x - y)(-1 + 2y')}{(-x + 2y)^2}$$
+
+To earn the point: Gives the correct value. Model answer: $$-\frac{2}{3}$$

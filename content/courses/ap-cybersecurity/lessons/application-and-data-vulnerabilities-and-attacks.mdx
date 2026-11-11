@@ -1,0 +1,85 @@
+---
+objectives:
+  - 'Describe attacks on applications and data, including SQL injection, XSS and data breaches.'
+keyTerms:
+  - term: 'SQL injection'
+    definition: 'Inserting SQL commands into input so the application''s database executes them.'
+  - term: 'Cross-site scripting (XSS)'
+    definition: 'Injecting malicious script into a web page viewed by other users.'
+  - term: 'Input validation'
+    definition: 'Checking that input matches what is expected before using it.'
+checks:
+  - q: 'Why does the input '' OR ''1''=''1 work against vulnerable login forms?'
+    a: 'It changes the query''s logic so the condition is always true.'
+  - q: 'What is the main defense against SQL injection?'
+    a: 'Parameterized queries (prepared statements), plus input validation.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+Applications are vulnerable when they **trust input**.
+
+| Attack | How |
+| --- | --- |
+| SQL injection | input becomes part of a database query |
+| cross-site scripting | input is displayed as live script to other users |
+| buffer overflow | input longer than expected overwrites memory |
+| broken access control | users reach data or functions they should not |
+| insecure direct object reference | changing an ID in a URL reveals another user's record |
+
+## SQL injection example
+
+```text
+SELECT * FROM users WHERE name = 'INPUT' AND pass = 'INPUT2';
+```
+
+If INPUT is `admin' --`, the rest of the query is commented out and the password check disappears.
+
+Data is also exposed through misconfigured cloud storage, lost devices, weak access controls and insiders.
+
+<Note title="Never build queries by joining strings">
+Parameterized queries send the command and the data separately, so input can never change the command.
+</Note>
+
+<WorkedExample title="Identify the flaw">
+Changing a URL from /grades?student=1042 to /grades?student=1043 shows another student's grades. What vulnerability is this?
+
+1. The application does not check that the requester owns record 1043.
+
+**Answer:** broken access control (an insecure direct object reference).
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A web server log contains these entries.
+
+```text
+198.51.100.128 POST /cart 302
+198.51.100.207 GET /products?page=2 200
+198.51.100.109 GET /invoices?id=3291 ... (1,240 sequential ids in 3 minutes) 200
+198.51.100.150 GET /login 200
+```
+
+Which entry shows an attack, and what kind?
+
+**Answer:** The request from 198.51.100.109: data scraping through broken access control
+
+**Why:** Rapid sequential record requests indicate automated scraping.
+
+**Working:** 198.51.100.109 sent thousands of sequential ID requests; the other entries are ordinary traffic.
+
+**Mistakes to avoid**
+
+- The request from 198.51.100.109: a denial-of-service attack: A single request pattern like this is not a flood.
+- The request from 198.51.100.150: a brute-force attack: Loading the login page once is normal.
+- The request from 198.51.100.128: data scraping through broken access control: That is a normal cart action.

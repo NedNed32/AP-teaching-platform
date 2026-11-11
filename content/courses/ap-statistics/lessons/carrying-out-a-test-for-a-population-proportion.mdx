@@ -1,0 +1,86 @@
+---
+objectives:
+  - 'Carry out a one-sample z test for a proportion and conclude in context.'
+keyTerms:
+  - term: 'Test statistic'
+    definition: 'z = (p̂ − p₀) / √(p₀(1 − p₀)/n).'
+checks:
+  - q: 'Which standard deviation is used in the test statistic?'
+    a: 'The one based on p₀.'
+  - q: 'With α = 0.05 and a p-value of 0.12, what is the conclusion?'
+    a: 'Fail to reject H₀; not convincing evidence for Hₐ.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$z = \frac{\hat p - p_0}{\sqrt{\dfrac{p_0(1-p_0)}{n}}}$$
+
+## Four steps
+
+1. **State** hypotheses, α and the parameter.
+2. **Plan**: one-sample z test for p; check conditions.
+3. **Do**: test statistic and p-value.
+4. **Conclude**: compare p-value with α and state the conclusion in context.
+
+<Note title="Conclusion language">
+'Because the p-value of 0.012 is less than α = 0.05, we reject H₀. There is convincing evidence that the true proportion of … is greater than …'
+</Note>
+
+<WorkedExample title="Test">
+A school claims 80% of students have home internet. In an SRS of 200, 148 do. Test Hₐ: p < 0.80 at α = 0.05.
+
+1. $$\hat p = 0.74$$; SD = $$\sqrt{0.8(0.2)/200} = 0.0283$$.
+2. $$z = (0.74 - 0.80)/0.0283 = -2.12$$; p-value ≈ 0.017.
+
+**Answer:** reject H₀: convincing evidence that fewer than 80% have home internet.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+To test H₀: p = 0.3 versus Hₐ: p > 0.3, a random sample of 150 gives p̂ = 0.38. What are the test statistic and p-value?
+
+**Answer:** z = 2.14, p-value = 0.0163
+
+**Why:** z = (p̂ − p₀)/√(p₀(1 − p₀)/n); one-sided p-value.
+
+**Working:** SD = √(0.3·0.7/150) = 0.0374; z = 2.14; p-value = 0.0163.
+
+**Mistakes to avoid**
+
+- z = 2.02, p-value = 0.0218: The test's standard deviation uses p₀, not p̂.
+- z = 2.14, p-value = 0.0325: The alternative is one-sided.
+- z = 2.14, p-value = 0.9837: Find the area in the direction of Hₐ.
+
+### Free-response practice: A test for a proportion
+
+A school district claims that 40% of its students take public transit to school. A reporter suspects the true proportion is lower. In a random sample of 130 students, 44 take public transit.
+
+**(a)** State the hypotheses, defining the parameter.
+
+To earn the point: Correct hypotheses with the parameter defined. Model answer: H₀: p = 0.4; Hₐ: p &lt; 0.4, where p is the proportion of all district students who take public transit.
+
+**(b)** Identify the appropriate procedure and check its conditions.
+
+To earn the point: One-sample z test for a proportion. Model answer: Random sample stated.
+
+To earn the point: 10% and large counts checked. Model answer: 130 is less than 10% of all students (assumed); np₀ = 52 and n(1 − p₀) = 78 are both at least 10.
+
+**(c)** Calculate the test statistic and p-value.
+
+To earn the point: Test statistic. Model answer: p̂ = 0.3385; z = (0.3385 − 0.4)/0.043 = -1.43
+
+To earn the point: p-value. Model answer: 0.076
+
+**(d)** State a conclusion in context at α = 0.05.
+
+To earn the point: Correct decision linked to the p-value, in context. Model answer: Because 0.076 is greater than 0.05, fail to reject H₀: not convincing evidence that the proportion is less than 0.4.

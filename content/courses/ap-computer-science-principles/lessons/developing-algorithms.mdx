@@ -1,0 +1,111 @@
+---
+objectives:
+  - Develop algorithms by combining and modifying existing ones.
+  - Recognize that different algorithms can solve the same problem.
+keyTerms:
+  - term: Algorithm
+    definition: 'A finite set of instructions that accomplishes a task.'
+  - term: Equivalent algorithms
+    definition: 'Different algorithms that produce the same result for every input.'
+checks:
+  - q: 'Name three algorithms worth knowing well.'
+    a: 'Finding a maximum or minimum, computing a sum or average, and checking whether a number is divisible by another.'
+  - q: 'Why build on existing algorithms?'
+    a: 'They are already tested, which reduces development time and errors.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Algorithms can be written in natural language, diagrams, pseudocode or a programming language. New algorithms are often built from known ones.
+
+## Building blocks
+
+- Find the maximum or minimum of a set of values.
+- Compute a sum or average.
+- Determine whether a number is divisible by another (`n MOD d = 0`).
+- Determine whether an element is in a list.
+
+## Equivalent algorithms
+
+Two algorithms can look different but always give the same output. For example, `IF (NOT (x > 5))` and `IF (x ≤ 5)` are equivalent, and a loop that counts up and one that counts down can compute the same sum.
+
+<Note title="Checking equivalence">
+To show two algorithms are not equivalent, find one input where their outputs differ. Test boundary values like 0, equal values and empty lists.
+</Note>
+
+<WorkedExample title="Combining algorithms">
+Describe an algorithm that finds the average of only the even numbers in a list.
+
+1. Combine "divisible by" with "sum and count".
+2. For each n in the list, if `n MOD 2 = 0`, add n to sum and add 1 to count.
+3. After the loop, display sum / count (if count is not 0).
+
+**Answer:** filter with MOD, then apply the average algorithm.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```text
+nums ← [10, 1, 2, 10, 18, 13]
+count ← 0
+FOR EACH n IN nums
+{
+   IF (n > 10)
+   {
+      count ← count + 1
+   }
+}
+DISPLAY (count)
+```
+
+What is displayed as a result of running the code segment?
+
+**Answer:** `2`
+
+**Why:** Apply the condition to every element of the list.
+
+**Working:** 2 values are greater than 10.
+
+**Mistakes to avoid**
+
+- `4`: The comparison is strict.
+- `3`: Recheck each element.
+- `6`: Not every element passes the condition.
+
+### Worked exam question 2
+
+A robot is on a 6-by-6 grid of squares. Rows are numbered 1 to 6 from top to bottom and columns 1 to 6 from left to right. The robot starts in row 5, column 3, facing up. `MOVE_FORWARD()` moves it one square in the direction it faces; `ROTATE_LEFT()` and `ROTATE_RIGHT()` turn it 90 degrees in place.
+
+```text
+REPEAT 2 TIMES
+{
+   MOVE_FORWARD()
+   ROTATE_RIGHT()
+}
+```
+
+Where does the robot end, and which way does it face?
+
+**Answer:** Row 4, column 4, facing down
+
+**Why:** Trace each move and turn in order.
+
+**Working:** Tracing 2 passes of 1 move then ROTATE_RIGHT ends at row 4, column 4, facing down.
+
+**Mistakes to avoid**
+
+- Row 4, column 2, facing down: ROTATE_RIGHT turns the robot clockwise.
+- Row 4, column 4, facing up: The robot turns in every pass, including the last.
+- Row 5, column 3, facing down: The robot moves forward in each pass.

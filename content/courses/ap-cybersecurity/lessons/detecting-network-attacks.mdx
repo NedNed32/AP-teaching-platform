@@ -1,0 +1,83 @@
+---
+objectives:
+  - 'Use logs, IDS/IPS alerts and traffic data to detect network attacks.'
+keyTerms:
+  - term: 'IDS / IPS'
+    definition: 'Intrusion detection system (alerts) / intrusion prevention system (alerts and blocks).'
+  - term: 'Signature-based detection'
+    definition: 'Matching traffic against patterns of known attacks.'
+  - term: 'SIEM'
+    definition: 'Security information and event management: collects and correlates logs from many sources.'
+checks:
+  - q: 'What log pattern suggests a port scan?'
+    a: 'One source connecting to many different ports on a host in a short time.'
+  - q: 'What is the difference between an IDS and an IPS?'
+    a: 'An IDS only alerts; an IPS can also block traffic.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+| Indicator | Possible attack |
+| --- | --- |
+| one IP hitting many ports quickly | port scan |
+| huge traffic from many IPs to one server | DDoS |
+| many failed logins, then a success | brute force / password spraying |
+| internal host sending large data to an unknown IP at night | data exfiltration |
+| traffic to a known malicious domain | malware command and control |
+
+**Signature-based** detection finds known attacks; **anomaly-based** detection finds unusual behavior, including new attacks, but with more false positives.
+
+A **SIEM** correlates firewall, IDS, server and authentication logs to reveal attacks that no single log shows.
+
+<Note title="Timestamps">
+Correlating logs depends on synchronized clocks. Different time zones or drifting clocks can hide the sequence of an attack.
+</Note>
+
+<WorkedExample title="Read the firewall log">
+Between 02:01:10 and 02:01:14, source 203.0.113.9 attempted connections to ports 21, 22, 23, 25, 80, 110, 143, 443 and 3389 on one server. What is happening?
+
+1. Many ports, one source, a few seconds.
+
+**Answer:** a port scan (reconnaissance); block the source and check for follow-up attempts.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A firewall log shows the following entries.
+
+```text
+02:14:01 192.0.2.243 -> 10.0.1.22:443 ALLOW
+02:14:03 192.0.2.204 -> 10.0.1.22:22 DENY
+02:14:04 192.0.2.204 -> 10.0.1.22:53 DENY
+02:14:05 192.0.2.204 -> 10.0.1.22:110 DENY
+02:14:06 192.0.2.204 -> 10.0.1.22:143 DENY
+02:14:07 192.0.2.204 -> 10.0.1.22:445 DENY
+02:14:08 192.0.2.204 -> 10.0.1.22:3389 DENY
+02:14:09 192.0.2.204 -> 10.0.1.22:8080 DENY
+02:14:12 198.51.100.248 -> 10.0.1.22:443 ALLOW
+02:14:15 192.0.2.35 -> 10.0.1.22:80 ALLOW
+```
+
+What does the log most likely show?
+
+**Answer:** A port scan from 192.0.2.204
+
+**Why:** One source tried many different ports on one host within seconds.
+
+**Working:** 192.0.2.204 probed ports 22, 53, 110, 143, 445, 3389, 8080 in 7 seconds: reconnaissance by port scan.
+
+**Mistakes to avoid**
+
+- A DDoS attack from 192.0.2.243: That source made one normal, allowed connection.
+- A brute-force password attack from 192.0.2.204: Brute force repeats logins on one service, not many ports.
+- Normal web browsing from 192.0.2.204: Web browsing uses ports 80 and 443, not a sweep of ports.

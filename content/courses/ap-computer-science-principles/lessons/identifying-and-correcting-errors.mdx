@@ -1,0 +1,287 @@
+---
+objectives:
+  - Identify logic, syntax, run-time and overflow errors.
+  - Use test cases and debugging techniques to find and correct them.
+keyTerms:
+  - term: Logic error
+    definition: 'A mistake in an algorithm that makes a program behave incorrectly or unexpectedly.'
+  - term: Syntax error
+    definition: 'A mistake where the rules of the language are not followed, so the program cannot run.'
+  - term: Run-time error
+    definition: 'A mistake that occurs during execution, such as dividing by zero.'
+  - term: Overflow error
+    definition: 'An error when a computer tries to handle a number outside its defined range.'
+checks:
+  - q: 'A program runs but always displays the wrong average. What kind of error is this?'
+    a: 'A logic error.'
+  - q: 'Name two ways to find an error.'
+    a: 'Test cases with known answers, hand tracing, extra output statements, or a debugger.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Errors are a normal part of programming. Knowing the types makes them easier to fix.
+
+## Types of errors
+
+| Error | When it appears | Example |
+| --- | --- | --- |
+| syntax | before running | missing parenthesis |
+| run-time | while running | dividing by zero |
+| logic | program runs, wrong result | a comparison written backward |
+| overflow | a number too large for its storage | exceeding the largest value a fixed number of bits can hold |
+
+## Finding errors
+
+- **Test cases**: choose inputs with known expected outputs, including boundary values and unusual inputs.
+- **Hand tracing**: step through the code, tracking variable values.
+- **Visualizations** and **debuggers**.
+- Extra **output statements** that display intermediate values.
+
+<WorkedExample title="Fixing a logic error">
+This code should find the largest value in a list of positive numbers, but it always gives 0.
+
+```text
+max ← 0
+FOR EACH n IN list
+{
+   IF (n < max)
+   {
+      max ← n
+   }
+}
+DISPLAY (max)
+```
+
+1. n is never less than 0, so max never changes.
+2. The comparison is reversed.
+
+**Answer:** change the condition to `n > max`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The following code segment is intended to display the number of elements in `nums` that are greater than 14.
+
+```text
+count ← 0
+FOR EACH n IN nums
+{
+   IF (n ≥ 14)
+   {
+      count ← count + 1
+   }
+}
+DISPLAY (count)
+```
+
+When `nums` is `[23, 14, 18, 22, 12]`, the code displays 4 instead of 3. Which change corrects the error?
+
+**Answer:** Change `n ≥ 14` to `n > 14`
+
+**Why:** The value 14 itself is counted but should not be.
+
+**Working:** The list contains 14, which ≥ counts but > does not. Using a strict comparison gives 3.
+
+**Mistakes to avoid**
+
+- Change `count ← 0` to `count ← 1`: That would add 1 to every result.
+- Change `n ≥ 14` to `n ≤ 14`: That counts the small values instead.
+- Move `DISPLAY (count)` inside the loop: That displays partial counts but does not fix the comparison.
+
+### Worked exam question 2
+
+The following code segment is intended to display the sum of the values in `nums`.
+
+```text
+FOR EACH n IN nums
+{
+   total ← 0
+   total ← total + n
+}
+DISPLAY (total)
+```
+
+What is displayed when `nums` is `[6, 13, 20, 3]`, and why?
+
+**Answer:** 3, because total is reset to 0 on every pass
+
+**Why:** The reset inside the loop discards the earlier values.
+
+**Working:** Each pass sets total to 0 and then adds n, so only the last value, 3, remains. Moving `total ← 0` before the loop fixes it.
+
+**Mistakes to avoid**
+
+- 42, because every value is added: total is set back to 0 before each addition.
+- 0, because total is reset after the loop: The reset happens before the addition in each pass.
+- 6, because the loop stops after one pass: FOR EACH visits every element.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 19, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[32, 38, 19, 27]`. It contains 19, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 19 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 23, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[23, 28, 31, 39]`. It contains 23, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 23 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 32, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[35, 44, 32, 37]`. It contains 32, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 32 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 34, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[38, 34, 60, 46]`. It contains 34, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 34 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 14, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[33, 14, 38, 42]`. It contains 14, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 14 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 31, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[59, 31, 44, 54]`. It contains 31, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 31 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 10, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[28, 36, 10, 11]`. It contains 10, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 10 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 29, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[29, 43, 55, 46]`. It contains 29, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 29 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 38, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[68, 41, 50, 38]`. It contains 38, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 38 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 24, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[40, 24, 25, 37]`. It contains 24, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 24 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 22, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[22, 50, 37, 44]`. It contains 22, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 22 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 15, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[21, 44, 15, 41]`. It contains 15, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 15 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 33, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[46, 33, 50, 52]`. It contains 33, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 33 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 35, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[35, 46, 51, 36]`. It contains 35, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 35 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 20, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[47, 44, 36, 20]`. It contains 20, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 20 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 12, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[32, 12, 25, 33]`. It contains 12, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 12 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 11, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[27, 11, 41, 14]`. It contains 11, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 11 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 36, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[61, 37, 43, 36]`. It contains 36, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 36 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 40, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[62, 40, 52, 56]`. It contains 40, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 40 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 25, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[44, 50, 25, 52]`. It contains 25, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 25 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 26, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[26, 52, 46, 53]`. It contains 26, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 26 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 30, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[30, 36, 57, 47]`. It contains 30, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 30 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 39, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[39, 66, 44, 52]`. It contains 39, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 39 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 16, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[28, 33, 16, 44]`. It contains 16, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 16 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 37, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[53, 39, 37, 65]`. It contains 37, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 37 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 17, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[17, 23, 34, 25]`. It contains 17, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 17 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 27, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[35, 27, 44, 32]`. It contains 27, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 27 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 21, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[21, 30, 32, 36]`. It contains 21, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 21 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 18, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[47, 41, 18, 19]`. It contains 18, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 18 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 28, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[50, 28, 29, 44]`. It contains 28, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 28 makes ≥ and > behave differently.
+
+**Q.** A procedure `countAbove(list)` should return how many values in list are greater than 13, but the programmer suspects it uses ≥ instead of >. Which test input would reveal this error?
+
+**A.** `[14, 34, 13, 36]`. It contains 13, which ≥ counts but > does not, so the two versions give different results. Only an input containing the boundary value 13 makes ≥ and > behave differently.
+
+**Q.** A shopping app applies a discount to orders under 50 dollars instead of orders over 50 dollars. Which type of error is this?
+
+**A.** A logic error. The program runs, but the algorithm produces incorrect results.
+
+**Q.** A keyword is misspelled, so the program cannot be translated and run. Which type of error is this?
+
+**A.** A syntax error. The rules of the language are broken, so the program cannot run at all.
+
+**Q.** A program crashes when a user enters 0 because it divides by the number entered. Which type of error is this?
+
+**A.** A run-time error. The error occurs while the program is running and stops it.
+
+**Q.** A program stops partway through when it tries to access the 11th element of a list that has 10 elements. Which type of error is this?
+
+**A.** A run-time error. The error occurs while the program is running and stops it.
+
+**Q.** A step counter that stores totals in 16 bits shows a small number after a user walks a very long way. Which type of error is this?
+
+**A.** A overflow error. The value is larger than the fixed number of bits can represent.
+
+**Q.** A loop meant to display the numbers 1 to 10 displays 1 to 9. Which type of error is this?
+
+**A.** A logic error. The program runs, but the algorithm produces incorrect results.
+
+**Q.** A grade calculator runs without stopping but reports an average that is too high for every student. Which type of error is this?
+
+**A.** A logic error. The program runs, but the algorithm produces incorrect results.
+
+**Q.** A program will not start because a closing parenthesis is missing on one line. Which type of error is this?
+
+**A.** A syntax error. The rules of the language are broken, so the program cannot run at all.

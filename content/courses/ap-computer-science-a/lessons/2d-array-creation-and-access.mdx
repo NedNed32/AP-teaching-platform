@@ -1,0 +1,89 @@
+---
+objectives:
+  - Create 2D arrays and access elements by row and column.
+keyTerms:
+  - term: 2D array
+    definition: 'An array of arrays; `grid[r][c]` is the element in row r and column c.'
+  - term: Row-major order
+    definition: 'Processing a 2D array one full row at a time, left to right.'
+checks:
+  - q: 'For `int[][] g = new int[3][5];`, what are g.length and g[0].length?'
+    a: '3 rows and 5 columns.'
+  - q: 'What is the index of the last column in row 0?'
+    a: '`g[0].length - 1`.'
+sources:
+  - title: CSAwesome, "2D Arrays"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+A 2D array models a grid: seats in a theater, pixels in an image, a game board. In Java it is an array whose elements are arrays (rows).
+
+## Creating
+
+```java
+int[][] grid = new int[3][4];     // 3 rows, 4 columns, all 0
+int[][] m = { {1, 2, 3},
+              {4, 5, 6} };        // 2 rows, 3 columns
+```
+
+## Accessing
+
+```java
+m[1][2]        // row 1, column 2: 6
+m.length       // number of rows: 2
+m[0].length    // number of columns: 3
+m[0][0] = 9;
+```
+
+The **first** index is the row, the **second** is the column.
+
+<Note title="Rows are arrays">
+`m[1]` is itself an array, the whole second row. That is why `m[0].length` gives the number of columns.
+</Note>
+
+<WorkedExample title="Access and update">
+Given `int[][] t = { {5, 1, 8}, {2, 7, 3} };`, what is `t[1][0] + t[0][t.length]` after `t[0][2] = t[1][1];`?
+
+1. `t.length` is 2, so `t[0][2]` is used.
+2. After the assignment, `t[0][2]` is 7.
+3. `t[1][0]` is 2.
+
+**Answer:** 2 + 7 = 9.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int[][] m = new int[2][4];
+for (int r = 0; r < m.length; r++) {
+    for (int c = 0; c < m[0].length; c++) {
+        m[r][c] = r * 3 + c;
+    }
+}
+System.out.println(m[1][0] + " " + m.length + " " + m[0].length);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3 2 4`
+
+**Why:** The first index is the row; m.length is the number of rows.
+
+**Working:** m[1][0] = 1 × 3 + 0 = 3; the array has 2 rows and 4 columns.
+
+**Mistakes to avoid**
+
+- `3 4 2`: m.length counts rows; m[0].length counts columns.
+- `1 2 4`: m[1][0] is row 1, column 0.
+- `3 8 4`: m.length is the number of rows, not elements.

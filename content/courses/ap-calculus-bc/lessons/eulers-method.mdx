@@ -1,0 +1,75 @@
+---
+objectives:
+  - Approximate a solution of a differential equation with Euler's method.
+  - Explain whether the approximation over- or underestimates.
+keyTerms:
+  - term: Euler's method
+    definition: 'Repeated tangent-line steps: $$y_{n+1} = y_n + \frac{dy}{dx}\Big|_{(x_n, y_n)} \cdot \Delta x$$.'
+  - term: Step size
+    definition: '$$\Delta x$$, the horizontal distance of each step; smaller steps usually give better approximations.'
+checks:
+  - q: 'For $$\frac{dy}{dx} = y$$, $$y(0) = 1$$, use one Euler step of size 0.5 to estimate $$y(0.5)$$.'
+    a: '$$1 + 1(0.5) = 1.5$$.'
+  - q: 'If solutions are concave up, does Euler''s method over- or underestimate?'
+    a: 'Underestimate: each tangent step lies below the curve.'
+sources:
+  - title: Calculus Volume 2, section 4.2 "Direction Fields and Numerical Methods"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Most differential equations cannot be solved exactly. Euler's method builds an approximate solution by walking along the slope field: take a short step along the tangent line, recompute the slope, step again.
+
+## The algorithm
+
+Start at $$(x_0, y_0)$$ with step $$\Delta x$$. Repeat:
+
+$$
+x_{n+1} = x_n + \Delta x, \qquad y_{n+1} = y_n + F(x_n, y_n)\,\Delta x,
+$$
+
+where $$F(x, y) = \frac{dy}{dx}$$. A table keeps the work organized.
+
+| $$x_n$$ | $$y_n$$ | slope $$F(x_n, y_n)$$ | $$\Delta y = \text{slope} \cdot \Delta x$$ |
+| --- | --- | --- | --- |
+
+## Over or under?
+
+Each step follows a tangent line. If the solution is **concave up**, tangent lines lie below it, so Euler's method **underestimates**; concave down gives an overestimate. Use $$\frac{d^2y}{dx^2}$$ to decide.
+
+<Note title="Two steps means two slopes">
+A common error is reusing the first slope for every step. The second step uses the slope at the new point $$(x_1, y_1)$$, computed from the approximate value $$y_1$$.
+</Note>
+
+<WorkedExample title="Two steps">
+For $$\frac{dy}{dx} = x + y$$ with $$y(0) = 1$$, use two steps of size 0.5 to approximate $$y(1)$$.
+
+1. At $$(0, 1)$$: slope $$1$$, so $$y_1 = 1 + 1(0.5) = 1.5$$.
+2. At $$(0.5, 1.5)$$: slope $$2$$, so $$y_2 = 1.5 + 2(0.5) = 2.5$$.
+
+**Answer:** $$y(1) \approx 2.5$$. (The exact value is $$2e - 2 \approx 3.437$$; solutions are concave up here, so Euler underestimates.)
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = y - x^2$$ with $$f(1) = 3$$. What is the approximation of $$f(2)$$ found with Euler's method, using two steps of equal size?
+
+**Answer:** $$\frac{39}{8}$$
+
+**Why:** Step 1: slope $$2$$, $$y_1 = 4$$. Step 2: slope $$1.75$$ at $$(1.5, 4)$$.
+
+**Working:** Step size $$0.5$$. $$y_1 = 3 + (2)(0.5) = 4$$; $$y_2 = 4 + (1.75)(0.5) = \frac{39}{8}$$.
+
+**Mistakes to avoid**
+
+- $$5$$: This reuses the first slope for the second step; the slope must be recomputed at the new point.
+- $$4$$: This is only the first step.
+- $$4.75$$: This uses the second slope for the whole distance.

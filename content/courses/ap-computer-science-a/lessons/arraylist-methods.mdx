@@ -1,0 +1,166 @@
+---
+objectives:
+  - Use the ArrayList methods size, add, get, set and remove.
+keyTerms:
+  - term: ArrayList
+    definition: 'A resizable list of objects from java.util, written `ArrayList<E>`.'
+  - term: add(index, obj)
+    definition: 'Inserts obj at index, shifting later elements right.'
+  - term: remove(index)
+    definition: 'Removes and returns the element at index, shifting later elements left.'
+checks:
+  - q: 'What does `set(i, x)` return?'
+    a: 'The element that was previously at index i.'
+  - q: 'After `list.remove(0)`, what happens to the element that was at index 1?'
+    a: 'It moves to index 0.'
+sources:
+  - title: Java API, class ArrayList
+    publisher: Oracle
+    url: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+An `ArrayList` is like an array that resizes itself. Its methods shift elements automatically when you insert or remove.
+
+## Methods on the Java Quick Reference
+
+| Method | Effect |
+| --- | --- |
+| `size()` | number of elements |
+| `add(obj)` | append to the end; returns true |
+| `add(index, obj)` | insert at index, shifting later elements right |
+| `get(index)` | return the element at index |
+| `set(index, obj)` | replace the element; returns the old element |
+| `remove(index)` | remove and return the element; later elements shift left |
+
+```java
+import java.util.ArrayList;
+
+ArrayList<String> list = new ArrayList<String>();
+list.add("A");          // [A]
+list.add("C");          // [A, C]
+list.add(1, "B");       // [A, B, C]
+list.set(2, "D");       // [A, B, D]
+list.remove(0);         // [B, D]
+```
+
+<Note title="Indexes move">
+Every `add(index, obj)` and `remove(index)` changes the indexes of the elements after it. Trace carefully, one call at a time.
+</Note>
+
+<WorkedExample title="Trace">
+What is printed?
+
+```java
+ArrayList<Integer> n = new ArrayList<Integer>();
+n.add(5); n.add(10); n.add(15);
+n.add(0, 20);
+n.remove(2);
+n.set(1, n.get(1) + 1);
+System.out.println(n);
+```
+
+1. [5, 10, 15], then add at 0: [20, 5, 10, 15].
+2. Remove index 2 (10): [20, 5, 15].
+3. Set index 1 to 6: [20, 6, 15].
+
+**Answer:** `[20, 6, 15]`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+ArrayList<Integer> list = new ArrayList<Integer>();
+list.add(31);
+list.add(35);
+list.add(13);
+list.add(31);
+list.remove(3);
+list.remove(1);
+list.set(1, 18);
+list.add(1, 14);
+System.out.println(list);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `[31, 14, 18]`
+
+**Why:** Apply each call in order; add(i, v) inserts and remove(i) removes by index.
+
+**Working:** Tracing each call from [31, 35, 13] gives [31, 14, 18].
+
+**Mistakes to avoid**
+
+- `[31, 14]`: add(index, obj) inserts and shifts later elements; it does not replace.
+- `[31, 14, 18, 13, 31]`: With an int argument, remove(i) removes the element at index i.
+- `[31, 18, 14]`: add(i, obj) places obj at index i.
+
+### Free-response practice: Sensor log
+
+A `Reading` stores the day of the month and a temperature. A `SensorLog` keeps readings in increasing order of day, with no two readings on the same day.
+
+```java
+public class Reading {
+    public Reading(int day, int temp) { /* not shown */ }
+    public int getDay() { /* not shown */ }
+    public int getTemp() { /* not shown */ }
+}
+public class SensorLog {
+    private ArrayList<Reading> readings;
+    /** Returns the number of readings with a temperature greater than t. */
+    public int countAbove(int t) { /* part (a) */ }
+    /** Inserts r so the list stays in increasing order of day.
+        Precondition: no reading in the list has the same day as r. */
+    public void addReading(Reading r) { /* part (b) */ }
+}
+```
+
+If the readings are (day, temp) (6, 16), (9, 35), (13, 35), (18, 26), (21, 26), (29, 15), then `countAbove(21)` returns 4. Adding a reading for day 2 gives the days [2, 6, 9, 13, 18, 21, 29].
+
+**(a)** Write the method `countAbove`.
+
+To earn the point: Traverses all readings. Model answer: `for (Reading rd : readings)`
+
+To earn the point: Compares getTemp() with t using a strict inequality. Model answer: `if (rd.getTemp() > t)`
+
+To earn the point: Counts and returns the result. Model answer:
+
+```java
+public int countAbove(int t) {
+    int count = 0;
+    for (Reading rd : readings) {
+        if (rd.getTemp() > t) {
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+**(b)** Write the method `addReading`.
+
+To earn the point: Finds the first index whose day is greater than r's day, without going out of bounds. Model answer: `while (i < readings.size() && readings.get(i).getDay() < r.getDay()) i++;`
+
+To earn the point: Inserts with add(index, r). Model answer: `readings.add(i, r);`
+
+To earn the point: Handles inserting at the front and at the end (including an empty list). Model answer:
+
+```java
+public void addReading(Reading r) {
+    int i = 0;
+    while (i < readings.size() && readings.get(i).getDay() < r.getDay()) {
+        i++;
+    }
+    readings.add(i, r);
+}
+```

@@ -1,0 +1,74 @@
+---
+objectives:
+  - Use the Second Derivative Test to classify critical points.
+  - Recognize when the test is inconclusive.
+keyTerms:
+  - term: Second Derivative Test
+    definition: 'If $$f''(c) = 0$$ and $$f''''(c) < 0$$, $$f$$ has a relative maximum at $$c$$; if $$f''''(c) > 0$$, a relative minimum. If $$f''''(c) = 0$$, the test gives no conclusion.'
+checks:
+  - q: '$$f''(4) = 0$$ and $$f''''(4) = 7$$. Classify $$x = 4$$.'
+    a: 'Relative minimum: horizontal tangent on a concave-up graph.'
+  - q: 'What should you do if $$f''''(c) = 0$$?'
+    a: 'Use the First Derivative Test instead.'
+sources:
+  - title: Calculus Volume 1, section 4.5 "Derivatives and the Shape of a Graph"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+At a horizontal tangent, the shape of the curve decides everything: a cup shape means a valley, a cap shape means a peak. The second derivative tells you the shape at a single point, so you do not need a full sign chart.
+
+## The test
+
+Suppose $$f'(c) = 0$$.
+
+- $$f''(c) < 0$$ (concave down) gives a **relative maximum** at $$c$$.
+- $$f''(c) > 0$$ (concave up) gives a **relative minimum** at $$c$$.
+- $$f''(c) = 0$$: **inconclusive**. The point could be a maximum ($$-x^4$$), a minimum ($$x^4$$) or neither ($$x^3$$).
+
+## When to use which test
+
+| Situation | Better choice |
+| --- | --- |
+| $$f''$$ is easy to evaluate | Second Derivative Test |
+| $$f''(c) = 0$$ or is hard to find | First Derivative Test |
+| You need intervals of increase anyway | First Derivative Test |
+| Implicit or differential-equation context | Second Derivative Test |
+
+<Note title="Differential equations use it too">
+In Unit 7, if $$\frac{dy}{dx} = 0$$ at a point, compute $$\frac{d^2y}{dx^2}$$ there to classify the point on the solution curve. It is the same test.
+</Note>
+
+<WorkedExample title="Classifying with the second derivative">
+Classify the critical points of $$f(x) = x^3 - 12x$$.
+
+1. $$f'(x) = 3x^2 - 12 = 0$$ at $$x = \pm 2$$.
+2. $$f''(x) = 6x$$.
+3. $$f''(-2) = -12 < 0$$ and $$f''(2) = 12 > 0$$.
+
+**Answer:** relative maximum at $$x = -2$$, relative minimum at $$x = 2$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A twice-differentiable function $$f$$ satisfies $$f'(3) = 0$$ and $$f''(3) = -4$$. Which of the following must be true?
+
+**Answer:** $$f$$ has a relative maximum at $$x = 3$$.
+
+**Why:** f′ = 0 and f″ &lt; 0: the graph is concave down at a horizontal tangent.
+
+**Working:** By the Second Derivative Test, $$f'(c) = 0$$ with $$f''(c) < 0$$ gives a relative maximum.
+
+**Mistakes to avoid**
+
+- $$f$$ has a relative minimum at $$x = 3$$.: A minimum needs f″ > 0.
+- $$f$$ has a point of inflection at $$x = 3$$.: f″ is not zero, so this is not a candidate for inflection.
+- There is not enough information to classify $$x = 3$$.: The second derivative test applies because f″ ≠ 0.

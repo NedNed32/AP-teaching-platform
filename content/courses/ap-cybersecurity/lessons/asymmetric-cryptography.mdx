@@ -1,0 +1,106 @@
+---
+objectives:
+  - 'Explain public key cryptography, digital signatures and certificates.'
+keyTerms:
+  - term: 'Asymmetric encryption'
+    definition: 'A key pair: data encrypted with one key can only be decrypted with the other.'
+  - term: 'Digital signature'
+    definition: 'A hash signed with the sender''s private key, verifiable with their public key.'
+  - term: 'Certificate authority'
+    definition: 'A trusted organization that binds a public key to an identity in a digital certificate.'
+checks:
+  - q: 'To send Bob a confidential message, which key do you use?'
+    a: 'Bob''s public key.'
+  - q: 'What does a valid digital signature prove?'
+    a: 'The message came from the private-key holder and was not changed.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+| Goal | Encrypt / sign with | Decrypt / verify with |
+| --- | --- | --- |
+| confidentiality to Bob | Bob's **public** key | Bob's **private** key |
+| proving Alice sent it (signature) | Alice's **private** key | Alice's **public** key |
+
+## Digital signatures
+
+1. Alice hashes the message.
+2. She signs the hash with her private key.
+3. Bob verifies with Alice's public key and compares hashes.
+
+This provides **integrity**, **authentication** and **non-repudiation**.
+
+## TLS and certificates
+
+Websites present a **certificate**, signed by a certificate authority, binding their domain to a public key. Browsers use it to set up a shared symmetric key for the session: asymmetric for the handshake, symmetric for speed.
+
+<Note title="Private keys stay private">
+If a private key is stolen, an attacker can read messages meant for its owner and forge their signatures. Certificates for stolen keys must be revoked.
+</Note>
+
+<WorkedExample title="Signing">
+Alice wants anyone to be able to verify that a software update came from her. Which key signs it?
+
+1. Verification must be possible for everyone, using her public key.
+2. So she signs with her private key.
+
+**Answer:** Alice's private key.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Gus wants to digitally sign a document so anyone can verify it came from Gus. Which key does Gus use to sign?
+
+**Answer:** Gus's private key
+
+**Why:** Only Gus holds the private key; anyone can verify with the public key.
+
+**Working:** Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key.
+
+**Mistakes to avoid**
+
+- Gus's public key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Ivan's public key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Ivan's private key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+
+### Worked exam question 2
+
+Eli receives a document digitally signed by Hana. Which key does Eli use to verify the signature?
+
+**Answer:** Hana's public key
+
+**Why:** Signatures made with Hana's private key are verified with Hana's public key.
+
+**Working:** Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key.
+
+**Mistakes to avoid**
+
+- Hana's private key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Eli's public key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Eli's private key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+
+### Worked exam question 3
+
+Ivan wants to send Hana a message that only Hana can read. Which key should Ivan use to encrypt it?
+
+**Answer:** Hana's public key
+
+**Why:** Only Hana's private key can decrypt it.
+
+**Working:** Confidentiality: encrypt with the recipient's public key. Signing: sign with the sender's private key; verify with the sender's public key.
+
+**Mistakes to avoid**
+
+- Ivan's public key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Ivan's private key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.
+- Hana's private key: Confidentiality uses the recipient's public key; signing uses the sender's private key; verifying uses the sender's public key.

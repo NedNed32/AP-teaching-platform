@@ -1,0 +1,137 @@
+---
+objectives:
+  - Explain what happens when an object reference is passed to or returned from a method.
+keyTerms:
+  - term: Passing a reference
+    definition: 'The parameter receives a copy of the reference, so it refers to the same object; the method can change that object''s state.'
+checks:
+  - q: 'A method calls `p.setX(5)` on an object parameter p. Does the caller see the change?'
+    a: 'Yes: both references point to the same object.'
+  - q: 'A method sets its object parameter to a new object. Does the caller''s variable change?'
+    a: 'No: only the method''s copy of the reference changes.'
+sources:
+  - title: CSAwesome, "Writing Classes"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Java always passes arguments by value. For objects, the value copied is the **reference**, which has two consequences that look contradictory until you see why.
+
+## Changing the object: visible
+
+```java
+public static void grow(Box b) {
+    b.setSize(b.getSize() * 2);
+}
+
+Box box = new Box(5);
+grow(box);
+// box.getSize() is now 10
+```
+
+`b` and `box` refer to the same object, so the change is visible to the caller.
+
+## Reassigning the parameter: not visible
+
+```java
+public static void replace(Box b) {
+    b = new Box(99);
+}
+
+replace(box);
+// box.getSize() is still 10
+```
+
+`b = new Box(99)` changes only the method's copy of the reference.
+
+## Returning references
+
+A method that returns an object returns a reference to it. Returning a reference to a private mutable instance variable lets outsiders change it, so classes sometimes return a copy instead.
+
+<Note title="Strings are safe">
+Strings are immutable, so passing a String to a method can never change the caller's String, even though it is an object.
+</Note>
+
+<WorkedExample title="Two methods">
+What is printed?
+
+```java
+public static void doubleIt(int n) { n *= 2; }
+public static void doubleBox(Box b) { b.setSize(b.getSize() * 2); }
+
+int x = 4;
+Box y = new Box(4);
+doubleIt(x);
+doubleBox(y);
+System.out.println(x + " " + y.getSize());
+```
+
+1. x is a primitive: the copy changes, x stays 4.
+2. y's object is modified through the shared reference: 8.
+
+**Answer:** `4 8`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following method.
+
+```java
+public static void change(int x, int[] arr) {
+    x = x + 2;
+    arr[0] = arr[0] + 2;
+}
+```
+
+What is printed by the following code segment?
+
+```java
+int n = 17;
+int[] nums = {6, 3};
+change(n, nums);
+System.out.println(n + " " + nums[0]);
+```
+
+**Answer:** `17 8`
+
+**Why:** The int is copied, but the array parameter refers to the same array object.
+
+**Working:** Java passes copies of values. For an int, the copy is independent. For an array, the copy is a reference to the same array, so element changes persist.
+
+**Mistakes to avoid**
+
+- `19 8`: x is a copy of n; changing x does not change n.
+- `17 6`: arr refers to the same array as nums, so the change to arr[0] is visible.
+- `19 6`: Primitives are passed by value; arrays are passed as references to the same object.
+
+### Worked exam question 2
+
+Assume a class `Point` has a constructor `Point(int x, int y)`, a method `setX(int x)` and a method `getX()`. What is printed by the following code segment?
+
+```java
+Point p = new Point(21, 1);
+Point q = p;
+q.setX(18);
+p = new Point(4, 7);
+System.out.println(q.getX() + " " + p.getX());
+```
+
+**Answer:** `18 4`
+
+**Why:** q and p first refer to the same object; then p is pointed at a new object, and q is unaffected.
+
+**Working:** After q = p, both refer to one Point whose x becomes 18. Then p refers to a new Point (x = 4); q still refers to the first one.
+
+**Mistakes to avoid**
+
+- `21 4`: q = p copies the reference, so q.setX changes the shared object.
+- `4 4`: Reassigning p does not change what q refers to.
+- `18 18`: p now refers to a new Point with x = 4.

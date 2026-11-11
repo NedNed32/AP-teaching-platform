@@ -1,0 +1,82 @@
+---
+objectives:
+  - Decompose rational functions with distinct linear factors into partial fractions.
+  - Integrate the result using logarithms.
+keyTerms:
+  - term: Partial fraction decomposition
+    definition: 'Rewriting $$\frac{P(x)}{(x - a)(x - b)}$$ as $$\frac{A}{x - a} + \frac{B}{x - b}$$.'
+checks:
+  - q: 'Decompose $$\frac{1}{x(x + 1)}$$.'
+    a: '$$\frac{1}{x} - \frac{1}{x + 1}$$.'
+  - q: 'Find $$\int \frac{1}{x(x + 1)}\,dx$$.'
+    a: '$$\ln|x| - \ln|x + 1| + C = \ln\left|\frac{x}{x + 1}\right| + C$$.'
+sources:
+  - title: Calculus Volume 2, section 3.4 "Partial Fractions"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+Adding fractions is easy: $$\frac{2}{x - 1} + \frac{3}{x + 2}$$ combines into one fraction. Partial fractions does the reverse, splitting a complicated fraction into simple pieces that each integrate to a logarithm.
+
+## The setup (AP BC: distinct linear factors)
+
+If the denominator factors into distinct linear factors and the numerator has lower degree:
+
+$$
+\frac{P(x)}{(x - a)(x - b)} = \frac{A}{x - a} + \frac{B}{x - b}.
+$$
+
+Multiply both sides by $$(x - a)(x - b)$$:
+
+$$
+P(x) = A(x - b) + B(x - a).
+$$
+
+## Finding A and B quickly
+
+Substitute the root of each factor. At $$x = a$$, the $$B$$ term vanishes, giving $$A$$ directly. At $$x = b$$, the $$A$$ term vanishes, giving $$B$$.
+
+## Then integrate
+
+$$
+\int \left(\frac{A}{x - a} + \frac{B}{x - b}\right)dx = A\ln|x - a| + B\ln|x - b| + C.
+$$
+
+<Note title="Divide first if needed">
+If the numerator's degree is at least the denominator's, do long division first (topic 6.10). Partial fractions applies only to the proper fraction that remains.
+</Note>
+
+<WorkedExample title="Two linear factors">
+Find $$\int \frac{5x - 4}{x^2 - x - 2}\,dx$$.
+
+1. Factor: $$x^2 - x - 2 = (x - 2)(x + 1)$$.
+2. $$5x - 4 = A(x + 1) + B(x - 2)$$.
+3. $$x = 2$$: $$6 = 3A$$, so $$A = 2$$. $$x = -1$$: $$-9 = -3B$$, so $$B = 3$$.
+4. Integrate: $$\int \left(\frac{2}{x - 2} + \frac{3}{x + 1}\right)dx$$.
+
+**Answer:** $$2\ln|x - 2| + 3\ln|x + 1| + C$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+$$\int \frac{-x + 4}{x^{2} - 3x + 2}\,dx =$$
+
+**Answer:** $$-3\ln|x - 1| + 2\ln|x - 2| + C$$
+
+**Why:** $$\frac{-x + 4}{x^{2} - 3x + 2} = \frac{-3}{x - 1} + \frac{2}{x - 2}$$.
+
+**Working:** Factor the denominator as $$(x - 1)(x - 2)$$. Solve $$-x + 4 = A(x - 2) + B(x - 1)$$: substituting $$x = 1$$ and $$x = 2$$ gives $$A = -3$$ and $$B = 2$$. Each piece integrates to a logarithm.
+
+**Mistakes to avoid**
+
+- $$2\ln|x - 1| - 3\ln|x - 2| + C$$: The coefficients are matched to the wrong factors.
+- $$-3\ln|x + 1| + 2\ln|x + 2| + C$$: Sign error in the linear factors.
+- $$-\ln|x^{2} - 3x + 2| + C$$: The numerator is not a multiple of the derivative of the denominator, so this is not a single logarithm.

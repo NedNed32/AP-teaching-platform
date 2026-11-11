@@ -1,0 +1,93 @@
+---
+objectives:
+  - Find indefinite integrals using the basic antiderivative rules.
+keyTerms:
+  - term: Antiderivative
+    definition: 'A function $$F$$ with $$F''(x) = f(x)$$.'
+  - term: Indefinite integral
+    definition: '$$\int f(x)\,dx = F(x) + C$$, the family of all antiderivatives of $$f$$.'
+checks:
+  - q: 'Find $$\int \left(6x^2 - \frac{3}{x}\right)dx$$.'
+    a: '$$2x^3 - 3\ln|x| + C$$.'
+  - q: 'Find $$\int \sec^2 x\,dx$$.'
+    a: '$$\tan x + C$$.'
+sources:
+  - title: Calculus Volume 1, section 4.10 "Antiderivatives"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Antidifferentiation runs derivative rules backwards. Every derivative formula you know gives an antiderivative formula for free.
+
+## The basic table
+
+| Integral | Result |
+| --- | --- |
+| $$\int x^n\,dx$$, $$n \neq -1$$ | $$\frac{x^{n + 1}}{n + 1} + C$$ |
+| $$\int \frac{1}{x}\,dx$$ | $$\ln\lvert x\rvert + C$$ |
+| $$\int e^x\,dx$$ | $$e^x + C$$ |
+| $$\int \sin x\,dx$$ | $$-\cos x + C$$ |
+| $$\int \cos x\,dx$$ | $$\sin x + C$$ |
+| $$\int \sec^2 x\,dx$$ | $$\tan x + C$$ |
+| $$\int \sec x \tan x\,dx$$ | $$\sec x + C$$ |
+| $$\int \frac{1}{1 + x^2}\,dx$$ | $$\arctan x + C$$ |
+| $$\int \frac{1}{\sqrt{1 - x^2}}\,dx$$ | $$\arcsin x + C$$ |
+
+Integrals of sums split term by term, and constant factors come out front.
+
+## Why plus C
+
+Every constant has derivative 0, so if $$F$$ is an antiderivative, so is $$F + 7$$ or $$F - 2$$. The $$+ C$$ represents the whole family. An initial condition picks one member (topic 7.7).
+
+<Note title="Check by differentiating">
+You can always verify an antiderivative: differentiate it and see whether you get the integrand back. This catches sign errors with sine and cosine.
+</Note>
+
+<WorkedExample title="Rewrite, then integrate">
+Find $$\int \frac{x^3 + 4\sqrt{x}}{x}\,dx$$.
+
+1. Divide each term by $$x$$: $$x^2 + 4x^{-1/2}$$.
+2. Power rule: $$\frac{x^3}{3} + 4 \cdot \frac{x^{1/2}}{1/2}$$.
+
+**Answer:** $$\frac{x^3}{3} + 8\sqrt{x} + C$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is $$\int_{-1}^{1} \left(-6x^{2} + 6x - 4\right)dx$$?
+
+**Answer:** $$-12$$
+
+**Why:** An antiderivative is $$F(x) = -2x^{3} + 3x^{2} - 4x$$; $$F(1) - F(-1) = -12$$.
+
+**Working:** By the Fundamental Theorem of Calculus, $$\int_{-1}^{1} f(x)\,dx = F(1) - F(-1)$$ with $$F(x) = -2x^{3} + 3x^{2} - 4x$$. That is $$-3 - (9) = -12$$.
+
+**Mistakes to avoid**
+
+- $$-3$$: This is F(b) only; subtract F(a) as well.
+- $$12$$: This subtracts values of the integrand instead of an antiderivative.
+- $$6$$: This adds F(a) instead of subtracting it.
+
+### Worked exam question 2
+
+$$\int \left(15x^{4} - 2\cdot\frac{1}{x} + 5e^{x}\right)dx =$$
+
+**Answer:** $$3x^{5} - 2\ln + x + 5e^{x} + C$$
+
+**Why:** Raise the power by one and divide by the new power; the antiderivative of 1/x is ln|x|; e^x is its own antiderivative.
+
+**Working:** Term by term: $$\int 15x^{4}dx = 3x^{5}$$, $$\int \frac{-2}{x}dx = -2\ln|x|$$, and $$\int 5e^x dx = 5e^x$$. Add the constant of integration.
+
+**Mistakes to avoid**
+
+- $$60x^{3} + 2x^{-2} + 5e^{x} + C$$: This differentiates instead of antidifferentiating.
+- $$3x^{5} + 2x^{-2} + 5e^{x} + C$$: The antiderivative of 1/x is ln|x|, not a power of x.
+- $$15x^{5} - 2\ln + x + 5e^{x} + C$$: After raising the power, divide by the new exponent.

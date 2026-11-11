@@ -1,0 +1,103 @@
+---
+objectives:
+  - Call static (class) methods using the class name.
+  - Trace the flow of control through method calls with parameters and return values.
+keyTerms:
+  - term: Class method
+    definition: 'A static method, called with the class name: `ClassName.method(args)`.'
+  - term: Call by value
+    definition: 'Java copies the value of each argument into the parameter; changing a primitive parameter does not change the caller''s variable.'
+checks:
+  - q: 'How do you call a static method `square` in class `Util` from another class?'
+    a: '`Util.square(5)`.'
+  - q: 'A method sets its int parameter n to 0. Does the caller''s variable change?'
+    a: 'No. The parameter is a copy.'
+sources:
+  - title: CSAwesome, "Using Objects"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Class methods (marked `static`) belong to the class itself, so you call them without creating an object.
+
+## Calling a static method
+
+```java
+public class Util {
+    public static int square(int n) {
+        return n * n;
+    }
+}
+
+int s = Util.square(6);   // 36
+```
+
+Inside the same class, the class name can be omitted: `square(6)`.
+
+## Flow of control
+
+When a method is called:
+
+1. The argument values are copied into the parameters.
+2. The method body runs.
+3. A `return` statement sends a value back and control returns to the caller.
+
+## Primitives are passed by value
+
+```java
+public static void reset(int n) {
+    n = 0;
+}
+
+int x = 9;
+reset(x);
+System.out.println(x);   // 9
+```
+
+The parameter `n` is a separate copy; changing it cannot affect `x`.
+
+<Note title="Return ends the method">
+As soon as a `return` executes, the method stops. Code after it in the same path never runs.
+</Note>
+
+<WorkedExample title="Nested calls">
+Given `static int twice(int a) { return 2 * a; }` and `static int addOne(int a) { return a + 1; }`, what is `twice(addOne(twice(3)))`?
+
+1. `twice(3)` is 6.
+2. `addOne(6)` is 7.
+3. `twice(7)` is 14.
+
+**Answer:** `14`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following method.
+
+```java
+public static int f(int x) {
+    return x * 2 - 3;
+}
+```
+
+What value is returned by the call `f(f(2))`?
+
+**Answer:** `-1`
+
+**Why:** f(2) is 1, and f(1) is -1.
+
+**Working:** Evaluate the inner call first: f(2) = 1. Then f(1) = -1.
+
+**Mistakes to avoid**
+
+- `1`: The outer call uses the result of the inner call.
+- `2`: The outer call also subtracts.
+- `5`: The inner call subtracts before the outer call multiplies.

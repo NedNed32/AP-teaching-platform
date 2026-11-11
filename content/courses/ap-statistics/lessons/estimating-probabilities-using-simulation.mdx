@@ -1,0 +1,136 @@
+---
+objectives:
+  - 'Design and interpret simulations to estimate probabilities.'
+keyTerms:
+  - term: 'Simulation'
+    definition: 'Imitating a random process with a model, such as random numbers, to estimate probabilities.'
+  - term: 'Law of large numbers'
+    definition: 'As the number of trials increases, the relative frequency of an outcome approaches its true probability.'
+checks:
+  - q: 'How do you simulate an event with probability 0.3 using random digits 0–9?'
+    a: 'Let 0, 1, 2 represent the event and 3–9 represent no event.'
+  - q: 'Why run many trials?'
+    a: 'The estimate gets closer to the true probability (law of large numbers).'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+## Steps
+
+1. **State** the question.
+2. **Plan**: describe how to use random numbers to imitate one trial, and what to record.
+3. **Do** many trials.
+4. **Conclude**: the estimated probability is the proportion of trials with the outcome.
+
+The **law of large numbers** says long-run relative frequencies settle down to the true probability. Short-run results can be quite variable.
+
+<Note title="Specify everything">
+A complete simulation plan says what each number represents, whether repeats are allowed, how many numbers make one trial, and what is recorded.
+</Note>
+
+<WorkedExample title="Plan a simulation">
+A basketball player makes 70% of free throws. Plan a simulation to estimate the probability she makes all 3 of 3 shots.
+
+1. Digits 0–6 = make, 7–9 = miss.
+2. One trial: 3 random digits (repeats allowed); record whether all are 0–6.
+3. Repeat many times; the proportion of successes estimates the probability.
+
+**Answer:** use digits 0–6 for makes; the estimate should be close to 0.7³ = 0.343.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+*Survey of students*
+
+| Grade | Drives to school | Does not drive |
+| --- | --- | --- |
+| Juniors | 23 | 77 |
+| Seniors | 65 | 52 |
+
+A student is chosen at random from those who drive to school. What is the probability the student is a junior?
+
+**Answer:** 0.261
+
+**Why:** P(junior | drives) = juniors who drive ÷ all who drive.
+
+**Working:** 23 ÷ (23 + 65) = 0.261.
+
+**Mistakes to avoid**
+
+- 0.106: That is P(junior and drives); divide by drivers only.
+- 0.23: That is P(drives | junior).
+- 0.461: That is P(junior) overall.
+
+### Worked exam question 2
+
+P(A) = 0.5, P(B) = 0.2 and P(A and B) = 0.16. What is P(A or B), and are A and B independent?
+
+**Answer:** 0.54; not independent
+
+**Why:** P(A or B) = P(A) + P(B) − P(A and B); independent if P(A and B) = P(A)P(B) = 0.1.
+
+**Working:** 0.5 + 0.2 − 0.16 = 0.54. P(A)P(B) = 0.1 ≠ 0.16.
+
+**Mistakes to avoid**
+
+- 0.7; not independent: Subtract P(A and B) so the overlap is not counted twice.
+- 0.54; independent: Compare P(A and B) with P(A)·P(B) = 0.1.
+- 0.54; mutually exclusive: P(A and B) is not 0, so they are not mutually exclusive.
+
+### Worked exam question 3
+
+Each of 6 independent trials succeeds with probability 0.4. What is the probability of at least 3 successes?
+
+**Answer:** 0.4557
+
+**Why:** Use the binomial distribution with n = 6 and p = 0.4.
+
+**Working:** X ~ Binomial(6, 0.4): P(X ≥ 3) = 0.4557.
+
+**Mistakes to avoid**
+
+- 0.2765: That is only P(X = k).
+- 0.1792: That is P(X > k); 'at least k' includes k.
+- 0.5443: That is the complement.
+
+### Worked exam question 4
+
+Each of 11 independent trials succeeds with probability 0.1. What is the probability of exactly 4 successes?
+
+**Answer:** 0.0158
+
+**Why:** Use the binomial distribution with n = 11 and p = 0.1.
+
+**Working:** X ~ Binomial(11, 0.1): P(X = 4) = 0.0158.
+
+**Mistakes to avoid**
+
+- 0.9972: That is P(X ≤ k); the question asks for exactly k.
+- 0.0001: Include the binomial coefficient and the failures.
+- 0: Use p for successes, not 1 − p.
+
+### Worked exam question 5
+
+Each of 7 independent trials succeeds with probability 0.4. What is the probability of at most 2 successes?
+
+**Answer:** 0.4199
+
+**Why:** Use the binomial distribution with n = 7 and p = 0.4.
+
+**Working:** X ~ Binomial(7, 0.4): P(X ≤ 2) = 0.4199.
+
+**Mistakes to avoid**
+
+- 0.2613: That is only P(X = k).
+- 0.1586: That is P(X &lt; k); 'at most k' includes k.
+- 0.5801: That is the complement.

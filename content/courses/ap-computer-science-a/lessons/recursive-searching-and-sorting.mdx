@@ -1,0 +1,99 @@
+---
+objectives:
+  - Trace recursive binary search and merge sort.
+keyTerms:
+  - term: Merge sort
+    definition: 'Split the array in half, recursively sort each half, then merge the two sorted halves.'
+  - term: Recursive binary search
+    definition: 'Binary search written so each call searches half of the previous range.'
+checks:
+  - q: 'What is the base case of merge sort?'
+    a: 'A range of one element (or none), which is already sorted.'
+  - q: 'Is merge sort faster than selection sort on large arrays?'
+    a: 'Yes: about n log n steps instead of n squared.'
+sources:
+  - title: CSAwesome, "Recursion" (recursive searching and sorting)
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Divide-and-conquer algorithms split a problem in half, solve each half recursively, and combine the answers. Binary search and merge sort are the two the exam covers.
+
+## Recursive binary search
+
+```java
+public static int search(int[] a, int target, int low, int high) {
+    if (low > high) return -1;                       // base case: not found
+    int mid = (low + high) / 2;
+    if (a[mid] == target) return mid;
+    if (a[mid] < target) return search(a, target, mid + 1, high);
+    return search(a, target, low, mid - 1);
+}
+```
+
+## Merge sort
+
+1. If the range has one element, it is sorted.
+2. Split it into a left half and a right half.
+3. Recursively sort each half.
+4. **Merge**: repeatedly take the smaller front element of the two halves.
+
+Splitting [8, 3, 5, 1]: [8, 3] and [5, 1] become [3, 8] and [1, 5]; merging gives [1, 3, 5, 8].
+
+| Sort | Approximate steps for n elements |
+| --- | --- |
+| selection, insertion | $$n^2$$ |
+| merge sort | $$n \log_2 n$$ |
+
+<Note title="What you need to know">
+You will not be asked to write merge sort, but you should be able to trace it, identify its recursive structure and compare its efficiency.
+</Note>
+
+<WorkedExample title="Merging two halves">
+Merge [2, 7, 9] and [3, 4, 10].
+
+1. Compare fronts 2 and 3: take 2. Then 7 and 3: take 3. Then 7 and 4: take 4.
+2. Then 7 and 10: take 7; 9 and 10: take 9; finally 10.
+
+**Answer:** [2, 3, 4, 7, 9, 10].
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A sorted array contains 10001 elements. What is the maximum number of elements that binary search examines to find a target or determine that it is not present?
+
+**Answer:** `14`
+
+**Why:** Each comparison halves the range; 10001 can be halved about 13 times before one element remains.
+
+**Working:** Binary search needs about log₂(10001) + 1 = 14 comparisons in the worst case, far fewer than the 10001 of linear search.
+
+**Mistakes to avoid**
+
+- `10001`: That is the worst case for linear search.
+- `5001`: Binary search halves the range at each step, not just once.
+- `18`: 2 to the power 14 is 16384, which is already more than 10001.
+
+### Worked exam question 2
+
+During merge sort, the sorted halves `{4, 19, 20, 22}` and `{10, 16, 23}` are merged. What are the first 5 values placed into the merged array, in order?
+
+**Answer:** `4, 10, 16, 19, 20`
+
+**Why:** Merging repeatedly takes the smaller of the two front elements.
+
+**Working:** Compare the front elements of each half and take the smaller each time: 4, 10, 16, 19, 20, 22, 23.
+
+**Mistakes to avoid**
+
+- `4, 19, 20, 22, 10`: Merging interleaves the halves; it does not copy the left half first.
+- `4, 10, 19, 16, 20`: Merging compares values; it does not alternate between halves.
+- `23, 22, 20, 19, 16`: The merged array is in ascending order.

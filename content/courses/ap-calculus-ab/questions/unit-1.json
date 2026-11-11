@@ -1,0 +1,132 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "limits-table-1",
+      "text": "The function $$f$$ is defined for all real numbers except $$x = 2$$. Selected values of $$f$$ are shown in the table.",
+      "table": {
+        "caption": "Values of f near x = 2",
+        "columns": [
+          { "key": "x", "label": "$$x$$" },
+          { "key": "fx", "label": "$$f(x)$$" }
+        ],
+        "rows": [
+          { "x": 1.9, "fx": 4.9 },
+          { "x": 1.99, "fx": 4.99 },
+          { "x": 1.999, "fx": 4.999 },
+          { "x": 2.001, "fx": 5.001 },
+          { "x": 2.01, "fx": 5.01 },
+          { "x": 2.1, "fx": 5.1 }
+        ]
+      }
+    },
+    {
+      "id": "g-with-a-hole",
+      "text": "Let $$g$$ be the function defined by $$g(x) = \\frac{x^2 + x - 6}{x - 2}$$ for $$x \\neq 2$$, and $$g(2) = 4$$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "u1-table-estimate",
+      "type": "mcq",
+      "topics": ["limits-from-tables", "defining-limits"],
+      "skills": ["2"],
+      "difficulty": 1,
+      "stimuli": ["limits-table-1"],
+      "stem": "Based on the table, which of the following is the best estimate of $$\\lim_{x \\to 2} f(x)$$?",
+      "options": [
+        { "id": "a", "text": "4.999", "why": "This is a single value from the left. The limit is what the outputs from both sides approach, and both sides close in on 5." },
+        { "id": "b", "text": "5", "why": "Correct. From the left the outputs rise toward 5 (4.9, 4.99, 4.999), and from the right they fall toward 5 (5.1, 5.01, 5.001)." },
+        { "id": "c", "text": "5.1", "why": "This is the output for the input farthest from 2 on the right. As the inputs get closer to 2, the outputs get closer to 5." },
+        { "id": "d", "text": "The limit does not exist, because $$f(2)$$ is undefined.", "why": "A limit depends on the outputs near 2, not at 2. A function can be undefined at a point and still have a limit there." }
+      ],
+      "answer": "b",
+      "explanation": "Read the table from the outside in. As $$x$$ approaches 2 from the left, $$f(x)$$ takes the values 4.9, 4.99 and 4.999; from the right, 5.1, 5.01 and 5.001. Both sides approach 5, so the best estimate is $$\\lim_{x \\to 2} f(x) = 5$$. Whether $$f(2)$$ is defined does not affect the limit."
+    },
+    {
+      "id": "u1-factor-cancel",
+      "type": "mcq",
+      "topics": ["limits-algebraic-manipulation"],
+      "skills": ["1"],
+      "difficulty": 2,
+      "stem": "What is $$\\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3}$$?",
+      "options": [
+        { "id": "a", "text": "0", "why": "Substituting gives $$\\frac{0}{0}$$, which is an indeterminate form, not the value 0. The expression has to be rewritten first." },
+        { "id": "b", "text": "3", "why": "3 is the value $$x$$ approaches, not the value of the expression. After cancelling, the expression is $$x + 3$$, which approaches 6." },
+        { "id": "c", "text": "6", "why": "Correct. $$x^2 - 9 = (x - 3)(x + 3)$$, so for $$x \\neq 3$$ the expression equals $$x + 3$$, which approaches 6." },
+        { "id": "d", "text": "The limit does not exist.", "why": "The expression is undefined at 3, but its outputs near 3 approach 6, so the limit exists." }
+      ],
+      "answer": "c",
+      "explanation": "Direct substitution gives $$\\frac{0}{0}$$, so factor: $$\\frac{(x - 3)(x + 3)}{x - 3} = x + 3$$ for every $$x \\neq 3$$. The limit uses only inputs near 3, so the cancelled form has the same limit: $$3 + 3 = 6$$."
+    },
+    {
+      "id": "u1-conjugate",
+      "type": "mcq",
+      "topics": ["limits-algebraic-manipulation"],
+      "skills": ["1"],
+      "difficulty": 3,
+      "stem": "What is $$\\lim_{x \\to 0} \\frac{\\sqrt{x + 4} - 2}{x}$$?",
+      "options": [
+        { "id": "a", "text": "0", "why": "Substitution gives $$\\frac{0}{0}$$, an indeterminate form. It is not the limit." },
+        { "id": "b", "text": "$$\\frac{1}{4}$$", "why": "Correct. Multiplying by the conjugate gives $$\\frac{1}{\\sqrt{x + 4} + 2}$$, which approaches $$\\frac{1}{2 + 2}$$." },
+        { "id": "c", "text": "$$\\frac{1}{2}$$", "why": "This is $$\\frac{1}{\\sqrt{x + 4}}$$ at 0. After rationalizing, the denominator is $$\\sqrt{x + 4} + 2$$, which approaches 4, not 2." },
+        { "id": "d", "text": "The limit does not exist.", "why": "The expression is undefined at 0, but rationalizing shows that its outputs near 0 approach $$\\frac{1}{4}$$." }
+      ],
+      "answer": "b",
+      "explanation": "Multiply the numerator and denominator by the conjugate $$\\sqrt{x + 4} + 2$$. The numerator becomes $$(x + 4) - 4 = x$$, so the expression is $$\\frac{x}{x(\\sqrt{x + 4} + 2)} = \\frac{1}{\\sqrt{x + 4} + 2}$$ for $$x \\neq 0$$. Substituting $$x = 0$$ now works: $$\\frac{1}{2 + 2} = \\frac{1}{4}$$."
+    },
+    {
+      "id": "u1-two-sided-meaning",
+      "type": "mcq",
+      "topics": ["defining-limits"],
+      "skills": ["4"],
+      "difficulty": 2,
+      "stem": "Which of the following statements is equivalent to $$\\lim_{x \\to a} f(x) = L$$?",
+      "options": [
+        { "id": "a", "text": "$$f(a) = L$$", "why": "The value at $$a$$ does not determine the limit. The limit can exist when $$f(a)$$ is undefined or different from $$L$$." },
+        { "id": "b", "text": "$$\\lim_{x \\to a^-} f(x) = L$$ and $$\\lim_{x \\to a^+} f(x) = L$$", "why": "Correct. A two-sided limit exists and equals $$L$$ exactly when both one-sided limits exist and equal $$L$$." },
+        { "id": "c", "text": "$$\\lim_{x \\to a^-} f(x) = L$$ or $$\\lim_{x \\to a^+} f(x) = L$$", "why": "One side is not enough. If the other side approaches a different value, the two-sided limit does not exist." },
+        { "id": "d", "text": "$$f(x) = L$$ for every $$x$$ close to $$a$$", "why": "The outputs only need to get closer and closer to $$L$$; they don't have to equal it. For example, $$x + 1$$ approaches 2 as $$x$$ approaches 1 without equalling 2 for any nearby input." }
+      ],
+      "answer": "b",
+      "explanation": "The two-sided limit describes what $$f(x)$$ approaches as $$x$$ approaches $$a$$ from both directions. So it exists and equals $$L$$ exactly when the left-hand and right-hand limits both equal $$L$$. The value $$f(a)$$ plays no part."
+    },
+    {
+      "id": "u1-frq-hole",
+      "type": "frq",
+      "title": "A function with a hole",
+      "topics": ["limits-algebraic-manipulation", "continuity-at-a-point"],
+      "skills": ["1", "3"],
+      "difficulty": 2,
+      "minutes": 8,
+      "stimuli": ["g-with-a-hole"],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find $$\\lim_{x \\to 2} g(x)$$. Show the work that leads to your answer.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "factor",
+              "criterion": "Rewrites the expression so that the factor $$x - 2$$ cancels.",
+              "example": "$$\\frac{(x - 2)(x + 3)}{x - 2} = x + 3$$ for $$x \\neq 2$$"
+            },
+            { "kind": "point", "id": "answer", "criterion": "Gives the limit 5.", "example": "$$\\lim_{x \\to 2} g(x) = 2 + 3 = 5$$" }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Is $$g$$ continuous at $$x = 2$$? Justify your answer using the definition of continuity.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "conclusion",
+              "criterion": "Concludes that $$g$$ is not continuous at $$x = 2$$, justified by comparing the limit with the function's value.",
+              "example": "No. $$\\lim_{x \\to 2} g(x) = 5$$ but $$g(2) = 4$$, so the limit does not equal the value of the function."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

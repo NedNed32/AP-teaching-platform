@@ -1,0 +1,2065 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e32-q05-s",
+      "table": {
+        "caption": "Probability distribution of X",
+        "columns": [
+          {
+            "key": "x",
+            "label": "x"
+          },
+          {
+            "key": "p",
+            "label": "P(X = x)"
+          }
+        ],
+        "rows": [
+          {
+            "x": 0,
+            "p": 0.4
+          },
+          {
+            "x": 1,
+            "p": 0.2
+          },
+          {
+            "x": 2,
+            "p": 0.1
+          },
+          {
+            "x": 3,
+            "p": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-q06-s",
+      "table": {
+        "caption": "Survey of students",
+        "columns": [
+          {
+            "key": "g",
+            "label": "Grade"
+          },
+          {
+            "key": "d",
+            "label": "Drives to school"
+          },
+          {
+            "key": "n",
+            "label": "Does not drive"
+          }
+        ],
+        "rows": [
+          {
+            "g": "Juniors",
+            "d": 74,
+            "n": 77
+          },
+          {
+            "g": "Seniors",
+            "d": 25,
+            "n": 58
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-q15-s",
+      "table": {
+        "caption": "Survey of students",
+        "columns": [
+          {
+            "key": "g",
+            "label": "Grade"
+          },
+          {
+            "key": "d",
+            "label": "Drives to school"
+          },
+          {
+            "key": "n",
+            "label": "Does not drive"
+          }
+        ],
+        "rows": [
+          {
+            "g": "Juniors",
+            "d": 77,
+            "n": 59
+          },
+          {
+            "g": "Seniors",
+            "d": 49,
+            "n": 63
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-q39-s",
+      "table": {
+        "caption": "Observed counts",
+        "columns": [
+          {
+            "key": "g",
+            "label": "Group"
+          },
+          {
+            "key": "c0",
+            "label": "Option A"
+          },
+          {
+            "key": "c1",
+            "label": "Option B"
+          }
+        ],
+        "rows": [
+          {
+            "g": "Group 1",
+            "c0": 51,
+            "c1": 11
+          },
+          {
+            "g": "Group 2",
+            "c0": 34,
+            "c1": 48
+          }
+        ]
+      }
+    },
+    {
+      "id": "e32-frq1-s",
+      "text": "Researchers want to investigate whether a new phone app reduces evening screen time. They have 60 volunteer students available."
+    },
+    {
+      "id": "e32-frq2-s",
+      "text": "Random samples of 15 were taken from two groups. The values of reaction time (hundredths of a second) are:\n\n**Morning:** 14, 15, 17, 19, 19, 20, 21, 21, 22, 23, 28, 28, 30, 30, 30\n\n**Evening:** 14, 14, 18, 18, 19, 23, 24, 27, 29, 32, 33, 44, 44, 44, 64"
+    },
+    {
+      "id": "e32-frq3-s",
+      "text": "A random sample of 17 students at a large school reported hours of sleep on a school night: x̄ = 7.37 hours, s = 0.8 hours. A dotplot of the data shows no strong skew or outliers. A health report claims students at the school sleep 7.2 hours on average."
+    },
+    {
+      "id": "e32-frq4-s",
+      "text": "Data were collected on age of car (years) (x) and price (thousands of dollars) (y) for a sample of used cars. A scatterplot shows a linear pattern, and the residual plot shows no pattern. Computer output for the least-squares regression is shown.\n\n```text\nPredictor   Coef      SE Coef\nConstant    49.4\nx           -1.6\nS = 5.4    R-Sq = 73.0%\n```"
+    }
+  ],
+  "questions": [
+    {
+      "id": "e32-q01",
+      "type": "mcq",
+      "topics": [
+        "descriptions-for-one-quantitative-variable-distributions",
+        "summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "For a distribution of household incomes in a city, the mean is 39 and the median is 28. Which is the most likely shape?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uniform",
+          "why": "A uniform distribution is symmetric, with mean near the median."
+        },
+        {
+          "id": "b",
+          "text": "Skewed left",
+          "why": "The mean is pulled toward the tail."
+        },
+        {
+          "id": "c",
+          "text": "Symmetric",
+          "why": "In a symmetric distribution, the mean and median are close."
+        },
+        {
+          "id": "d",
+          "text": "Skewed right",
+          "why": "Correct. A long right tail pulls the mean above the median."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Mean 39 > median 28: the mean is pulled toward the right tail."
+    },
+    {
+      "id": "e32-q02",
+      "type": "mcq",
+      "topics": [
+        "correlation",
+        "graphical-representations-between-two-quantitative-variables",
+        "residuals",
+        "linear-regression-models"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A point with an x value far from the others noticeably changes the slope when removed. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A point with a residual of 0",
+          "why": "Influence is about leverage, not residual size."
+        },
+        {
+          "id": "b",
+          "text": "A confounding variable",
+          "why": "That is a variable, not a point."
+        },
+        {
+          "id": "c",
+          "text": "The mean point (x̄, ȳ)",
+          "why": "The line always passes through it."
+        },
+        {
+          "id": "d",
+          "text": "An influential point",
+          "why": "Correct. Removing it changes the regression line substantially."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Removing it changes the regression line substantially."
+    },
+    {
+      "id": "e32-q03",
+      "type": "mcq",
+      "topics": [
+        "summary-statistics-for-one-quantitative-variable",
+        "graphical-representations-of-summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "The data are: 10, 17, 19, 21, 21, 32, 34, 36, 37, 67. Using the 1.5 × IQR rule, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Q1 = 19, Q3 = 36; values above 61.5 are outliers, so 67 is an outlier",
+          "why": "Correct. IQR = 17; upper fence = Q3 + 1.5·IQR = 61.5."
+        },
+        {
+          "id": "b",
+          "text": "Q1 = 19, Q3 = 36; values above 52 are outliers",
+          "why": "Add 1.5·IQR to Q3, not to the median."
+        },
+        {
+          "id": "c",
+          "text": "Q1 = 19, Q3 = 36; values above 53 are outliers, so 67 is an outlier",
+          "why": "The fence uses 1.5 × IQR, not 1 × IQR."
+        },
+        {
+          "id": "d",
+          "text": "There are no outliers because every value is within 2 standard deviations of the mean",
+          "why": "The 1.5 × IQR rule is the method asked for."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Five-number summary: 10, 19, 26.5, 36, 67. Upper fence 36 + 1.5(17) = 61.5."
+    },
+    {
+      "id": "e32-q04",
+      "type": "mcq",
+      "topics": [
+        "least-squares-regression",
+        "correlation"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "The correlation between car age and resale price is r = -0.9. Which is a correct interpretation of r²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "About 90% of the variation in resale price is accounted for by the model",
+          "why": "Square r."
+        },
+        {
+          "id": "b",
+          "text": "About 81% of the predictions are correct",
+          "why": "r² is about variation explained, not accuracy of individual predictions."
+        },
+        {
+          "id": "c",
+          "text": "Car age causes 81% of resale price",
+          "why": "Regression does not establish causation."
+        },
+        {
+          "id": "d",
+          "text": "About 81% of the variation in resale price is accounted for by the linear model relating resale price to car age",
+          "why": "Correct. r² is the proportion of variation in y explained by the linear model."
+        }
+      ],
+      "answer": "d",
+      "explanation": "r² = -0.9² = 0.81."
+    },
+    {
+      "id": "e32-q05",
+      "type": "mcq",
+      "topics": [
+        "parameters-of-random-variables",
+        "introduction-to-random-variables-and-probability-distributions"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e32-q05-s"
+      ],
+      "stem": "What is the expected value of X?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.5",
+          "why": "Weight each value by its probability."
+        },
+        {
+          "id": "b",
+          "text": "1.3",
+          "why": "Correct. μ = Σ x·P(x)."
+        },
+        {
+          "id": "c",
+          "text": "0.4",
+          "why": "That is the largest probability, not the mean."
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "why": "That is the most likely value (mode), not the mean."
+        }
+      ],
+      "answer": "b",
+      "explanation": "0(0.4) + 1(0.2) + 2(0.1) + 3(0.3) = 1.3."
+    },
+    {
+      "id": "e32-q06",
+      "type": "mcq",
+      "topics": [
+        "summary-statistics-for-two-categorical-variables",
+        "conditional-probability"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e32-q06-s"
+      ],
+      "stem": "A student is chosen at random from those who drive to school. What is the probability the student is a junior?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.747",
+          "why": "Correct. P(junior | drives) = juniors who drive ÷ all who drive."
+        },
+        {
+          "id": "b",
+          "text": "0.316",
+          "why": "That is P(junior and drives); divide by drivers only."
+        },
+        {
+          "id": "c",
+          "text": "0.645",
+          "why": "That is P(junior) overall."
+        },
+        {
+          "id": "d",
+          "text": "0.49",
+          "why": "That is P(drives | junior)."
+        }
+      ],
+      "answer": "a",
+      "explanation": "74 ÷ (74 + 25) = 0.747."
+    },
+    {
+      "id": "e32-q07",
+      "type": "mcq",
+      "topics": [
+        "setting-up-a-test-for-a-population-mean-or-population-mean-difference",
+        "setting-up-a-test-for-the-difference-between-two-population-means",
+        "justifying-a-claim-based-on-a-confidence-interval-for-the-difference-between-two-population-means",
+        "sampling-distributions-for-sample-means"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Why is the t distribution used instead of the normal distribution for inference about a mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because the sample is always biased",
+          "why": "Bias is unrelated."
+        },
+        {
+          "id": "b",
+          "text": "Because sample means are never normal",
+          "why": "They often are approximately normal."
+        },
+        {
+          "id": "c",
+          "text": "Because σ is estimated by s, which adds variability",
+          "why": "Correct. t has heavier tails to account for it."
+        },
+        {
+          "id": "d",
+          "text": "Because t is used only for proportions",
+          "why": "It is used for means."
+        }
+      ],
+      "answer": "c",
+      "explanation": "t has heavier tails to account for it."
+    },
+    {
+      "id": "e32-q08",
+      "type": "mcq",
+      "topics": [
+        "descriptions-for-one-quantitative-variable-distributions",
+        "summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "For a distribution of time spent on homework, the mean is 71 and the median is 83. Which is the most likely shape?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Skewed right",
+          "why": "The mean is pulled toward the tail."
+        },
+        {
+          "id": "b",
+          "text": "Skewed left",
+          "why": "Correct. A long left tail pulls the mean below the median."
+        },
+        {
+          "id": "c",
+          "text": "Symmetric",
+          "why": "In a symmetric distribution, the mean and median are close."
+        },
+        {
+          "id": "d",
+          "text": "Uniform",
+          "why": "A uniform distribution is symmetric, with mean near the median."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Mean 71 < median 83: the mean is pulled toward the left tail."
+    },
+    {
+      "id": "e32-q09",
+      "type": "mcq",
+      "topics": [
+        "independent-events-and-unions-of-events",
+        "mutually-exclusive-events"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "P(A) = 0.2, P(B) = 0.5 and P(A and B) = 0.06. What is P(A or B), and are A and B independent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.7; not independent",
+          "why": "Subtract P(A and B) so the overlap is not counted twice."
+        },
+        {
+          "id": "b",
+          "text": "0.64; mutually exclusive",
+          "why": "P(A and B) is not 0, so they are not mutually exclusive."
+        },
+        {
+          "id": "c",
+          "text": "0.64; independent",
+          "why": "Compare P(A and B) with P(A)·P(B) = 0.1."
+        },
+        {
+          "id": "d",
+          "text": "0.64; not independent",
+          "why": "Correct. P(A or B) = P(A) + P(B) − P(A and B); independent if P(A and B) = P(A)P(B) = 0.1."
+        }
+      ],
+      "answer": "d",
+      "explanation": "0.2 + 0.5 − 0.06 = 0.64. P(A)P(B) = 0.1 ≠ 0.06."
+    },
+    {
+      "id": "e32-q10",
+      "type": "mcq",
+      "topics": [
+        "sampling-distributions-for-the-difference-between-two-sample-means",
+        "constructing-a-confidence-interval-for-the-difference-between-two-population-means"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "Two independent random samples have n₁ = 46, s₁ = 7 and n₂ = 60, s₂ = 15. What is the standard error of x̄₁ − x̄₂?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.032",
+          "why": "Variances add, even for a difference."
+        },
+        {
+          "id": "b",
+          "text": "2.137",
+          "why": "Each sample contributes s²/n."
+        },
+        {
+          "id": "c",
+          "text": "2.194",
+          "why": "Correct. √(s₁²/n₁ + s₂²/n₂)."
+        },
+        {
+          "id": "d",
+          "text": "2.969",
+          "why": "Add variances, then take the square root; standard errors do not add."
+        }
+      ],
+      "answer": "c",
+      "explanation": "√(7²/46 + 15²/60) = 2.194."
+    },
+    {
+      "id": "e32-q11",
+      "type": "mcq",
+      "topics": [
+        "random-sampling",
+        "potential-problems-with-sampling",
+        "experimental-design",
+        "variables",
+        "graphical-representations-for-one-categorical-variable"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Does increasing the sample size reduce bias in a survey?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only for voluntary response samples",
+          "why": "Size never fixes bias."
+        },
+        {
+          "id": "b",
+          "text": "Yes, if the sample is over 1,000",
+          "why": "Size does not fix a biased method."
+        },
+        {
+          "id": "c",
+          "text": "Yes; large samples are always unbiased",
+          "why": "A biased method stays biased."
+        },
+        {
+          "id": "d",
+          "text": "No; a larger sample reduces variability but not bias from the sampling method",
+          "why": "Correct. Bias is systematic."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Bias is systematic."
+    },
+    {
+      "id": "e32-q12",
+      "type": "mcq",
+      "topics": [
+        "p-values",
+        "potential-errors-when-performing-tests",
+        "justifying-a-claim-based-on-a-confidence-interval-for-a-population-proportion",
+        "estimators"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "What does '95% confident' mean for a confidence interval?",
+      "options": [
+        {
+          "id": "a",
+          "text": "95% of samples will have the same p̂",
+          "why": "Sample proportions vary."
+        },
+        {
+          "id": "b",
+          "text": "The parameter is in this interval with probability 0.95",
+          "why": "The parameter is fixed; it is in or not."
+        },
+        {
+          "id": "c",
+          "text": "95% of the data fall within the interval",
+          "why": "Intervals estimate a parameter, not the data's spread."
+        },
+        {
+          "id": "d",
+          "text": "In many repeated samples, about 95% of intervals built this way would capture the true parameter",
+          "why": "Correct. Confidence describes the method's long-run success rate."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Confidence describes the method's long-run success rate."
+    },
+    {
+      "id": "e32-q13",
+      "type": "mcq",
+      "topics": [
+        "constructing-a-confidence-interval-for-a-population-proportion"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "In a random sample of 380 adults in a city, 247 use public transit weekly. Which is a 95% confidence interval for the proportion of all adults in a city who use public transit weekly?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(0.602, 0.698)",
+          "why": "Correct. p̂ ± z*√(p̂(1 − p̂)/n) with z* = 1.96."
+        },
+        {
+          "id": "b",
+          "text": "(0.626, 0.674)",
+          "why": "Multiply the standard error by z*."
+        },
+        {
+          "id": "c",
+          "text": "(0.204, 1.096)",
+          "why": "Use the standard error, √(p̂(1 − p̂)/n)."
+        },
+        {
+          "id": "d",
+          "text": "(0.438, 0.862)",
+          "why": "Divide by n inside the square root."
+        }
+      ],
+      "answer": "a",
+      "explanation": "p̂ = 0.65, SE = 0.0245, margin = 0.048."
+    },
+    {
+      "id": "e32-q14",
+      "type": "mcq",
+      "topics": [
+        "p-values",
+        "potential-errors-when-performing-tests",
+        "justifying-a-claim-based-on-a-confidence-interval-for-a-population-proportion",
+        "estimators"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "Which change increases the power of a significance test, with everything else unchanged?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increasing the sample size",
+          "why": "Correct. Larger samples detect real effects more often."
+        },
+        {
+          "id": "b",
+          "text": "Using a two-sided instead of a one-sided test",
+          "why": "For the correct direction, that lowers power."
+        },
+        {
+          "id": "c",
+          "text": "Decreasing the sample size",
+          "why": "That lowers power."
+        },
+        {
+          "id": "d",
+          "text": "Decreasing the significance level α",
+          "why": "That lowers power."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Larger samples detect real effects more often."
+    },
+    {
+      "id": "e32-q15",
+      "type": "mcq",
+      "topics": [
+        "summary-statistics-for-two-categorical-variables",
+        "conditional-probability"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stimuli": [
+        "e32-q15-s"
+      ],
+      "stem": "A student is chosen at random from those who drive to school. What is the probability the student is a junior?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.611",
+          "why": "Correct. P(junior | drives) = juniors who drive ÷ all who drive."
+        },
+        {
+          "id": "b",
+          "text": "0.31",
+          "why": "That is P(junior and drives); divide by drivers only."
+        },
+        {
+          "id": "c",
+          "text": "0.566",
+          "why": "That is P(drives | junior)."
+        },
+        {
+          "id": "d",
+          "text": "0.548",
+          "why": "That is P(junior) overall."
+        }
+      ],
+      "answer": "a",
+      "explanation": "77 ÷ (77 + 49) = 0.611."
+    },
+    {
+      "id": "e32-q16",
+      "type": "mcq",
+      "topics": [
+        "setting-up-a-test-for-a-population-mean-or-population-mean-difference",
+        "setting-up-a-test-for-the-difference-between-two-population-means",
+        "justifying-a-claim-based-on-a-confidence-interval-for-the-difference-between-two-population-means",
+        "sampling-distributions-for-sample-means"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "As degrees of freedom increase, what happens to the t distribution?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It becomes more skewed",
+          "why": "t is symmetric."
+        },
+        {
+          "id": "b",
+          "text": "Its tails get heavier",
+          "why": "They get lighter."
+        },
+        {
+          "id": "c",
+          "text": "It approaches the standard normal distribution",
+          "why": "Correct. Tails become lighter."
+        },
+        {
+          "id": "d",
+          "text": "Its mean increases",
+          "why": "Its mean stays 0."
+        }
+      ],
+      "answer": "c",
+      "explanation": "Tails become lighter."
+    },
+    {
+      "id": "e32-q17",
+      "type": "mcq",
+      "topics": [
+        "p-values",
+        "potential-errors-when-performing-tests",
+        "justifying-a-claim-based-on-a-confidence-interval-for-a-population-proportion",
+        "estimators"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "A test of H₀: p = 0.4 versus Hₐ: p > 0.4 gives a p-value of 0.03. Which interpretation is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "If p = 0.4, there is a 0.03 probability of a sample proportion at least as large as the one observed, by chance alone",
+          "why": "Correct. That is the definition of the p-value."
+        },
+        {
+          "id": "b",
+          "text": "There is a 0.97 probability that Hₐ is true",
+          "why": "Not a valid interpretation."
+        },
+        {
+          "id": "c",
+          "text": "There is a 0.03 probability that H₀ is true",
+          "why": "A p-value is not the probability of a hypothesis."
+        },
+        {
+          "id": "d",
+          "text": "3% of the sample supports H₀",
+          "why": "Unrelated to the p-value."
+        }
+      ],
+      "answer": "a",
+      "explanation": "That is the definition of the p-value."
+    },
+    {
+      "id": "e32-q18",
+      "type": "mcq",
+      "topics": [
+        "sampling-distributions-for-the-difference-between-two-sample-means",
+        "constructing-a-confidence-interval-for-the-difference-between-two-population-means"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "Two independent random samples have n₁ = 20, s₁ = 6 and n₂ = 25, s₂ = 9. What is the standard error of x̄₁ − x̄₂?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.342",
+          "why": "Variances add, even for a difference."
+        },
+        {
+          "id": "b",
+          "text": "3.142",
+          "why": "Add variances, then take the square root; standard errors do not add."
+        },
+        {
+          "id": "c",
+          "text": "2.236",
+          "why": "Each sample contributes s²/n."
+        },
+        {
+          "id": "d",
+          "text": "2.245",
+          "why": "Correct. √(s₁²/n₁ + s₂²/n₂)."
+        }
+      ],
+      "answer": "d",
+      "explanation": "√(6²/20 + 9²/25) = 2.245."
+    },
+    {
+      "id": "e32-q19",
+      "type": "mcq",
+      "topics": [
+        "constructing-a-confidence-interval-for-a-population-proportion"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "In a random sample of 420 registered voters in a county, 252 support a proposed park. Which is a 99% confidence interval for the proportion of all registered voters in a county who support a proposed park?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(0.553, 0.647)",
+          "why": "Use z* for 99%, not 1.96."
+        },
+        {
+          "id": "b",
+          "text": "(0.538, 0.662)",
+          "why": "Correct. p̂ ± z*√(p̂(1 − p̂)/n) with z* = 2.576."
+        },
+        {
+          "id": "c",
+          "text": "(-0.018, 1.218)",
+          "why": "Use the standard error, √(p̂(1 − p̂)/n)."
+        },
+        {
+          "id": "d",
+          "text": "(0.321, 0.879)",
+          "why": "Divide by n inside the square root."
+        }
+      ],
+      "answer": "b",
+      "explanation": "p̂ = 0.6, SE = 0.0239, margin = 0.0616."
+    },
+    {
+      "id": "e32-q20",
+      "type": "mcq",
+      "topics": [
+        "summary-statistics-for-one-quantitative-variable",
+        "graphical-representations-of-summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "The data are: 15, 21, 24, 25, 28, 29, 33, 38, 72. Using the 1.5 × IQR rule, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Q1 = 22.5, Q3 = 35.5; values above 55 are outliers, so 72 is an outlier",
+          "why": "Correct. IQR = 13; upper fence = Q3 + 1.5·IQR = 55."
+        },
+        {
+          "id": "b",
+          "text": "Q1 = 22.5, Q3 = 35.5; values above 48.5 are outliers, so 72 is an outlier",
+          "why": "The fence uses 1.5 × IQR, not 1 × IQR."
+        },
+        {
+          "id": "c",
+          "text": "Q1 = 22.5, Q3 = 35.5; values above 47.5 are outliers",
+          "why": "Add 1.5·IQR to Q3, not to the median."
+        },
+        {
+          "id": "d",
+          "text": "There are no outliers because every value is within 2 standard deviations of the mean",
+          "why": "The 1.5 × IQR rule is the method asked for."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Five-number summary: 15, 22.5, 28, 35.5, 72. Upper fence 35.5 + 1.5(13) = 55."
+    },
+    {
+      "id": "e32-q21",
+      "type": "mcq",
+      "topics": [
+        "introduction-to-probability",
+        "independent-events-and-unions-of-events"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "Each of 8 independent devices fails with probability 0.08. What is the probability that at least one fails?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "why": "That is the probability all fail."
+        },
+        {
+          "id": "b",
+          "text": "0.64",
+          "why": "Probabilities of overlapping events cannot simply be added."
+        },
+        {
+          "id": "c",
+          "text": "0.5132",
+          "why": "That is the probability none fail."
+        },
+        {
+          "id": "d",
+          "text": "0.4868",
+          "why": "Correct. 1 − P(none fail) = 1 − (1 − p)^n."
+        }
+      ],
+      "answer": "d",
+      "explanation": "1 − 0.92^8 = 0.4868."
+    },
+    {
+      "id": "e32-q22",
+      "type": "mcq",
+      "topics": [
+        "setting-up-a-test-for-a-population-mean-or-population-mean-difference",
+        "setting-up-a-test-for-the-difference-between-two-population-means",
+        "justifying-a-claim-based-on-a-confidence-interval-for-the-difference-between-two-population-means",
+        "sampling-distributions-for-sample-means"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "If the sample size quadruples, what happens to the standard deviation of the sampling distribution of x̄?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It does not change",
+          "why": "It depends on n."
+        },
+        {
+          "id": "b",
+          "text": "It is cut in half",
+          "why": "Correct. σ/√n: √4 = 2."
+        },
+        {
+          "id": "c",
+          "text": "It is cut to one quarter",
+          "why": "It depends on √n."
+        },
+        {
+          "id": "d",
+          "text": "It doubles",
+          "why": "Larger samples reduce variability."
+        }
+      ],
+      "answer": "b",
+      "explanation": "σ/√n: √4 = 2."
+    },
+    {
+      "id": "e32-q23",
+      "type": "mcq",
+      "topics": [
+        "the-binomial-distribution"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "Each of 12 independent trials succeeds with probability 0.2. What is the probability of at least 1 successes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.0687",
+          "why": "That is the complement."
+        },
+        {
+          "id": "b",
+          "text": "0.7251",
+          "why": "That is P(X > k); 'at least k' includes k."
+        },
+        {
+          "id": "c",
+          "text": "0.9313",
+          "why": "Correct. Use the binomial distribution with n = 12 and p = 0.2."
+        },
+        {
+          "id": "d",
+          "text": "0.2062",
+          "why": "That is only P(X = k)."
+        }
+      ],
+      "answer": "c",
+      "explanation": "X ~ Binomial(12, 0.2): P(X ≥ 1) = 0.9313."
+    },
+    {
+      "id": "e32-q24",
+      "type": "mcq",
+      "topics": [
+        "the-investigative-question-revisited-and-data-collection",
+        "experimental-design"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Researchers randomly selected 200 adults in the state and randomly assigned them to use one of two study apps, then compared test scores. Can the researchers conclude that the app causes higher scores, and to whom do the results apply?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes to cause and effect, and yes to generalizing to all adults in the state",
+          "why": "Correct. Random assignment decides causation; random selection decides generalization."
+        },
+        {
+          "id": "b",
+          "text": "No to cause and effect, but the association can be generalized to all adults in the state",
+          "why": "Random assignment allows causal conclusions; random selection allows generalization to the population."
+        },
+        {
+          "id": "c",
+          "text": "No to cause and effect, and no generalization beyond the volunteers",
+          "why": "Random assignment allows causal conclusions; random selection allows generalization to the population."
+        },
+        {
+          "id": "d",
+          "text": "Yes to cause and effect, but only for the volunteers in the study",
+          "why": "Random assignment allows causal conclusions; random selection allows generalization to the population."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Random assignment: yes. Random selection: yes."
+    },
+    {
+      "id": "e32-q25",
+      "type": "mcq",
+      "topics": [
+        "sampling-distributions-and-the-central-limit-theorem"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A population has mean 61 and standard deviation 19 (shape unknown). For random samples of 36, what is the approximate probability that the sample mean exceeds 65.8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.0648",
+          "why": "Correct. By the CLT, x̄ is approximately normal with SD 19/√36 = 3.167."
+        },
+        {
+          "id": "b",
+          "text": "0.4003",
+          "why": "Use σ/√n for a sample mean."
+        },
+        {
+          "id": "c",
+          "text": "0.9352",
+          "why": "That is the area below."
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "why": "Divide σ by √n, not n."
+        }
+      ],
+      "answer": "a",
+      "explanation": "z = (65.8 − 61)/3.167 = 1.52; P = 0.0648."
+    },
+    {
+      "id": "e32-q26",
+      "type": "mcq",
+      "topics": [
+        "summary-statistics-for-one-quantitative-variable",
+        "graphical-representations-of-summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "The data are: 11, 19, 19, 19, 21, 23, 23, 29, 29, 29, 31, 33, 48. Using the 1.5 × IQR rule, which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Q1 = 19, Q3 = 30; values above 46.5 are outliers, so 48 is an outlier",
+          "why": "Correct. IQR = 11; upper fence = Q3 + 1.5·IQR = 46.5."
+        },
+        {
+          "id": "b",
+          "text": "There are no outliers because every value is within 2 standard deviations of the mean",
+          "why": "The 1.5 × IQR rule is the method asked for."
+        },
+        {
+          "id": "c",
+          "text": "Q1 = 19, Q3 = 30; values above 39.5 are outliers",
+          "why": "Add 1.5·IQR to Q3, not to the median."
+        },
+        {
+          "id": "d",
+          "text": "Q1 = 19, Q3 = 30; values above 41 are outliers, so 48 is an outlier",
+          "why": "The fence uses 1.5 × IQR, not 1 × IQR."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Five-number summary: 11, 19, 23, 30, 48. Upper fence 30 + 1.5(11) = 46.5."
+    },
+    {
+      "id": "e32-q27",
+      "type": "mcq",
+      "topics": [
+        "descriptions-for-one-quantitative-variable-distributions",
+        "summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "For a distribution of household incomes in a city, the mean is 70 and the median is 58. Which is the most likely shape?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Skewed right",
+          "why": "Correct. A long right tail pulls the mean above the median."
+        },
+        {
+          "id": "b",
+          "text": "Uniform",
+          "why": "A uniform distribution is symmetric, with mean near the median."
+        },
+        {
+          "id": "c",
+          "text": "Symmetric",
+          "why": "In a symmetric distribution, the mean and median are close."
+        },
+        {
+          "id": "d",
+          "text": "Skewed left",
+          "why": "The mean is pulled toward the tail."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Mean 70 > median 58: the mean is pulled toward the right tail."
+    },
+    {
+      "id": "e32-q28",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-test-for-a-population-proportion",
+        "p-values"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "To test H₀: p = 0.4 versus Hₐ: p > 0.4, a random sample of 110 gives p̂ = 0.46. What are the test statistic and p-value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "z = 1.26, p-value = 0.1034",
+          "why": "The test's standard deviation uses p₀, not p̂."
+        },
+        {
+          "id": "b",
+          "text": "z = 1.28, p-value = 0.199",
+          "why": "The alternative is one-sided."
+        },
+        {
+          "id": "c",
+          "text": "z = 1.28, p-value = 0.0995",
+          "why": "Correct. z = (p̂ − p₀)/√(p₀(1 − p₀)/n); one-sided p-value."
+        },
+        {
+          "id": "d",
+          "text": "z = 1.28, p-value = 0.9005",
+          "why": "Find the area in the direction of Hₐ."
+        }
+      ],
+      "answer": "c",
+      "explanation": "SD = √(0.4·0.6/110) = 0.0467; z = 1.28; p-value = 0.0995."
+    },
+    {
+      "id": "e32-q29",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-test-for-a-population-mean-or-population-mean-difference"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A random sample of 28 gives x̄ = 186.7 and s = 19. Test H₀: μ = 182 versus Hₐ: μ > 182. What are the test statistic and p-value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "t = 1.31, df = 27, p-value = 0.0953",
+          "why": "Use the t distribution, not the normal."
+        },
+        {
+          "id": "b",
+          "text": "t = 1.31, df = 27, p-value = 0.1008",
+          "why": "Correct. t = (x̄ − μ₀)/(s/√n) with df = n − 1."
+        },
+        {
+          "id": "c",
+          "text": "t = 1.31, df = 27, p-value = 0.2016",
+          "why": "The alternative is one-sided."
+        },
+        {
+          "id": "d",
+          "text": "t = 0.25, df = 27, p-value = 0.4032",
+          "why": "Divide by the standard error s/√n."
+        }
+      ],
+      "answer": "b",
+      "explanation": "t = (186.7 − 182)/(19/√28) = 1.31; p-value = 0.1008."
+    },
+    {
+      "id": "e32-q30",
+      "type": "mcq",
+      "topics": [
+        "random-sampling",
+        "potential-problems-with-sampling",
+        "experimental-design",
+        "variables",
+        "graphical-representations-for-one-categorical-variable"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Why does an experiment use random assignment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To create treatment groups that are roughly equivalent, so differences in response can be attributed to the treatments",
+          "why": "Correct. Randomization balances other variables."
+        },
+        {
+          "id": "b",
+          "text": "To allow generalization to a larger population",
+          "why": "That requires random selection."
+        },
+        {
+          "id": "c",
+          "text": "To make the experiment double-blind",
+          "why": "Blinding is separate."
+        },
+        {
+          "id": "d",
+          "text": "To guarantee a large sample size",
+          "why": "Randomization does not affect size."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Randomization balances other variables."
+    },
+    {
+      "id": "e32-q31",
+      "type": "mcq",
+      "topics": [
+        "residuals",
+        "linear-regression-models"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "The regression line is ŷ = 45 + 0.8x. An observation has x = 12 and y = 55.5. What is its residual, and what does it mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "-0.9; the actual value is below the predicted value",
+          "why": "Residual = actual − predicted, not predicted − actual."
+        },
+        {
+          "id": "b",
+          "text": "0.9; the actual value is below the predicted value",
+          "why": "A positive residual means the point is above the line."
+        },
+        {
+          "id": "c",
+          "text": "0.9; the actual value is above the predicted value",
+          "why": "Correct. Residual = y − ŷ."
+        },
+        {
+          "id": "d",
+          "text": "54.6; this is the residual",
+          "why": "That is the predicted value ŷ."
+        }
+      ],
+      "answer": "c",
+      "explanation": "ŷ = 54.6; residual = 55.5 − 54.6 = 0.9."
+    },
+    {
+      "id": "e32-q32",
+      "type": "mcq",
+      "topics": [
+        "constructing-a-confidence-interval-for-a-population-mean-or-population-mean-difference"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A random sample of 14 has mean 41.5 and standard deviation 7. Which is a 99% confidence interval for the population mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(20.41, 62.59)",
+          "why": "Divide s by √n."
+        },
+        {
+          "id": "b",
+          "text": "(36.68, 46.32)",
+          "why": "With s estimating σ, use t*, not z*."
+        },
+        {
+          "id": "c",
+          "text": "(39.99, 43.01)",
+          "why": "Divide by √n, not n."
+        },
+        {
+          "id": "d",
+          "text": "(35.86, 47.14)",
+          "why": "Correct. x̄ ± t*·s/√n with t* = 3.012 (df = 13)."
+        }
+      ],
+      "answer": "d",
+      "explanation": "SE = 1.871; margin = 5.635."
+    },
+    {
+      "id": "e32-q33",
+      "type": "mcq",
+      "topics": [
+        "descriptions-for-one-quantitative-variable-distributions",
+        "summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "4"
+      ],
+      "difficulty": 2,
+      "stem": "For a distribution of number of social media followers, the mean is 31 and the median is 22. Which is the most likely shape?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Symmetric",
+          "why": "In a symmetric distribution, the mean and median are close."
+        },
+        {
+          "id": "b",
+          "text": "Uniform",
+          "why": "A uniform distribution is symmetric, with mean near the median."
+        },
+        {
+          "id": "c",
+          "text": "Skewed left",
+          "why": "The mean is pulled toward the tail."
+        },
+        {
+          "id": "d",
+          "text": "Skewed right",
+          "why": "Correct. A long right tail pulls the mean above the median."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Mean 31 > median 22: the mean is pulled toward the right tail."
+    },
+    {
+      "id": "e32-q34",
+      "type": "mcq",
+      "topics": [
+        "the-normal-distribution"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 2,
+      "stem": "A variable is approximately normal with mean 93 and standard deviation 11. What proportion of values are less than 113.9?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.9713",
+          "why": "Correct. z = (113.9 − 93)/11 = 1.9."
+        },
+        {
+          "id": "b",
+          "text": "0.0287",
+          "why": "That is the other side of the boundary."
+        },
+        {
+          "id": "c",
+          "text": "0.19",
+          "why": "Use the normal distribution's area, not the z-score."
+        },
+        {
+          "id": "d",
+          "text": "0.8289",
+          "why": "Divide by σ when standardizing."
+        }
+      ],
+      "answer": "a",
+      "explanation": "z = 1.9; area to the left = 0.9713."
+    },
+    {
+      "id": "e32-q35",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-test-for-a-population-mean-or-population-mean-difference"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A random sample of 20 gives x̄ = 176.1 and s = 28. Test H₀: μ = 188 versus Hₐ: μ < 188. What are the test statistic and p-value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "t = -1.9, df = 19, p-value = 0.0363",
+          "why": "Correct. t = (x̄ − μ₀)/(s/√n) with df = n − 1."
+        },
+        {
+          "id": "b",
+          "text": "t = -0.43, df = 19, p-value = 0.3378",
+          "why": "Divide by the standard error s/√n."
+        },
+        {
+          "id": "c",
+          "text": "t = -1.9, df = 19, p-value = 0.0287",
+          "why": "Use the t distribution, not the normal."
+        },
+        {
+          "id": "d",
+          "text": "t = -1.9, df = 19, p-value = 0.0726",
+          "why": "The alternative is one-sided."
+        }
+      ],
+      "answer": "a",
+      "explanation": "t = (176.1 − 188)/(28/√20) = -1.9; p-value = 0.0363."
+    },
+    {
+      "id": "e32-q36",
+      "type": "mcq",
+      "topics": [
+        "constructing-a-confidence-interval-for-a-population-proportion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.04 at 95% confidence, with no prior estimate of p?",
+      "options": [
+        {
+          "id": "a",
+          "text": "13",
+          "why": "Square z*/m."
+        },
+        {
+          "id": "b",
+          "text": "2401",
+          "why": "Multiply by p̂(1 − p̂) = 0.25."
+        },
+        {
+          "id": "c",
+          "text": "601",
+          "why": "Correct. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up."
+        },
+        {
+          "id": "d",
+          "text": "600",
+          "why": "Always round up to guarantee the margin."
+        }
+      ],
+      "answer": "c",
+      "explanation": "(1.96/0.04)² × 0.25 = 600.2, so n = 601."
+    },
+    {
+      "id": "e32-q37",
+      "type": "mcq",
+      "topics": [
+        "parameters-of-random-variables"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "X and Y are independent with μX = 23, σX = 5, μY = 15, σY = 5. What are the mean and standard deviation of X + Y?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean 38, SD 10",
+          "why": "Standard deviations do not add; variances do."
+        },
+        {
+          "id": "b",
+          "text": "Mean 38, SD 50",
+          "why": "That is the variance; take the square root."
+        },
+        {
+          "id": "c",
+          "text": "Mean 8, SD 7.07",
+          "why": "Check the sign of the mean."
+        },
+        {
+          "id": "d",
+          "text": "Mean 38, SD 7.07",
+          "why": "Correct. Means add or subtract; variances add."
+        }
+      ],
+      "answer": "d",
+      "explanation": "μ = 38; σ = √(5² + 5²) = 7.07."
+    },
+    {
+      "id": "e32-q38",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-test-for-a-population-proportion",
+        "p-values"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "To test H₀: p = 0.25 versus Hₐ: p > 0.25, a random sample of 400 gives p̂ = 0.31. What are the test statistic and p-value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "z = 2.77, p-value = 0.0028",
+          "why": "Correct. z = (p̂ − p₀)/√(p₀(1 − p₀)/n); one-sided p-value."
+        },
+        {
+          "id": "b",
+          "text": "z = 2.77, p-value = 0.0056",
+          "why": "The alternative is one-sided."
+        },
+        {
+          "id": "c",
+          "text": "z = 2.77, p-value = 0.9972",
+          "why": "Find the area in the direction of Hₐ."
+        },
+        {
+          "id": "d",
+          "text": "z = 2.59, p-value = 0.0047",
+          "why": "The test's standard deviation uses p₀, not p̂."
+        }
+      ],
+      "answer": "a",
+      "explanation": "SD = √(0.25·0.75/400) = 0.0217; z = 2.77; p-value = 0.0028."
+    },
+    {
+      "id": "e32-q39",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-chi-square-test-for-homogeneity-or-independence",
+        "setting-up-a-chi-square-test-for-homogeneity-or-independence"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 4,
+      "stimuli": [
+        "e32-q39-s"
+      ],
+      "stem": "For a chi-square test of homogeneity on these counts, what are the test statistic and degrees of freedom?",
+      "options": [
+        {
+          "id": "a",
+          "text": "χ² = 24.29, df = 3, p-value = 0",
+          "why": "For a two-way table, df = (r − 1)(c − 1)."
+        },
+        {
+          "id": "b",
+          "text": "χ² = 24.29, df = 1, p-value = 0",
+          "why": "Correct. χ² = Σ(O − E)²/E with df = (rows − 1)(columns − 1)."
+        },
+        {
+          "id": "c",
+          "text": "χ² = 4.93, df = 1, p-value = 0.0264",
+          "why": "Do not take a square root."
+        },
+        {
+          "id": "d",
+          "text": "χ² = 0.1687, df = 1, p-value = 0.6813",
+          "why": "Do not divide by the total."
+        }
+      ],
+      "answer": "b",
+      "explanation": "χ² = 24.29 with df = 1; p-value = 0."
+    },
+    {
+      "id": "e32-q40",
+      "type": "mcq",
+      "topics": [
+        "constructing-a-confidence-interval-for-a-population-proportion"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "What is the smallest sample size needed to estimate a proportion with a margin of error of at most 0.05 at 95% confidence, with no prior estimate of p?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "why": "Square z*/m."
+        },
+        {
+          "id": "b",
+          "text": "1537",
+          "why": "Multiply by p̂(1 − p̂) = 0.25."
+        },
+        {
+          "id": "c",
+          "text": "385",
+          "why": "Correct. n ≥ (z*/m)²(0.5)(0.5) with z* = 1.96, rounded up."
+        },
+        {
+          "id": "d",
+          "text": "384",
+          "why": "Always round up to guarantee the margin."
+        }
+      ],
+      "answer": "c",
+      "explanation": "(1.96/0.05)² × 0.25 = 384.1, so n = 385."
+    },
+    {
+      "id": "e32-q41",
+      "type": "mcq",
+      "topics": [
+        "least-squares-regression"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "For a set of data, x̄ = 23, sx = 9, ȳ = 164, sy = 21 and r = -0.9. What is the least-squares regression line?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ŷ = 172.87 − 0.39x",
+          "why": "The slope is r·sy/sx, not r·sx/sy."
+        },
+        {
+          "id": "b",
+          "text": "ŷ = 367.4 − 2.1x",
+          "why": "a = ȳ − b·x̄."
+        },
+        {
+          "id": "c",
+          "text": "ŷ = 110.33 + 2.33x",
+          "why": "Multiply sy/sx by r."
+        },
+        {
+          "id": "d",
+          "text": "ŷ = 212.3 − 2.1x",
+          "why": "Correct. b = r·sy/sx and a = ȳ − b·x̄."
+        }
+      ],
+      "answer": "d",
+      "explanation": "b = -0.9(21/9) = -2.1; a = 164 − -2.1(23) = 212.3."
+    },
+    {
+      "id": "e32-q42",
+      "type": "mcq",
+      "topics": [
+        "carrying-out-a-test-for-the-difference-between-two-population-proportions",
+        "setting-up-a-test-for-the-difference-between-two-population-proportions"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 4,
+      "stem": "In a randomized experiment, 104 of 290 subjects improved with treatment 1 and 192 of 300 improved with treatment 2. For a test of H₀: p₁ − p₂ = 0, what is the test statistic?",
+      "options": [
+        {
+          "id": "a",
+          "text": "-6.83",
+          "why": "Correct. Pooled p̂c = 0.5017; z = (p̂₁ − p̂₂)/√(p̂c(1 − p̂c)(1/n₁ + 1/n₂))."
+        },
+        {
+          "id": "b",
+          "text": "-0.28",
+          "why": "Divide the difference by its standard error."
+        },
+        {
+          "id": "c",
+          "text": "-7.12",
+          "why": "The test uses the pooled proportion, because H₀ assumes p₁ = p₂."
+        },
+        {
+          "id": "d",
+          "text": "-13.67",
+          "why": "Use (1/n₁ + 1/n₂)."
+        }
+      ],
+      "answer": "a",
+      "explanation": "p̂₁ = 0.3586, p̂₂ = 0.64, SE = 0.0412, z = -6.83."
+    },
+    {
+      "id": "e32-frq1",
+      "type": "frq",
+      "format": "q1",
+      "title": "Planning a study",
+      "topics": [
+        "the-investigative-question-revisited-and-data-collection",
+        "experimental-design",
+        "random-sampling",
+        "potential-problems-with-sampling"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 3,
+      "minutes": 22,
+      "stimuli": [
+        "e32-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write an investigative question for this study, and identify the explanatory and response variables.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "A clear investigative question that names the population or units and the variables.",
+              "example": "\"Does the app lead to a better average evening screen time over two weeks than no app for units like these?\""
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct variables.",
+              "example": "Explanatory: treatment (the app vs no app). Response: average evening screen time over two weeks."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Explain why an experiment, rather than an observational study, should be used to answer the question.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Only random assignment allows a cause-and-effect conclusion; an observational study could be confounded.",
+              "example": "Units that choose a treatment may differ in other ways that affect the response."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Describe how to randomly assign the 60 units to the two treatments in a completely randomized design.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "A valid random mechanism.",
+              "example": "Number units 1–60; use a random number generator to select 30 different numbers."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Clear assignment.",
+              "example": "Those 30 receive the app; the remaining 30 receive no app."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "The researchers consider blocking by grade level (9th and 12th graders use phones differently). Explain how blocking would be carried out and why it could improve the experiment.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Form blocks and randomize within each block.",
+              "example": "Separate units into the blocks, then randomly assign half of each block to each treatment."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Benefit: reduces variability in the response due to the blocking variable, making a treatment effect easier to detect.",
+              "example": "Accounts for differences caused by grade level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq2",
+      "type": "frq",
+      "format": "q2",
+      "title": "Comparing reaction time (hundredths of a second)",
+      "topics": [
+        "comparisons-of-the-distributions-for-one-quantitative-variable",
+        "summary-statistics-for-one-quantitative-variable",
+        "graphical-representations-of-summary-statistics-for-one-quantitative-variable"
+      ],
+      "skills": [
+        "3",
+        "4"
+      ],
+      "difficulty": 3,
+      "minutes": 22,
+      "stimuli": [
+        "e32-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Find the five-number summary for each group.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Morning correct.",
+              "example": "14, 19, 21, 28, 30"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Evening correct.",
+              "example": "14, 18, 27, 44, 64"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Use the 1.5 × IQR rule to determine whether Evening has any outliers. Show your work.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct fences and conclusion.",
+              "example": "IQR = 26; upper fence = 44 + 1.5(26) = 83. No outliers."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Compare the distributions of the two groups (shape, center and variability) in context.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Compares centers with values.",
+              "example": "The median for Evening (27) is greater than for Morning (21)."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Compares variability with values.",
+              "example": "Evening is more variable (IQR 26 vs 9)."
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Comments on shape or unusual features.",
+              "example": "Describes the shapes using the summaries."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Which measure of center is more appropriate for Evening, the mean or the median? Explain.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Median, because it is resistant to the outlier or skew.",
+              "example": "Mean 29.8 is pulled toward the high value; median 27 is not."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq3",
+      "type": "frq",
+      "format": "q3",
+      "title": "Estimating a mean",
+      "topics": [
+        "carrying-out-a-test-for-a-population-proportion",
+        "constructing-a-confidence-interval-for-a-population-mean-or-population-mean-difference",
+        "carrying-out-a-test-for-the-difference-between-two-population-proportions"
+      ],
+      "skills": [
+        "2",
+        "3",
+        "4"
+      ],
+      "difficulty": 4,
+      "minutes": 22,
+      "stimuli": [
+        "e32-frq3-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Identify the procedure and check the conditions for a 95% confidence interval for the mean.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "One-sample t interval; random, 10%, and normality justified by the dotplot (n under 30).",
+              "example": "n = 17; the sample shows no strong skew or outliers."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Construct the 95% confidence interval.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Critical value and standard error.",
+              "example": "t* = 2.12 (df = 16); SE = 0.1942"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct interval.",
+              "example": "(6.96, 7.78) hours"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Interpret the interval in context.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Confidence in capturing the population mean.",
+              "example": "We are 95% confident that the interval from 6.96 to 7.78 hours captures the true mean hours of sleep for students at the school."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Does the interval support the report's claim? Explain.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct use of the interval.",
+              "example": "7.2 is in the interval, so it is a plausible value; the claim is not contradicted."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e32-frq4",
+      "type": "frq",
+      "format": "q4",
+      "title": "Predicting price (thousands of dollars)",
+      "topics": [
+        "least-squares-regression",
+        "residuals",
+        "linear-regression-models",
+        "correlation"
+      ],
+      "skills": [
+        "2",
+        "3",
+        "4"
+      ],
+      "difficulty": 3,
+      "minutes": 22,
+      "stimuli": [
+        "e32-frq4-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the equation of the least-squares regression line, defining the variables.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct equation with variables defined.",
+              "example": "ŷ = 49.4 − 1.6x, where ŷ is predicted price (thousands of dollars) and x is age of car (years)."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Interpret the slope and the value of R-Sq in context.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Slope interpretation.",
+              "example": "For each additional unit of age of car (years), the predicted price (thousands of dollars) decreases by about 1.6."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "R-Sq interpretation.",
+              "example": "About 73.0% of the variation in price (thousands of dollars) is accounted for by the linear model with age of car (years)."
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "One observation has x = 7 and y = 41.3. Calculate and interpret its residual. Also find the correlation r.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Residual and interpretation.",
+              "example": "ŷ = 38.2; residual = 41.3 − 38.2 = 3.1: the actual value is above the prediction."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correlation with the correct sign.",
+              "example": "r = −√0.73 = -0.854"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "The data come from a convenience sample. Explain how this affects the conclusions and describe a better data collection method.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Results may not generalize to the population; a random sample would allow generalization.",
+              "example": "Take a simple random sample of used cars from the population of interest. Observational data also cannot show causation."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

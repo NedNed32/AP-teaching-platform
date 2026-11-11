@@ -1,0 +1,111 @@
+---
+objectives:
+  - 'Calculate and interpret the mean, median, standard deviation, quartiles and IQR, and identify outliers.'
+keyTerms:
+  - term: 'Resistant statistic'
+    definition: 'A statistic not strongly affected by outliers, such as the median and IQR.'
+  - term: '1.5 × IQR rule'
+    definition: 'A value is an outlier if it is below Q1 − 1.5·IQR or above Q3 + 1.5·IQR.'
+checks:
+  - q: 'Which is resistant, the mean or the median?'
+    a: 'The median.'
+  - q: 'Q1 = 20 and Q3 = 32. Is 52 an outlier?'
+    a: 'Yes: the upper fence is 32 + 1.5(12) = 50.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$\bar x = \frac{\sum x_i}{n} \qquad s = \sqrt{\frac{\sum (x_i - \bar x)^2}{n - 1}}$$
+
+- **Median**: the middle value of the ordered data.
+- **Quartiles** Q1 and Q3: medians of the lower and upper halves; **IQR = Q3 − Q1**.
+- **Outliers** (1.5 × IQR rule): below Q1 − 1.5·IQR or above Q3 + 1.5·IQR.
+
+In a skewed distribution the mean is pulled toward the tail: skewed right means the mean is greater than the median.
+
+**Interpret** the standard deviation: "the typical distance of the values from the mean is about s units."
+
+<Note title="Choose the right summary">
+For skewed data or data with outliers, report the median and IQR. For roughly symmetric data, the mean and standard deviation are appropriate.
+</Note>
+
+<WorkedExample title="Fences">
+Data: Q1 = 14, Q3 = 26. Find the outlier fences.
+
+1. IQR = 12; 1.5 × 12 = 18.
+2. Lower: 14 − 18 = −4. Upper: 26 + 18 = 44.
+
+**Answer:** values below −4 or above 44 are outliers.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The data are: 10, 15, 15, 15, 15, 18, 19, 24, 37, 77. Using the 1.5 × IQR rule, which statement is correct?
+
+**Answer:** Q1 = 15, Q3 = 24; values above 37.5 are outliers, so 77 is an outlier
+
+**Why:** IQR = 9; upper fence = Q3 + 1.5·IQR = 37.5.
+
+**Working:** Five-number summary: 10, 15, 16.5, 24, 77. Upper fence 24 + 1.5(9) = 37.5.
+
+**Mistakes to avoid**
+
+- Q1 = 15, Q3 = 24; values above 33 are outliers, so 77 is an outlier: The fence uses 1.5 × IQR, not 1 × IQR.
+- Q1 = 15, Q3 = 24; values above 30 are outliers: Add 1.5·IQR to Q3, not to the median.
+- There are no outliers because every value is within 2 standard deviations of the mean: The 1.5 × IQR rule is the method asked for.
+
+### Worked exam question 2
+
+For a distribution of home prices in a county, the mean is 45 and the median is 54. Which is the most likely shape?
+
+**Answer:** Skewed left
+
+**Why:** A long left tail pulls the mean below the median.
+
+**Working:** Mean 45 &lt; median 54: the mean is pulled toward the left tail.
+
+**Mistakes to avoid**
+
+- Skewed right: The mean is pulled toward the tail.
+- Symmetric: In a symmetric distribution, the mean and median are close.
+- Uniform: A uniform distribution is symmetric, with mean near the median.
+
+### Free-response practice: Comparing commute time (minutes)
+
+Random samples of 15 were taken from two groups. The values of commute time (minutes) are:
+
+**City A:** 12, 13, 14, 14, 16, 21, 21, 23, 24, 25, 26, 27, 29, 30, 30
+
+**City B:** 15, 23, 25, 27, 35, 36, 36, 37, 38, 39, 39, 41, 43, 44, 60
+
+**(a)** Find the five-number summary for each group.
+
+To earn the point: City A correct. Model answer: 12, 14, 23, 27, 30
+
+To earn the point: City B correct. Model answer: 15, 27, 37, 41, 60
+
+**(b)** Use the 1.5 × IQR rule to determine whether City B has any outliers. Show your work.
+
+To earn the point: Correct fences and conclusion. Model answer: IQR = 14; upper fence = 41 + 1.5(14) = 62. No outliers.
+
+**(c)** Compare the distributions of the two groups (shape, center and variability) in context.
+
+To earn the point: Compares centers with values. Model answer: The median for City B (37) is greater than for City A (23).
+
+To earn the point: Compares variability with values. Model answer: City B is more variable (IQR 14 vs 13).
+
+To earn the point: Comments on shape or unusual features. Model answer: Describes the shapes using the summaries.
+
+**(d)** Which measure of center is more appropriate for City B, the mean or the median? Explain.
+
+To earn the point: Median, because it is resistant to the outlier or skew. Model answer: Mean 35.9 is pulled toward the high value; median 37 is not.

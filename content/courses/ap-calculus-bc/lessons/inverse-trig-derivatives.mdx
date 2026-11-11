@@ -1,0 +1,140 @@
+---
+objectives:
+  - Differentiate inverse trigonometric functions, including with the chain rule.
+keyTerms:
+  - term: Arcsine
+    definition: '$$\arcsin x$$ (also $$\sin^{-1} x$$), the angle in $$\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$$ whose sine is $$x$$.'
+  - term: Arctangent
+    definition: '$$\arctan x$$, the angle in $$\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$$ whose tangent is $$x$$.'
+checks:
+  - q: 'Differentiate $$\arctan(x^2)$$.'
+    a: '$$\frac{2x}{1 + x^4}$$.'
+  - q: 'Differentiate $$\arcsin(3x)$$.'
+    a: '$$\frac{3}{\sqrt{1 - 9x^2}}$$.'
+sources:
+  - title: Calculus Volume 1, section 3.7 "Derivatives of Inverse Functions"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Inverse trig functions return angles. Their derivatives, surprisingly, are algebraic: no trig functions remain.
+
+## The formulas
+
+$$
+\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1 - x^2}} \qquad \frac{d}{dx}\arccos x = -\frac{1}{\sqrt{1 - x^2}} \qquad \frac{d}{dx}\arctan x = \frac{1}{1 + x^2}
+$$
+
+The AP exam focuses on arcsine and arctangent; arccosine is the negative of arcsine.
+
+## Where arctangent comes from
+
+Let $$y = \arctan x$$, so $$\tan y = x$$. Implicit differentiation gives $$\sec^2 y \cdot y' = 1$$, so $$y' = \frac{1}{\sec^2 y} = \frac{1}{1 + \tan^2 y} = \frac{1}{1 + x^2}$$.
+
+## With the chain rule
+
+$$
+\frac{d}{dx}\arcsin(u) = \frac{u'}{\sqrt{1 - u^2}} \qquad \frac{d}{dx}\arctan(u) = \frac{u'}{1 + u^2}
+$$
+
+<Note title="Square the whole inside">
+For $$\arctan(5x)$$, the denominator is $$1 + (5x)^2 = 1 + 25x^2$$, not $$1 + 5x^2$$. And do not forget the factor 5 on top.
+</Note>
+
+<WorkedExample title="Arcsine with a scaled input">
+Find $$f'(2)$$ for $$f(x) = \arcsin\left(\frac{x}{4}\right)$$.
+
+1. $$u = \frac{x}{4}$$, $$u' = \frac{1}{4}$$.
+2. $$f'(x) = \frac{1/4}{\sqrt{1 - x^2/16}} = \frac{1}{\sqrt{16 - x^2}}$$.
+3. $$f'(2) = \frac{1}{\sqrt{12}}$$.
+
+**Answer:** $$\frac{1}{2\sqrt{3}}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{10}\right)$$, what is $$f'(6)$$?
+
+**A.** $$\frac{1}{8}$$. $$f'(x) = \frac{1}{\sqrt{100 - x^2}}$$, so $$f'(6) = \frac{1}{\sqrt{64}} = \frac{1}{8}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{10}\right) = \frac{1/10}{\sqrt{1 - x^2/100}} = \frac{1}{\sqrt{100 - x^2}}$$. At $$x = 6$$ this is $$\frac{1}{8}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{2}\right)$$, what is $$f'(1)$$?
+
+**A.** $$\frac{1}{\sqrt{3}}$$. $$f'(x) = \frac{1}{\sqrt{1 - x^2/4}} \cdot \frac{1}{2} = \frac{1}{\sqrt{4 - x^2}}$$. $$\frac{d}{dx}\arcsin u = \frac{u'}{\sqrt{1 - u^2}}$$. With $$u = \frac{x}{2}$$, $$f'(1) = \frac{1/2}{\sqrt{3/4}} = \frac{1}{\sqrt{3}}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{10}\right)$$, what is $$f'(8)$$?
+
+**A.** $$\frac{1}{6}$$. $$f'(x) = \frac{1}{\sqrt{100 - x^2}}$$, so $$f'(8) = \frac{1}{\sqrt{36}} = \frac{1}{6}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{10}\right) = \frac{1/10}{\sqrt{1 - x^2/100}} = \frac{1}{\sqrt{100 - x^2}}$$. At $$x = 8$$ this is $$\frac{1}{6}$$.
+
+**Q.** If $$f(x) = \arctan(3x)$$, what is $$f'(1)$$?
+
+**A.** $$\frac{3}{10}$$. $$f'(x) = \frac{3}{1 + 9x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 3x$$: $$f'(1) = \frac{3}{1 + 9} = \frac{3}{10}$$.
+
+**Q.** If $$f(x) = \arctan(4x)$$, what is $$f'(1)$$?
+
+**A.** $$\frac{4}{17}$$. $$f'(x) = \frac{4}{1 + 16x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 4x$$: $$f'(1) = \frac{4}{1 + 16} = \frac{4}{17}$$.
+
+**Q.** If $$f(x) = \arctan(5x)$$, what is $$f'(1)$$?
+
+**A.** $$\frac{5}{26}$$. $$f'(x) = \frac{5}{1 + 25x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 5x$$: $$f'(1) = \frac{5}{1 + 25} = \frac{5}{26}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{5}\right)$$, what is $$f'(4)$$?
+
+**A.** $$\frac{1}{3}$$. $$f'(x) = \frac{1}{\sqrt{25 - x^2}}$$, so $$f'(4) = \frac{1}{\sqrt{9}} = \frac{1}{3}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{5}\right) = \frac{1/5}{\sqrt{1 - x^2/25}} = \frac{1}{\sqrt{25 - x^2}}$$. At $$x = 4$$ this is $$\frac{1}{3}$$.
+
+**Q.** If $$f(x) = \arctan(2x)$$, what is $$f'(-1)$$?
+
+**A.** $$\frac{2}{5}$$. $$f'(x) = \frac{2}{1 + 4x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 2x$$: $$f'(-1) = \frac{2}{1 + 4} = \frac{2}{5}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{13}\right)$$, what is $$f'(12)$$?
+
+**A.** $$\frac{1}{5}$$. $$f'(x) = \frac{1}{\sqrt{169 - x^2}}$$, so $$f'(12) = \frac{1}{\sqrt{25}} = \frac{1}{5}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{13}\right) = \frac{1/13}{\sqrt{1 - x^2/169}} = \frac{1}{\sqrt{169 - x^2}}$$. At $$x = 12$$ this is $$\frac{1}{5}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{13}\right)$$, what is $$f'(5)$$?
+
+**A.** $$\frac{1}{12}$$. $$f'(x) = \frac{1}{\sqrt{169 - x^2}}$$, so $$f'(5) = \frac{1}{\sqrt{144}} = \frac{1}{12}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{13}\right) = \frac{1/13}{\sqrt{1 - x^2/169}} = \frac{1}{\sqrt{169 - x^2}}$$. At $$x = 5$$ this is $$\frac{1}{12}$$.
+
+**Q.** If $$f(x) = \arctan(5x)$$, what is $$f'(2)$$?
+
+**A.** $$\frac{5}{101}$$. $$f'(x) = \frac{5}{1 + 25x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 5x$$: $$f'(2) = \frac{5}{1 + 100} = \frac{5}{101}$$.
+
+**Q.** If $$f(x) = \arctan(3x)$$, what is $$f'(2)$$?
+
+**A.** $$\frac{3}{37}$$. $$f'(x) = \frac{3}{1 + 9x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 3x$$: $$f'(2) = \frac{3}{1 + 36} = \frac{3}{37}$$.
+
+**Q.** If $$f(x) = \arctan(2x)$$, what is $$f'(2)$$?
+
+**A.** $$\frac{2}{17}$$. $$f'(x) = \frac{2}{1 + 4x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 2x$$: $$f'(2) = \frac{2}{1 + 16} = \frac{2}{17}$$.
+
+**Q.** If $$f(x) = \arcsin\left(\frac{x}{5}\right)$$, what is $$f'(3)$$?
+
+**A.** $$\frac{1}{4}$$. $$f'(x) = \frac{1}{\sqrt{25 - x^2}}$$, so $$f'(3) = \frac{1}{\sqrt{16}} = \frac{1}{4}$$. $$\frac{d}{dx}\arcsin\left(\frac{x}{5}\right) = \frac{1/5}{\sqrt{1 - x^2/25}} = \frac{1}{\sqrt{25 - x^2}}$$. At $$x = 3$$ this is $$\frac{1}{4}$$.
+
+**Q.** If $$f(x) = \arctan(2x)$$, what is $$f'(1)$$?
+
+**A.** $$\frac{2}{5}$$. $$f'(x) = \frac{2}{1 + 4x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 2x$$: $$f'(1) = \frac{2}{1 + 4} = \frac{2}{5}$$.
+
+**Q.** If $$f(x) = \arctan(4x)$$, what is $$f'(2)$$?
+
+**A.** $$\frac{4}{65}$$. $$f'(x) = \frac{4}{1 + 16x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 4x$$: $$f'(2) = \frac{4}{1 + 64} = \frac{4}{65}$$.
+
+**Q.** If $$f(x) = \arctan(5x)$$, what is $$f'(-1)$$?
+
+**A.** $$\frac{5}{26}$$. $$f'(x) = \frac{5}{1 + 25x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 5x$$: $$f'(-1) = \frac{5}{1 + 25} = \frac{5}{26}$$.
+
+**Q.** If $$f(x) = \arctan(4x)$$, what is $$f'(-1)$$?
+
+**A.** $$\frac{4}{17}$$. $$f'(x) = \frac{4}{1 + 16x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 4x$$: $$f'(-1) = \frac{4}{1 + 16} = \frac{4}{17}$$.
+
+**Q.** If $$f(x) = \arctan(3x)$$, what is $$f'(-1)$$?
+
+**A.** $$\frac{3}{10}$$. $$f'(x) = \frac{3}{1 + 9x^2}$$. $$\frac{d}{dx}\arctan u = \frac{u'}{1 + u^2}$$ with $$u = 3x$$: $$f'(-1) = \frac{3}{1 + 9} = \frac{3}{10}$$.

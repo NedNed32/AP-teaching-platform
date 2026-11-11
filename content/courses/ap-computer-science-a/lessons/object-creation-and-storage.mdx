@@ -1,0 +1,157 @@
+---
+objectives:
+  - Create objects with constructors and the new keyword.
+  - Explain references, aliasing and null.
+keyTerms:
+  - term: Constructor
+    definition: 'Special code called with `new` that initializes a new object.'
+  - term: Alias
+    definition: 'Two reference variables that refer to the same object.'
+  - term: 'null'
+    definition: 'A reference value meaning "no object"; calling a method on null throws a NullPointerException.'
+checks:
+  - q: 'After `Point a = new Point(1, 2); Point b = a;`, how many Point objects exist?'
+    a: 'One, with two references to it.'
+  - q: 'What happens if you call a method on a null reference?'
+    a: 'A NullPointerException is thrown at run time.'
+sources:
+  - title: CSAwesome, "Using Objects"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Objects are created with `new`, which calls a constructor and returns a **reference** to the new object.
+
+## Creating objects
+
+```java
+Rectangle r = new Rectangle(3, 4);
+String s = new String("hi");
+```
+
+A class may have several constructors with different parameter lists (overloading), including a no-argument constructor.
+
+## References and aliasing
+
+A reference variable stores the object's location, not the object itself.
+
+```java
+Rectangle a = new Rectangle(3, 4);
+Rectangle b = a;        // b is an alias of a
+b.setWidth(10);
+System.out.println(a.getWidth());   // 10
+```
+
+Changing the object through `b` also changes what `a` sees, because there is only one object.
+
+## null
+
+A reference that points to no object holds `null`. Calling a method on it throws a `NullPointerException`.
+
+<Note title="== compares references">
+For objects, `a == b` is true only if they are the same object. To compare contents, use a method such as `equals`.
+</Note>
+
+<WorkedExample title="Aliasing trace">
+`Counter` has a method `increment()` that adds 1 to its count. What is printed?
+
+```java
+Counter c1 = new Counter();
+Counter c2 = c1;
+Counter c3 = new Counter();
+c1.increment();
+c2.increment();
+c3.increment();
+System.out.println(c1.getCount() + " " + c3.getCount());
+```
+
+1. c1 and c2 are the same object: incremented twice, count 2.
+2. c3 is a separate object: count 1.
+
+**Answer:** `2 1`.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int a = 39;
+int b = 4;
+System.out.println(a / b + a % b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `12`
+
+**Why:** 39 / 4 is 9 (integer division) and 39 % 4 is 3.
+
+**Working:** With two int operands, `/` gives the truncated quotient 9 and `%` gives the remainder 3, so the sum is 12.
+
+**Mistakes to avoid**
+
+- `93`: The + is between two ints, so it adds; it does not concatenate.
+- `13`: Integer division truncates; it does not round.
+- `9`: The remainder is added as well.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int total = 47;
+int count = 5;
+double avg1 = total / count;
+double avg2 = (double) total / count;
+System.out.println(avg1 + " " + avg2);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `9.0 9.4`
+
+**Why:** avg1 divides two ints before converting; avg2 casts first.
+
+**Working:** `total / count` is integer division (9), then widened to 9.0. `(double) total / count` casts first, giving 9.4.
+
+**Mistakes to avoid**
+
+- `9.4 9.4`: In avg1 the division happens between two ints, so the decimal part is lost before the result is stored.
+- `9.0 9.0`: The cast in avg2 applies to total before dividing, so the division is done with doubles.
+- `9 9.4`: avg1 is a double, so it prints with a decimal point.
+
+### Worked exam question 3
+
+Consider the following code segment.
+
+```java
+int x = 8;
+x *= 3;
+x /= 4;
+x -= 7;
+x += 4;
+System.out.println(x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3`
+
+**Why:** Apply each statement in order, using integer division.
+
+**Working:** Starting from 8, the statements give 24, 6, -1, 3.
+
+**Mistakes to avoid**
+
+- `-1`: Every statement runs, including the last one.
+- `-3`: /= keeps the quotient and %= keeps the remainder.
+- `4`: Recheck each step.

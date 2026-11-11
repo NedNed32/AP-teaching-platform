@@ -1,0 +1,74 @@
+---
+objectives:
+  - Choose an appropriate technique to find an antiderivative.
+keyTerms:
+  - term: Technique selection
+    definition: 'Matching the structure of an integrand to the basic rules, substitution, or algebraic rewriting.'
+checks:
+  - q: 'Which technique fits $$\int \frac{\ln x}{x}\,dx$$?'
+    a: 'Substitution with $$u = \ln x$$: the result is $$\frac{(\ln x)^2}{2} + C$$.'
+  - q: 'Which technique fits $$\int \frac{x^2}{x + 2}\,dx$$?'
+    a: 'Long division first.'
+sources:
+  - title: Calculus Volume 1, chapter 5 "Integration"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Differentiation is mechanical: there is a rule for everything. Integration is a puzzle, and the first move matters. This lesson collects the decision process.
+
+## A checklist
+
+1. **Is it already in the table?** Integrate directly.
+2. **Can algebra simplify it?** Expand products, split fractions over a monomial, use trig identities.
+3. **Is there an inside function whose derivative also appears?** Use $$u$$-substitution.
+4. **Is it a rational function with numerator degree at least the denominator's?** Long division.
+5. **Is there an irreducible quadratic in the denominator?** Complete the square for an arctangent.
+6. **On a calculator question?** A definite integral can always be computed numerically.
+
+## Patterns at a glance
+
+| Integrand looks like | Technique | Result type |
+| --- | --- | --- |
+| $$f'(x)\,[f(x)]^n$$ | substitution | power |
+| $$\frac{f'(x)}{f(x)}$$ | substitution | $$\ln\lvert f(x)\rvert$$ |
+| $$f'(x)\,e^{f(x)}$$ | substitution | $$e^{f(x)}$$ |
+| $$\frac{1}{(x - h)^2 + a^2}$$ | complete the square | arctangent |
+| $$\frac{\text{polynomial}}{\text{lower-degree polynomial}}$$ | long division | polynomial plus log |
+
+<Note title="Not every function has a nice antiderivative">
+Functions like $$e^{-x^2}$$ or $$\sin(x^2)$$ have no elementary antiderivative. On the AP exam they only appear in calculator-active questions, or with the FTC part 1, where no antiderivative is needed.
+</Note>
+
+<WorkedExample title="Choosing among options">
+Find $$\int \frac{\cos x}{1 + \sin^2 x}\,dx$$.
+
+1. The derivative of $$\sin x$$ appears on top, so try $$u = \sin x$$, $$du = \cos x\,dx$$.
+2. The integral becomes $$\int \frac{du}{1 + u^2}$$, an arctangent form.
+
+**Answer:** $$\arctan(\sin x) + C$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+$$\int \frac{1}{x^{2} + 2x + 2}\,dx =$$
+
+**Answer:** $$\arctan(x + 1) + C$$
+
+**Why:** Completing the square: $$x^{2} + 2x + 2 = (x + 1)^2 + 1$$.
+
+**Working:** $$x^2 + 2x + 2 = (x + 1)^2 + 1$$, and $$\int \frac{du}{u^2 + 1} = \arctan u + C$$.
+
+**Mistakes to avoid**
+
+- $$\ln|x^{2} + 2x + 2| + C$$: The numerator is not the derivative of the denominator, so this is not a logarithm.
+- $$\arctan(x - 1) + C$$: Sign error when completing the square.
+- $$\frac{1}{2x + 2} + C$$: This divides by the derivative of the denominator, which is not a valid antiderivative.

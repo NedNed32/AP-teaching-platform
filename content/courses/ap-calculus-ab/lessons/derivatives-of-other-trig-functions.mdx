@@ -1,0 +1,86 @@
+---
+objectives:
+  - Differentiate $$\tan x$$, $$\cot x$$, $$\sec x$$ and $$\csc x$$.
+keyTerms:
+  - term: Co-function sign rule
+    definition: 'The derivatives of the co-functions (cosine, cotangent, cosecant) all begin with a minus sign.'
+checks:
+  - q: 'Find $$\frac{d}{dx}\sec x$$ at $$x = 0$$.'
+    a: '$$\sec 0 \tan 0 = 1 \cdot 0 = 0$$.'
+  - q: 'Differentiate $$x\tan x$$.'
+    a: '$$\tan x + x\sec^2 x$$.'
+sources:
+  - title: Calculus Volume 1, section 3.5 "Derivatives of Trigonometric Functions"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The other four trig functions are quotients of sine and cosine, so their derivatives come from the quotient rule. You should know the results by heart.
+
+## The formulas
+
+| Function | Derivative |
+| --- | --- |
+| $$\tan x$$ | $$\sec^2 x$$ |
+| $$\cot x$$ | $$-\csc^2 x$$ |
+| $$\sec x$$ | $$\sec x \tan x$$ |
+| $$\csc x$$ | $$-\csc x \cot x$$ |
+
+Notice the pattern: each "co" function's derivative is the matching formula with every function swapped for its co-function, and a minus sign in front.
+
+## Deriving secant
+
+$$\sec x = \frac{1}{\cos x}$$, so by the quotient rule
+
+$$
+\frac{d}{dx}\sec x = \frac{0 \cdot \cos x - 1 \cdot (-\sin x)}{\cos^2 x} = \frac{\sin x}{\cos^2 x} = \frac{1}{\cos x} \cdot \frac{\sin x}{\cos x} = \sec x \tan x.
+$$
+
+<Note title="Know your unit-circle values">
+Questions usually ask for these derivatives at $$\frac{\pi}{6}$$, $$\frac{\pi}{4}$$ or $$\frac{\pi}{3}$$. For example $$\sec\frac{\pi}{3} = 2$$ and $$\tan\frac{\pi}{3} = \sqrt{3}$$, so the slope of $$\sec x$$ there is $$2\sqrt{3}$$.
+</Note>
+
+<WorkedExample title="Slope of cotangent">
+Find the slope of $$y = \cot x$$ at $$x = \frac{\pi}{4}$$.
+
+1. $$y' = -\csc^2 x$$.
+2. $$\csc\frac{\pi}{4} = \sqrt{2}$$, so $$\csc^2\frac{\pi}{4} = 2$$.
+
+**Answer:** the slope is $$-2$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** If $$f(x) = \cot x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$-2$$. $$f'(x) = -\csc^2 x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\cot x\right) = -\csc^2 x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$-2$$.
+
+**Q.** If $$f(x) = \tan x$$, what is $$f'\left(\frac{\pi}{3}\right)$$?
+
+**A.** $$4$$. $$f'(x) = \sec^2 x$$, evaluated at $$\frac{\pi}{3}$$. $$\frac{d}{dx}\left(\tan x\right) = \sec^2 x$$. Substituting $$x = \frac{\pi}{3}$$ gives $$4$$.
+
+**Q.** If $$f(x) = \sec x$$, what is $$f'\left(\frac{\pi}{3}\right)$$?
+
+**A.** $$2\sqrt{3}$$. $$f'(x) = \sec x \tan x$$, evaluated at $$\frac{\pi}{3}$$. $$\frac{d}{dx}\left(\sec x\right) = \sec x \tan x$$. Substituting $$x = \frac{\pi}{3}$$ gives $$2\sqrt{3}$$.
+
+**Q.** If $$f(x) = \tan x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$2$$. $$f'(x) = \sec^2 x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\tan x\right) = \sec^2 x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$2$$.
+
+**Q.** If $$f(x) = \sec x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$\sqrt{2}$$. $$f'(x) = \sec x \tan x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\sec x\right) = \sec x \tan x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$\sqrt{2}$$.
+
+**Q.** If $$f(x) = \csc x$$, what is $$f'\left(\frac{\pi}{6}\right)$$?
+
+**A.** $$-2\sqrt{3}$$. $$f'(x) = -\csc x \cot x$$, evaluated at $$\frac{\pi}{6}$$. $$\frac{d}{dx}\left(\csc x\right) = -\csc x \cot x$$. Substituting $$x = \frac{\pi}{6}$$ gives $$-2\sqrt{3}$$.

@@ -1,0 +1,111 @@
+---
+objectives:
+  - Evaluate arithmetic expressions, including integer division and the remainder operator.
+  - Predict output from print and println statements.
+keyTerms:
+  - term: Integer division
+    definition: 'Dividing two int values gives an int result; any fractional part is discarded (truncated toward zero).'
+  - term: Remainder operator
+    definition: '`%` gives the remainder after integer division, such as `17 % 5` equals 2.'
+checks:
+  - q: 'What is `7 / 2`? What is `7.0 / 2`?'
+    a: '3 and 3.5.'
+  - q: 'What is `-7 / 2` in Java?'
+    a: '-3, because integer division truncates toward zero.'
+sources:
+  - title: CSAwesome, "Getting Started and Primitive Types"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Java evaluates arithmetic much like algebra, with two big differences: dividing integers throws away the remainder, and `%` gives you that remainder.
+
+## Operators and precedence
+
+`*`, `/` and `%` are evaluated before `+` and `-`; operators at the same level go left to right. Parentheses override everything.
+
+```java
+int a = 2 + 3 * 4;     // 14
+int b = (2 + 3) * 4;   // 20
+int c = 20 / 3;        // 6   (integer division)
+int d = 20 % 3;        // 2   (remainder)
+double e = 20 / 3.0;   // 6.666...
+```
+
+If either operand is a `double`, the result is a `double`.
+
+## Output
+
+- `System.out.print(x)` prints without moving to a new line.
+- `System.out.println(x)` prints and then moves to a new line.
+- `+` with a `String` joins (concatenates): `"Total: " + 3 + 4` prints `Total: 34`, while `"Total: " + (3 + 4)` prints `Total: 7`.
+
+<Note title="Uses of %">
+`n % 2 == 0` tests whether `n` is even, and `n % 10` gives the last digit of a positive integer. These patterns appear on almost every exam.
+</Note>
+
+<WorkedExample title="Mixed expression">
+What is printed by `System.out.println(17 / 5 + 17 % 5 * 2.0);`?
+
+1. `17 / 5` is 3 (integer division).
+2. `17 % 5` is 2, times `2.0` is `4.0`.
+3. `3 + 4.0` is `7.0`.
+
+**Answer:** `7.0`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int a = 39;
+int b = 4;
+System.out.println(a / b + a % b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `12`
+
+**Why:** 39 / 4 is 9 (integer division) and 39 % 4 is 3.
+
+**Working:** With two int operands, `/` gives the truncated quotient 9 and `%` gives the remainder 3, so the sum is 12.
+
+**Mistakes to avoid**
+
+- `93`: The + is between two ints, so it adds; it does not concatenate.
+- `13`: Integer division truncates; it does not round.
+- `9`: The remainder is added as well.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+int a = 2;
+int b = 3;
+System.out.println(a + b + "Hi" + a + b);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `5Hi23`
+
+**Why:** + is evaluated left to right; once a String is involved it concatenates.
+
+**Working:** Java evaluates + left to right. Two ints add; a String and anything concatenate.
+
+**Mistakes to avoid**
+
+- `23Hi23`: Before the String appears, a + b is integer addition.
+- `5Hi5`: After the String, a and b are concatenated one at a time.
+- `23Hi5`: Evaluation goes left to right: add first, then concatenate.

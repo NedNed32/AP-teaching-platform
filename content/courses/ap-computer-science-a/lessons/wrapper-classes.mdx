@@ -1,0 +1,94 @@
+---
+objectives:
+  - Use the Integer and Double wrapper classes, autoboxing and unboxing.
+keyTerms:
+  - term: Wrapper class
+    definition: 'A class that holds a primitive value as an object: Integer for int, Double for double.'
+  - term: Autoboxing
+    definition: 'Java automatically converts a primitive to its wrapper object when needed, and unboxes it back.'
+checks:
+  - q: 'Why must you write ArrayList of Integer instead of ArrayList of int?'
+    a: 'ArrayLists hold objects only, so primitives are stored as Integer objects.'
+  - q: 'What is Integer.MAX_VALUE?'
+    a: 'The largest value an int can hold, 2147483647.'
+sources:
+  - title: Java API, class Integer
+    publisher: Oracle
+    url: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Collections like `ArrayList` store objects, not primitives. Wrapper classes bridge the gap.
+
+## Wrappers
+
+| Primitive | Wrapper |
+| --- | --- |
+| `int` | `Integer` |
+| `double` | `Double` |
+
+## Autoboxing and unboxing
+
+```java
+ArrayList<Integer> nums = new ArrayList<Integer>();
+nums.add(7);              // autoboxing: 7 becomes an Integer
+int x = nums.get(0);      // unboxing: back to int
+int y = nums.get(0) + 1;  // unboxed automatically in arithmetic
+```
+
+## Useful members (on the Java Quick Reference)
+
+- `Integer.MIN_VALUE`, `Integer.MAX_VALUE`
+- `Integer.parseInt("42")` returns 42
+- `Double.parseDouble("3.5")` returns 3.5
+
+<Note title="Comparing wrapper objects">
+Use `.equals` (or unbox first) to compare two `Integer` objects. `==` between two wrapper objects compares references and can give surprising results for large values.
+</Note>
+
+<WorkedExample title="Parsing input">
+What is printed?
+
+```java
+String s = "12";
+int n = Integer.parseInt(s) + 3;
+System.out.println(s + 3 + " " + n);
+```
+
+1. `s + 3` is String concatenation: "123".
+2. `n` is 12 + 3 = 15.
+
+**Answer:** `123 15`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+String s = "25";
+int n = Integer.parseInt(s) + 5;
+Integer w = n;
+System.out.println(s + 5 + " " + w);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `255 30`
+
+**Why:** s + k concatenates; parseInt converts the String to an int before adding.
+
+**Working:** `Integer.parseInt(s)` is 25, so n is 30, autoboxed into w. But `s + 5` joins Strings: "255".
+
+**Mistakes to avoid**
+
+- `30 30`: s is a String, so s + 5 concatenates.
+- `255 255`: parseInt returns an int, so n is computed by addition.
+- `30 255`: The two expressions are reversed.

@@ -1,0 +1,206 @@
+---
+objectives:
+  - Match a slope field to its differential equation.
+  - Sketch a particular solution curve through a given point.
+keyTerms:
+  - term: Solution curve
+    definition: 'The graph of one particular solution; it is tangent to the slope-field segments at every point it passes through.'
+  - term: Equilibrium solution
+    definition: 'A constant solution $$y = c$$, where $$\frac{dy}{dx} = 0$$ along the whole line.'
+checks:
+  - q: 'A slope field has horizontal segments along $$y = 3$$ for every $$x$$. What does that suggest?'
+    a: '$$y = 3$$ is an equilibrium solution; the equation has $$\frac{dy}{dx} = 0$$ when $$y = 3$$.'
+  - q: 'How do you tell $$\frac{dy}{dx} = x + y$$ from $$\frac{dy}{dx} = x - y$$?'
+    a: 'Check a point such as $$(0, 1)$$: slope 1 for the first and $$-1$$ for the second.'
+sources:
+  - title: Calculus Volume 2, section 4.2 "Direction Fields and Numerical Methods"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Slope fields are also read in reverse: given a picture, identify the equation, or follow the segments to trace a solution.
+
+## Matching a field to an equation
+
+Test a few easy points, especially on the axes:
+
+1. **Where are the slopes zero?** Along a vertical line (depends on $$x$$), a horizontal line (depends on $$y$$), or a slanted line?
+2. **Are columns or rows parallel?** That tells you whether only $$x$$ or only $$y$$ appears.
+3. **Check signs** in each quadrant, and eliminate the answer choices that disagree.
+
+## Sketching a solution curve
+
+Start at the given point and move left and right, staying tangent to the nearby segments. A solution curve:
+
+- never crosses an equilibrium solution (for the equations in this course),
+- flattens out where the segments are horizontal,
+- is unique through each point.
+
+## Long-term behavior
+
+Equilibrium solutions can attract or repel. For $$\frac{dy}{dt} = 2 - y$$, solutions above $$y = 2$$ decrease toward it, and those below increase toward it, so every solution approaches 2 as $$t \to \infty$$.
+
+<Note title="Use the equation to back up the picture">
+On free-response questions, justify claims about solution curves with the equation itself: "Since $$\frac{dy}{dx} = 0$$ when $$y = 2$$, the line $$y = 2$$ is a solution."
+</Note>
+
+<WorkedExample title="Eliminating answer choices">
+A slope field has horizontal segments along the y-axis and negative slopes everywhere to the right of it, at every height. Which equation fits: $$\frac{dy}{dx} = -x$$, $$\frac{dy}{dx} = -y$$, or $$\frac{dy}{dx} = x - y$$?
+
+1. Horizontal along $$x = 0$$ means the slope is 0 whenever $$x = 0$$, at every height. $$-y$$ and $$x - y$$ are not 0 at $$(0, 1)$$.
+2. $$-x$$ is 0 on the y-axis and negative for $$x > 0$$.
+
+**Answer:** $$\frac{dy}{dx} = -x$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+A slope field for a differential equation is shown at the points with integer coordinates.
+
+<Figure src="assets/guides/reasoning-with-slope-fields-1.svg" alt="A slope field drawn on the grid from x = -2 to 2 and y = -2 to 2." caption="Graph for the question below." />
+
+**Q.** Which of the following differential equations could have the slope field shown?
+
+**A.** $$\frac{dy}{dx} = x$$. Check where the segments are horizontal and where the slopes are positive or negative; this equation matches at every point. Compare slopes at specific points. For example, at $$(1, 0)$$ the field's segment has slope $$1$$, and at $$(0, 1)$$ slope $$0$$, which matches $$\frac{dy}{dx} = x$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-10$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -2)$$: $$-4 - 6 = -10$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, 0)$$: $$-2 - 1 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-16$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 10$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -1)$$: $$-6 - 10 = -16$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-8$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 0)$$: $$-4 - 4 = -8$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-14$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 8$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 1)$$: $$-6 - 8 = -14$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, 1)$$: $$4 - 3 = 1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = -2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, 3)$$: $$2 - (-2) = 4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 3)$$: $$-4 - 1 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 10$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -1)$$: $$6 - 10 = -4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-9$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 5$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -1)$$: $$-4 - 5 = -9$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-13$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 2)$$: $$-6 - 7 = -13$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -2)$$: $$4 - 6 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-12$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 6$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 3)$$: $$-6 - 6 = -12$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-15$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 9$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, 0)$$: $$-6 - 9 = -15$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-11$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, -3)$$: $$-4 - 7 = -11$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, -2)$$: $$2 - 3 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 5$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -1)$$: $$4 - 5 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, -3)$$: $$2 - 4 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-18$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 12$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -3)$$: $$-6 - 12 = -18$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, 3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, 3)$$: $$4 - 1 = 3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(1, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = -1$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(1, 2)$$: $$2 - (-1) = 3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -2)$$: $$-2 - 3 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-4$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -1)$$: $$-2 - 2 = -4$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(2, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(2, -3)$$: $$4 - 7 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 0)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-3$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 9$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 0)$$: $$6 - 9 = -3$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 12$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -3)$$: $$6 - 12 = -6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-7$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 3$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 1)$$: $$-4 - 3 = -7$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 1)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-2$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 8$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 1)$$: $$6 - 8 = -2$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-3, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-17$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 11$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-3, -2)$$: $$-6 - 11 = -17$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-1$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 7$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, 2)$$: $$6 - 7 = -1$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(3, -2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-5$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 11$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(3, -2)$$: $$6 - 11 = -5$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-1, -3)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 4$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-1, -3)$$: $$-2 - 4 = -6$$.
+
+**Q.** Let $$y = f(x)$$ be the solution to $$\frac{dy}{dx} = x^2 - y$$ passing through the point $$(-2, 2)$$. What is $$\frac{d^2y}{dx^2}$$ at that point?
+
+**A.** $$-6$$. $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx}$$, and $$\frac{dy}{dx} = 2$$ at the point. Differentiate implicitly: $$\frac{d^2y}{dx^2} = 2x - \frac{dy}{dx} = 2x - (x^2 - y)$$. At $$(-2, 2)$$: $$-4 - 2 = -6$$.

@@ -1,0 +1,111 @@
+---
+objectives:
+  - Find volumes of solids with square or rectangular cross sections.
+keyTerms:
+  - term: Cross section
+    definition: 'The flat shape obtained by slicing a solid perpendicular to an axis.'
+  - term: Volume by slicing
+    definition: '$$V = \int_a^b A(x)\,dx$$, where $$A(x)$$ is the area of the cross section at $$x$$.'
+checks:
+  - q: 'The base of a solid is the region under $$y = 2$$ from 0 to 3. Cross sections perpendicular to the x-axis are squares. Find the volume.'
+    a: '$$\int_0^3 2^2\,dx = 12$$, a box of dimensions 3, 2, 2.'
+  - q: 'Rectangles of height 3 times their base: what is $$A(x)$$ if the base is $$s(x)$$?'
+    a: '$$A(x) = 3s(x)^2$$.'
+sources:
+  - title: Calculus Volume 1, section 6.2 "Determining Volumes by Slicing"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Imagine a loaf of bread sliced very thin. The volume of the loaf is the sum of the volumes of its slices. If every slice has a known shape, integrating the slice area gives the volume.
+
+## Volume by slicing
+
+$$
+V = \int_a^b A(x)\,dx,
+$$
+
+where $$A(x)$$ is the area of the cross section at position $$x$$.
+
+## Square cross sections
+
+When a solid sits on a flat base region in the xy-plane and every cross section perpendicular to the x-axis is a square whose side spans the base:
+
+- side length $$s(x) = \text{top} - \text{bottom}$$ of the base region,
+- area $$A(x) = s(x)^2$$.
+
+For **rectangles**, the problem states the height in terms of the base, for example a height equal to twice the base gives $$A(x) = 2s(x)^2$$.
+
+<Note title="The side is a length, not a function value">
+If the base region lies between two curves, the side is the **distance** between them, $$f(x) - g(x)$$. Using $$f(x)$$ alone is only correct when the bottom of the region is the x-axis.
+</Note>
+
+<WorkedExample title="Squares on a parabolic base">
+The base of a solid is the region between $$y = 4 - x^2$$ and the x-axis. Cross sections perpendicular to the x-axis are squares. Find the volume.
+
+1. The base spans $$-2 \leq x \leq 2$$, with side $$s(x) = 4 - x^2$$.
+2. $$V = \int_{-2}^{2} (4 - x^2)^2\,dx = \int_{-2}^{2} (16 - 8x^2 + x^4)\,dx$$.
+3. $$= \left[16x - \frac{8x^3}{3} + \frac{x^5}{5}\right]_{-2}^{2} = 2\left(32 - \frac{64}{3} + \frac{32}{5}\right)$$.
+
+**Answer:** $$\frac{512}{15} \approx 34.133$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$8$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 4. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 4 gives $8$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$\frac{9}{2}\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 6. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 6 gives $\frac\{9\}\{2\}\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$2$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 2. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 2 gives $2$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$9$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 6. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 6 gives $9$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\pi$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 4. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 4 gives $\pi$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$1$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 2. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 2 gives $1$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\frac{\pi}{4}$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 2. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 2 gives $\frac\{\pi\}\{4\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 2$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$\frac{1}{2}\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 2. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 2 gives $\frac\{1\}\{2\}\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are squares. What is the volume of the solid?
+
+**A.** $$18$$. Each cross section has side $$\sqrt{x}$$, area $$x$$; integrate from 0 to 6. The cross section at $x$ has side $$\sqrt{x}$$, area $$x$$. Integrating from 0 to 6 gives $18$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are equilateral triangles. What is the volume of the solid?
+
+**A.** $$2\sqrt{3}$$. Each cross section has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$; integrate from 0 to 4. The cross section at $x$ has side $$\sqrt{x}$$, area $$\frac{\sqrt{3}}{4}x$$. Integrating from 0 to 4 gives $2\sqrt\{3\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 6$$. Cross sections perpendicular to the x-axis are semicircles. What is the volume of the solid?
+
+**A.** $$\frac{9\pi}{4}$$. Each cross section has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$; integrate from 0 to 6. The cross section at $x$ has diameter $$\sqrt{x}$$, area $$\frac{\pi}{8}x$$. Integrating from 0 to 6 gives $\frac\{9\pi\}\{4\}$.
+
+**Q.** The base of a solid is the region bounded by $$y = \sqrt{x}$$, the x-axis, and $$x = 4$$. Cross sections perpendicular to the x-axis are isosceles right triangles with a leg in the base. What is the volume of the solid?
+
+**A.** $$4$$. Each cross section has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$; integrate from 0 to 4. The cross section at $x$ has leg $$\sqrt{x}$$, area $$\frac{1}{2}x$$. Integrating from 0 to 4 gives $4$.

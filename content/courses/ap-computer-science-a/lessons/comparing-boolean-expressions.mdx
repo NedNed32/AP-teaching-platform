@@ -1,0 +1,78 @@
+---
+objectives:
+  - Use De Morgan's laws to find equivalent boolean expressions.
+  - Compare object references with == and equals.
+keyTerms:
+  - term: De Morgan's laws
+    definition: '`!(a && b)` is equivalent to `!a || !b`, and `!(a || b)` is equivalent to `!a && !b`.'
+  - term: Equivalent expressions
+    definition: 'Expressions that produce the same result for every possible input.'
+checks:
+  - q: 'Simplify `!(x > 5 && y == 2)`.'
+    a: '`x <= 5 || y != 2`.'
+  - q: 'What is the negation of `x < 10`?'
+    a: '`x >= 10`.'
+sources:
+  - title: CSAwesome, "Boolean Expressions and if Statements"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Two expressions can look different and still always agree. De Morgan's laws are the main tool for proving it, and the exam tests them every year.
+
+## De Morgan's laws
+
+$$
+!(a \;\&\&\; b) \equiv\; !a \;||\; !b \qquad\qquad !(a \;||\; b) \equiv\; !a \;\&\&\; !b
+$$
+
+Distribute the `!`, and **flip** `&&` and `||`.
+
+## Negating comparisons
+
+| Expression | Negation |
+| --- | --- |
+| `x < y` | `x >= y` |
+| `x > y` | `x <= y` |
+| `x == y` | `x != y` |
+
+## Checking equivalence
+
+To check whether two expressions are equivalent, try every combination of true and false (a truth table), or apply De Morgan's laws step by step.
+
+<Note title="Common trap">
+`!(x > 3)` is `x <= 3`, not `x < 3`. The boundary value belongs to exactly one side.
+</Note>
+
+<WorkedExample title="Simplifying with De Morgan">
+Which is equivalent to `!(age < 13 || age > 19)`?
+
+1. Apply De Morgan: `!(age < 13) && !(age > 19)`.
+2. Negate each: `age >= 13 && age <= 19`.
+
+**Answer:** `age >= 13 && age <= 19`, which is true for teenagers.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Which of the following is equivalent to `!(a >= 19 || b != 19)` for all int values of a and b?
+
+**Answer:** `a < 19 && b == 19`
+
+**Why:** De Morgan's law: negate each comparison and switch && and ||.
+
+**Working:** By De Morgan's law, !(P || Q) is !P && !Q. Negating `a >= 19` gives `a < 19`, and `b != 19` gives `b == 19`.
+
+**Mistakes to avoid**
+
+- `a < 19 || b == 19`: Negating also switches || to &&.
+- `a <= 19 && b == 19`: The negation of > is &lt;=, not &lt; (and similarly for the others).
+- `a >= 19 && b != 19`: Each comparison must be negated too.

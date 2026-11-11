@@ -1,0 +1,58 @@
+---
+objectives:
+  - 'Write hypotheses and check conditions for a two-sample z test for proportions, using the pooled proportion.'
+keyTerms:
+  - term: 'Pooled proportion'
+    definition: 'p̂c = (x₁ + x₂)/(n₁ + n₂), the combined proportion used when H₀: p₁ = p₂ is assumed true.'
+checks:
+  - q: 'Why pool for the test but not the interval?'
+    a: 'The test assumes p₁ = p₂, so one combined estimate is best.'
+  - q: 'State the null hypothesis for comparing two proportions.'
+    a: 'H₀: p₁ − p₂ = 0.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$H_0: p_1 - p_2 = 0 \qquad H_a: p_1 - p_2 > 0,\ < 0,\ \text{or} \ne 0$$
+
+$$\hat p_c = \frac{x_1 + x_2}{n_1 + n_2}$$
+
+**Conditions**: random (two samples or random assignment), 10% for samples, and large counts using $$\hat p_c$$: $$n_1\hat p_c$$, $$n_1(1-\hat p_c)$$, $$n_2\hat p_c$$, $$n_2(1-\hat p_c)$$ all at least 10.
+
+<Note title="Experiments">
+In a randomized experiment, the 10% condition is not needed because units were assigned, not sampled.
+</Note>
+
+<WorkedExample title="Pooled proportion">
+Group 1: 45 of 150 succeed. Group 2: 30 of 150 succeed. Find p̂c.
+
+1. $$(45 + 30)/(150 + 150)$$.
+
+**Answer:** 0.25.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+In a randomized experiment, 80 of 210 subjects improved with treatment 1 and 128 of 250 improved with treatment 2. For a test of H₀: p₁ − p₂ = 0, what is the test statistic?
+
+**Answer:** -2.81
+
+**Why:** Pooled p̂c = 0.4522; z = (p̂₁ − p̂₂)/√(p̂c(1 − p̂c)(1/n₁ + 1/n₂)).
+
+**Working:** p̂₁ = 0.381, p̂₂ = 0.512, SE = 0.0466, z = -2.81.
+
+**Mistakes to avoid**
+
+- -2.84: The test uses the pooled proportion, because H₀ assumes p₁ = p₂.
+- -5.65: Use (1/n₁ + 1/n₂).
+- -0.13: Divide the difference by its standard error.

@@ -1,0 +1,164 @@
+---
+objectives:
+  - Convert between binary and decimal.
+  - Explain how bits represent data and the limits of fixed-size representations.
+keyTerms:
+  - term: Bit
+    definition: 'A binary digit, 0 or 1; the smallest unit of data.'
+  - term: Byte
+    definition: 'Eight bits.'
+  - term: Analog data
+    definition: 'Data whose values change smoothly, such as sound; it is sampled to be stored digitally.'
+checks:
+  - q: 'What is binary 1011 in decimal?'
+    a: '8 + 2 + 1 = 11.'
+  - q: 'How many different values can n bits represent?'
+    a: '2 to the n.'
+  - q: 'What causes a round-off error?'
+    a: 'Real numbers are stored with limited precision, so some values are approximated.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Everything a computer stores (numbers, text, images, sound) is ultimately a sequence of bits. Bits are an **abstraction**: the same bits can mean different things.
+
+## Place value in base 2
+
+Each binary place is worth twice the place to its right:
+
+| Place | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 10110101 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 |
+
+$$10110101_2 = 128 + 32 + 16 + 4 + 1 = 181$$
+
+To convert decimal to binary, subtract the largest powers of 2 that fit.
+
+## How many values?
+
+With $$n$$ bits there are $$2^n$$ patterns. One byte holds 256 values, 0 to 255. Each extra bit **doubles** the number of values.
+
+## Limits
+
+- **Overflow**: a fixed number of bits cannot hold values beyond its range.
+- **Round-off**: some real numbers can only be approximated.
+- **Analog data** (sound, light) is **sampled** at intervals; more samples give a closer approximation.
+
+<Note title="Same bits, different meanings">
+The bits 01000001 could be the number 65, the letter A or part of a pixel color. Meaning comes from how the program interprets them.
+</Note>
+
+<WorkedExample title="Decimal to binary">
+Convert 45 to 8-bit binary.
+
+1. 45 − 32 = 13; 13 − 8 = 5; 5 − 4 = 1; 1 − 1 = 0.
+2. Places used: 32, 8, 4, 1.
+
+**Answer:** 00101101.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+What is the decimal value of the binary number `10101110`?
+
+**Answer:** `174`
+
+**Why:** Add the place values of the 1 bits.
+
+**Working:** 10101110 = 128 + 32 + 8 + 4 + 2 = 174.
+
+**Mistakes to avoid**
+
+- `117`: The rightmost bit is the 1s place, not the leftmost.
+- `348`: The places are 1, 2, 4, …, starting from the rightmost bit.
+- `5`: Each 1 bit is worth its place value, not 1.
+
+### Worked exam question 2
+
+Which of the following is the 8-bit binary representation of the decimal number 172?
+
+**Answer:** `10101100`
+
+**Why:** 172 = 128 + 32 + 8 + 4.
+
+**Working:** Subtract the largest powers of 2 that fit: 172 = 128 + 32 + 8 + 4, giving 10101100.
+
+**Mistakes to avoid**
+
+- `00110101`: The bits are in reverse order.
+- `10101101`: That is 173.
+- `10101110`: That is 174.
+
+### Worked exam question 3
+
+A system assigns each of 756 songs in a library a unique ID number stored in binary. What is the minimum number of bits needed for each ID?
+
+**Answer:** `10`
+
+**Why:** 9 bits give only 512 values, but 10 bits give 1024, which is enough.
+
+**Working:** Find the smallest n with 2 to the n at least 756: 2^9 = 512 is too small and 2^10 = 1024 is enough.
+
+**Mistakes to avoid**
+
+- `9`: 9 bits represent only 512 different values.
+- `11`: Fewer bits are enough.
+- `95`: Each bit doubles the number of values; this divides by 8 instead.
+
+### Worked exam question 4
+
+A program stores whole numbers using 11 bits, with no sign bit. What is the largest number it can store before an overflow error occurs?
+
+**Answer:** `2047`
+
+**Why:** 11 bits give 2048 values, from 0 to 2047.
+
+**Working:** With 11 bits there are 2^11 = 2048 patterns, representing 0 through 2047.
+
+**Mistakes to avoid**
+
+- `2048`: The values start at 0, so the largest is one less than the count.
+- `1024`: All bits are used for the value.
+- `22`: Each bit doubles the number of values.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which of the following numbers is the greatest?
+
+**A.** decimal `60`. Its value is 60, the largest. Converting each to decimal gives 13, 37, 18, 60; the greatest is 60.
+
+**Q.** A photo file includes the date it was taken and the camera's location. What is this additional information called?
+
+**A.** Metadata. Data about data is metadata.
+
+**Q.** A data set records states as "CA", "Calif." and "California". What should be done before counting entries by state?
+
+**A.** Clean the data so each state is written the same way. Cleaning makes data uniform without changing its meaning.
+
+**Q.** Sound is sampled 44,100 times per second to store it digitally. What is the effect of sampling more often?
+
+**A.** The digital version is a closer approximation of the analog sound, but uses more storage. More samples capture more detail at the cost of size.
+
+**Q.** Which is a consequence of representing real numbers with a fixed number of bits?
+
+**A.** Some values can only be approximated, causing round-off errors. Limited precision means some real numbers are approximated.
+
+**Q.** A survey collected only from people who use a particular app is used to describe the whole population. What is the main problem?
+
+**A.** The sample may be biased, so the results may not represent everyone. Data collected from one group may not apply to others.
+
+**Q.** A researcher finds that students who sleep more also have higher test scores. Which conclusion is justified?
+
+**A.** Sleep and scores are correlated, but the data alone does not show that sleep causes higher scores. Correlation does not imply causation.

@@ -1,0 +1,142 @@
+---
+objectives:
+  - Bound the error in approximating the sum of an alternating series by a partial sum.
+keyTerms:
+  - term: Alternating series error bound
+    definition: 'For a series satisfying the alternating series test, $$|S - S_N| \leq b_{N+1}$$: the error is at most the first omitted term.'
+checks:
+  - q: 'Using four terms of $$\sum \frac{(-1)^{n+1}}{n^2}$$, bound the error.'
+    a: 'At most the fifth term, $$\frac{1}{25} = 0.04$$.'
+  - q: 'How many terms of $$\sum \frac{(-1)^{n+1}}{n}$$ guarantee error below 0.01?'
+    a: 'Need $$\frac{1}{N + 1} \leq 0.01$$, so $$N = 99$$ terms.'
+sources:
+  - title: Calculus Volume 2, section 5.5 "Alternating Series"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-2
+  - title: AP Calculus BC course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-bc
+reviewed: false
+---
+
+The partial sums of an alternating series hop back and forth across the true sum, each hop smaller than the last. So the true sum is always closer than the next hop.
+
+## The bound
+
+If $$\sum (-1)^{n+1}b_n$$ satisfies the alternating series test (the $$b_n$$ decrease to 0), then
+
+$$
+|S - S_N| \leq b_{N+1}.
+$$
+
+The error after $$N$$ terms is no bigger than the **first term left out**.
+
+## Over or under?
+
+The sign of the first omitted term tells you the direction: if it is positive, $$S_N$$ is an **underestimate**; if negative, an **overestimate**.
+
+<Note title="The condition is required">
+The error bound only applies when the alternating series test's conditions hold. State that the terms alternate, decrease in absolute value and approach 0 before using it.
+</Note>
+
+<WorkedExample title="Approximating with a guaranteed error">
+Approximate $$S = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \left(= e^{-1}\right)$$ using terms through $$n = 4$$, and bound the error.
+
+1. $$S_4 = 1 - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24} = \frac{9}{24} = 0.375$$.
+2. The terms decrease in size to 0, so the bound applies.
+3. First omitted term: $$\frac{1}{5!} = \frac{1}{120} \approx 0.0083$$, negative, so 0.375 is an overestimate.
+
+**Answer:** $$S \approx 0.375$$ with error less than $$0.0084$$. (The true value is $$e^{-1} \approx 0.3679$$.)
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 5 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{6}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{5}| \leq b_{6} = \frac{1}{6}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 5 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{216}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{5}| \leq b_{6} = \frac{1}{6^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 6 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{343}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{6}| \leq b_{7} = \frac{1}{7^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 3 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{64}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{3}| \leq b_{4} = \frac{1}{4^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 9 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{100}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{9}| \leq b_{10} = \frac{1}{10^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 8 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{81}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{8}| \leq b_{9} = \frac{1}{9^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 5 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{36}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{5}| \leq b_{6} = \frac{1}{6^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 7 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{64}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{7}| \leq b_{8} = \frac{1}{8^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 6 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{49}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{6}| \leq b_{7} = \frac{1}{7^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 8 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{729}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{8}| \leq b_{9} = \frac{1}{9^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 9 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{10}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{9}| \leq b_{10} = \frac{1}{10}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 3 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{4}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{3}| \leq b_{4} = \frac{1}{4}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 7 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{8}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{7}| \leq b_{8} = \frac{1}{8}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 4 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{5}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{4}| \leq b_{5} = \frac{1}{5}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 7 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{512}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{7}| \leq b_{8} = \frac{1}{8^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 4 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{25}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{4}| \leq b_{5} = \frac{1}{5^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 8 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{9}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{8}| \leq b_{9} = \frac{1}{9}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{2}}$$ is approximated by its first 3 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{16}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{3}| \leq b_{4} = \frac{1}{4^{2}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 9 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{1000}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{9}| \leq b_{10} = \frac{1}{10^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^{3}}$$ is approximated by its first 4 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{125}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{4}| \leq b_{5} = \frac{1}{5^{3}}$$.
+
+**Q.** The sum of $$\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$$ is approximated by its first 6 terms. What is the smallest upper bound on the error given by the alternating series error bound?
+
+**A.** $$\frac{1}{7}$$. The error is at most the first omitted term. The terms alternate, decrease in size and approach 0, so $$|S - S_{6}| \leq b_{7} = \frac{1}{7}$$.

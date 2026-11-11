@@ -1,0 +1,94 @@
+---
+objectives:
+  - Approximate function values with the tangent line (linearization).
+  - Decide whether a tangent-line approximation is an overestimate or underestimate using concavity.
+keyTerms:
+  - term: Linearization
+    definition: '$$L(x) = f(a) + f''(a)(x - a)$$, the tangent line used to approximate $$f(x)$$ near $$x = a$$.'
+  - term: Local linearity
+    definition: 'Zooming in on a differentiable function makes its graph look like its tangent line.'
+checks:
+  - q: 'Use the tangent line to $$\sqrt{x}$$ at $$x = 9$$ to estimate $$\sqrt{9.6}$$.'
+    a: '$$3 + \frac{1}{6}(0.6) = 3.1$$.'
+  - q: 'If $$f''''(x) > 0$$ near $$a$$, is the tangent-line estimate too big or too small?'
+    a: 'Too small (underestimate): a concave-up graph lies above its tangent lines.'
+sources:
+  - title: Calculus Volume 1, section 4.2 "Linear Approximations and Differentials"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Zoom in far enough on any differentiable curve and it looks straight. That straight line is the tangent line, and near the point of tangency it is an excellent, easy approximation of the function.
+
+## The linearization
+
+At $$x = a$$:
+
+$$
+L(x) = f(a) + f'(a)(x - a).
+$$
+
+For $$x$$ close to $$a$$, $$f(x) \approx L(x)$$. This is how you estimate values like $$\sqrt{4.1}$$ or $$f(2.1)$$ from data at $$x = 2$$.
+
+## Over or under?
+
+Concavity decides which side of the tangent line the graph lies on:
+
+| Concavity near $$a$$ | Graph versus tangent | Approximation is |
+| --- | --- | --- |
+| concave up ($$f'' > 0$$) | graph above tangent | an underestimate |
+| concave down ($$f'' < 0$$) | graph below tangent | an overestimate |
+
+<Note title="Justify with the second derivative">
+On free-response questions, write the sign of $$f''$$ on the interval between $$a$$ and the estimated point, name the concavity, and conclude. A sketch alone does not earn the point.
+</Note>
+
+<WorkedExample title="Estimating from given values">
+A function has $$f(2) = 5$$, $$f'(2) = -3$$ and $$f''(x) < 0$$ for all $$x$$. Estimate $$f(2.2)$$ and say whether it is too large or too small.
+
+1. $$L(x) = 5 - 3(x - 2)$$.
+2. $$L(2.2) = 5 - 3(0.2) = 4.4$$.
+3. $$f'' < 0$$, so $$f$$ is concave down and lies below its tangent line.
+
+**Answer:** $$f(2.2) \approx 4.4$$, an overestimate.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Using the line tangent to $$f(x) = \sqrt{x}$$ at $$x = 9$$, what is the approximation of $$\sqrt{11}$$?
+
+**Answer:** $$\frac{10}{3}$$
+
+**Why:** $$L(x) = 3 + \frac{1}{6}(x - 9)$$, so $$L(11) = 3 + \frac{2}{6}$$.
+
+**Working:** $$f(9) = 3$$ and $$f'(9) = \frac{1}{2\sqrt{9}} = \frac{1}{6}$$. So $$\sqrt{11} \approx 3 + \frac{1}{6}(2) = \frac{10}{3}$$.
+
+**Mistakes to avoid**
+
+- $$\frac{11}{3}$$: The derivative of $$\sqrt{x}$$ is $$\frac{1}{2\sqrt{x}}$$; this forgets the 2.
+- $$\frac{8}{3}$$: Sign error: the change in x is added, not subtracted.
+- $$4$$: This uses slope $$\frac{1}{2}$$ instead of $$f'(9) = \frac{1}{6}$$.
+
+### Worked exam question 2
+
+The function $$f$$ is differentiable with $$f(5) = -2$$ and $$f'(5) = 1$$. Using the tangent line to the graph of $$f$$ at $$x = 5$$, what is the approximation of $$f(5.1)$$?
+
+**Answer:** $$-1.9$$
+
+**Why:** $$f(5.1) \approx f(5) + f'(5)(0.1)$$.
+
+**Working:** The tangent line is $$L(x) = -2 + 1(x - 5)$$. So $$L(5.1) = -2 + (1)(0.1) = -1.9$$.
+
+**Mistakes to avoid**
+
+- $$-1.0$$: This adds the whole derivative instead of the derivative times the change in x.
+- $$0.1$$: This is only the estimated change in f; it still needs to be added to f(a).
+- $$-2.1$$: Sign error in the change in x.

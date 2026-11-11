@@ -1,0 +1,197 @@
+---
+objectives:
+  - Identify the inner and outer functions of a composite function.
+  - Differentiate composite functions with the chain rule, including from tables.
+keyTerms:
+  - term: Composite function
+    definition: 'A function of a function, $$f(g(x))$$: $$g$$ is the inner function and $$f$$ the outer function.'
+  - term: Chain rule
+    definition: '$$\frac{d}{dx} f(g(x)) = f''(g(x)) \cdot g''(x)$$, or $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$.'
+checks:
+  - q: 'Differentiate $$(4x - 1)^5$$.'
+    a: '$$5(4x - 1)^4 \cdot 4 = 20(4x - 1)^4$$.'
+  - q: 'Differentiate $$e^{\sin x}$$.'
+    a: '$$e^{\sin x}\cos x$$.'
+sources:
+  - title: Calculus Volume 1, section 3.6 "The Chain Rule"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Most functions you meet are built by plugging one function into another: $$\sin(x^2)$$, $$e^{3x}$$, $$\sqrt{1 + x^2}$$. The chain rule says how fast such a composite changes: multiply the rates of each link in the chain.
+
+## The rule
+
+$$
+\frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)
+$$
+
+Differentiate the **outer** function, leaving the inside alone, then multiply by the derivative of the **inside**.
+
+In Leibniz notation, with $$u = g(x)$$ and $$y = f(u)$$:
+
+$$
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}.
+$$
+
+## Common patterns
+
+| Function | Derivative |
+| --- | --- |
+| $$[g(x)]^n$$ | $$n[g(x)]^{n - 1} g'(x)$$ |
+| $$e^{g(x)}$$ | $$e^{g(x)} g'(x)$$ |
+| $$\ln g(x)$$ | $$\frac{g'(x)}{g(x)}$$ |
+| $$\sin g(x)$$ | $$\cos g(x) \cdot g'(x)$$ |
+| $$\cos g(x)$$ | $$-\sin g(x) \cdot g'(x)$$ |
+
+<Note title="Layers can stack">
+For $$\sin^3(2x)$$, there are three layers: cube, sine, and $$2x$$. Peel them from the outside in: $$3\sin^2(2x) \cdot \cos(2x) \cdot 2$$.
+</Note>
+
+<WorkedExample title="Chain rule from a table">
+Given $$g(1) = 3$$, $$g'(1) = -2$$, and $$f'(3) = 5$$, find $$h'(1)$$ for $$h(x) = f(g(x))$$.
+
+1. $$h'(1) = f'(g(1)) \cdot g'(1)$$.
+2. $$g(1) = 3$$, so $$f'(g(1)) = f'(3) = 5$$.
+
+**Answer:** $$h'(1) = 5 \cdot (-2) = -10$$.
+</WorkedExample>
+
+<Analogy breaksDown="Gear ratios are constant, while the rates in the chain rule usually change from point to point.">
+Linked gears: if gear A turns 3 times for each turn of B, and B turns 2 times for each turn of C, then A turns 6 times for each turn of C. The chain rule multiplies rates the same way.
+</Analogy>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+If $$f(x) = (x^{2} - 2)^{2}$$, what is $$f'(1)$$?
+
+**Answer:** $$-4$$
+
+**Why:** $$f'(x) = 2(x^{2} - 2) \cdot (2x)$$.
+
+**Working:** Chain rule: $$f'(x) = 2(x^{2} - 2) \cdot (2x)$$. At $$x = 1$$: $$2(-1) \cdot (2) = -4$$.
+
+**Mistakes to avoid**
+
+- $$-2$$: This differentiates the outer power but leaves out the derivative of the inside function.
+- $$1$$: This is the value of the function, not its derivative.
+- $$4$$: This applies the power rule to the derivative of the inside instead of to the inside function.
+
+### Worked exam question 2
+
+The table gives values of the differentiable functions $$f$$ and $$g$$ and their derivatives.
+
+*Values of f, f′, g and g′*
+
+| $$x$$ | $$f(x)$$ | $$f'(x)$$ | $$g(x)$$ | $$g'(x)$$ |
+| --- | --- | --- | --- | --- |
+| 1 | 4 | -1 | 4 | -3 |
+| 2 | -3 | 3 | 4 | 2 |
+| 3 | 3 | 1 | 2 | 1 |
+| 4 | 0 | -5 | 1 | 4 |
+
+Let $$h(x) = f(g(x))$$. What is $$h'(4)$$?
+
+**Answer:** $$-4$$
+
+**Why:** $$h'(4) = f'(g(4)) \cdot g'(4) = f'(1) \cdot (4) = (-1)(4)$$.
+
+**Working:** Chain rule: $$h'(x) = f'(g(x))\,g'(x)$$. Since $$g(4) = 1$$, $$h'(4) = f'(1)\,g'(4) = -4$$.
+
+**Mistakes to avoid**
+
+- $$-20$$: This evaluates $$f'$$ at $$4$$ instead of at $$g(4) = 1$$.
+- $$-1$$: This leaves out the factor $$g'(4)$$ from the chain rule.
+- $$16$$: This uses $$f$$ instead of $$f'$$ for the outer derivative.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is $$\frac{d}{dx}\left(\cos^{2} x\right)$$?
+
+**A.** $$-2\cos^{1} x \sin x$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\cos^{2} x$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\cos^{2} x\right) = -2\cos^{1} x \sin x$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sin(x^{5})\right)$$?
+
+**A.** $$5x^{4}\cos(x^{5})$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sin(x^{5})$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sin(x^{5})\right) = 5x^{4}\cos(x^{5})$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sqrt{3x^2 + 1}\right)$$?
+
+**A.** $$\frac{3x}{\sqrt{3x^2 + 1}}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sqrt{3x^2 + 1}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sqrt{3x^2 + 1}\right) = \frac{3x}{\sqrt{3x^2 + 1}}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sqrt{5x^2 + 1}\right)$$?
+
+**A.** $$\frac{5x}{\sqrt{5x^2 + 1}}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sqrt{5x^2 + 1}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sqrt{5x^2 + 1}\right) = \frac{5x}{\sqrt{5x^2 + 1}}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\ln(x^2 + 2)\right)$$?
+
+**A.** $$\frac{2x}{x^2 + 2}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\ln(x^2 + 2)$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\ln(x^2 + 2)\right) = \frac{2x}{x^2 + 2}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\cos^{5} x\right)$$?
+
+**A.** $$-5\cos^{4} x \sin x$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\cos^{5} x$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\cos^{5} x\right) = -5\cos^{4} x \sin x$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sqrt{2x^2 + 1}\right)$$?
+
+**A.** $$\frac{2x}{\sqrt{2x^2 + 1}}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sqrt{2x^2 + 1}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sqrt{2x^2 + 1}\right) = \frac{2x}{\sqrt{2x^2 + 1}}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sin(x^{3})\right)$$?
+
+**A.** $$3x^{2}\cos(x^{3})$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sin(x^{3})$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sin(x^{3})\right) = 3x^{2}\cos(x^{3})$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\ln(x^2 + 5)\right)$$?
+
+**A.** $$\frac{2x}{x^2 + 5}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\ln(x^2 + 5)$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\ln(x^2 + 5)\right) = \frac{2x}{x^2 + 5}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(e^{3x^2}\right)$$?
+
+**A.** $$6xe^{3x^2}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$e^{3x^2}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(e^{3x^2}\right) = 6xe^{3x^2}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(e^{2x^2}\right)$$?
+
+**A.** $$4xe^{2x^2}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$e^{2x^2}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(e^{2x^2}\right) = 4xe^{2x^2}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sin(x^{2})\right)$$?
+
+**A.** $$2x^{1}\cos(x^{2})$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sin(x^{2})$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sin(x^{2})\right) = 2x^{1}\cos(x^{2})$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sqrt{4x^2 + 1}\right)$$?
+
+**A.** $$\frac{4x}{\sqrt{4x^2 + 1}}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sqrt{4x^2 + 1}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sqrt{4x^2 + 1}\right) = \frac{4x}{\sqrt{4x^2 + 1}}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\ln(x^2 + 4)\right)$$?
+
+**A.** $$\frac{2x}{x^2 + 4}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\ln(x^2 + 4)$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\ln(x^2 + 4)\right) = \frac{2x}{x^2 + 4}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\cos^{4} x\right)$$?
+
+**A.** $$-4\cos^{3} x \sin x$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\cos^{4} x$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\cos^{4} x\right) = -4\cos^{3} x \sin x$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\ln(x^2 + 3)\right)$$?
+
+**A.** $$\frac{2x}{x^2 + 3}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\ln(x^2 + 3)$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\ln(x^2 + 3)\right) = \frac{2x}{x^2 + 3}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\sin(x^{4})\right)$$?
+
+**A.** $$4x^{3}\cos(x^{4})$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\sin(x^{4})$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\sin(x^{4})\right) = 4x^{3}\cos(x^{4})$$.
+
+**Q.** What is $$\frac{d}{dx}\left(\cos^{3} x\right)$$?
+
+**A.** $$-3\cos^{2} x \sin x$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$\cos^{3} x$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(\cos^{3} x\right) = -3\cos^{2} x \sin x$$.
+
+**Q.** What is $$\frac{d}{dx}\left(e^{4x^2}\right)$$?
+
+**A.** $$8xe^{4x^2}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$e^{4x^2}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(e^{4x^2}\right) = 8xe^{4x^2}$$.
+
+**Q.** What is $$\frac{d}{dx}\left(e^{5x^2}\right)$$?
+
+**A.** $$10xe^{5x^2}$$. This is the chain rule: the derivative of the outer function, evaluated at the inside, times the derivative of the inside. Treat $$e^{5x^2}$$ as a composite and apply the chain rule: $$\frac{d}{dx}\left(e^{5x^2}\right) = 10xe^{5x^2}$$.

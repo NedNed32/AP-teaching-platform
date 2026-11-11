@@ -1,0 +1,93 @@
+---
+objectives:
+  - 'Analyze charging and discharging RC circuits with differential equations.'
+keyTerms:
+  - term: 'Time constant'
+    definition: 'τ = RC, the time for a charging capacitor to reach about 63 percent of its final charge.'
+checks:
+  - q: 'Immediately after a switch closes, how does an uncharged capacitor behave?'
+    a: 'Like a wire (zero voltage).'
+  - q: 'After a long time in a DC circuit?'
+    a: 'Like a break (no current through it).'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+**Charging** (emf ε, through R):
+
+$$\varepsilon - IR - \frac{q}{C} = 0 \quad\Rightarrow\quad q(t) = C\varepsilon\left(1 - e^{-t/RC}\right) \qquad I(t) = \frac{\varepsilon}{R}e^{-t/RC}$$
+
+**Discharging**:
+
+$$q(t) = Q_0e^{-t/RC} \qquad I(t) = \frac{Q_0}{RC}e^{-t/RC}$$
+
+After one time constant, a charging capacitor has 63% of its final charge; a discharging one has 37% left. After about 5τ, it is effectively complete.
+
+<Note title="Limits first">
+At t = 0 an uncharged capacitor is a short circuit; at t = ∞ it is an open circuit. These limits answer many questions without solving the equation.
+</Note>
+
+<WorkedExample title="Charging">
+A 2.0 µF capacitor charges through 500 kΩ from a 9.0 V battery. Find τ and the voltage after 2.0 s.
+
+1. $$\tau = RC = 1.0$$ s.
+2. $$V = 9.0(1 - e^{-2}) = 9.0(0.865)$$.
+
+**Answer:** τ = 1.0 s; about 7.8 V.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A 17 µF capacitor starts uncharged and is charged through a 70 kΩ resistor by a 6 V battery. What is the capacitor's voltage after 0.595 s?
+
+**Answer:** $$2.36\ \mathrm{V}$$
+
+**Why:** τ = RC = 1.19 s; V = ε(1 − e^(−t/τ)).
+
+**Working:** τ = 1.19 s; V = 2.36 V.
+
+**Mistakes to avoid**
+
+- $$3.64\ \mathrm{V}$$: That is the charging resistor's voltage.
+- $$3\ \mathrm{V}$$: The change is exponential, not linear.
+- $$3 \times 10^{-3}\ \mathrm{V}$$: Convert kΩ and µF to Ω and F.
+
+### Free-response practice: Charging a capacitor
+
+An initially uncharged 8 µF capacitor, a 20 kΩ resistor, an ideal 11 V battery and an open switch are connected in series. The switch is closed at t = 0.
+
+**(a)** Write the loop equation for the circuit and solve it to find q(t).
+
+To earn the point: Correct differential equation. Model answer: $$\varepsilon - R\frac{dq}{dt} - \frac{q}{C} = 0$$
+
+To earn the point: Correct solution. Model answer: $$q(t) = C\varepsilon\left(1 - e^{-t/RC}\right)$$
+
+**(b)** Calculate the time constant, the initial current and the final charge on the capacitor.
+
+To earn the point: Time constant. Model answer: τ = RC = 0.16 s
+
+To earn the point: Initial current. Model answer: I₀ = ε/R = 5.5 \times 10^\{-4\} A
+
+To earn the point: Final charge. Model answer: Q = Cε = 8.8 \times 10^\{-5\} C
+
+**(c)** Sketch (describe) graphs of the capacitor's voltage and the current versus time.
+
+To earn the point: Capacitor voltage rises from 0 toward ε, concave down. Model answer: Approaches 11 V.
+
+To earn the point: Current decays exponentially from I₀ toward 0. Model answer: About 37% of I₀ at t = τ.
+
+**(d)** Calculate the energy stored in the capacitor after a long time, and compare it with the energy supplied by the battery.
+
+To earn the point: Stored energy. Model answer: U = ½Cε² = 4.84 \times 10^\{-4\} J
+
+To earn the point: The battery supplies Qε, twice as much; half is dissipated in the resistor. Model answer: 9.68 \times 10^\{-4\} J supplied

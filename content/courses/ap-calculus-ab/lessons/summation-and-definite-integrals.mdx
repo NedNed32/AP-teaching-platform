@@ -1,0 +1,111 @@
+---
+objectives:
+  - Write Riemann sums in sigma notation.
+  - Interpret the definite integral as the limit of Riemann sums, and convert between the two forms.
+keyTerms:
+  - term: Sigma notation
+    definition: '$$\sum_{i=1}^{n} a_i$$ means $$a_1 + a_2 + \cdots + a_n$$.'
+  - term: Definite integral
+    definition: '$$\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i)\,\Delta x$$, the limit of Riemann sums.'
+checks:
+  - q: 'Write $$\lim_{n \to \infty} \sum_{i=1}^{n} \left(1 + \frac{2i}{n}\right)^2 \frac{2}{n}$$ as an integral.'
+    a: '$$\int_1^3 x^2\,dx$$ (or $$\int_0^2 (1 + x)^2\,dx$$).'
+  - q: 'What is $$\Delta x$$ for $$n$$ equal subintervals of $$[a, b]$$?'
+    a: '$$\frac{b - a}{n}$$.'
+sources:
+  - title: Calculus Volume 1, sections 5.1 and 5.2
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+More rectangles give a better approximation. With infinitely many, infinitely thin rectangles, the approximation becomes exact, and that limit is the **definite integral**.
+
+## A Riemann sum in sigma notation
+
+Split $$[a, b]$$ into $$n$$ equal pieces of width $$\Delta x = \frac{b - a}{n}$$. The right endpoints are $$x_i = a + i\,\Delta x$$. The right Riemann sum is
+
+$$
+\sum_{i=1}^{n} f(x_i)\,\Delta x = \sum_{i=1}^{n} f\left(a + \frac{(b - a)i}{n}\right)\frac{b - a}{n}.
+$$
+
+## The definite integral
+
+$$
+\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i)\,\Delta x.
+$$
+
+The integral sign is a stretched S for "sum", $$f(x)$$ is the height of each strip and $$dx$$ is its infinitely small width.
+
+## Converting a limit of sums to an integral
+
+To recognize $$\lim_{n \to \infty} \sum_{i=1}^{n} (\ldots)$$ as an integral:
+
+1. Find $$\Delta x$$: the factor like $$\frac{3}{n}$$ gives $$b - a = 3$$.
+2. Find $$x_i$$: the expression inside $$f$$, such as $$2 + \frac{3i}{n}$$, gives $$a = 2$$.
+3. Then $$b = a + (b - a)$$ and $$f$$ is whatever is applied to $$x_i$$.
+
+<Note title="More than one correct integral">
+The same limit can match several integrals, for example $$\int_2^5 \sqrt{x}\,dx$$ and $$\int_0^3 \sqrt{2 + x}\,dx$$. Multiple-choice answers usually offer only one of them.
+</Note>
+
+<WorkedExample title="Recognizing an integral">
+Write $$\lim_{n \to \infty} \sum_{i=1}^{n} \frac{4}{n}\cos\left(1 + \frac{4i}{n}\right)$$ as a definite integral.
+
+1. $$\Delta x = \frac{4}{n}$$, so $$b - a = 4$$.
+2. $$x_i = 1 + \frac{4i}{n}$$, so $$a = 1$$ and $$b = 5$$.
+3. The function applied is cosine.
+
+**Answer:** $$\int_1^5 \cos x\,dx$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the value of $$\int_{0}^{1} e^{-x^2}\,dx$$?
+
+**A.** $$0.747$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{1} e^{-x^2}\,dx \approx 0.747$$.
+
+**Q.** What is the value of $$\int_{0}^{2} \frac{x}{1 + \cos^2 x}\,dx$$?
+
+**A.** $$1.717$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{2} \frac{x}{1 + \cos^2 x}\,dx \approx 1.717$$.
+
+**Q.** What is the value of $$\int_{0}^{2} \sin(x^2)\,dx$$?
+
+**A.** $$0.805$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{2} \sin(x^2)\,dx \approx 0.805$$.
+
+**Q.** What is the value of $$\int_{0}^{3} \frac{x}{1 + \cos^2 x}\,dx$$?
+
+**A.** $$3.271$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{3} \frac{x}{1 + \cos^2 x}\,dx \approx 3.271$$.
+
+**Q.** What is the value of $$\int_{0}^{2} \ln(1 + x^2)\,dx$$?
+
+**A.** $$1.433$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{2} \ln(1 + x^2)\,dx \approx 1.433$$.
+
+**Q.** What is the value of $$\int_{0}^{3} \sqrt{1 + x^3}\,dx$$?
+
+**A.** $$7.341$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{3} \sqrt{1 + x^3}\,dx \approx 7.341$$.
+
+**Q.** What is the value of $$\int_{0}^{1} \sqrt{1 + x^3}\,dx$$?
+
+**A.** $$1.111$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{1} \sqrt{1 + x^3}\,dx \approx 1.111$$.
+
+**Q.** What is the value of $$\int_{0}^{3} \ln(1 + x^2)\,dx$$?
+
+**A.** $$3.406$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{3} \ln(1 + x^2)\,dx \approx 3.406$$.
+
+**Q.** What is the value of $$\int_{0}^{2} e^{-x^2}\,dx$$?
+
+**A.** $$0.882$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{2} e^{-x^2}\,dx \approx 0.882$$.
+
+**Q.** What is the value of $$\int_{0}^{2} \sqrt{1 + x^3}\,dx$$?
+
+**A.** $$3.241$$. Use the calculator's numerical integration. On a graphing calculator, $$\int_{0}^{2} \sqrt{1 + x^3}\,dx \approx 3.241$$.

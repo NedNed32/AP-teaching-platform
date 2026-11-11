@@ -1,0 +1,77 @@
+---
+objectives:
+  - 'Determine whether events are independent and apply the general addition rule.'
+keyTerms:
+  - term: 'Independent events'
+    definition: 'Knowing one occurred does not change the probability of the other: P(A | B) = P(A).'
+  - term: 'General addition rule'
+    definition: 'P(A or B) = P(A) + P(B) − P(A and B).'
+checks:
+  - q: 'How do you check independence from a table?'
+    a: 'Compare P(A | B) with P(A); equal means independent.'
+  - q: 'For independent events, what is P(A and B)?'
+    a: 'P(A) · P(B).'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+**Independent** events: $$P(A \cap B) = P(A)\,P(B)$$, equivalently $$P(A \mid B) = P(A)$$.
+
+Subtracting $$P(A \cap B)$$ prevents counting outcomes in both events twice.
+
+<Note title="Independence is checked, not assumed">
+Use data or the setup of the process to decide. Repeated coin flips are independent; drawing without replacement from a small group is not.
+</Note>
+
+<WorkedExample title="General addition rule">
+40% of students take Spanish, 30% take art, and 12% take both. What fraction take Spanish or art? Are the events independent?
+
+1. 0.40 + 0.30 − 0.12 = 0.58.
+2. 0.40 × 0.30 = 0.12 = P(both).
+
+**Answer:** 0.58; yes, they are independent.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+P(A) = 0.5, P(B) = 0.2 and P(A and B) = 0.16. What is P(A or B), and are A and B independent?
+
+**Answer:** 0.54; not independent
+
+**Why:** P(A or B) = P(A) + P(B) − P(A and B); independent if P(A and B) = P(A)P(B) = 0.1.
+
+**Working:** 0.5 + 0.2 − 0.16 = 0.54. P(A)P(B) = 0.1 ≠ 0.16.
+
+**Mistakes to avoid**
+
+- 0.7; not independent: Subtract P(A and B) so the overlap is not counted twice.
+- 0.54; independent: Compare P(A and B) with P(A)·P(B) = 0.1.
+- 0.54; mutually exclusive: P(A and B) is not 0, so they are not mutually exclusive.
+
+### Worked exam question 2
+
+Each of 6 independent devices fails with probability 0.02. What is the probability that at least one fails?
+
+**Answer:** 0.1142
+
+**Why:** 1 − P(none fail) = 1 − (1 − p)^n.
+
+**Working:** 1 − 0.98^6 = 0.1142.
+
+**Mistakes to avoid**
+
+- 0.12: Probabilities of overlapping events cannot simply be added.
+- 0: That is the probability all fail.
+- 0.8858: That is the probability none fail.

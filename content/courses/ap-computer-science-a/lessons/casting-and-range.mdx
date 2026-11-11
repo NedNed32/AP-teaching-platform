@@ -1,0 +1,151 @@
+---
+objectives:
+  - Use casting to convert between int and double, and round a double to the nearest int.
+  - Explain integer overflow and the range of int.
+keyTerms:
+  - term: Casting
+    definition: 'Converting a value to another type, such as `(int) 3.9` (gives 3) or `(double) 7` (gives 7.0).'
+  - term: Integer overflow
+    definition: 'An int calculation that goes beyond Integer.MAX_VALUE wraps around to a negative number.'
+checks:
+  - q: 'What is `(int) 8.99`?'
+    a: '8. Casting truncates.'
+  - q: 'How do you round a positive double x to the nearest int?'
+    a: '`(int) (x + 0.5)`.'
+sources:
+  - title: CSAwesome, "Getting Started and Primitive Types"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Sometimes you need a value of one type to behave as another. A **cast** tells Java to convert it.
+
+## Casting
+
+```java
+double d = 7 / 2;            // 3.0 (integer division happens first)
+double e = (double) 7 / 2;   // 3.5 (7 becomes 7.0 first)
+int f = (int) 3.99;          // 3   (truncates)
+int g = (int) (3.6 + 0.5);   // 4   (rounding)
+```
+
+Java converts an `int` to a `double` automatically (widening), but going from `double` to `int` needs an explicit cast because information can be lost.
+
+## Rounding
+
+| Value | Round to nearest int |
+| --- | --- |
+| positive `x` | `(int) (x + 0.5)` |
+| negative `x` | `(int) (x - 0.5)` |
+
+## Range and overflow
+
+An `int` holds values from `Integer.MIN_VALUE` (-2,147,483,648) to `Integer.MAX_VALUE` (2,147,483,647). Exceeding the range **overflows**: `Integer.MAX_VALUE + 1` becomes `Integer.MIN_VALUE`.
+
+<Note title="Where the cast goes matters">
+`(double) (7 / 2)` is 3.0, because the integer division happens before the cast. `(double) 7 / 2` is 3.5, because the cast applies to 7 first.
+</Note>
+
+<WorkedExample title="Averages">
+`int total = 17; int count = 4;` Which expression gives 4.25?
+
+1. `total / count` is 4 (integer division).
+2. `(double) (total / count)` is 4.0.
+3. `(double) total / count` is 17.0 / 4 = 4.25.
+
+**Answer:** `(double) total / count`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int total = 47;
+int count = 5;
+double avg1 = total / count;
+double avg2 = (double) total / count;
+System.out.println(avg1 + " " + avg2);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `9.0 9.4`
+
+**Why:** avg1 divides two ints before converting; avg2 casts first.
+
+**Working:** `total / count` is integer division (9), then widened to 9.0. `(double) total / count` casts first, giving 9.4.
+
+**Mistakes to avoid**
+
+- `9.4 9.4`: In avg1 the division happens between two ints, so the decimal part is lost before the result is stored.
+- `9.0 9.0`: The cast in avg2 applies to total before dividing, so the division is done with doubles.
+- `9 9.4`: avg1 is a double, so it prints with a decimal point.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(9, 2) + Math.pow(12, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `15.0`. 81 + 144 = 225, whose square root is 15. Math.pow gives 81 and 144; their sum is 225 and its square root is 15.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(3, 2) + Math.pow(4, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `5.0`. 9 + 16 = 25, whose square root is 5. Math.pow gives 9 and 16; their sum is 25 and its square root is 5.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(12, 2) + Math.pow(16, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `20.0`. 144 + 256 = 400, whose square root is 20. Math.pow gives 144 and 256; their sum is 400 and its square root is 20.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(6, 2) + Math.pow(8, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `10.0`. 36 + 64 = 100, whose square root is 10. Math.pow gives 36 and 64; their sum is 100 and its square root is 10.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(5, 2) + Math.pow(12, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `13.0`. 25 + 144 = 169, whose square root is 13. Math.pow gives 25 and 144; their sum is 169 and its square root is 13.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(5, 2) + Math.pow(12, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `13`. 25 + 144 = 169, whose square root is 13. Math.pow gives 25 and 144; their sum is 169 and its square root is 13.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(7, 2) + Math.pow(24, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `25`. 49 + 576 = 625, whose square root is 25. Math.pow gives 49 and 576; their sum is 625 and its square root is 25.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(12, 2) + Math.pow(16, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `20`. 144 + 256 = 400, whose square root is 20. Math.pow gives 144 and 256; their sum is 400 and its square root is 20.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(9, 2) + Math.pow(12, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `15`. 81 + 144 = 225, whose square root is 15. Math.pow gives 81 and 144; their sum is 225 and its square root is 15.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(3, 2) + Math.pow(4, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `5`. 9 + 16 = 25, whose square root is 5. Math.pow gives 9 and 16; their sum is 25 and its square root is 5.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(8, 2) + Math.pow(15, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `17.0`. 64 + 225 = 289, whose square root is 17. Math.pow gives 64 and 225; their sum is 289 and its square root is 17.
+
+**Q.** Consider the following code segment. ```java double d = Math.sqrt(Math.pow(7, 2) + Math.pow(24, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `25.0`. 49 + 576 = 625, whose square root is 25. Math.pow gives 49 and 576; their sum is 625 and its square root is 25.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(6, 2) + Math.pow(8, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `10`. 36 + 64 = 100, whose square root is 10. Math.pow gives 36 and 64; their sum is 100 and its square root is 10.
+
+**Q.** Consider the following code segment. ```java int d = (int) Math.sqrt(Math.pow(8, 2) + Math.pow(15, 2)); System.out.println(d); ``` What is printed as a result of executing the code segment?
+
+**A.** `17`. 64 + 225 = 289, whose square root is 17. Math.pow gives 64 and 225; their sum is 289 and its square root is 17.

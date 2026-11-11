@@ -1,0 +1,233 @@
+---
+objectives:
+  - Trace IF and IF-ELSE statements in AP pseudocode.
+keyTerms:
+  - term: Selection
+    definition: 'Choosing which statements run based on whether a condition is true or false.'
+  - term: Conditional statement
+    definition: 'An IF or IF-ELSE statement that runs a block of code only when its condition is true.'
+checks:
+  - q: 'In an IF-ELSE statement, can both blocks run?'
+    a: 'No; exactly one of the two blocks runs.'
+  - q: 'What happens if an IF condition (with no ELSE) is false?'
+    a: 'The block is skipped and the program continues after it.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+**Selection** lets an algorithm make decisions.
+
+## IF and IF-ELSE
+
+```text
+IF (score ≥ 60)
+{
+   DISPLAY ("pass")
+}
+ELSE
+{
+   DISPLAY ("retake")
+}
+```
+
+The condition is evaluated once. If true, the first block runs; otherwise the ELSE block runs.
+
+<Note title="Sequence of IFs versus IF-ELSE">
+Two separate IF statements are both checked, so both blocks may run. An IF-ELSE runs exactly one block.
+</Note>
+
+<WorkedExample title="Trace">
+What is displayed when n is 12?
+
+```text
+result ← 0
+IF (n MOD 2 = 0)
+{
+   result ← result + 1
+}
+IF (n MOD 3 = 0)
+{
+   result ← result + 10
+}
+DISPLAY (result)
+```
+
+1. 12 is even: result is 1.
+2. 12 is divisible by 3: result is 11.
+
+**Answer:** 11. Both IF statements are checked.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `6`. x goes from 1 to 5; the multiples of 2 among them are added. The values of x are 1, 2, 3, 4, 5; the multiples of 2 add to 6.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 2 to 6; the multiples of 3 among them are added. The values of x are 2, 3, 4, 5, 6; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `3`. x goes from 1 to 5; the multiples of 3 among them are added. The values of x are 1, 2, 3, 4, 5; the multiples of 3 add to 3.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `20`. x goes from 2 to 8; the multiples of 2 among them are added. The values of x are 2, 3, 4, 5, 6, 7, 8; the multiples of 2 add to 20.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `6`. x goes from 1 to 4; the multiples of 2 among them are added. The values of x are 1, 2, 3, 4; the multiples of 2 add to 6.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 1 to 6; the multiples of 3 among them are added. The values of x are 1, 2, 3, 4, 5, 6; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `28`. x goes from 4 to 11; the multiples of 2 among them are added. The values of x are 4, 5, 6, 7, 8, 9, 10, 11; the multiples of 2 add to 28.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 1 to 7; the multiples of 3 among them are added. The values of x are 1, 2, 3, 4, 5, 6, 7; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `12`. x goes from 2 to 7; the multiples of 2 among them are added. The values of x are 2, 3, 4, 5, 6, 7; the multiples of 2 add to 12.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 2 to 9; the multiples of 3 among them are added. The values of x are 2, 3, 4, 5, 6, 7, 8, 9; the multiples of 3 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `28`. x goes from 4 to 10; the multiples of 2 among them are added. The values of x are 4, 5, 6, 7, 8, 9, 10; the multiples of 2 add to 28.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `12`. x goes from 1 to 7; the multiples of 2 among them are added. The values of x are 1, 2, 3, 4, 5, 6, 7; the multiples of 2 add to 12.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `15`. x goes from 4 to 9; the multiples of 3 among them are added. The values of x are 4, 5, 6, 7, 8, 9; the multiples of 3 add to 15.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `10`. x goes from 4 to 7; the multiples of 2 among them are added. The values of x are 4, 5, 6, 7; the multiples of 2 add to 10.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `3`. x goes from 2 to 5; the multiples of 3 among them are added. The values of x are 2, 3, 4, 5; the multiples of 3 add to 3.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `15`. x goes from 4 to 10; the multiples of 3 among them are added. The values of x are 4, 5, 6, 7, 8, 9, 10; the multiples of 3 add to 15.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 3 to 9; the multiples of 3 among them are added. The values of x are 3, 4, 5, 6, 7, 8, 9; the multiples of 3 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 1 to 8; the multiples of 3 among them are added. The values of x are 1, 2, 3, 4, 5, 6, 7, 8; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `20`. x goes from 2 to 9; the multiples of 2 among them are added. The values of x are 2, 3, 4, 5, 6, 7, 8, 9; the multiples of 2 add to 20.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `3`. x goes from 1 to 4; the multiples of 3 among them are added. The values of x are 1, 2, 3, 4; the multiples of 3 add to 3.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 3 to 9; the multiples of 2 among them are added. The values of x are 3, 4, 5, 6, 7, 8, 9; the multiples of 2 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `15`. x goes from 4 to 11; the multiples of 3 among them are added. The values of x are 4, 5, 6, 7, 8, 9, 10, 11; the multiples of 3 add to 15.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 3 to 8; the multiples of 3 among them are added. The values of x are 3, 4, 5, 6, 7, 8; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `10`. x goes from 3 to 7; the multiples of 2 among them are added. The values of x are 3, 4, 5, 6, 7; the multiples of 2 add to 10.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `6`. x goes from 2 to 5; the multiples of 2 among them are added. The values of x are 2, 3, 4, 5; the multiples of 2 add to 6.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 4 to 9; the multiples of 2 among them are added. The values of x are 4, 5, 6, 7, 8, 9; the multiples of 2 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 2 to 7; the multiples of 3 among them are added. The values of x are 2, 3, 4, 5, 6, 7; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `20`. x goes from 1 to 8; the multiples of 2 among them are added. The values of x are 1, 2, 3, 4, 5, 6, 7, 8; the multiples of 2 add to 20.
+
+**Q.** Consider the following code segment. ```text x ← 0 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `12`. x goes from 1 to 6; the multiples of 2 among them are added. The values of x are 1, 2, 3, 4, 5, 6; the multiples of 2 add to 12.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 3 to 7; the multiples of 3 among them are added. The values of x are 3, 4, 5, 6, 7; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 3 to 6; the multiples of 3 among them are added. The values of x are 3, 4, 5, 6; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 7 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `9`. x goes from 2 to 8; the multiples of 3 among them are added. The values of x are 2, 3, 4, 5, 6, 7, 8; the multiples of 3 add to 9.
+
+**Q.** Consider the following code segment. ```text x ← 1 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `12`. x goes from 2 to 6; the multiples of 2 among them are added. The values of x are 2, 3, 4, 5, 6; the multiples of 2 add to 12.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `6`. x goes from 4 to 7; the multiples of 3 among them are added. The values of x are 4, 5, 6, 7; the multiples of 3 add to 6.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 4 to 8; the multiples of 2 among them are added. The values of x are 4, 5, 6, 7, 8; the multiples of 2 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `28`. x goes from 3 to 10; the multiples of 2 among them are added. The values of x are 3, 4, 5, 6, 7, 8, 9, 10; the multiples of 2 add to 28.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 8 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 3 to 10; the multiples of 3 among them are added. The values of x are 3, 4, 5, 6, 7, 8, 9, 10; the multiples of 3 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 6 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `18`. x goes from 3 to 8; the multiples of 2 among them are added. The values of x are 3, 4, 5, 6, 7, 8; the multiples of 2 add to 18.
+
+**Q.** Consider the following code segment. ```text x ← 2 total ← 0 REPEAT 4 TIMES { x ← x + 1 IF (x MOD 2 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `10`. x goes from 3 to 6; the multiples of 2 among them are added. The values of x are 3, 4, 5, 6; the multiples of 2 add to 10.
+
+**Q.** Consider the following code segment. ```text x ← 3 total ← 0 REPEAT 5 TIMES { x ← x + 1 IF (x MOD 3 = 0) { total ← total + x } } DISPLAY (total) ``` What is displayed as a result of running the code segment?
+
+**A.** `6`. x goes from 4 to 8; the multiples of 3 among them are added. The values of x are 4, 5, 6, 7, 8; the multiples of 3 add to 6.

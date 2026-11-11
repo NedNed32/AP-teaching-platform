@@ -1,0 +1,109 @@
+---
+objectives:
+  - 'Apply Gauss''s law to symmetric charge distributions.'
+keyTerms:
+  - term: 'Gauss''s law'
+    definition: 'The net flux through a closed surface equals the enclosed charge divided by ε0.'
+checks:
+  - q: 'What is E inside a uniformly charged insulating sphere at distance r from the center?'
+    a: 'E = kQr/R³, growing linearly with r.'
+  - q: 'What is E inside a charged conducting shell?'
+    a: 'Zero.'
+sources:
+  - title: 'University Physics Volume 2'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-2
+  - title: 'AP Physics C: Electricity and Magnetism course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism
+reviewed: false
+---
+
+$$\oint \vec E \cdot d\vec A = \frac{q_{enc}}{\varepsilon_0}$$
+
+Gauss's law always holds, but it gives E easily only when symmetry makes E constant over a chosen **Gaussian surface**:
+
+| Symmetry | Gaussian surface | Result |
+| --- | --- | --- |
+| spherical | sphere | $$E = \frac{q_{enc}}{4\pi\varepsilon_0 r^2}$$ |
+| cylindrical (line) | cylinder | $$E = \frac{\lambda_{enc}}{2\pi\varepsilon_0 r}$$ |
+| planar (sheet) | pillbox | $$E = \frac{\sigma}{2\varepsilon_0}$$ |
+
+Uniformly charged solid sphere (radius R): inside, $$q_{enc} = Q\frac{r^3}{R^3}$$, so $$E = \frac{Qr}{4\pi\varepsilon_0R^3}$$.
+
+For nonuniform density $$\rho(r)$$, find $$q_{enc} = \int \rho\,4\pi r^2\,dr$$.
+
+<Note title="Shell theorem">
+Outside any spherically symmetric distribution, the field is as if all the charge were at the center.
+</Note>
+
+<WorkedExample title="Nonuniform sphere">
+A sphere of radius R has $$\rho = \rho_0 r/R$$. Find the total charge.
+
+1. $$Q = \int_0^R \rho_0\frac{r}{R}4\pi r^2\,dr$$.
+2. $$Q = \frac{4\pi\rho_0}{R}\cdot\frac{R^4}{4} = \pi\rho_0R^3$$.
+
+**Answer:** $$\pi\rho_0R^3$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A long straight wire carries a uniform charge of 9 µC/m. What is the field 0.21 m from it?
+
+**Answer:** $$7.71 \times 10^{5}\ \mathrm{N/C}$$
+
+**Why:** E = λ/(2πε₀r), from Gauss's law with a cylinder.
+
+**Working:** E = λ/(2πε₀r) = 7.71 \times 10^\{5\} N/C.
+
+**Mistakes to avoid**
+
+- $$1.83 \times 10^{6}\ \mathrm{N/C}$$: A line charge's field falls off as 1/r.
+- $$3.85 \times 10^{5}\ \mathrm{N/C}$$: The cylinder gives 2πrL, not 4πr².
+- $$5.08 \times 10^{5}\ \mathrm{N/C}$$: That is a sheet's field.
+
+### Worked exam question 2
+
+A solid insulating sphere of radius 0.13 m has 8 µC distributed uniformly through its volume. What is the field magnitude 0.338 m from its center?
+
+**Answer:** $$6.3 \times 10^{5}\ \mathrm{N/C}$$
+
+**Why:** Outside, the sphere acts like a point charge.
+
+**Working:** E = kQ/r² = 6.3 \times 10^\{5\} N/C.
+
+**Mistakes to avoid**
+
+- $$1.11 \times 10^{7}\ \mathrm{N/C}$$: Outside, all the charge is enclosed.
+- $$4.26 \times 10^{6}\ \mathrm{N/C}$$: Use the distance from the center, r.
+- $$2.13 \times 10^{5}\ \mathrm{N/C}$$: E falls off as 1/r².
+
+### Free-response practice: A uniformly charged insulating sphere
+
+A solid insulating sphere of radius R = 0.05 m has a total charge Q = +7 nC distributed uniformly throughout its volume.
+
+**(a)** Using Gauss's law, derive expressions for the electric field magnitude inside (r &lt; R) and outside (r > R) the sphere.
+
+To earn the point: Spherical Gaussian surface; enclosed charge inside is Q(r/R)³. Model answer: $$E(4\pi r^2) = \frac{Q r^3}{\varepsilon_0 R^3}$$
+
+To earn the point: Correct inside expression. Model answer: $$E = \frac{Qr}{4\pi\varepsilon_0 R^3}$$
+
+To earn the point: Correct outside expression. Model answer: $$E = \frac{Q}{4\pi\varepsilon_0 r^2}$$
+
+**(b)** Calculate the field magnitude at r = 0.025 m and at r = 0.1 m.
+
+To earn the point: Both values correct. Model answer: 1.26 \times 10^\{4\} N/C and 6290 N/C
+
+**(c)** Sketch (describe) a graph of E versus r from 0 to 3R.
+
+To earn the point: Linear increase from 0 to a maximum at R, then 1/r² decrease. Model answer: Peak value kQ/R² = 2.52 \times 10^\{4\} N/C at r = R.
+
+**(d)** Calculate the electric potential at the surface and at the center (V = 0 at infinity).
+
+To earn the point: Surface potential. Model answer: V(R) = kQ/R = 1260 V
+
+To earn the point: Center potential by integrating the inside field. Model answer: $$V(0) = \frac{3kQ}{2R}$$ = 1890 V

@@ -1,0 +1,99 @@
+---
+objectives:
+  - Use compound assignment operators and the increment and decrement operators.
+keyTerms:
+  - term: Compound assignment
+    definition: 'Operators such as `+=`, `-=`, `*=`, `/=` and `%=`, which combine an operation with assignment.'
+  - term: Increment and decrement
+    definition: '`x++` adds 1 to x; `x--` subtracts 1.'
+checks:
+  - q: 'After `int x = 10; x /= 4; x *= 3;`, what is x?'
+    a: '6: 10 / 4 is 2, then 2 * 3 is 6.'
+  - q: 'What does `count++` do?'
+    a: 'Adds 1 to count.'
+sources:
+  - title: CSAwesome, "Getting Started and Primitive Types"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Updating a variable based on its own value is so common that Java has shortcuts for it.
+
+## The operators
+
+| Shortcut | Means |
+| --- | --- |
+| `x += 3` | `x = x + 3` |
+| `x -= 3` | `x = x - 3` |
+| `x *= 3` | `x = x * 3` |
+| `x /= 3` | `x = x / 3` |
+| `x %= 3` | `x = x % 3` |
+| `x++` | `x = x + 1` |
+| `x--` | `x = x - 1` |
+
+The usual integer rules still apply: if `x` is an `int`, `x /= 4` performs integer division.
+
+## Tracing
+
+```java
+int n = 7;
+n += 5;   // 12
+n %= 5;   // 2
+n *= 4;   // 8
+n--;      // 7
+```
+
+<Note title="Use ++ as its own statement">
+On the AP exam, `x++` and `x--` appear as standalone statements (like in a loop update). Avoid using them inside larger expressions, where their timing is confusing.
+</Note>
+
+<WorkedExample title="A short trace">
+What is printed?
+
+```java
+int a = 20;
+a -= 6;
+a /= 3;
+a++;
+System.out.println(a);
+```
+
+1. `a` becomes 14, then `14 / 3 = 4`, then 5.
+
+**Answer:** `5`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int x = 8;
+x *= 3;
+x /= 4;
+x -= 7;
+x += 4;
+System.out.println(x);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `3`
+
+**Why:** Apply each statement in order, using integer division.
+
+**Working:** Starting from 8, the statements give 24, 6, -1, 3.
+
+**Mistakes to avoid**
+
+- `-1`: Every statement runs, including the last one.
+- `-3`: /= keeps the quotient and %= keeps the remainder.
+- `4`: Recheck each step.

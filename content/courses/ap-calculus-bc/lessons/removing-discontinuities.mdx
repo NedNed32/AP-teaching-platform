@@ -1,0 +1,139 @@
+---
+objectives:
+  - Redefine a function at a point to remove a removable discontinuity.
+  - Find constants that make a piecewise function continuous.
+keyTerms:
+  - term: Continuous extension
+    definition: 'A new function that agrees with $$f$$ everywhere except at a hole, where it is defined to equal the limit.'
+checks:
+  - q: 'What value should $$f(0)$$ have so that $$f(x) = \frac{\sin 4x}{x}$$ is continuous at 0?'
+    a: '4, since $$\lim_{x \to 0} \frac{\sin 4x}{x} = 4$$.'
+  - q: 'Can a jump discontinuity be removed by changing one function value?'
+    a: 'No. The one-sided limits differ, so no single value can equal both.'
+sources:
+  - title: Calculus Volume 1, section 2.4 "Continuity"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+A removable discontinuity is a hole that can be filled. Because the limit exists, you can define (or redefine) the function at that one point to equal the limit, and the graph becomes unbroken.
+
+## Filling a hole
+
+$$f(x) = \frac{x^2 - 5x + 6}{x - 3}$$ is undefined at 3. Since $$f(x) = x - 2$$ for $$x \neq 3$$, $$\lim_{x \to 3} f(x) = 1$$. The function
+
+$$
+g(x) = \begin{cases} \dfrac{x^2 - 5x + 6}{x - 3} & x \neq 3 \\ 1 & x = 3 \end{cases}
+$$
+
+is continuous everywhere.
+
+## Solving for a constant
+
+A common exam task gives a piecewise function with an unknown constant and asks for the value that makes it continuous. Set the one-sided limits equal at the break point and solve.
+
+<Note title="Two unknowns need two conditions">
+If a piecewise function has two unknown constants, continuity at a point gives one equation. A second equation usually comes from differentiability: the one-sided derivatives must also match (topic 2.4).
+</Note>
+
+<WorkedExample title="Making a piecewise function continuous">
+For what value of $$k$$ is $$f(x) = \begin{cases} kx^2 - 3 & x < 2 \\ 4x + k & x \geq 2 \end{cases}$$ continuous at $$x = 2$$?
+
+1. Left-hand limit: $$4k - 3$$.
+2. Right-hand limit and value: $$8 + k$$.
+3. Set them equal: $$4k - 3 = 8 + k$$, so $$3k = 11$$.
+
+**Answer:** $$k = \frac{11}{3}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = \begin{cases} kx + 14 & x < 2 \\ x^{2} + 4 & x \geq 2 \end{cases}$$ where $$k$$ is a constant. For what value of $$k$$ is $$f$$ continuous at $$x = 2$$?
+
+**Answer:** $$-3$$
+
+**Why:** Continuity needs $$k(2) + 14 = (2)^2 + 4$$, which gives $$k = -3$$.
+
+**Working:** $$f$$ is continuous at $$2$$ when the left-hand limit equals $$f(2) = 8$$. The left-hand limit is $$2k + 14$$, so $$2k + 14 = 8$$ and $$k = -3$$.
+
+**Mistakes to avoid**
+
+- $$11$$: This comes from a sign error when moving the constant term across the equation.
+- $$4$$: This matches the slopes of the two pieces, which is the condition for differentiability, not continuity.
+- $$-6$$: This forgets to divide by $$2$$ when solving for $$k$$.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.750$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{3}{4} \approx 0.750$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$2.000$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{4}{2} \approx 2.000$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.333$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{2}{6} \approx 0.333$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{4}{6} \approx 0.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{2}{3} \approx 0.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{3}{6} \approx 0.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{5}{3} \approx 1.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.833$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{5}{6} \approx 0.833$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.600$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{3}{5} \approx 0.600$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{2}{4} \approx 0.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.333$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{4}{3} \approx 1.333$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$2.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{5}{2} \approx 2.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.800$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{4}{5} \approx 0.800$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.400$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{2}{5} \approx 0.400$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{3}{2} \approx 1.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.250$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{5}{4} \approx 1.250$$. A table of values near 0 confirms it.

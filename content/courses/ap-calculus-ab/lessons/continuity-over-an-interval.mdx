@@ -1,0 +1,87 @@
+---
+objectives:
+  - Explain what it means for a function to be continuous on an interval.
+  - Identify the intervals on which common functions are continuous.
+keyTerms:
+  - term: Continuous on an open interval
+    definition: 'Continuous at every point of the interval.'
+  - term: Continuous on a closed interval
+    definition: 'Continuous on $$(a, b)$$, with $$\lim_{x \to a^+} f(x) = f(a)$$ and $$\lim_{x \to b^-} f(x) = f(b)$$.'
+checks:
+  - q: 'On what intervals is $$f(x) = \frac{1}{x - 3}$$ continuous?'
+    a: '$$(-\infty, 3)$$ and $$(3, \infty)$$.'
+  - q: 'Is $$\sqrt{x}$$ continuous on $$[0, 4]$$?'
+    a: 'Yes. It is continuous on $$(0, 4)$$ and its one-sided limits at the ends equal the function values.'
+sources:
+  - title: Calculus Volume 1, section 2.4 "Continuity"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Many of the most important theorems in calculus, including the Intermediate Value Theorem, the Extreme Value Theorem and the Mean Value Theorem, begin with "if $$f$$ is continuous on $$[a, b]$$". So you need to know quickly where familiar functions are continuous.
+
+## Functions that are continuous on their domains
+
+Each of these is continuous at every point where it is defined:
+
+- polynomials (everywhere)
+- rational functions (everywhere except where the denominator is 0)
+- roots, such as $$\sqrt{x}$$ on $$[0, \infty)$$
+- $$\sin x$$ and $$\cos x$$ (everywhere); $$\tan x$$ except at odd multiples of $$\frac{\pi}{2}$$
+- $$e^x$$ (everywhere) and $$\ln x$$ on $$(0, \infty)$$
+
+Sums, differences, products, quotients (where the denominator is nonzero) and compositions of continuous functions are continuous.
+
+## Closed intervals
+
+At an endpoint you can only approach from inside the interval, so continuity on $$[a, b]$$ asks for **one-sided** continuity at $$a$$ and $$b$$.
+
+<Note title="Differentiable implies continuous">
+On free-response questions you are often told a function is differentiable. That is enough to conclude it is continuous, because differentiability implies continuity (topic 2.4). You can then use the IVT or EVT.
+</Note>
+
+<WorkedExample title="Finding the intervals of continuity">
+Where is $$g(x) = \frac{\ln x}{x - 2}$$ continuous?
+
+1. $$\ln x$$ requires $$x > 0$$.
+2. The denominator is 0 at $$x = 2$$.
+3. Elsewhere $$g$$ is a quotient of continuous functions.
+
+**Answer:** $$g$$ is continuous on $$(0, 2)$$ and $$(2, \infty)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The function $$f$$ is continuous on the closed interval $$[0, 4]$$. Selected values of $$f$$ are shown in the table.
+
+*Values of f*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| 0 | -3 |
+| 1 | -2 |
+| 2 | -3 |
+| 3 | 1 |
+| 4 | -3 |
+
+What is the least number of solutions that the equation $$f(x) = 0$$ must have on the interval $$[0, 4]$$?
+
+**Answer:** $$2$$
+
+**Why:** The sign of $$f$$ changes 2 times between consecutive table values, and the Intermediate Value Theorem guarantees a zero in each such interval.
+
+**Working:** Because $$f$$ is continuous, the Intermediate Value Theorem guarantees a solution of $$f(x) = 0$$ on every interval where the values change sign. Counting the sign changes in the table gives 2.
+
+**Mistakes to avoid**
+
+- $$1$$: This undercounts: each sign change between consecutive values guarantees its own zero.
+- $$3$$: The IVT only guarantees zeros where the sign changes; other zeros are possible but not required.
+- $$4$$: The IVT only guarantees zeros where the sign changes; other zeros are possible but not required.

@@ -1,0 +1,90 @@
+---
+objectives:
+  - 'Interpret t intervals and use them to evaluate claims about a mean or mean difference.'
+keyTerms:
+  - term: 'Plausible value'
+    definition: 'A value inside the confidence interval.'
+checks:
+  - q: 'A 95% interval for μ is (12.1, 14.3). Is 15 plausible?'
+    a: 'No.'
+  - q: 'For paired differences, what does an interval entirely above 0 suggest?'
+    a: 'Convincing evidence that the mean difference is positive.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+Interpret: "We are C% confident that the interval from a to b captures the true mean [context, with units]."
+
+Claims: a claimed value outside the interval is not plausible. For paired differences, check whether 0 is in the interval.
+
+Increasing n narrows the interval; increasing the confidence level widens it.
+
+<Note title="Not about individuals">
+A confidence interval for μ estimates the population mean, not the range of individual values.
+</Note>
+
+<WorkedExample title="Paired claim">
+A 95% interval for the mean improvement (after − before) is (1.8, 5.4) points. Does the program help?
+
+1. 0 is not in the interval; all plausible values are positive.
+
+**Answer:** yes: convincing evidence of a positive mean improvement, about 1.8 to 5.4 points.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+A random sample of 18 has mean 72.9 and standard deviation 8. Which is a 90% confidence interval for the population mean?
+
+**Answer:** (69.62, 76.18)
+
+**Why:** x̄ ± t*·s/√n with t* = 1.74 (df = 17).
+
+**Working:** SE = 1.886; margin = 3.28.
+
+**Mistakes to avoid**
+
+- (69.8, 76): With s estimating σ, use t*, not z*.
+- (58.98, 86.82): Divide s by √n.
+- (72.13, 73.67): Divide by √n, not n.
+
+### Worked exam question 2
+
+A random sample of 39 gives x̄ = 118.2 and s = 11. Test H₀: μ = 120 versus Hₐ: μ &lt; 120. What are the test statistic and p-value?
+
+**Answer:** t = -1.02, df = 38, p-value = 0.1566
+
+**Why:** t = (x̄ − μ₀)/(s/√n) with df = n − 1.
+
+**Working:** t = (118.2 − 120)/(11/√39) = -1.02; p-value = 0.1566.
+
+**Mistakes to avoid**
+
+- t = -1.02, df = 38, p-value = 0.1534: Use the t distribution, not the normal.
+- t = -0.16, df = 38, p-value = 0.4354: Divide by the standard error s/√n.
+- t = -1.02, df = 38, p-value = 0.3133: The alternative is one-sided.
+
+### Worked exam question 3
+
+Two independent random samples have n₁ = 18, s₁ = 12 and n₂ = 24, s₂ = 10. What is the standard error of x̄₁ − x̄₂?
+
+**Answer:** 3.488
+
+**Why:** √(s₁²/n₁ + s₂²/n₂).
+
+**Working:** √(12²/18 + 10²/24) = 3.488.
+
+**Mistakes to avoid**
+
+- 1.958: Variances add, even for a difference.
+- 4.87: Add variances, then take the square root; standard errors do not add.
+- 3.395: Each sample contributes s²/n.

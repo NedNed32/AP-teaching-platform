@@ -1,0 +1,85 @@
+---
+objectives:
+  - Explain how libraries and APIs simplify program development.
+keyTerms:
+  - term: Software library
+    definition: 'A collection of procedures that can be used in programs.'
+  - term: API
+    definition: 'Application program interface: the specification of how the procedures in a library behave and can be used.'
+checks:
+  - q: 'What does an API''s documentation tell a programmer?'
+    a: 'What each procedure does, what parameters it takes and what it returns.'
+  - q: 'Why use a library instead of writing the code yourself?'
+    a: 'It saves time and the code is already tested.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Programmers rarely start from nothing. **Libraries** provide ready-made procedures for common tasks: math, graphics, maps, sound, networking.
+
+## APIs
+
+An **API** describes how to use a library's procedures: their names, parameters, return values and behavior. Good documentation is what makes a library usable.
+
+```text
+// From a hypothetical mapping library:
+// distance(lat1, lon1, lat2, lon2) returns the distance in kilometers
+km ← distance(40.7, -74.0, 34.1, -118.2)
+```
+
+## Benefits
+
+- Saves development time.
+- Uses code that has already been tested by many people.
+- Lets programmers focus on what is unique about their program.
+
+<Note title="Abstraction again">
+A library is procedural abstraction at a larger scale: you rely on what the procedures do without studying how they work.
+</Note>
+
+<WorkedExample title="Reading an API">
+An API says `shuffle(list)` returns a new list with the same elements in random order, leaving the original unchanged. After `b ← shuffle(a)`, what is true?
+
+1. b holds the same elements in some order.
+2. a is unchanged.
+
+**Answer:** a keeps its order; b is a randomly ordered copy.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which is the best reason to use a simulation to study how a disease spreads?
+
+**A.** It can test different scenarios safely and quickly without exposing people to disease. Simulations study situations that are dangerous or impractical to test directly.
+
+**Q.** A simulation of a store's checkout lines assumes every customer takes exactly 2 minutes. What is the main limitation?
+
+**A.** Real customers vary, so the simulation may not reflect actual waiting times. Simplifying assumptions limit accuracy.
+
+**Q.** What does an API provide to programmers?
+
+**A.** A specification of how a library's procedures behave and how to use them. An API documents a library's procedures.
+
+**Q.** How do parameters make a procedure more useful?
+
+**A.** They let one procedure work with different input values, so it can be reused. Parameters generalize a procedure.
+
+**Q.** Which is the main benefit of procedural abstraction?
+
+**A.** A procedure can be used by knowing what it does, without knowing how it works. That reduces complexity.
+
+**Q.** A program stores 50 student names in 50 separate variables. How would storing them in a list manage complexity?
+
+**A.** One loop could process all names, and the program could handle any number of students. A list is a data abstraction that generalizes the code.

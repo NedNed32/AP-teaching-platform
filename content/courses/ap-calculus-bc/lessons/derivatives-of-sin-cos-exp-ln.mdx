@@ -1,0 +1,97 @@
+---
+objectives:
+  - Differentiate $$\sin x$$, $$\cos x$$, $$e^x$$ and $$\ln x$$.
+keyTerms:
+  - term: Natural exponential
+    definition: '$$e^x$$, the only exponential function that is its own derivative.'
+  - term: Natural logarithm
+    definition: '$$\ln x$$, the inverse of $$e^x$$; its derivative is $$\frac{1}{x}$$.'
+checks:
+  - q: 'Differentiate $$3\sin x - 2e^x + \ln x$$.'
+    a: '$$3\cos x - 2e^x + \frac{1}{x}$$.'
+  - q: 'What is the slope of $$y = \cos x$$ at $$x = \frac{\pi}{2}$$?'
+    a: '$$-\sin\frac{\pi}{2} = -1$$.'
+sources:
+  - title: Calculus Volume 1, sections 3.5 and 3.9
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Four derivatives appear in nearly every AP question. Memorize them, then let the rules from 2.6 combine them.
+
+## The four formulas
+
+$$
+\frac{d}{dx}\sin x = \cos x \qquad \frac{d}{dx}\cos x = -\sin x \qquad \frac{d}{dx}e^x = e^x \qquad \frac{d}{dx}\ln x = \frac{1}{x}
+$$
+
+## Where they come from
+
+- **Sine.** In the definition, $$\sin(x + h) = \sin x \cos h + \cos x \sin h$$. Using $$\lim_{h \to 0} \frac{\sin h}{h} = 1$$ and $$\lim_{h \to 0} \frac{\cos h - 1}{h} = 0$$ leaves $$\cos x$$.
+- **Exponential.** $$\frac{e^{x + h} - e^x}{h} = e^x \cdot \frac{e^h - 1}{h}$$, and the number $$e$$ is chosen exactly so that $$\frac{e^h - 1}{h} \to 1$$.
+- **Logarithm.** Because $$\ln x$$ is the inverse of $$e^x$$, its slope is the reciprocal: $$\frac{1}{e^{\ln x}} = \frac{1}{x}$$ (see topic 3.3).
+
+<Note title="Watch the sign on cosine">
+The derivative of cosine is **negative** sine. A handy picture: at $$x = 0$$ the cosine graph is at its peak and about to fall, so its slope just after 0 must be negative.
+</Note>
+
+<WorkedExample title="Tangent line with transcendental functions">
+Find the tangent line to $$y = e^x + \ln x$$ at $$x = 1$$.
+
+1. Point: $$y(1) = e + 0 = e$$.
+2. Slope: $$y' = e^x + \frac{1}{x}$$, so $$y'(1) = e + 1$$.
+
+**Answer:** $$y - e = (e + 1)(x - 1)$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+If $$f(x) = 2e^{x} - \ln x - 3x^{2}$$, what is $$f'(1)$$?
+
+**Answer:** $$2e - 7$$
+
+**Why:** $$f'(x) = 2e^{x} + \frac{-1}{x} - 6x$$, so $$f'(1) = 2e - 7$$.
+
+**Working:** Differentiate term by term: $$f'(x) = 2e^{x} + \frac{-1}{x} - 6x$$. At $$x = 1$$ this is $$2e - 7$$.
+
+**Mistakes to avoid**
+
+- $$2e - 6$$: This uses $$\ln 1 = 0$$, but the derivative of $$\ln x$$ is $$\frac{1}{x}$$, which is 1 at $$x = 1$$.
+- $$2e - 4$$: The derivative of $$-3x^2$$ is $$-6x$$.
+- $$-5$$: The derivative of $$e^x$$ is $$e^x$$, which equals $$e$$ at 1, not 1.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** If $$f(x) = \cot x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$-2$$. $$f'(x) = -\csc^2 x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\cot x\right) = -\csc^2 x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$-2$$.
+
+**Q.** If $$f(x) = \csc x$$, what is $$f'\left(\frac{\pi}{6}\right)$$?
+
+**A.** $$-2\sqrt{3}$$. $$f'(x) = -\csc x \cot x$$, evaluated at $$\frac{\pi}{6}$$. $$\frac{d}{dx}\left(\csc x\right) = -\csc x \cot x$$. Substituting $$x = \frac{\pi}{6}$$ gives $$-2\sqrt{3}$$.
+
+**Q.** If $$f(x) = \tan x$$, what is $$f'\left(\frac{\pi}{3}\right)$$?
+
+**A.** $$4$$. $$f'(x) = \sec^2 x$$, evaluated at $$\frac{\pi}{3}$$. $$\frac{d}{dx}\left(\tan x\right) = \sec^2 x$$. Substituting $$x = \frac{\pi}{3}$$ gives $$4$$.
+
+**Q.** If $$f(x) = \sec x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$\sqrt{2}$$. $$f'(x) = \sec x \tan x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\sec x\right) = \sec x \tan x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$\sqrt{2}$$.
+
+**Q.** If $$f(x) = \sec x$$, what is $$f'\left(\frac{\pi}{3}\right)$$?
+
+**A.** $$2\sqrt{3}$$. $$f'(x) = \sec x \tan x$$, evaluated at $$\frac{\pi}{3}$$. $$\frac{d}{dx}\left(\sec x\right) = \sec x \tan x$$. Substituting $$x = \frac{\pi}{3}$$ gives $$2\sqrt{3}$$.
+
+**Q.** If $$f(x) = \tan x$$, what is $$f'\left(\frac{\pi}{4}\right)$$?
+
+**A.** $$2$$. $$f'(x) = \sec^2 x$$, evaluated at $$\frac{\pi}{4}$$. $$\frac{d}{dx}\left(\tan x\right) = \sec^2 x$$. Substituting $$x = \frac{\pi}{4}$$ gives $$2$$.

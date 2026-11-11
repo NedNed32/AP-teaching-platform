@@ -1,0 +1,131 @@
+---
+objectives:
+  - Find the area between two curves using vertical slices (integrating with respect to $$x$$).
+keyTerms:
+  - term: Top minus bottom
+    definition: 'The height of a vertical slice between $$y = f(x)$$ above and $$y = g(x)$$ below is $$f(x) - g(x)$$.'
+checks:
+  - q: 'Find the area between $$y = x$$ and $$y = x^2$$.'
+    a: 'They meet at 0 and 1; $$\int_0^1 (x - x^2)\,dx = \frac{1}{6}$$.'
+  - q: 'How do you find the limits of integration?'
+    a: 'Set the two functions equal and solve for the intersection points.'
+sources:
+  - title: Calculus Volume 1, section 6.1 "Areas between Curves"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The integral of a function gives the area between its graph and the x-axis. Replace the x-axis with a second curve, and the same idea gives the area between two graphs.
+
+<Figure src="assets/lessons/area-between.svg" alt="The line y = 2x above the parabola y = x squared between x = 0 and x = 2, with the region between them shaded." caption="The region between y = 2x and y = x² from x = 0 to x = 2." />
+
+## The formula
+
+If $$f(x) \geq g(x)$$ on $$[a, b]$$:
+
+$$
+\text{Area} = \int_a^b [f(x) - g(x)]\,dx = \int_a^b (\text{top} - \text{bottom})\,dx.
+$$
+
+Each vertical slice is a thin rectangle of height $$f(x) - g(x)$$ and width $$dx$$.
+
+## Steps
+
+1. Sketch the curves.
+2. Find the intersection points; these are usually the limits.
+3. Decide which curve is on top (test a point between the intersections).
+4. Integrate top minus bottom.
+
+<Note title="Store intersections on the calculator">
+On calculator questions, store intersection values in calculator memory rather than retyping rounded decimals. Rounding the limits early can change the third decimal place of the area.
+</Note>
+
+<WorkedExample title="Area from the figure">
+Find the area between $$y = 2x$$ and $$y = x^2$$.
+
+1. Intersections: $$2x = x^2$$ gives $$x = 0$$ and $$x = 2$$.
+2. At $$x = 1$$: $$2x = 2 > 1 = x^2$$, so the line is on top.
+3. $$\int_0^2 (2x - x^2)\,dx = \left[x^2 - \frac{x^3}{3}\right]_0^2 = 4 - \frac{8}{3}$$.
+
+**Answer:** $$\frac{4}{3}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 4y$$?
+
+**A.** $$\frac{32}{3}$$. $$\int_0^{4} (4y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$4$$. Area $$= \int_0^{4} (4u - u^2)\,du = \frac{4u^2}{2} - \frac{u^3}{3}\Big|_0^{4} = \frac{32}{3}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = x$$?
+
+**A.** $$\frac{1}{6}$$. $$\int_0^{1} (x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$1$$. Area $$= \int_0^{1} (u - u^2)\,du = \frac{u^2}{2} - \frac{u^3}{3}\Big|_0^{1} = \frac{1}{6}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 4x$$?
+
+**A.** $$\frac{32}{3}$$. $$\int_0^{4} (4x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$4$$. Area $$= \int_0^{4} (4u - u^2)\,du = \frac{4u^2}{2} - \frac{u^3}{3}\Big|_0^{4} = \frac{32}{3}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 2x$$?
+
+**A.** $$\frac{4}{3}$$. $$\int_0^{2} (2x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$2$$. Area $$= \int_0^{2} (2u - u^2)\,du = \frac{2u^2}{2} - \frac{u^3}{3}\Big|_0^{2} = \frac{4}{3}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = y$$?
+
+**A.** $$\frac{1}{6}$$. $$\int_0^{1} (y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$1$$. Area $$= \int_0^{1} (u - u^2)\,du = \frac{u^2}{2} - \frac{u^3}{3}\Big|_0^{1} = \frac{1}{6}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = x^2$$ and $$y = 3x$$?
+
+**A.** $$\frac{9}{2}$$. $$\int_0^{3} (3x - x^2)\,dx$$: top curve minus bottom curve. The curves meet at $$0$$ and $$3$$. Area $$= \int_0^{3} (3u - u^2)\,du = \frac{3u^2}{2} - \frac{u^3}{3}\Big|_0^{3} = \frac{9}{2}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 3y$$?
+
+**A.** $$\frac{9}{2}$$. $$\int_0^{3} (3y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$3$$. Area $$= \int_0^{3} (3u - u^2)\,du = \frac{3u^2}{2} - \frac{u^3}{3}\Big|_0^{3} = \frac{9}{2}$$.
+
+**Q.** What is the area of the region enclosed by the curves $$x = y^2$$ and $$x = 2y$$?
+
+**A.** $$\frac{4}{3}$$. $$\int_0^{2} (2y - y^2)\,dy$$: right curve minus left curve. The curves meet at $$0$$ and $$2$$. Area $$= \int_0^{2} (2u - u^2)\,du = \frac{2u^2}{2} - \frac{u^3}{3}\Big|_0^{2} = \frac{4}{3}$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = 4\cos\left(\frac{x}{2}\right)$$ and $$y = x^2 - 1$$?
+
+**A.** $$12.257$$. The curves meet at $$x \approx -1.847$$ and $$x \approx 1.847$$; integrate top minus bottom. Store the intersection x-values from the calculator, then $$\int_{-1.847}^{1.847} \left(4\cos\frac{x}{2} - (x^2 - 1)\right)dx \approx 12.257$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = 2\cos\left(\frac{x}{2}\right)$$ and $$y = x^2 - 1$$?
+
+**A.** $$6.215$$. The curves meet at $$x \approx -1.557$$ and $$x \approx 1.557$$; integrate top minus bottom. Store the intersection x-values from the calculator, then $$\int_{-1.557}^{1.557} \left(2\cos\frac{x}{2} - (x^2 - 1)\right)dx \approx 6.215$$.
+
+**Q.** What is the area of the region enclosed by the graphs of $$y = 3\cos\left(\frac{x}{2}\right)$$ and $$y = x^2 - 1$$?
+
+**A.** $$9.142$$. The curves meet at $$x \approx -1.720$$ and $$x \approx 1.720$$; integrate top minus bottom. Store the intersection x-values from the calculator, then $$\int_{-1.720}^{1.720} \left(3\cos\frac{x}{2} - (x^2 - 1)\right)dx \approx 9.142$$.
+
+### Free-response practice: Area and volume
+
+Let $$R$$ be the region enclosed by the graphs of $$f(x) = 3\cos\left(\frac{x}{2}\right)$$ and $$g(x) = x^2 - 2$$.
+
+**(a)** Find the area of $$R$$.
+
+To earn the point: Finds the limits of integration (the intersection points). Model answer: $$x \approx -1.927$$ and $$x \approx 1.927$$
+
+To earn the point: Writes the integral of top minus bottom. Model answer: $$\int_{-1.927}^{1.927} (f(x) - g(x))\,dx$$
+
+To earn the point: Gives the correct area. Model answer: $$12.792$$
+
+**(b)** Find the volume of the solid generated when $$R$$ is revolved about the horizontal line $$y = -3$$.
+
+To earn the point: Uses the washer method with radii measured from the line. Model answer: $$\pi\int_{-1.927}^{1.927} \left[(f(x) + 3)^2 - (g(x) + 3)^2\right]dx$$
+
+To earn the point: Gives the correct volume. Model answer: $$300.232$$
+
+**(c)** The region $$R$$ is the base of a solid. Cross sections perpendicular to the x-axis are squares. Find the volume of the solid.
+
+To earn the point: Writes the integral of the side length squared. Model answer: $$\int_{-1.927}^{1.927} (f(x) - g(x))^2\,dx$$
+
+To earn the point: Gives the correct volume. Model answer: $$51.077$$

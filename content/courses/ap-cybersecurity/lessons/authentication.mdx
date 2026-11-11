@@ -1,0 +1,97 @@
+---
+objectives:
+  - 'Compare authentication factors and evaluate password strength.'
+keyTerms:
+  - term: 'Authentication factor'
+    definition: 'Something you know, something you have, or something you are.'
+  - term: 'Multifactor authentication (MFA)'
+    definition: 'Requiring two or more different types of factor.'
+  - term: 'Keyspace'
+    definition: 'The number of possible passwords: (characters available) raised to the password length.'
+checks:
+  - q: 'Is a password plus a security question MFA?'
+    a: 'No; both are something you know.'
+  - q: 'How many passwords are possible with 8 lowercase letters?'
+    a: '26⁸, about 2.1 × 10¹¹.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+| Factor | Examples |
+| --- | --- |
+| something you know | password, PIN |
+| something you have | phone app code, security key, smart card |
+| something you are | fingerprint, face |
+
+**MFA** requires factors of different types. Phishing-resistant MFA (security keys, passkeys) is strongest.
+
+## Password strength
+
+$$\text{possible passwords} = c^L$$
+
+where $$c$$ is the number of possible characters and $$L$$ the length. Length matters most: each extra character multiplies the possibilities by $$c$$.
+
+| Character set | c |
+| --- | --- |
+| digits | 10 |
+| lowercase | 26 |
+| upper + lower | 52 |
+| upper + lower + digits | 62 |
+| plus symbols | about 94 |
+
+Passwords should be long, unique for every site, stored in a password manager, and stored by servers only as salted hashes.
+
+<Note title="Attacks on passwords">
+Brute force tries everything; dictionary attacks try common words; credential stuffing reuses leaked passwords on other sites; password spraying tries one common password across many accounts.
+</Note>
+
+<WorkedExample title="Compare passwords">
+Which has more possibilities: an 8-character password from 62 characters, or a 12-character password of lowercase letters only?
+
+1. 62⁸ ≈ 2.2 × 10¹⁴.
+2. 26¹² ≈ 9.5 × 10¹⁶.
+
+**Answer:** the 12-character lowercase password, about 400 times more.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Policy A requires passwords of 7 characters using lowercase letters (26^7 possibilities). Policy B requires 6 characters using digits only (10^6 possibilities). Against a brute-force attack, which statement is correct?
+
+**Answer:** Policy A is stronger, by a factor of about 10^4
+
+**Why:** log10(26^7) ≈ 9.9 and log10(10^6) ≈ 6.0.
+
+**Working:** 26^7 ≈ 10^9.9 versus 10^6 ≈ 10^6.0.
+
+**Mistakes to avoid**
+
+- Policy B is stronger, by a factor of about 10^4: Compare c^L for each policy.
+- They are equally strong: Their numbers of possible passwords differ greatly.
+- Policy A is stronger because it uses more character types: Length matters as much as, or more than, character variety.
+
+### Worked exam question 2
+
+A login requires a smart card and the answer to a security question. Is this multifactor authentication?
+
+**Answer:** Yes, because the two factors are of different types
+
+**Why:** One is something you have, the other something you know.
+
+**Working:** a smart card: something you have; the answer to a security question: something you know.
+
+**Mistakes to avoid**
+
+- No, because both factors are of the same type: Classify each factor: know, have or are.
+- Yes, because any two credentials count as MFA: MFA requires different factor types.
+- No, because MFA always requires three factors: Two different factor types are enough.

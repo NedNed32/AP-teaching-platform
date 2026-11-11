@@ -1,0 +1,305 @@
+---
+objectives:
+  - Use the first part of the Fundamental Theorem of Calculus to differentiate accumulation functions.
+  - Apply the chain rule when the upper limit is a function of $$x$$.
+keyTerms:
+  - term: Accumulation function
+    definition: 'A function defined by an integral with a variable limit, such as $$g(x) = \int_a^x f(t)\,dt$$.'
+  - term: Fundamental Theorem of Calculus, part 1
+    definition: 'If $$f$$ is continuous, then $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$.'
+checks:
+  - q: 'Find $$\frac{d}{dx}\int_2^x \sqrt{1 + t^3}\,dt$$.'
+    a: '$$\sqrt{1 + x^3}$$.'
+  - q: 'Find $$\frac{d}{dx}\int_0^{3x} e^{t^2}\,dt$$.'
+    a: '$$3e^{9x^2}$$.'
+sources:
+  - title: Calculus Volume 1, section 5.3 "The Fundamental Theorem of Calculus"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Define a new function by measuring area: $$g(x) = \int_a^x f(t)\,dt$$ is the area under $$f$$ from a fixed start $$a$$ to a moving end $$x$$. How fast does that area grow? The answer, $$f(x)$$, is the first half of the most important theorem in the course.
+
+## FTC part 1
+
+If $$f$$ is continuous on an interval containing $$a$$, then
+
+$$
+g(x) = \int_a^x f(t)\,dt \quad\Longrightarrow\quad g'(x) = f(x).
+$$
+
+**Why:** when $$x$$ increases by a small $$h$$, the area grows by a thin strip of width $$h$$ and height about $$f(x)$$. So $$\frac{g(x + h) - g(x)}{h} \approx f(x)$$, and in the limit the approximation is exact.
+
+## With the chain rule
+
+If the upper limit is a function $$u(x)$$:
+
+$$
+\frac{d}{dx}\int_a^{u(x)} f(t)\,dt = f(u(x)) \cdot u'(x).
+$$
+
+If $$x$$ appears in the lower limit, flip the limits first: $$\int_{u(x)}^{a} f(t)\,dt = -\int_a^{u(x)} f(t)\,dt$$.
+
+<Note title="The lower limit does not matter for the derivative">
+Changing the constant lower limit shifts $$g$$ up or down by a constant, which does not change $$g'$$. It does change values like $$g(2)$$, so read the limits carefully when evaluating.
+</Note>
+
+<WorkedExample title="Both limits involve x">
+Find $$\frac{d}{dx}\int_{x}^{x^2} \frac{1}{t}\,dt$$ for $$x > 0$$.
+
+1. Split at a constant: $$\int_x^{x^2} = \int_1^{x^2} - \int_1^{x}$$.
+2. Differentiate each: $$\frac{1}{x^2}\cdot 2x - \frac{1}{x}$$.
+3. Simplify: $$\frac{2}{x} - \frac{1}{x}$$.
+
+**Answer:** $$\frac{1}{x}$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the facts and ideas the practice exams ask about this topic, each with the answer and the reason. If you can answer all of them without looking, you are ready for this topic on the exams.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** If $$G(x) = \int_{2}^{x^{3}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\sqrt{1 + x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\sqrt{1 + x^{3}}$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{3}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\ln(1 + x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\ln(1 + x^{3})$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{2}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\ln(1 + x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\ln(1 + x^{2})$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{3}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\ln(1 + x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\ln(1 + x^{3})$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{2}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\cos(x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\cos(x^{2})$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{3}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\ln(1 + x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\ln(1 + x^{3})$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{3}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\cos(x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\cos(x^{3})$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{2}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}e^{x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}e^{x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{3}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\sqrt{1 + x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\sqrt{1 + x^{3}}$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{3}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}e^{x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}e^{x^{3}}$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{3}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\cos(x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\cos(x^{3})$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{2}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\sqrt{1 + x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\sqrt{1 + x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{2}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}e^{x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}e^{x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{2}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\sqrt{1 + x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\sqrt{1 + x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{3}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}e^{x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}e^{x^{3}}$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{2}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\ln(1 + x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\ln(1 + x^{2})$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{2}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\sqrt{1 + x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\sqrt{1 + x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{2}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}e^{x^{2}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}e^{x^{2}}$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{2}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\cos(x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\cos(x^{2})$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{2}} \ln(1 + t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\ln(1 + x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\ln(1 + x^{2})$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{3}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\cos(x^{3})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\cos(x^{3})$$.
+
+**Q.** If $$G(x) = \int_{3}^{x^{2}} \cos(t)\,dt$$, then $$G'(x) =$$
+
+**A.** $$2x^{1}\cos(x^{2})$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{3}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{2}$$, so $$G'(x) = 2x^{1}\cos(x^{2})$$.
+
+**Q.** If $$G(x) = \int_{2}^{x^{3}} e^{t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}e^{x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{2}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}e^{x^{3}}$$.
+
+**Q.** If $$G(x) = \int_{1}^{x^{3}} \sqrt{1 + t}\,dt$$, then $$G'(x) =$$
+
+**A.** $$3x^{2}\sqrt{1 + x^{3}}$$. By the Fundamental Theorem of Calculus with the chain rule, substitute the upper limit and multiply by its derivative. If $$G(x) = \int_{1}^{u(x)} f(t)\,dt$$, then $$G'(x) = f(u(x))\,u'(x)$$. Here $$u = x^{3}$$, so $$G'(x) = 3x^{2}\sqrt{1 + x^{3}}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-1.svg" alt="Graph of f: line segments through the points (0, -1), (1, -3), (2, 1), (3, -2), (4, 0), (5, -3), (6, -1)." caption="Graph for the question below." />
+
+**Q.** Let $$g(x) = \int_0^{x} f(t)\,dt$$. What is $$g(2)$$?
+
+**A.** $$-3$$. $$g(2)$$ is the signed area from 0 to $$2$$. $$g(2) = \int_0^{2} f(t)\,dt$$, the area above the axis minus the area below it on $$[0, 2]$$, which is $$-3$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-2.svg" alt="Graph of f: line segments through the points (0, 1), (1, -2), (2, -1), (3, -2), (4, 2), (5, 0), (6, 1)." caption="Graph for the question below." />
+
+**Q.** Let $$g(x) = \int_0^{x} f(t)\,dt$$. What is $$g(6)$$?
+
+**A.** $$-2$$. $$g(6)$$ is the signed area from 0 to $$6$$. $$g(6) = \int_0^{6} f(t)\,dt$$, the area above the axis minus the area below it on $$[0, 6]$$, which is $$-2$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-3.svg" alt="Graph of f: line segments through the points (0, 3), (1, 0), (2, -1), (3, -3), (4, 1), (5, 0), (6, 3)." caption="Graph for the question below." />
+
+**Q.** Let $$g(x) = \int_0^{x} f(t)\,dt$$. What is $$g(3)$$?
+
+**A.** $$-1$$. $$g(3)$$ is the signed area from 0 to $$3$$. $$g(3) = \int_0^{3} f(t)\,dt$$, the area above the axis minus the area below it on $$[0, 3]$$, which is $$-1$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-4.svg" alt="Graph of f: line segments through the points (0, 2), (1, 1), (2, -3), (3, -1), (4, 3), (5, -1), (6, 3)." caption="Graph for the question below." />
+
+**Q.** Let $$g(x) = \int_0^{x} f(t)\,dt$$. What is $$g(4)$$?
+
+**A.** $$-\frac{1}{2}$$. $$g(4)$$ is the signed area from 0 to $$4$$. $$g(4) = \int_0^{4} f(t)\,dt$$, the area above the axis minus the area below it on $$[0, 4]$$, which is $$-\frac{1}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-5.svg" alt="Graph of f: line segments through the points (0, -2), (1, 1), (2, 3), (3, -3), (4, -3), (5, -3), (6, 3)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{1}^{4} f(x)\,dx$$?
+
+**A.** $$-1$$. Add the areas above the x-axis and subtract the areas below it. Split $$[1, 4]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$-1$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-6.svg" alt="Graph of f: line segments through the points (0, 3), (1, 1), (2, -1), (3, -2), (4, -2), (5, -1), (6, 2)." caption="Graph for the question below." />
+
+**Q.** Let $$g(x) = \int_0^{x} f(t)\,dt$$. What is $$g(5)$$?
+
+**A.** $$-3$$. $$g(5)$$ is the signed area from 0 to $$5$$. $$g(5) = \int_0^{5} f(t)\,dt$$, the area above the axis minus the area below it on $$[0, 5]$$, which is $$-3$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-7.svg" alt="Graph of f: line segments through the points (0, -1), (1, 2), (2, 2), (3, -2), (4, 3), (5, -2), (6, -2)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{2}^{6} f(x)\,dx$$?
+
+**A.** $$-1$$. Add the areas above the x-axis and subtract the areas below it. Split $$[2, 6]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$-1$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-8.svg" alt="Graph of f: line segments through the points (0, 0), (1, 3), (2, 1), (3, 1), (4, -3), (5, 1), (6, -2)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{0}^{5} f(x)\,dx$$?
+
+**A.** $$\frac{5}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[0, 5]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$\frac{5}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-9.svg" alt="Graph of f: line segments through the points (0, -2), (1, 3), (2, 2), (3, 2), (4, -2), (5, 1), (6, 2)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{2}^{5} f(x)\,dx$$?
+
+**A.** $$\frac{3}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[2, 5]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$\frac{3}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-10.svg" alt="Graph of f: line segments through the points (0, 0), (1, 1), (2, 3), (3, -2), (4, -3), (5, -3), (6, 0)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{1}^{6} f(x)\,dx$$?
+
+**A.** $$-\frac{9}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[1, 6]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$-\frac{9}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-11.svg" alt="Graph of f: line segments through the points (0, 2), (1, 0), (2, 2), (3, 3), (4, -2), (5, 0), (6, 2)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{0}^{4} f(x)\,dx$$?
+
+**A.** $$5$$. Add the areas above the x-axis and subtract the areas below it. Split $$[0, 4]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$5$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-12.svg" alt="Graph of f: line segments through the points (0, 2), (1, -1), (2, 2), (3, -2), (4, -1), (5, 1), (6, -1)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{0}^{6} f(x)\,dx$$?
+
+**A.** $$-\frac{1}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[0, 6]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$-\frac{1}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-13.svg" alt="Graph of f: line segments through the points (0, 2), (1, 2), (2, -2), (3, -3), (4, 3), (5, -1), (6, -3)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{1}^{5} f(x)\,dx$$?
+
+**A.** $$-\frac{3}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[1, 5]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$-\frac{3}{2}$$.
+
+The graph of the function $$f$$ shown consists of line segments on $$0 \leq x \leq 6$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-14.svg" alt="Graph of f: line segments through the points (0, -2), (1, 1), (2, 2), (3, 1), (4, 3), (5, -1), (6, -3)." caption="Graph for the question below." />
+
+**Q.** What is the value of $$\int_{0}^{3} f(x)\,dx$$?
+
+**A.** $$\frac{5}{2}$$. Add the areas above the x-axis and subtract the areas below it. Split $$[0, 3]$$ into unit intervals and add the signed areas of the trapezoids and triangles: the result is $$\frac{5}{2}$$.
+
+### Free-response practice: An accumulation function from a graph
+
+The continuous function $$f$$ is defined on $$0 \leq x \leq 6$$. Its graph consists of line segments, as shown. Let $$g(x) = \int_{2}^{x} f(t)\,dt$$.
+
+<Figure src="assets/guides/ftc-accumulation-functions-15.svg" alt="Graph of f: line segments through (0, -3), (1, 0), (2, 3), (3, -3), (4, 3), (5, 1), (6, -1)." caption="Graph for the question below." />
+
+**(a)** Find $$g(0)$$ and $$g(6)$$.
+
+To earn the point: Finds $$g(0)$$, reversing the limits correctly. Model answer: $$g(0) = -\int_0^{2} f(t)\,dt = 0$$
+
+To earn the point: Finds $$g(6)$$. Model answer: $$g(6) = 2$$
+
+**(b)** Find $$g'(1.5)$$ and $$g''(1.5)$$.
+
+To earn the point: Uses $$g' = f$$. Model answer: $$g'(1.5) = f(1.5) = \frac{3}{2}$$
+
+To earn the point: Uses $$g'' = f'$$, the slope of the segment. Model answer: $$g''(1.5) = f'(1.5) = 3$$
+
+**(c)** On the open interval $$0 < x < 6$$, find all values of $$x$$ at which $$g$$ has a relative maximum. Justify your answer.
+
+To earn the point: Identifies the correct values (or that there are none). Model answer: $$x = \frac{5}{2}, \frac{11}{2}$$
+
+To earn the point: Justifies using a sign change of $$g' = f$$ from positive to negative. Model answer: $$g' = f$$ changes from positive to negative there.
+
+**(d)** Find the absolute maximum value of $$g$$ on $$0 \leq x \leq 6$$. Justify your answer.
+
+To earn the point: Considers the endpoints and every critical point (Candidates Test). Model answer: $$g(0) = 0$$, $$g(1) = -\frac{3}{2}$$, $$g(\frac{5}{2}) = \frac{3}{4}$$, $$g(\frac{7}{2}) = -\frac{3}{4}$$, $$g(\frac{11}{2}) = \frac{9}{4}$$, $$g(6) = 2$$
+
+To earn the point: Gives the correct maximum value. Model answer: The absolute maximum is $$\frac{9}{4}$$, at $$x = \frac{11}{2}$$.

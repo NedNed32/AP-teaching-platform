@@ -1,0 +1,272 @@
+---
+objectives:
+  - Use String methods length, substring, indexOf, equals and compareTo.
+  - Explain that Strings are immutable.
+keyTerms:
+  - term: Immutable
+    definition: 'A String object cannot be changed; methods that seem to change it return a new String.'
+  - term: substring(a, b)
+    definition: 'Returns the characters from index a up to, but not including, index b.'
+  - term: compareTo
+    definition: 'Returns a negative number, zero, or a positive number depending on whether one string comes before, equals, or comes after another alphabetically.'
+checks:
+  - q: 'What is `"computer".substring(3, 6)`?'
+    a: '"put".'
+  - q: 'Why should you use equals rather than == to compare strings?'
+    a: '== checks whether two references point to the same object; equals compares the characters.'
+sources:
+  - title: Java API, class String
+    publisher: Oracle
+    url: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+Strings are objects, and the String class provides methods to examine and build them. Indexes start at **0**.
+
+## Methods on the Java Quick Reference
+
+| Method | Result for `s = "galaxy"` |
+| --- | --- |
+| `s.length()` | 6 |
+| `s.substring(2)` | `"laxy"` |
+| `s.substring(1, 4)` | `"ala"` |
+| `s.indexOf("a")` | 1 |
+| `s.indexOf("z")` | -1 |
+| `s.equals("Galaxy")` | false (case matters) |
+| `s.compareTo("gamma")` | negative ("gal" comes before "gam") |
+
+A single character is a one-letter substring: `s.substring(i, i + 1)`.
+
+## Immutability
+
+```java
+String a = "cat";
+a.toUpperCase();      // returns "CAT" but a is unchanged
+a = a + "s";          // a now refers to a new String "cats"
+```
+
+## Out of bounds
+
+`s.substring(2, 9)` on a 6-character string throws a `StringIndexOutOfBoundsException`. The last valid index is `length() - 1`, while the end argument of substring may equal `length()`.
+
+<Note title="The end index is exclusive">
+`substring(a, b)` has length `b - a`. That rule makes most substring questions quick.
+</Note>
+
+<WorkedExample title="Building with substring">
+What is printed?
+
+```java
+String w = "programming";
+String r = w.substring(3, 7) + w.substring(w.indexOf("m"));
+System.out.println(r);
+```
+
+1. `w.substring(3, 7)` is `"gram"` (indexes 3 to 6).
+2. `indexOf("m")` is 6; `substring(6)` is `"mming"`.
+
+**Answer:** `grammming`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+String s = "painting";
+String t = s.substring(3, 5);
+System.out.println(t + t.length());
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `nt2`
+
+**Why:** substring(3, 5) takes indexes 3 through 4.
+
+**Working:** Indexes 3 to 4 of "painting" give "nt", whose length is 2.
+
+**Mistakes to avoid**
+
+- `nti3`: The end index is exclusive.
+- `ti2`: Indexes start at 0, not 1.
+- `nt3`: The length of t is end minus start.
+
+### Worked exam question 2
+
+Consider the following code segment.
+
+```java
+String s = "painting";
+int i = s.indexOf("a");
+System.out.println(s.substring(i + 1) + i);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `inting1`
+
+**Why:** indexOf returns the first position of "a", which is 1.
+
+**Working:** "a" first appears at index 1, so the substring from 2 is "inting" and 1 is appended.
+
+**Mistakes to avoid**
+
+- `nting2`: indexOf counts from 0.
+- `ainting1`: substring(i + 1) starts after the found letter.
+- `inting2`: i itself is printed, not i + 1.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Consider the following code segment. ```java String a = "variable"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `variable VARIABLE`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "mountain"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `mountain MOUNTAIN`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "elephant"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `elephant ELEPHANT`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "notebook"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `notebook! notebook`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "keyboard"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `keyboard! keyboard`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "painting"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `painting! painting`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "variable"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `variable! variable`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "sandwich"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `sandwich SANDWICH`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "triangle"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `triangle! triangle`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "dinosaur"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `dinosaur! dinosaur`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "elephant"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `elephant! elephant`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "airplane"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `airplane! airplane`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "dinosaur"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `dinosaur DINOSAUR`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "document"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `document! document`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "algorithm"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `algorithm ALGORITHM`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "painting"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `painting PAINTING`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "notebook"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `notebook NOTEBOOK`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "document"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `document DOCUMENT`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "festival"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `festival FESTIVAL`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "umbrella"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `umbrella! umbrella`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "computer"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `computer! computer`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "function"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `function! function`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "calendar"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `calendar! calendar`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "triangle"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `triangle TRIANGLE`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "airplane"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `airplane AIRPLANE`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "mountain"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `mountain! mountain`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "computer"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `computer COMPUTER`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "sandwich"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `sandwich! sandwich`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "umbrella"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `umbrella UMBRELLA`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "sunshine"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `sunshine! sunshine`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "keyboard"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `keyboard KEYBOARD`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "calendar"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `calendar CALENDAR`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "sunshine"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `sunshine SUNSHINE`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "festival"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `festival! festival`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "function"; a.substring(2); String b = a.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `function FUNCTION`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.
+
+**Q.** Consider the following code segment. ```java String a = "algorithm"; String b = a; a = a + "!"; b.toUpperCase(); System.out.println(a + " " + b); ``` What is printed as a result of executing the code segment?
+
+**A.** `algorithm! algorithm`. Strings are immutable; calling a method without storing its result changes nothing. String methods return new Strings. Unless the result is assigned, the original variable is unchanged.

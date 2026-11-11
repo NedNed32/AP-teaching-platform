@@ -1,0 +1,193 @@
+---
+objectives:
+  - Write procedures with parameters and RETURN statements.
+  - Explain how procedural abstraction manages complexity.
+keyTerms:
+  - term: Procedural abstraction
+    definition: 'Naming a process so it can be used by knowing what it does, without knowing how.'
+  - term: Modularity
+    definition: 'Dividing a program into separate procedures, each handling one subtask.'
+checks:
+  - q: 'What does RETURN do?'
+    a: 'Ends the procedure immediately and sends a value back to the caller.'
+  - q: 'How do parameters make a procedure more useful?'
+    a: 'The same procedure works for many inputs, so it can be reused instead of duplicating code.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Writing your own procedures is central to the Create performance task.
+
+## Defining a procedure
+
+```text
+PROCEDURE countAbove(list, limit)
+{
+   count ← 0
+   FOR EACH item IN list
+   {
+      IF (item > limit)
+      {
+         count ← count + 1
+      }
+   }
+   RETURN (count)
+}
+```
+
+Parameters (`list`, `limit`) generalize the procedure: it works for any list and any limit.
+
+## Why use procedures
+
+- **Reuse**: call the same code many times instead of copying it.
+- **Modularity**: break a large problem into smaller parts.
+- **Readability**: a good name tells the reader what happens.
+- **Easier changes**: fix or improve one place, and every call benefits.
+
+<Note title="RETURN ends the procedure">
+A RETURN statement inside a loop stops the whole procedure immediately, not just the loop.
+</Note>
+
+<WorkedExample title="A RETURN inside a loop">
+What does `firstEven([3, 7, 10, 4])` return?
+
+```text
+PROCEDURE firstEven(list)
+{
+   FOR EACH n IN list
+   {
+      IF (n MOD 2 = 0)
+      {
+         RETURN (n)
+      }
+   }
+   RETURN (-1)
+}
+```
+
+1. 3 and 7 are odd; 10 is even, so RETURN (10) runs.
+
+**Answer:** 10; the procedure ends before reaching 4.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following procedure.
+
+```text
+PROCEDURE find(list, limit)
+{
+   FOR EACH item IN list
+   {
+      IF (item > limit)
+      {
+         RETURN (item)
+      }
+   }
+   RETURN (-1)
+}
+```
+
+What is returned by `find([29, 29, 18, 2, 12, 19], 12)`?
+
+**Answer:** `29`
+
+**Why:** RETURN ends the procedure at the first value greater than the limit.
+
+**Working:** 29 is the first element greater than 12, so RETURN (29) runs and the procedure ends.
+
+**Mistakes to avoid**
+
+- `19`: RETURN stops the procedure immediately; later values are not checked.
+- `-1`: 29 is greater than 12, so -1 is never reached.
+- `1`: The procedure returns the item, not its index.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** Which is the best reason to use a simulation to study how a disease spreads?
+
+**A.** It can test different scenarios safely and quickly without exposing people to disease. Simulations study situations that are dangerous or impractical to test directly.
+
+**Q.** A simulation of a store's checkout lines assumes every customer takes exactly 2 minutes. What is the main limitation?
+
+**A.** Real customers vary, so the simulation may not reflect actual waiting times. Simplifying assumptions limit accuracy.
+
+**Q.** What does an API provide to programmers?
+
+**A.** A specification of how a library's procedures behave and how to use them. An API documents a library's procedures.
+
+**Q.** How do parameters make a procedure more useful?
+
+**A.** They let one procedure work with different input values, so it can be reused. Parameters generalize a procedure.
+
+**Q.** Which is the main benefit of procedural abstraction?
+
+**A.** A procedure can be used by knowing what it does, without knowing how it works. That reduces complexity.
+
+**Q.** A program stores 50 student names in 50 separate variables. How would storing them in a list manage complexity?
+
+**A.** One loop could process all names, and the program could handle any number of students. A list is a data abstraction that generalizes the code.
+
+### Free-response practice: Written response 2: algorithms, testing and abstraction
+
+A student wrote a program called **Step Streak**. Its purpose is to encourage regular exercise by rewarding streaks of active days. In the program, the user types their step count for each day, and the app displays the longest streak of days that met the daily goal. The list `steps` stores the step counts the user has entered, one per day. The program's main procedure is shown below.
+
+```text
+PROCEDURE longestStreak(steps, goal)
+{
+   best ← 0
+   current ← 0
+   FOR EACH s IN steps
+   {
+      IF (s ≥ goal)
+      {
+         current ← current + 1
+         IF (current > best)
+         {
+            best ← current
+         }
+      }
+      ELSE
+      {
+         current ← 0
+      }
+   }
+   RETURN (best)
+}
+```
+
+On the actual exam, these questions refer to your own Create performance task program. Answer them here for the sample program.
+
+**(a)** (Algorithm development) Explain in detailed steps how the algorithm in `longestStreak` uses sequencing, selection and iteration to produce its result.
+
+To earn the point: Describes iteration in the algorithm. Model answer: The FOR EACH loop visits every day's step count in order.
+
+To earn the point: Describes selection in the algorithm. Model answer: The IF statement checks whether each day's steps meet the goal; if so the current streak grows, otherwise it resets to 0.
+
+To earn the point: Describes how the steps in sequence produce the returned value. Model answer: The variables are initialized first, updated inside the loop, and the result is returned after the loop ends. For example, longestStreak([12000, 4000, 11000, 6000, 3000, 6000, 8000], 8000) returns 1.
+
+**(b)** (Errors and testing) Describe a call to `longestStreak` that tests a different condition than `longestStreak([12000, 4000, 11000, 6000, 3000, 6000, 8000], 8000)`. Identify the result the call should produce and explain why that test is useful.
+
+To earn the point: Gives a specific call with different arguments. Model answer: longestStreak([], 8000)
+
+To earn the point: States the correct expected result. Model answer: 0, because the loop never runs and best keeps its starting value
+
+To earn the point: Explains what condition the test checks. Model answer: It checks a boundary or special case that a typical input does not, which could reveal an error the first test would miss.
+
+**(c)** (Data and procedural abstraction) Explain how the list `steps` manages complexity in the program. Then explain how the parameters of `longestStreak` make the procedure more useful.
+
+To earn the point: Explains how the list manages complexity. Model answer: Without the list, the program would need a separate variable for each day and could only handle a fixed number of days; the procedure could not loop over them.
+
+To earn the point: Explains how parameters generalize the procedure. Model answer: Because the list and the threshold are parameters, the same procedure works for any data and setting, so it can be reused without copying code. To find the longest streak of days that missed the goal, change the condition to s &lt; goal.

@@ -1,0 +1,70 @@
+---
+objectives:
+  - Connect the same limit across graphical, numerical, analytical and verbal representations.
+keyTerms:
+  - term: Representation
+    definition: 'A way of presenting a function: a graph, a table, a formula or a verbal description.'
+checks:
+  - q: 'A table shows $$f(x)$$ approaching 2 from both sides of $$x = 5$$, and a formula gives $$f(5) = 7$$. What is $$\lim_{x \to 5} f(x)$$?'
+    a: '2. The limit depends on nearby values, not on $$f(5)$$.'
+  - q: 'Which representation can prove a limit exactly: a graph, a table, or a formula?'
+    a: 'A formula, using algebra or limit laws. Graphs and tables give estimates.'
+sources:
+  - title: Calculus Volume 1, section 2.2 "The Limit of a Function"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+The AP exam rarely asks for a limit in only one form. A question might give a graph of $$f$$, a table of $$g$$ and a formula for $$h$$, and ask for a limit that combines all three. The skill is to read each representation correctly and then combine them with the limit laws.
+
+## The same limit, four ways
+
+Consider $$f(x) = \frac{x^2 - 4}{x - 2}$$ near $$x = 2$$.
+
+| Representation | What it shows |
+| --- | --- |
+| **Analytical** | $$\frac{(x - 2)(x + 2)}{x - 2} = x + 2$$ for $$x \neq 2$$, so the limit is 4. |
+| **Numerical** | $$f(1.99) = 3.99$$ and $$f(2.01) = 4.01$$: the outputs approach 4. |
+| **Graphical** | The line $$y = x + 2$$ with an open circle at $$(2, 4)$$. |
+| **Verbal** | As $$x$$ gets close to 2, $$f(x)$$ gets close to 4. |
+
+## Combining representations
+
+When a question mixes them, find each piece separately, then use the limit laws. Pay attention to whether each piece asks for a **limit** (approach) or a **value** (a closed dot or a table entry exactly at the point).
+
+<Note title="Composite limits">
+For $$\lim_{x \to a} f(g(x))$$, first find what $$g(x)$$ approaches, say $$M$$, and *from which side*. Then find what $$f$$ approaches as its input approaches $$M$$ from that side.
+</Note>
+
+<WorkedExample title="Mixing a graph and a formula">
+The graph of $$f$$ has $$\lim_{x \to 1^-} f(x) = 3$$ and $$\lim_{x \to 1^+} f(x) = -1$$. Let $$g(x) = x^2 + 1$$. Find $$\lim_{x \to 0} f(g(x))$$.
+
+1. As $$x \to 0$$, $$g(x) = x^2 + 1 \to 1$$. Because $$x^2 \geq 0$$, $$g(x)$$ approaches 1 **from above**.
+2. So we need $$\lim_{u \to 1^+} f(u) = -1$$.
+
+**Answer:** $$\lim_{x \to 0} f(g(x)) = -1$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = \begin{cases} 3x - 2 & x < 1 \\ -3x - 6 & x \geq 1 \end{cases}$$. What is $$\lim_{x \to 1} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** The left-hand limit is $$1$$ and the right-hand limit is $$-9$$. They differ, so the two-sided limit does not exist.
+
+**Working:** From the left, $$f(x) = 3x - 2 \to 1$$. From the right, $$f(x) = -3x - 6 \to -9$$. Since $$1 \neq -9$$, $$\lim_{x \to 1} f(x)$$ does not exist.
+
+**Mistakes to avoid**
+
+- $$-9$$: This is $$f(1)$$ and the right-hand limit only. The left-hand limit is $$1$$.
+- $$1$$: This is the left-hand limit only. The right-hand limit is $$-9$$.
+- $$-4$$: A limit is never the average of the one-sided limits. When they differ, the limit does not exist.

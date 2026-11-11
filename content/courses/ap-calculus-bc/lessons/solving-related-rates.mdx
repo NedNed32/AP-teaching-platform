@@ -1,0 +1,206 @@
+---
+objectives:
+  - Solve multistep related-rates problems involving geometry, triangles and cones.
+keyTerms:
+  - term: Similar triangles
+    definition: 'Triangles with the same shape; their corresponding sides are in a fixed ratio, which lets you remove an extra variable.'
+checks:
+  - q: 'A 13-foot ladder slides so its base moves away at 2 ft/s. How fast does the top slide when the base is 5 ft from the wall?'
+    a: 'Height is 12; $$5(2) + 12y'' = 0$$ gives $$y'' = -\frac{5}{6}$$ ft/s (sliding down).'
+  - q: 'In a cone of water where $$r = \frac{h}{2}$$, write $$V$$ in terms of $$h$$ only.'
+    a: '$$V = \frac{1}{3}\pi\left(\frac{h}{2}\right)^2 h = \frac{\pi h^3}{12}$$.'
+sources:
+  - title: Calculus Volume 1, section 4.1 "Related Rates"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+Harder related-rates problems need a strategy: a diagram, an equation, and sometimes a trick to remove an unwanted variable before differentiating.
+
+## A six-step strategy
+
+1. **Draw** a diagram and label the quantities that change with variables.
+2. **List** what is given (values and rates) and what is asked.
+3. **Write** an equation relating the quantities (Pythagorean theorem, area, volume, similar triangles).
+4. **Eliminate** any variable whose rate you do not know, if needed.
+5. **Differentiate** with respect to $$t$$.
+6. **Substitute** the values at the instant in question and solve, with units.
+
+## Ladders and right triangles
+
+A ladder of length $$L$$ against a wall: $$x^2 + y^2 = L^2$$. Differentiating gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. When the base slides out ($$\frac{dx}{dt} > 0$$), the top slides down ($$\frac{dy}{dt} < 0$$).
+
+## Cones and similar triangles
+
+Water in an inverted cone has radius $$r$$ and depth $$h$$, both changing. If the full cone has top radius $$R$$ and height $$H$$, similar triangles give $$r = \frac{R}{H}h$$. Substitute this into $$V = \frac{1}{3}\pi r^2 h$$ so only $$h$$ remains, then differentiate.
+
+<Note title="Signs carry meaning">
+A quantity that is decreasing has a negative rate. Use the sign in your answer and say in words what it means, for example "the top of the ladder is sliding down at 0.75 ft/s".
+</Note>
+
+<WorkedExample title="Filling a conical tank">
+Water flows into an inverted cone (top radius 4 m, height 8 m) at 2 cubic meters per minute. How fast is the depth rising when the water is 4 m deep?
+
+1. Similar triangles: $$r = \frac{4}{8}h = \frac{h}{2}$$.
+2. $$V = \frac{1}{3}\pi\left(\frac{h}{2}\right)^2 h = \frac{\pi}{12}h^3$$.
+3. Differentiate: $$\frac{dV}{dt} = \frac{\pi}{4}h^2\frac{dh}{dt}$$.
+4. Substitute: $$2 = \frac{\pi}{4}(16)\frac{dh}{dt} = 4\pi\frac{dh}{dt}$$.
+
+**Answer:** $$\frac{dh}{dt} = \frac{1}{2\pi} \approx 0.159$$ meters per minute.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The edge length of a cube is increasing at a constant rate of 5 centimeters per second. At the instant when the edge length is 2 centimeters, what is the rate of change of the volume?
+
+**Answer:** $$60$$
+
+**Why:** Differentiate $$V = s^3$$ with respect to $$t$$: $$\frac{dV}{dt} = 3s^2\frac{ds}{dt}$$.
+
+**Working:** $$\frac{dV}{dt} = 3s^2\frac{ds}{dt}$$. Substitute the dimension $$2$$ and its rate $$5$$ to get $$60$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$12$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$40$$: This forgets to multiply by the given rate of change of the dimension.
+- $$30$$: This substitutes into the original formula instead of its derivative.
+
+### Worked exam question 2
+
+The radius of a circle is increasing at a constant rate of 4 centimeters per second. At the instant when the radius is 7 centimeters, what is the rate of change of the area?
+
+**Answer:** $$56\pi$$
+
+**Why:** Differentiate $$A = \pi r^2$$ with respect to $$t$$: $$\frac{dA}{dt} = 2\pi r\frac{dr}{dt}$$.
+
+**Working:** $$\frac{dA}{dt} = 2\pi r\frac{dr}{dt}$$. Substitute the dimension $$7$$ and its rate $$4$$ to get $$56\pi$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$196\pi$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$14\pi$$: This forgets to multiply by the given rate of change of the dimension.
+- $$4\pi$$: This substitutes into the original formula instead of its derivative.
+
+### Worked exam question 3
+
+The radius of a sphere is increasing at a constant rate of 3 centimeters per second. At the instant when the radius is 8 centimeters, what is the rate of change of the volume?
+
+**Answer:** $$768\pi$$
+
+**Why:** Differentiate $$V = \frac{4}{3}\pi r^3$$ with respect to $$t$$: $$\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$$.
+
+**Working:** $$\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$$. Substitute the dimension $$8$$ and its rate $$3$$ to get $$768\pi$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$256\pi$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$96\pi$$: This forgets to multiply by the given rate of change of the dimension.
+- $$2048\pi$$: This substitutes into the original formula instead of its derivative.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A 5-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 3 feet from the wall?
+
+**A.** $$-\frac{9}{4}$$. $$x^2 + y^2 = 25$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 3$$, $$y = 4$$, $$\frac{dy}{dt} = -\frac{3(3)}{4}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{3 \cdot 3}{4} = -\frac{9}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 5 feet from the wall?
+
+**A.** $$-\frac{5}{4}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 5$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{5(3)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{5 \cdot 3}{12} = -\frac{5}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 8 feet from the wall?
+
+**A.** $$-\frac{4}{3}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 8$$, $$y = 6$$, $$\frac{dy}{dt} = -\frac{8(1)}{6}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{8 \cdot 1}{6} = -\frac{4}{3}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 8 feet from the wall?
+
+**A.** $$-4$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 8$$, $$y = 6$$, $$\frac{dy}{dt} = -\frac{8(3)}{6}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{8 \cdot 3}{6} = -4$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 6 feet from the wall?
+
+**A.** $$-\frac{3}{2}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 6$$, $$y = 8$$, $$\frac{dy}{dt} = -\frac{6(2)}{8}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{6 \cdot 2}{8} = -\frac{3}{2}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 6 feet from the wall?
+
+**A.** $$-3$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 6$$, $$y = 8$$, $$\frac{dy}{dt} = -\frac{6(4)}{8}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{6 \cdot 4}{8} = -3$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 12 feet from the wall?
+
+**A.** $$-\frac{12}{5}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 12$$, $$y = 5$$, $$\frac{dy}{dt} = -\frac{12(1)}{5}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{12 \cdot 1}{5} = -\frac{12}{5}$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 12 feet from the wall?
+
+**A.** $$-\frac{48}{5}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 12$$, $$y = 5$$, $$\frac{dy}{dt} = -\frac{12(4)}{5}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{12 \cdot 4}{5} = -\frac{48}{5}$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 5 feet from the wall?
+
+**A.** $$-\frac{5}{6}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 5$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{5(2)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{5 \cdot 2}{12} = -\frac{5}{6}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 8 feet from the wall?
+
+**A.** $$-\frac{8}{3}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 8$$, $$y = 6$$, $$\frac{dy}{dt} = -\frac{8(2)}{6}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{8 \cdot 2}{6} = -\frac{8}{3}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 6 feet from the wall?
+
+**A.** $$-\frac{9}{4}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 6$$, $$y = 8$$, $$\frac{dy}{dt} = -\frac{6(3)}{8}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{6 \cdot 3}{8} = -\frac{9}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 5-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 3 feet from the wall?
+
+**A.** $$-\frac{3}{2}$$. $$x^2 + y^2 = 25$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 3$$, $$y = 4$$, $$\frac{dy}{dt} = -\frac{3(2)}{4}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{3 \cdot 2}{4} = -\frac{3}{2}$$ feet per second (the top is moving down).
+
+**Q.** A 5-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 3 feet from the wall?
+
+**A.** $$-3$$. $$x^2 + y^2 = 25$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 3$$, $$y = 4$$, $$\frac{dy}{dt} = -\frac{3(4)}{4}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{3 \cdot 4}{4} = -3$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 5 feet from the wall?
+
+**A.** $$-\frac{5}{12}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 5$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{5(1)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{5 \cdot 1}{12} = -\frac{5}{12}$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 5 feet from the wall?
+
+**A.** $$-\frac{5}{3}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 5$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{5(4)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{5 \cdot 4}{12} = -\frac{5}{3}$$ feet per second (the top is moving down).
+
+**Q.** A 15-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 9 feet from the wall?
+
+**A.** $$-\frac{3}{2}$$. $$x^2 + y^2 = 225$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 9$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{9(2)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{9 \cdot 2}{12} = -\frac{3}{2}$$ feet per second (the top is moving down).
+
+**Q.** A 15-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 9 feet from the wall?
+
+**A.** $$-\frac{3}{4}$$. $$x^2 + y^2 = 225$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 9$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{9(1)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{9 \cdot 1}{12} = -\frac{3}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 15-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 9 feet from the wall?
+
+**A.** $$-\frac{9}{4}$$. $$x^2 + y^2 = 225$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 9$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{9(3)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{9 \cdot 3}{12} = -\frac{9}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 15-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 9 feet from the wall?
+
+**A.** $$-3$$. $$x^2 + y^2 = 225$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 9$$, $$y = 12$$, $$\frac{dy}{dt} = -\frac{9(4)}{12}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{9 \cdot 4}{12} = -3$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 3 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 12 feet from the wall?
+
+**A.** $$-\frac{36}{5}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 12$$, $$y = 5$$, $$\frac{dy}{dt} = -\frac{12(3)}{5}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{12 \cdot 3}{5} = -\frac{36}{5}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 6 feet from the wall?
+
+**A.** $$-\frac{3}{4}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 6$$, $$y = 8$$, $$\frac{dy}{dt} = -\frac{6(1)}{8}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{6 \cdot 1}{8} = -\frac{3}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 5-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 1 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 3 feet from the wall?
+
+**A.** $$-\frac{3}{4}$$. $$x^2 + y^2 = 25$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 3$$, $$y = 4$$, $$\frac{dy}{dt} = -\frac{3(1)}{4}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{3 \cdot 1}{4} = -\frac{3}{4}$$ feet per second (the top is moving down).
+
+**Q.** A 13-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 2 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 12 feet from the wall?
+
+**A.** $$-\frac{24}{5}$$. $$x^2 + y^2 = 169$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 12$$, $$y = 5$$, $$\frac{dy}{dt} = -\frac{12(2)}{5}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{12 \cdot 2}{5} = -\frac{24}{5}$$ feet per second (the top is moving down).
+
+**Q.** A 10-foot ladder leans against a vertical wall. The bottom of the ladder slides away from the wall at a constant rate of 4 feet per second. How fast is the top of the ladder moving, in feet per second, when the bottom is 8 feet from the wall?
+
+**A.** $$-\frac{16}{3}$$. $$x^2 + y^2 = 100$$ gives $$x\frac{dx}{dt} + y\frac{dy}{dt} = 0$$. With $$x = 8$$, $$y = 6$$, $$\frac{dy}{dt} = -\frac{8(4)}{6}$$. Let $$x$$ be the distance from the wall and $$y$$ the height. $$2x x' + 2y y' = 0$$, so $$y' = -\frac{x x'}{y} = -\frac{8 \cdot 4}{6} = -\frac{16}{3}$$ feet per second (the top is moving down).

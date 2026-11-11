@@ -1,0 +1,92 @@
+---
+objectives:
+  - Compare sequential, parallel and distributed computing.
+  - Calculate run time and speedup.
+keyTerms:
+  - term: Sequential computing
+    definition: 'Operations are performed one at a time, in order.'
+  - term: Parallel computing
+    definition: 'A program is broken into smaller operations, some of which run at the same time.'
+  - term: Distributed computing
+    definition: 'Multiple devices are used to run a program.'
+  - term: Speedup
+    definition: 'Sequential run time divided by parallel run time.'
+checks:
+  - q: 'What limits the speedup of a parallel solution?'
+    a: 'The parts that must run sequentially, and the overhead of coordinating processors.'
+  - q: 'Why use distributed computing?'
+    a: 'To solve problems too large for one computer, in time or storage.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Doing many things at once can make programs much faster, up to a point.
+
+## Run times
+
+- **Sequential**: add up the time of every task.
+- **Parallel**: a sequential part, plus the **longest** of the tasks that run at the same time.
+
+$$\text{speedup} = \frac{\text{sequential time}}{\text{parallel time}}$$
+
+## Limits
+
+Some steps depend on earlier results and must run in order. Adding processors cannot speed those up, so speedup levels off. Coordinating processors also adds overhead.
+
+**Distributed computing** spreads work across many devices, for problems too big for one machine, such as indexing the Web or analyzing climate data.
+
+<WorkedExample title="Two processors">
+Three tasks take 40, 30 and 50 seconds and are independent. They run on two processors. What is the minimum time, and the speedup?
+
+1. Sequential time: 40 + 30 + 50 = 120 s.
+2. Best split: 50 on one processor, 40 + 30 = 70 on the other. Parallel time is 70 s.
+3. Speedup: 120 ÷ 70, about 1.71.
+
+**Answer:** 70 seconds, a speedup of about 1.7.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A program has 4 independent tasks that take 29, 51, 29, 45 seconds. The tasks can run in parallel on two processors, and each task runs entirely on one processor. What is the minimum time to complete all the tasks?
+
+**Answer:** `80 seconds`
+
+**Why:** Split the tasks between the processors as evenly as possible; the time is the busier processor's total.
+
+**Working:** The best split puts 80 seconds of work on one processor and 74 on the other, so all tasks finish in 80 seconds (speedup 1.93).
+
+**Mistakes to avoid**
+
+- `154 seconds`: That is the sequential time with one processor.
+- `51 seconds`: The longest task cannot run at the same time as all the others on just two processors.
+- `77 seconds`: Tasks cannot be split in half, so a perfectly even split is not possible.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** A task takes 100 seconds sequentially. A parallel version takes 40 seconds. What is the speedup?
+
+**A.** 2.5. Speedup is sequential time divided by parallel time: 100 ÷ 40.
+
+**Q.** Which situation best illustrates distributed computing?
+
+**A.** Thousands of volunteers' computers each analyze part of a large scientific data set. Multiple devices running one program is distributed computing.
+
+**Q.** Adding more processors to a parallel program eventually stops reducing its run time. What is the most likely reason?
+
+**A.** Some parts of the program must run sequentially and cannot be shared. Sequential portions limit speedup.
+
+**Q.** Why is redundancy built into the Internet?
+
+**A.** So data can be rerouted when a connection or device fails. Redundant paths provide fault tolerance.

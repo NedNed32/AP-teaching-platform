@@ -1,0 +1,103 @@
+---
+objectives:
+  - Differentiate an equation relating several quantities with respect to time.
+  - Explain how the rates of related quantities are connected.
+keyTerms:
+  - term: Related rates
+    definition: 'Rates of change of quantities that are linked by an equation; differentiating the equation links the rates.'
+checks:
+  - q: 'If $$A = s^2$$ and $$s$$ depends on time, what is $$\frac{dA}{dt}$$?'
+    a: '$$2s\frac{ds}{dt}$$.'
+  - q: 'Why can you not substitute the given values before differentiating?'
+    a: 'A quantity frozen at one value is a constant, whose derivative is 0; substituting early loses the rate.'
+sources:
+  - title: Calculus Volume 1, section 4.1 "Related Rates"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When a balloon inflates, its radius and its volume both grow, and the formula $$V = \frac{4}{3}\pi r^3$$ ties them together. If you know how fast one is changing, the chain rule tells you how fast the other is changing.
+
+## Differentiating with respect to time
+
+Every quantity that changes is a function of time $$t$$, even if the formula does not show it. Differentiate both sides with respect to $$t$$ using the chain rule:
+
+$$
+V = \frac{4}{3}\pi r^3 \quad\Longrightarrow\quad \frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}.
+$$
+
+The result is an equation connecting the **rates** $$\frac{dV}{dt}$$ and $$\frac{dr}{dt}$$.
+
+## Why the rates differ
+
+At $$r = 1$$, the factor $$4\pi r^2$$ is about 12.6; at $$r = 10$$ it is about 1257. The same rate of radius growth pumps far more volume into a large balloon than a small one. Related rates capture this dependence on the current size.
+
+<Note title="Differentiate first, substitute second">
+Plug in the instantaneous values (like $$r = 10$$) only **after** differentiating. Substituting before differentiating turns a changing quantity into a constant and wipes out its rate.
+</Note>
+
+<WorkedExample title="Area of a growing circle">
+The radius of a circular ripple grows at 3 cm/s. How fast is the area growing when the radius is 5 cm?
+
+1. Equation: $$A = \pi r^2$$.
+2. Differentiate: $$\frac{dA}{dt} = 2\pi r \frac{dr}{dt}$$.
+3. Substitute $$r = 5$$ and $$\frac{dr}{dt} = 3$$: $$2\pi(5)(3)$$.
+
+**Answer:** the area grows at $$30\pi \approx 94.248$$ square centimeters per second.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The edge length of a cube is increasing at a constant rate of 2 centimeters per second. At the instant when the edge length is 6 centimeters, what is the rate of change of the volume?
+
+**Answer:** $$216$$
+
+**Why:** Differentiate $$V = s^3$$ with respect to $$t$$: $$\frac{dV}{dt} = 3s^2\frac{ds}{dt}$$.
+
+**Working:** $$\frac{dV}{dt} = 3s^2\frac{ds}{dt}$$. Substitute the dimension $$6$$ and its rate $$2$$ to get $$216$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$108$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$432$$: This forgets to multiply by the given rate of change of the dimension.
+- $$36$$: This substitutes into the original formula instead of its derivative.
+
+### Worked exam question 2
+
+The radius of a circle is increasing at a constant rate of 2 centimeters per second. At the instant when the radius is 3 centimeters, what is the rate of change of the area?
+
+**Answer:** $$12\pi$$
+
+**Why:** Differentiate $$A = \pi r^2$$ with respect to $$t$$: $$\frac{dA}{dt} = 2\pi r\frac{dr}{dt}$$.
+
+**Working:** $$\frac{dA}{dt} = 2\pi r\frac{dr}{dt}$$. Substitute the dimension $$3$$ and its rate $$2$$ to get $$12\pi$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$18\pi$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$6\pi$$: This forgets to multiply by the given rate of change of the dimension.
+- $$2\pi$$: This substitutes into the original formula instead of its derivative.
+
+### Worked exam question 3
+
+The radius of a sphere is increasing at a constant rate of 3 centimeters per second. At the instant when the radius is 8 centimeters, what is the rate of change of the volume?
+
+**Answer:** $$768\pi$$
+
+**Why:** Differentiate $$V = \frac{4}{3}\pi r^3$$ with respect to $$t$$: $$\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$$.
+
+**Working:** $$\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$$. Substitute the dimension $$8$$ and its rate $$3$$ to get $$768\pi$$ (cubic or square centimeters per second).
+
+**Mistakes to avoid**
+
+- $$256\pi$$: This leaves out a factor from differentiating the formula with respect to time.
+- $$96\pi$$: This forgets to multiply by the given rate of change of the dimension.
+- $$2048\pi$$: This substitutes into the original formula instead of its derivative.

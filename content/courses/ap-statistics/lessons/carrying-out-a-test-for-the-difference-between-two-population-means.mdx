@@ -1,0 +1,91 @@
+---
+objectives:
+  - 'Carry out a two-sample t test and conclude in context.'
+keyTerms:
+  - term: 'Two-sample t statistic'
+    definition: 't = (x̄₁ − x̄₂)/√(s₁²/n₁ + s₂²/n₂).'
+checks:
+  - q: 'What does the p-value tell you in a two-sample t test?'
+    a: 'The probability of a difference in sample means at least as extreme as observed, if the population means are equal.'
+  - q: 'With p = 0.003 and α = 0.01, what is the decision?'
+    a: 'Reject H₀.'
+sources:
+  - title: 'AP Statistics revised course framework'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-statistics
+  - title: 'Introductory Statistics 2e'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/introductory-statistics-2e
+reviewed: false
+---
+
+$$t = \frac{(\bar x_1 - \bar x_2) - 0}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}$$
+
+Use technology for df and the p-value. Conclude in context; with random assignment, the conclusion can be causal.
+
+**Choosing a procedure**: one or two samples? Proportions or means? Paired or independent? Interval (estimate) or test (claim)?
+
+<Note title="Selecting procedures">
+Read for the parameter (proportion or mean), the number of groups, and whether data are paired. That decides the procedure.
+</Note>
+
+<WorkedExample title="Test">
+x̄₁ − x̄₂ = 6 with SE = 2.23 (from the previous lesson). Find t and conclude for Hₐ: μ₁ − μ₂ > 0.
+
+1. $$t = 6/2.23 = 2.69$$.
+2. With df ≈ 62, p-value ≈ 0.005.
+
+**Answer:** reject H₀: convincing evidence that μ₁ is greater than μ₂.
+</WorkedExample>
+
+## On the practice exams
+
+The practice exams do not ask about this topic on its own, but it supports these questions from the same unit. Work through them to see how the ideas are used.
+
+### Worked exam question 1
+
+A random sample of 18 has mean 72.9 and standard deviation 8. Which is a 90% confidence interval for the population mean?
+
+**Answer:** (69.62, 76.18)
+
+**Why:** x̄ ± t*·s/√n with t* = 1.74 (df = 17).
+
+**Working:** SE = 1.886; margin = 3.28.
+
+**Mistakes to avoid**
+
+- (69.8, 76): With s estimating σ, use t*, not z*.
+- (58.98, 86.82): Divide s by √n.
+- (72.13, 73.67): Divide by √n, not n.
+
+### Worked exam question 2
+
+A random sample of 39 gives x̄ = 118.2 and s = 11. Test H₀: μ = 120 versus Hₐ: μ &lt; 120. What are the test statistic and p-value?
+
+**Answer:** t = -1.02, df = 38, p-value = 0.1566
+
+**Why:** t = (x̄ − μ₀)/(s/√n) with df = n − 1.
+
+**Working:** t = (118.2 − 120)/(11/√39) = -1.02; p-value = 0.1566.
+
+**Mistakes to avoid**
+
+- t = -1.02, df = 38, p-value = 0.1534: Use the t distribution, not the normal.
+- t = -0.16, df = 38, p-value = 0.4354: Divide by the standard error s/√n.
+- t = -1.02, df = 38, p-value = 0.3133: The alternative is one-sided.
+
+### Worked exam question 3
+
+Two independent random samples have n₁ = 18, s₁ = 12 and n₂ = 24, s₂ = 10. What is the standard error of x̄₁ − x̄₂?
+
+**Answer:** 3.488
+
+**Why:** √(s₁²/n₁ + s₂²/n₂).
+
+**Working:** √(12²/18 + 10²/24) = 3.488.
+
+**Mistakes to avoid**
+
+- 1.958: Variances add, even for a difference.
+- 4.87: Add variances, then take the square root; standard errors do not add.
+- 3.395: Each sample contributes s²/n.

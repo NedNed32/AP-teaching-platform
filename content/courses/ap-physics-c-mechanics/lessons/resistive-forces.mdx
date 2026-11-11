@@ -1,0 +1,99 @@
+---
+objectives:
+  - 'Model velocity-dependent resistive forces and find terminal velocity using differential equations.'
+keyTerms:
+  - term: 'Resistive force'
+    definition: 'A drag force opposite the velocity, often modeled as −bv.'
+  - term: 'Terminal velocity'
+    definition: 'The constant velocity reached when the drag force balances the other forces.'
+checks:
+  - q: 'For drag F = −bv on a falling object, what is the terminal speed?'
+    a: 'v_T = mg/b.'
+  - q: 'How long until the object reaches about 63 percent of terminal speed?'
+    a: 'One time constant, m/b.'
+sources:
+  - title: 'University Physics Volume 1'
+    publisher: 'OpenStax'
+    url: https://openstax.org/details/books/university-physics-volume-1
+  - title: 'AP Physics C: Mechanics course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-physics-c-mechanics
+reviewed: false
+---
+
+For a falling object with drag $$-bv$$:
+
+$$m\frac{dv}{dt} = mg - bv$$
+
+Separating variables and integrating with $$v(0) = 0$$:
+
+$$v(t) = \frac{mg}{b}\left(1 - e^{-bt/m}\right)$$
+
+The **terminal velocity** is $$v_T = \frac{mg}{b}$$ and the time constant is $$\tau = \frac{m}{b}$$. Acceleration starts at $$g$$ and decays exponentially to zero.
+
+For an object slowed only by drag (horizontal motion), $$v = v_0e^{-bt/m}$$.
+
+<Note title="Terminal velocity without solving">
+At terminal velocity the acceleration is zero, so set the net force to zero: mg = bv.
+</Note>
+
+<WorkedExample title="Terminal speed">
+A 0.20 kg object falls with drag force bv, b = 0.050 kg/s. Find v_T and τ.
+
+1. $$v_T = (0.20)(9.8)/0.050 = 39$$ m/s.
+2. $$\tau = 0.20/0.050 = 4.0$$ s.
+
+**Answer:** 39 m/s and 4.0 s.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+An object of mass 0.8 kg falls from rest with a drag force $$F = -bv$$, where $$b = 0.01$$ kg/s. What is its speed at $$t = m/b$$?
+
+**Answer:** $$496\ \mathrm{m/s}$$
+
+**Why:** v = v_T(1 − e^(−t/τ)) and t = τ.
+
+**Working:** v_T = mg/b = 784 m/s and τ = m/b = 80 s.
+
+**Mistakes to avoid**
+
+- $$288\ \mathrm{m/s}$$: v = v_T(1 − e^(−1)).
+- $$392\ \mathrm{m/s}$$: The approach is exponential.
+- $$784\ \mathrm{m/s}$$: Terminal speed is reached only as t → ∞.
+
+### Worked exam question 2
+
+An object of mass 1.3 kg falls from rest with a drag force $$F = -bv$$, where $$b = 0.15$$ kg/s. What is the time constant of its approach to terminal speed?
+
+**Answer:** $$8.67\ \mathrm{s}$$
+
+**Why:** From m dv/dt = mg − bv, τ = m/b.
+
+**Working:** v_T = mg/b = 84.9 m/s and τ = m/b = 8.67 s.
+
+**Mistakes to avoid**
+
+- $$0.115\ \mathrm{s}$$: τ = m/b.
+- $$84.9\ \mathrm{s}$$: That is the terminal speed.
+- $$1.91\ \mathrm{s}$$: τ has units of seconds: m/b.
+
+### Worked exam question 3
+
+An object of mass 0.6 kg falls from rest with a drag force $$F = -bv$$, where $$b = 0.01$$ kg/s. What is its terminal speed?
+
+**Answer:** $$588\ \mathrm{m/s}$$
+
+**Why:** At terminal speed, mg = bv.
+
+**Working:** v_T = mg/b = 588 m/s and τ = m/b = 60 s.
+
+**Mistakes to avoid**
+
+- $$1.7 \times 10^{-3}\ \mathrm{m/s}$$: Solve mg = bv for v.
+- $$60\ \mathrm{m/s}$$: That is the time constant.
+- $$24.2\ \mathrm{m/s}$$: Drag here is linear in v.

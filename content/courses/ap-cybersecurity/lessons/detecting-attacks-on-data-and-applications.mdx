@@ -1,0 +1,83 @@
+---
+objectives:
+  - 'Analyze web server and database logs to detect application attacks and data exfiltration.'
+keyTerms:
+  - term: 'Data exfiltration'
+    definition: 'Unauthorized transfer of data out of an organization.'
+  - term: 'File integrity monitoring'
+    definition: 'Detecting unauthorized changes to files by comparing hashes.'
+checks:
+  - q: 'What in a web log suggests SQL injection attempts?'
+    a: 'Requests containing SQL syntax such as quotes, OR 1=1, UNION SELECT or comment marks.'
+  - q: 'What suggests data exfiltration?'
+    a: 'Unusually large outbound transfers, often at odd hours or to unknown destinations.'
+sources:
+  - title: 'AP Cybersecurity course and exam description'
+    publisher: 'College Board'
+    url: https://apcentral.collegeboard.org/courses/ap-cybersecurity
+  - title: 'NICE Workforce Framework for Cybersecurity'
+    publisher: 'NIST'
+    url: https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+reviewed: false
+---
+
+## Web server logs
+
+```text
+203.0.113.5 "GET /search?q=shoes" 200
+203.0.113.5 "GET /search?q=' OR '1'='1" 500
+203.0.113.5 "GET /search?q=' UNION SELECT user,pass FROM users--" 200
+```
+
+SQL keywords and quote characters in parameters show injection attempts. A 500 error followed by a 200 with a UNION may mean the attack worked.
+
+## Other indicators
+
+- Script tags in input fields (XSS attempts).
+- Many requests for sequential record IDs.
+- A database account reading far more rows than usual.
+- Large outbound transfers to unfamiliar destinations.
+- Changed hashes for application files.
+
+Responses include blocking the source, fixing the vulnerability, reviewing what data was accessed and notifying affected people as required by law.
+
+<Note title="Response codes">
+200 means success, 401/403 mean denied, 404 not found and 500 a server error. An injection that produces errors and then successes deserves immediate attention.
+</Note>
+
+<WorkedExample title="Read the log">
+A log shows requests to /records?id=1, id=2, id=3, … id=4800 from one IP in five minutes, all returning 200. What is happening?
+
+1. Sequential IDs, very fast, all successful.
+
+**Answer:** automated scraping of records through broken access control: likely data exfiltration.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A web server log contains these entries.
+
+```text
+198.51.100.128 POST /cart 302
+198.51.100.207 GET /products?page=2 200
+198.51.100.109 GET /invoices?id=3291 ... (1,240 sequential ids in 3 minutes) 200
+198.51.100.150 GET /login 200
+```
+
+Which entry shows an attack, and what kind?
+
+**Answer:** The request from 198.51.100.109: data scraping through broken access control
+
+**Why:** Rapid sequential record requests indicate automated scraping.
+
+**Working:** 198.51.100.109 sent thousands of sequential ID requests; the other entries are ordinary traffic.
+
+**Mistakes to avoid**
+
+- The request from 198.51.100.109: a denial-of-service attack: A single request pattern like this is not a flood.
+- The request from 198.51.100.150: a brute-force attack: Loading the login page once is normal.
+- The request from 198.51.100.128: data scraping through broken access control: That is a normal cart action.

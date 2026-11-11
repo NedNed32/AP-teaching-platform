@@ -1,0 +1,74 @@
+---
+objectives:
+  - Describe how binary search works and when it can be used.
+  - Compare the number of steps for linear and binary search.
+keyTerms:
+  - term: Binary search
+    definition: 'A search of sorted data that repeatedly checks the middle element and eliminates half of the remaining data.'
+checks:
+  - q: 'What must be true of a list before binary search can be used?'
+    a: 'It must be sorted.'
+  - q: 'About how many checks does binary search need for 1,000 sorted items?'
+    a: 'About 10.'
+sources:
+  - title: AP Computer Science Principles course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-principles
+  - title: Computer Science Principles curriculum
+    publisher: Code.org
+    url: https://code.org/educate/csp
+reviewed: false
+---
+
+Binary search finds a value in **sorted** data by halving the search range each step.
+
+## How it works
+
+1. Look at the middle element.
+2. If it is the target, stop.
+3. If the target is smaller, keep only the left half; if larger, only the right half.
+4. Repeat until found or no elements remain.
+
+## Efficiency
+
+| Items | Linear search (worst) | Binary search (worst) |
+| --- | --- | --- |
+| 8 | 8 | 4 |
+| 1,000 | 1,000 | 10 |
+| 1,000,000 | 1,000,000 | 20 |
+
+Doubling the data adds only one step to binary search.
+
+<Note title="Sorted data is the price">
+Binary search is often much faster than linear search, but the data must be sorted first. For unsorted data, use linear search.
+</Note>
+
+<WorkedExample title="Which elements are checked?">
+Search for 37 in [3, 9, 14, 22, 37, 41, 50] using the middle of the remaining range (rounding down).
+
+1. Middle of positions 1–7 is 4: 22. 37 is larger; keep 5–7.
+2. Middle of 5–7 is 6: 41. 37 is smaller; keep 5–5.
+3. Position 5: 37. Found.
+
+**Answer:** 22, 41, 37: three checks.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+A sorted list contains 1,003 elements. What is the maximum number of elements that binary search must examine to find a value or determine it is not in the list?
+
+**Answer:** `10`
+
+**Why:** Each check halves the remaining elements; about 10 checks reduce 1,003 to none.
+
+**Working:** 2^9 = 512 is less than 1003 but 2^10 = 1024 is not, so at most 10 checks are needed.
+
+**Mistakes to avoid**
+
+- `1003`: That is the worst case for linear search.
+- `502`: Binary search halves the remaining range at every step.
+- `30`: 2 to the power 10 is already more than 1003.

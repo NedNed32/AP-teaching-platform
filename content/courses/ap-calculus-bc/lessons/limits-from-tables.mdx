@@ -1,0 +1,245 @@
+---
+objectives:
+  - Estimate a limit from a table of values approaching a point from both sides.
+  - Recognize when tabled values suggest a limit does not exist.
+keyTerms:
+  - term: Numerical estimate
+    definition: 'A limit value inferred from outputs at inputs close to the target, rather than proved algebraically.'
+checks:
+  - q: 'At $$x = 0.9, 0.99, 0.999$$ a function gives $$2.71, 2.97, 2.997$$, and at $$x = 1.001, 1.01, 1.1$$ it gives $$3.003, 3.03, 3.31$$. Estimate $$\lim_{x \to 1} f(x)$$.'
+    a: 'About 3: both sides approach 3.'
+  - q: 'Why should a table include inputs on both sides of the target?'
+    a: 'A two-sided limit requires both one-sided limits to agree; one side alone can hide a jump.'
+sources:
+  - title: Calculus Volume 1, section 2.2 "The Limit of a Function"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+When a formula is awkward or you only have data, you can estimate a limit by evaluating the function closer and closer to the target input and watching the outputs.
+
+## Building a table
+
+Take $$f(x) = \frac{\sin x}{x}$$, which is undefined at 0. Choose inputs that approach 0 from each side:
+
+| $$x$$ | $$-0.1$$ | $$-0.01$$ | $$-0.001$$ | $$0.001$$ | $$0.01$$ | $$0.1$$ |
+| --- | --- | --- | --- | --- | --- | --- |
+| $$f(x)$$ | 0.99833 | 0.99998 | 0.9999998 | 0.9999998 | 0.99998 | 0.99833 |
+
+Both sides close in on 1, so we estimate $$\lim_{x \to 0} \frac{\sin x}{x} = 1$$. (This limit is proved with the Squeeze Theorem in topic 1.8.)
+
+## Reading a table well
+
+- **Read from the outside in.** The rows nearest the target matter most.
+- **Compare the two sides.** If the left values approach one number and the right values another, the two-sided limit does not exist.
+- **Watch for growth without bound.** Outputs such as 100, 10 000, 1 000 000 suggest an infinite limit (topic 1.14).
+- **Watch for oscillation.** Values that keep jumping around do not settle, so there is no limit.
+
+<Note title="A table is evidence, not proof">
+A table can be fooled by a function that changes behavior very close to the point. On the AP exam, a table-based estimate is accepted when the question asks for one, but justifications that need certainty use algebra or a theorem.
+</Note>
+
+<WorkedExample title="One-sided limits from data">
+A function $$g$$ has these values:
+
+| $$x$$ | 1.9 | 1.99 | 1.999 | 2.001 | 2.01 | 2.1 |
+| --- | --- | --- | --- | --- | --- | --- |
+| $$g(x)$$ | 4.8 | 4.98 | 4.998 | 7.002 | 7.02 | 7.2 |
+
+1. From the left the outputs approach 5, so $$\lim_{x \to 2^-} g(x) \approx 5$$.
+2. From the right they approach 7, so $$\lim_{x \to 2^+} g(x) \approx 7$$.
+
+**Answer:** the one-sided limits differ, so $$\lim_{x \to 2} g(x)$$ does not exist.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+The function $$f$$ is defined for all real numbers except $$x = 5$$. Selected values of $$f$$ are shown.
+
+*Values of f near x = 5*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| 4.9 | 2.9 |
+| 4.99 | 2.99 |
+| 4.999 | 2.999 |
+| 5.001 | 1.001 |
+| 5.01 | 1.01 |
+| 5.1 | 1.1 |
+
+Based on the table, which of the following is the best estimate of $$\lim_{x \to 5} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** From the left the outputs approach 3; from the right they approach 1. The one-sided limits differ.
+
+**Working:** Read the table toward $$x = 5$$ from each side. The left side approaches 3 and the right side approaches 1, so the two-sided limit does not exist.
+
+**Mistakes to avoid**
+
+- $$3$$: This is only the left-hand trend.
+- $$1$$: This is only the right-hand trend.
+- $$2$$: Averaging the two sides is never how a limit is found.
+
+### Worked exam question 2
+
+The function $$f$$ is defined for all real numbers except $$x = 3$$. Selected values of $$f$$ are shown.
+
+*Values of f near x = 3*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| 2.9 | -4.1 |
+| 2.99 | -4.01 |
+| 2.999 | -4.001 |
+| 3.001 | -5.999 |
+| 3.01 | -5.99 |
+| 3.1 | -5.9 |
+
+Based on the table, which of the following is the best estimate of $$\lim_{x \to 3} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** From the left the outputs approach -4; from the right they approach -6. The one-sided limits differ.
+
+**Working:** Read the table toward $$x = 3$$ from each side. The left side approaches -4 and the right side approaches -6, so the two-sided limit does not exist.
+
+**Mistakes to avoid**
+
+- $$-4$$: This is only the left-hand trend.
+- $$-6$$: This is only the right-hand trend.
+- $$-5$$: Averaging the two sides is never how a limit is found.
+
+### Worked exam question 3
+
+The function $$f$$ is defined for all real numbers except $$x = -1$$. Selected values of $$f$$ are shown.
+
+*Values of f near x = -1*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| -1.1 | -3.1 |
+| -1.01 | -3.01 |
+| -1.001 | -3.001 |
+| -0.999 | 0.001 |
+| -0.99 | 0.01 |
+| -0.9 | 0.1 |
+
+Based on the table, which of the following is the best estimate of $$\lim_{x \to -1} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** From the left the outputs approach -3; from the right they approach 0. The one-sided limits differ.
+
+**Working:** Read the table toward $$x = -1$$ from each side. The left side approaches -3 and the right side approaches 0, so the two-sided limit does not exist.
+
+**Mistakes to avoid**
+
+- $$-3$$: This is only the left-hand trend.
+- $$0$$: This is only the right-hand trend.
+- $$-\frac{3}{2}$$: Averaging the two sides is never how a limit is found.
+
+### Worked exam question 4
+
+The function $$f$$ is defined for all real numbers except $$x = 0$$. Selected values of $$f$$ are shown.
+
+*Values of f near x = 0*
+
+| $$x$$ | $$f(x)$$ |
+| --- | --- |
+| -0.1 | 5.9 |
+| -0.01 | 5.99 |
+| -0.001 | 5.999 |
+| 0.001 | 9.001 |
+| 0.01 | 9.01 |
+| 0.1 | 9.1 |
+
+Based on the table, which of the following is the best estimate of $$\lim_{x \to 0} f(x)$$?
+
+**Answer:** The limit does not exist.
+
+**Why:** From the left the outputs approach 6; from the right they approach 9. The one-sided limits differ.
+
+**Working:** Read the table toward $$x = 0$$ from each side. The left side approaches 6 and the right side approaches 9, so the two-sided limit does not exist.
+
+**Mistakes to avoid**
+
+- $$6$$: This is only the left-hand trend.
+- $$9$$: This is only the right-hand trend.
+- $$\frac{15}{2}$$: Averaging the two sides is never how a limit is found.
+
+### Facts and ideas the exams test
+
+Cover the answers and test yourself.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.750$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{3}{4} \approx 0.750$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$2.000$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{4}{2} \approx 2.000$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.333$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{2}{6} \approx 0.333$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{4}{6} \approx 0.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{2}{3} \approx 0.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{3}{6} \approx 0.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.667$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{5}{3} \approx 1.667$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{6x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.833$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{6}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{6x} - 1 \approx 6x$$, so the limit is $$\frac{5}{6} \approx 0.833$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.600$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{3}{5} \approx 0.600$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{2}{4} \approx 0.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{3x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.333$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{3}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{3x} - 1 \approx 3x$$, so the limit is $$\frac{4}{3} \approx 1.333$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$2.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{5}{2} \approx 2.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(4x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.800$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{4}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(4x) \approx 4x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{4}{5} \approx 0.800$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(2x)}{e^{5x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$0.400$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{2}{5}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(2x) \approx 2x$$ and $$e^{5x} - 1 \approx 5x$$, so the limit is $$\frac{2}{5} \approx 0.400$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(3x)}{e^{2x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.500$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{3}{2}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(3x) \approx 3x$$ and $$e^{2x} - 1 \approx 2x$$, so the limit is $$\frac{3}{2} \approx 1.500$$. A table of values near 0 confirms it.
+
+**Q.** The function $$g$$ is defined by $$g(x) = \frac{\sin(5x)}{e^{4x} - 1}$$ for $$x \neq 0$$. For what value of $$g(0)$$ is $$g$$ continuous at $$x = 0$$?
+
+**A.** $$1.250$$. Evaluating $$g$$ at inputs very close to 0 (or using the limits of $$\frac{\sin u}{u}$$ and $$\frac{e^u - 1}{u}$$) gives $$\frac{5}{4}$$. For continuity, $$g(0)$$ must equal $$\lim_{x \to 0} g(x)$$. Near 0, $$\sin(5x) \approx 5x$$ and $$e^{4x} - 1 \approx 4x$$, so the limit is $$\frac{5}{4} \approx 1.250$$. A table of values near 0 confirms it.

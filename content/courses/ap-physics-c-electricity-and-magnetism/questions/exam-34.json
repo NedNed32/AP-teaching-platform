@@ -1,0 +1,1877 @@
+{
+  "$schema": "../../../schema/questions.schema.json",
+  "stimuli": [
+    {
+      "id": "e34-frq1-s",
+      "text": "A solid insulating sphere of radius R = 0.14 m has a total charge Q = +2 nC distributed uniformly throughout its volume."
+    },
+    {
+      "id": "e34-frq2-s",
+      "text": "An initially uncharged 2 µF capacitor, a 190 kΩ resistor, an ideal 21 V battery and an open switch are connected in series. The switch is closed at t = 0."
+    },
+    {
+      "id": "e34-frq3-s",
+      "text": "Students measure the resistance of different lengths of a wire with a diameter of 0.4 mm, using a battery, an ammeter and a voltmeter.",
+      "table": {
+        "caption": "Resistance versus length",
+        "columns": [
+          {
+            "key": "len",
+            "label": "Length L (m)"
+          },
+          {
+            "key": "res",
+            "label": "Resistance R (Ω)"
+          }
+        ],
+        "rows": [
+          {
+            "len": 0.2,
+            "res": 1.6
+          },
+          {
+            "len": 0.4,
+            "res": 3.16
+          },
+          {
+            "len": 0.6,
+            "res": 4.85
+          },
+          {
+            "len": 0.8,
+            "res": 6.43
+          },
+          {
+            "len": 1,
+            "res": 7.84
+          }
+        ]
+      }
+    },
+    {
+      "id": "e34-frq4-s",
+      "text": "A conducting rod of mass 0.4 kg and length 0.6 m slides without friction on horizontal rails connected by a 2 Ω resistor. A uniform 0.7 T magnetic field points vertically through the rails. The rod is given an initial speed of 9 m/s and then released."
+    }
+  ],
+  "questions": [
+    {
+      "id": "e34-q01",
+      "type": "mcq",
+      "topics": [
+        "biot-savart-law",
+        "amperes-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A long straight wire carries 10 A. What is the magnetic field 0.05 m from it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.95 \\times 10^{-6}\\ \\mathrm{T}$$",
+          "why": "B = μ₀I/(2πr)."
+        },
+        {
+          "id": "b",
+          "text": "$$1.26 \\times 10^{-4}\\ \\mathrm{T}$$",
+          "why": "That is the field at the center of a loop."
+        },
+        {
+          "id": "c",
+          "text": "$$4 \\times 10^{-4}\\ \\mathrm{T}$$",
+          "why": "A long wire's field falls off as 1/r."
+        },
+        {
+          "id": "d",
+          "text": "$$4 \\times 10^{-5}\\ \\mathrm{T}$$",
+          "why": "Correct. B = μ₀I/(2πr)."
+        }
+      ],
+      "answer": "d",
+      "explanation": "B = (4π × 10⁻⁷)(10)/(2π·0.05) = 4 \\times 10^{-5} T."
+    },
+    {
+      "id": "e34-q02",
+      "type": "mcq",
+      "topics": [
+        "conservation-of-electric-charge-and-the-process-of-charging",
+        "redistribution-of-charge-between-conductors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Two identical small conducting spheres carry 5 µC and 4 µC. They are touched together and separated. What is the charge on each?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 µC and 4 µC",
+          "why": "Charge flows between touching conductors."
+        },
+        {
+          "id": "b",
+          "text": "4.5 µC",
+          "why": "Correct. Identical conductors share the total charge equally."
+        },
+        {
+          "id": "c",
+          "text": "9 µC",
+          "why": "The total is shared between two spheres."
+        },
+        {
+          "id": "d",
+          "text": "0 µC",
+          "why": "Charge is conserved, not cancelled."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Total 9 µC, split equally: 4.5 µC each."
+    },
+    {
+      "id": "e34-q03",
+      "type": "mcq",
+      "topics": [
+        "electric-potential"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Point P is 0.1 m from a +4 µC charge and 0.2 m from a −7 µC charge. What is the electric potential at P?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4.49 \\times 10^{4}\\ \\mathrm{V}$$",
+          "why": "Correct. Potential is a scalar: add kq/r with signs."
+        },
+        {
+          "id": "b",
+          "text": "$$6.74 \\times 10^{5}\\ \\mathrm{V}$$",
+          "why": "The negative charge contributes negative potential."
+        },
+        {
+          "id": "c",
+          "text": "$$-4.49 \\times 10^{4}\\ \\mathrm{V}$$",
+          "why": "Check the signs."
+        },
+        {
+          "id": "d",
+          "text": "$$2.02 \\times 10^{6}\\ \\mathrm{V}$$",
+          "why": "Potential uses 1/r, not 1/r²."
+        }
+      ],
+      "answer": "a",
+      "explanation": "V = k(q₁/r₁ + q₂/r₂) = 4.49 \\times 10^{4} V."
+    },
+    {
+      "id": "e34-q04",
+      "type": "mcq",
+      "topics": [
+        "electric-power"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 41 Ω resistor is connected across 30 V. What power does it dissipate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1230\\ \\mathrm{W}$$",
+          "why": "P = V²/R."
+        },
+        {
+          "id": "b",
+          "text": "$$22\\ \\mathrm{W}$$",
+          "why": "Correct. P = V²/R."
+        },
+        {
+          "id": "c",
+          "text": "$$0.732\\ \\mathrm{W}$$",
+          "why": "That is the current."
+        },
+        {
+          "id": "d",
+          "text": "$$0.535\\ \\mathrm{W}$$",
+          "why": "P = I²R = V²/R."
+        }
+      ],
+      "answer": "b",
+      "explanation": "P = 30²/41 = 22 W."
+    },
+    {
+      "id": "e34-q05",
+      "type": "mcq",
+      "topics": [
+        "biot-savart-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A flat circular coil of 18 turns and radius 0.1 m carries 5 A. What is the field at its center?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.13 \\times 10^{-3}\\ \\mathrm{T}$$",
+          "why": "B = μ₀I/(2R) per turn."
+        },
+        {
+          "id": "b",
+          "text": "$$3.14 \\times 10^{-5}\\ \\mathrm{T}$$",
+          "why": "Include the number of turns."
+        },
+        {
+          "id": "c",
+          "text": "$$5.65 \\times 10^{-4}\\ \\mathrm{T}$$",
+          "why": "Correct. B = Nμ₀I/(2R)."
+        },
+        {
+          "id": "d",
+          "text": "$$1.8 \\times 10^{-4}\\ \\mathrm{T}$$",
+          "why": "That is a straight wire's field."
+        }
+      ],
+      "answer": "c",
+      "explanation": "B = 18(4π × 10⁻⁷)(5)/(2·0.1) = 5.65 \\times 10^{-4} T."
+    },
+    {
+      "id": "e34-q06",
+      "type": "mcq",
+      "topics": [
+        "electric-charge-and-electric-force"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Two point charges of 8 µC and −5 µC are 0.19 m apart. What is the magnitude of the force between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$9.96\\ \\mathrm{N}$$",
+          "why": "Correct. F = k|q₁q₂|/r²."
+        },
+        {
+          "id": "b",
+          "text": "$$2.49\\ \\mathrm{N}$$",
+          "why": "Use the full separation r."
+        },
+        {
+          "id": "c",
+          "text": "$$9.96 \\times 10^{12}\\ \\mathrm{N}$$",
+          "why": "Convert µC to C."
+        },
+        {
+          "id": "d",
+          "text": "$$1.89\\ \\mathrm{N}$$",
+          "why": "Coulomb's law uses r²."
+        }
+      ],
+      "answer": "a",
+      "explanation": "F = (8.99 × 10⁹)(8 × 10⁻⁶)(5 × 10⁻⁶)/0.19² = 9.96 N, attractive."
+    },
+    {
+      "id": "e34-q07",
+      "type": "mcq",
+      "topics": [
+        "electric-fields-of-charge-distributions",
+        "gausss-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A long straight wire carries a uniform charge of 6 µC/m. What is the field 0.32 m from it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$3.39 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "That is a sheet's field."
+        },
+        {
+          "id": "b",
+          "text": "$$1.69 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "The cylinder gives 2πrL, not 4πr²."
+        },
+        {
+          "id": "c",
+          "text": "$$3.37 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "Correct. E = λ/(2πε₀r), from Gauss's law with a cylinder."
+        },
+        {
+          "id": "d",
+          "text": "$$5.27 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "A line charge's field falls off as 1/r."
+        }
+      ],
+      "answer": "c",
+      "explanation": "E = λ/(2πε₀r) = 3.37 \\times 10^{5} N/C."
+    },
+    {
+      "id": "e34-q08",
+      "type": "mcq",
+      "topics": [
+        "electric-flux"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A uniform field of 400 N/C passes through a flat 0.4 m² surface whose normal makes 30° with the field. What is the flux through the surface?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$139\\ \\mathrm{N{\\cdot}m^2/C}$$",
+          "why": "Correct. Φ = EA cos θ."
+        },
+        {
+          "id": "b",
+          "text": "$$160\\ \\mathrm{N{\\cdot}m^2/C}$$",
+          "why": "Account for the angle."
+        },
+        {
+          "id": "c",
+          "text": "$$80\\ \\mathrm{N{\\cdot}m^2/C}$$",
+          "why": "θ is measured from the normal, so use cos θ."
+        },
+        {
+          "id": "d",
+          "text": "$$1000\\ \\mathrm{N{\\cdot}m^2/C}$$",
+          "why": "Flux is E times A."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Φ = 400(0.4) cos 30° = 139 N·m²/C."
+    },
+    {
+      "id": "e34-q09",
+      "type": "mcq",
+      "topics": [
+        "electric-potential",
+        "electric-potential-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "An electron starts from rest and is accelerated through a potential difference of 700 V. What is its final speed? ($$m_e = 9.11 \\times 10^{-31}$$ kg)",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$2.46 \\times 10^{14}\\ \\mathrm{m/s}$$",
+          "why": "Take the square root."
+        },
+        {
+          "id": "b",
+          "text": "$$1.57 \\times 10^{7}\\ \\mathrm{m/s}$$",
+          "why": "Correct. eΔV = ½mv²."
+        },
+        {
+          "id": "c",
+          "text": "$$1.11 \\times 10^{7}\\ \\mathrm{m/s}$$",
+          "why": "eV = ½mv², so v = √(2eV/m)."
+        },
+        {
+          "id": "d",
+          "text": "$$3.66 \\times 10^{5}\\ \\mathrm{m/s}$$",
+          "why": "Use the electron's mass."
+        }
+      ],
+      "answer": "b",
+      "explanation": "v = √(2eV/m) = 1.57 \\times 10^{7} m/s."
+    },
+    {
+      "id": "e34-q10",
+      "type": "mcq",
+      "topics": [
+        "capacitors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A parallel-plate capacitor has plates of area 0.02 m² separated by 1 mm of air. What is its capacitance?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.77 \\times 10^{-10}\\ \\mathrm{F}$$",
+          "why": "Correct. C = κε₀A/d."
+        },
+        {
+          "id": "b",
+          "text": "$$1.77 \\times 10^{-7}\\ \\mathrm{F}$$",
+          "why": "C ∝ 1/d."
+        },
+        {
+          "id": "c",
+          "text": "$$1.77 \\times 10^{-13}\\ \\mathrm{F}$$",
+          "why": "Convert mm to m."
+        },
+        {
+          "id": "d",
+          "text": "$$4.43 \\times 10^{-13}\\ \\mathrm{F}$$",
+          "why": "C = ε₀A/d."
+        }
+      ],
+      "answer": "a",
+      "explanation": "C = (8.85 × 10⁻¹²)(0.02)/(0.001) = 1.77 \\times 10^{-10} F."
+    },
+    {
+      "id": "e34-q11",
+      "type": "mcq",
+      "topics": [
+        "amperes-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A solenoid 0.6 m long has 200 turns and carries 6 A. What is the magnetic field inside it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4 \\times 10^{-4}\\ \\mathrm{T}$$",
+          "why": "That resembles a wire's field; use B = μ₀nI."
+        },
+        {
+          "id": "b",
+          "text": "$$2.51 \\times 10^{-3}\\ \\mathrm{T}$$",
+          "why": "Correct. B = μ₀nI with n = N/L."
+        },
+        {
+          "id": "c",
+          "text": "$$1.51 \\times 10^{-3}\\ \\mathrm{T}$$",
+          "why": "Use turns per meter, N/L."
+        },
+        {
+          "id": "d",
+          "text": "$$1.26 \\times 10^{-5}\\ \\mathrm{T}$$",
+          "why": "Include the number of turns."
+        }
+      ],
+      "answer": "b",
+      "explanation": "B = μ₀(N/L)I = 2.51 \\times 10^{-3} T."
+    },
+    {
+      "id": "e34-q12",
+      "type": "mcq",
+      "topics": [
+        "magnetic-forces-on-current-carrying-wires"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 0.6 m wire carrying 7 A makes a 30° angle with a uniform 0.5 T magnetic field. What is the magnitude of the magnetic force on it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.05\\ \\mathrm{N}$$",
+          "why": "Correct. F = ILB sin θ."
+        },
+        {
+          "id": "b",
+          "text": "$$5.83\\ \\mathrm{N}$$",
+          "why": "F = ILB sin θ."
+        },
+        {
+          "id": "c",
+          "text": "$$2.1\\ \\mathrm{N}$$",
+          "why": "Include the angle."
+        },
+        {
+          "id": "d",
+          "text": "$$1.82\\ \\mathrm{N}$$",
+          "why": "Use sin θ, from the cross product."
+        }
+      ],
+      "answer": "a",
+      "explanation": "F = 7(0.6)(0.5) sin 30° = 1.05 N."
+    },
+    {
+      "id": "e34-q13",
+      "type": "mcq",
+      "topics": [
+        "electric-potential-energy",
+        "electric-potential"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "How much work must an external agent do to move a +6 µC charge slowly from a point at -22 V to a point at -23 V?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$6 \\times 10^{-6}\\ \\mathrm{J}$$",
+          "why": "ΔV is final minus initial."
+        },
+        {
+          "id": "b",
+          "text": "$$-2.7 \\times 10^{-4}\\ \\mathrm{J}$$",
+          "why": "Use the difference in potential."
+        },
+        {
+          "id": "c",
+          "text": "$$-6 \\times 10^{-6}\\ \\mathrm{J}$$",
+          "why": "Correct. W_ext = qΔV = q(V_b − V_a)."
+        },
+        {
+          "id": "d",
+          "text": "$$-6\\ \\mathrm{J}$$",
+          "why": "Convert µC to C."
+        }
+      ],
+      "answer": "c",
+      "explanation": "W = (6 × 10⁻⁶)(-23 − -22) = -6 \\times 10^{-6} J."
+    },
+    {
+      "id": "e34-q14",
+      "type": "mcq",
+      "topics": [
+        "magnetism-and-moving-charges"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A proton moves at $$9 \\times 10^{5}$$ m/s perpendicular to a uniform 0.11 T magnetic field. What is the radius of its path?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.0854\\ \\mathrm{m}$$",
+          "why": "Correct. qvB = mv²/r, so r = mv/(qB)."
+        },
+        {
+          "id": "b",
+          "text": "$$7.69 \\times 10^{4}\\ \\mathrm{m}$$",
+          "why": "r = mv/(qB)."
+        },
+        {
+          "id": "c",
+          "text": "$$4.66 \\times 10^{-5}\\ \\mathrm{m}$$",
+          "why": "Use the proton's mass."
+        },
+        {
+          "id": "d",
+          "text": "$$11.7\\ \\mathrm{m}$$",
+          "why": "The ratio is inverted."
+        }
+      ],
+      "answer": "a",
+      "explanation": "r = mv/(qB) = 0.0854 m."
+    },
+    {
+      "id": "e34-q15",
+      "type": "mcq",
+      "topics": [
+        "simple-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A battery with emf 17 V and internal resistance 0.6 Ω is connected to a 2 Ω resistor. What is the current?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$6.54\\ \\mathrm{A}$$",
+          "why": "Correct. I = ε/(R + r); V = ε − Ir."
+        },
+        {
+          "id": "b",
+          "text": "$$28.3\\ \\mathrm{A}$$",
+          "why": "The resistances are in series."
+        },
+        {
+          "id": "c",
+          "text": "$$44.2\\ \\mathrm{A}$$",
+          "why": "I = ε/(R + r)."
+        },
+        {
+          "id": "d",
+          "text": "$$8.5\\ \\mathrm{A}$$",
+          "why": "Include the internal resistance."
+        }
+      ],
+      "answer": "a",
+      "explanation": "I = 17/2.6 = 6.54 A; V = 13.1 V."
+    },
+    {
+      "id": "e34-q16",
+      "type": "mcq",
+      "topics": [
+        "capacitors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 4 µF capacitor is in parallel with a series combination of 9 µF and 5 µF. What is the equivalent capacitance?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3.11 µF",
+          "why": "The series and parallel rules are swapped (they are the reverse of resistors)."
+        },
+        {
+          "id": "b",
+          "text": "18 µF",
+          "why": "Not all the capacitors are in parallel."
+        },
+        {
+          "id": "c",
+          "text": "7.21 µF",
+          "why": "Correct. Capacitors add in parallel; reciprocals add in series."
+        },
+        {
+          "id": "d",
+          "text": "1.78 µF",
+          "why": "Not all the capacitors are in series."
+        }
+      ],
+      "answer": "c",
+      "explanation": "C_eq = 7.21 µF."
+    },
+    {
+      "id": "e34-q17",
+      "type": "mcq",
+      "topics": [
+        "capacitors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 11 µF capacitor is charged to 25 V. How much energy does it store?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.38 \\times 10^{-4}\\ \\mathrm{J}$$",
+          "why": "Square the voltage."
+        },
+        {
+          "id": "b",
+          "text": "$$3440\\ \\mathrm{J}$$",
+          "why": "Convert µF to F."
+        },
+        {
+          "id": "c",
+          "text": "$$3.44 \\times 10^{-3}\\ \\mathrm{J}$$",
+          "why": "Correct. U = ½CV²."
+        },
+        {
+          "id": "d",
+          "text": "$$6.88 \\times 10^{-3}\\ \\mathrm{J}$$",
+          "why": "U = ½CV²."
+        }
+      ],
+      "answer": "c",
+      "explanation": "U = ½(11 × 10⁻⁶)(25)² = 3.44 \\times 10^{-3} J."
+    },
+    {
+      "id": "e34-q18",
+      "type": "mcq",
+      "topics": [
+        "simple-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A battery with emf 18 V and internal resistance 0.3 Ω is connected to a 16 Ω resistor. What is the current?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.13\\ \\mathrm{A}$$",
+          "why": "Include the internal resistance."
+        },
+        {
+          "id": "b",
+          "text": "$$60\\ \\mathrm{A}$$",
+          "why": "The resistances are in series."
+        },
+        {
+          "id": "c",
+          "text": "$$1.1\\ \\mathrm{A}$$",
+          "why": "Correct. I = ε/(R + r); V = ε − Ir."
+        },
+        {
+          "id": "d",
+          "text": "$$293\\ \\mathrm{A}$$",
+          "why": "I = ε/(R + r)."
+        }
+      ],
+      "answer": "c",
+      "explanation": "I = 18/16.3 = 1.1 A; V = 17.7 V."
+    },
+    {
+      "id": "e34-q19",
+      "type": "mcq",
+      "topics": [
+        "electric-current"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "The current in a wire is $$I(t) = 6t^2$$ A. How much charge passes a point from $$t = 0$$ to $$t = 5$$ s?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$60\\ \\mathrm{C}$$",
+          "why": "Integrate, do not differentiate."
+        },
+        {
+          "id": "b",
+          "text": "$$750\\ \\mathrm{C}$$",
+          "why": "The current is not constant."
+        },
+        {
+          "id": "c",
+          "text": "$$150\\ \\mathrm{C}$$",
+          "why": "Integrate the current."
+        },
+        {
+          "id": "d",
+          "text": "$$250\\ \\mathrm{C}$$",
+          "why": "Correct. Q = ∫I dt."
+        }
+      ],
+      "answer": "d",
+      "explanation": "Q = ∫I dt = 250 C."
+    },
+    {
+      "id": "e34-q20",
+      "type": "mcq",
+      "topics": [
+        "resistance-resistivity-and-ohms-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A wire 36 m long has a diameter of 2.4 mm and resistivity $$5.6 \\times 10^{-8}$$ Ω·m. What is its resistance?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$7.04 \\times 10^{-15}\\ \\mathrm{\\Omega}$$",
+          "why": "R = ρL/A."
+        },
+        {
+          "id": "b",
+          "text": "$$0.111\\ \\mathrm{\\Omega}$$",
+          "why": "Use the radius, d/2."
+        },
+        {
+          "id": "c",
+          "text": "$$0.446\\ \\mathrm{\\Omega}$$",
+          "why": "Correct. R = ρL/A with A = π(d/2)²."
+        },
+        {
+          "id": "d",
+          "text": "$$4.46 \\times 10^{-7}\\ \\mathrm{\\Omega}$$",
+          "why": "Convert mm to m."
+        }
+      ],
+      "answer": "c",
+      "explanation": "A = 4.52 \\times 10^{-6} m²; R = 0.446 Ω."
+    },
+    {
+      "id": "e34-q21",
+      "type": "mcq",
+      "topics": [
+        "inductance"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "The current in a 0.44 H inductor changes by 3 A in 0.06 s. What is the magnitude of the average induced emf?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$33\\ \\mathrm{V}$$",
+          "why": "That is power from energy; use ε = L dI/dt."
+        },
+        {
+          "id": "b",
+          "text": "$$0.0792\\ \\mathrm{V}$$",
+          "why": "Divide by Δt."
+        },
+        {
+          "id": "c",
+          "text": "$$114\\ \\mathrm{V}$$",
+          "why": "ε = L dI/dt."
+        },
+        {
+          "id": "d",
+          "text": "$$22\\ \\mathrm{V}$$",
+          "why": "Correct. ε = L ΔI/Δt."
+        }
+      ],
+      "answer": "d",
+      "explanation": "ε = 0.44(3)/0.06 = 22 V."
+    },
+    {
+      "id": "e34-q22",
+      "type": "mcq",
+      "topics": [
+        "equipotentials-and-the-electric-field"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "Two parallel plates 0.08 m apart have a potential difference of 80 V. What is the field between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.25 \\times 10^{4}\\ \\mathrm{V/m}$$",
+          "why": "E = V/d."
+        },
+        {
+          "id": "b",
+          "text": "$$1000\\ \\mathrm{V/m}$$",
+          "why": "Correct. In a uniform field, E = ΔV/d."
+        },
+        {
+          "id": "c",
+          "text": "$$6.4\\ \\mathrm{V/m}$$",
+          "why": "Divide by the separation."
+        },
+        {
+          "id": "d",
+          "text": "$$1 \\times 10^{-3}\\ \\mathrm{V/m}$$",
+          "why": "The ratio is inverted."
+        }
+      ],
+      "answer": "b",
+      "explanation": "E = 80/0.08 = 1000 V/m."
+    },
+    {
+      "id": "e34-q23",
+      "type": "mcq",
+      "topics": [
+        "faradays-and-lenzs-laws",
+        "magnetic-flux"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 2,
+      "stem": "A 70-turn coil of area 0.06 m² is perpendicular to a magnetic field that changes by 0.3 T in 0.9 s. What is the magnitude of the average induced emf?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$23.3\\ \\mathrm{V}$$",
+          "why": "Flux includes the area."
+        },
+        {
+          "id": "b",
+          "text": "$$1.4\\ \\mathrm{V}$$",
+          "why": "Correct. ε = N ΔΦ/Δt."
+        },
+        {
+          "id": "c",
+          "text": "$$1.13\\ \\mathrm{V}$$",
+          "why": "Divide by the time."
+        },
+        {
+          "id": "d",
+          "text": "$$0.02\\ \\mathrm{V}$$",
+          "why": "Multiply by the number of turns."
+        }
+      ],
+      "answer": "b",
+      "explanation": "ε = 70(0.06)(0.3)/0.9 = 1.4 V."
+    },
+    {
+      "id": "e34-q24",
+      "type": "mcq",
+      "topics": [
+        "dielectrics",
+        "capacitors"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A parallel-plate capacitor is charged and remains connected to the battery. A dielectric with κ = 2 is inserted to fill the gap. What happens to the capacitor's charge?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is divided by 2",
+          "why": "Decide first whether Q or V is held fixed."
+        },
+        {
+          "id": "b",
+          "text": "It is unchanged",
+          "why": "Inserting the dielectric changes the capacitance."
+        },
+        {
+          "id": "c",
+          "text": "It is multiplied by 4",
+          "why": "Each quantity changes by at most a factor of κ."
+        },
+        {
+          "id": "d",
+          "text": "It is multiplied by 2",
+          "why": "Correct. With the battery connected, V is fixed and C rises by κ."
+        }
+      ],
+      "answer": "d",
+      "explanation": "C becomes κC. V fixed: Q = CV and U = ½CV² rise by κ."
+    },
+    {
+      "id": "e34-q25",
+      "type": "mcq",
+      "topics": [
+        "dielectrics",
+        "capacitors"
+      ],
+      "skills": [
+        "3"
+      ],
+      "difficulty": 3,
+      "stem": "A parallel-plate capacitor is charged and remains connected to the battery. A dielectric with κ = 5 is inserted to fill the gap. What happens to the capacitor's voltage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is unchanged",
+          "why": "Correct. With the battery connected, V is fixed and C rises by κ."
+        },
+        {
+          "id": "b",
+          "text": "It is divided by 25",
+          "why": "Each quantity changes by at most a factor of κ."
+        },
+        {
+          "id": "c",
+          "text": "It is multiplied by 5",
+          "why": "Decide first whether Q or V is held fixed."
+        },
+        {
+          "id": "d",
+          "text": "It is multiplied by 25",
+          "why": "Each quantity changes by at most a factor of κ."
+        }
+      ],
+      "answer": "a",
+      "explanation": "C becomes κC. V fixed: Q = CV and U = ½CV² rise by κ."
+    },
+    {
+      "id": "e34-q26",
+      "type": "mcq",
+      "topics": [
+        "electric-fields"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A charge of +25q is at $$x = 0$$ and a charge of +q is at $$x = 2$$ m. At what point between them is the electric field zero?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1\\ \\mathrm{m}$$",
+          "why": "The charges are unequal."
+        },
+        {
+          "id": "b",
+          "text": "$$1.92\\ \\mathrm{m}$$",
+          "why": "Compare r², so take square roots."
+        },
+        {
+          "id": "c",
+          "text": "$$0.333\\ \\mathrm{m}$$",
+          "why": "The zero point is closer to the smaller charge."
+        },
+        {
+          "id": "d",
+          "text": "$$1.67\\ \\mathrm{m}$$",
+          "why": "Correct. k(25q)/x² = kq/(2 − x)²."
+        }
+      ],
+      "answer": "d",
+      "explanation": "√25(2 − x) = x gives x = 1.67 m."
+    },
+    {
+      "id": "e34-q27",
+      "type": "mcq",
+      "topics": [
+        "compound-direct-current-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 3 Ω resistor is in series with a parallel pair of 9 Ω and 11 Ω, connected to an ideal 22 V battery. What is the current from the battery?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.957\\ \\mathrm{A}$$",
+          "why": "R₂ and R₃ are in parallel."
+        },
+        {
+          "id": "b",
+          "text": "$$2.77\\ \\mathrm{A}$$",
+          "why": "Correct. Reduce the parallel pair, add the series resistor, then work back."
+        },
+        {
+          "id": "c",
+          "text": "$$7.33\\ \\mathrm{A}$$",
+          "why": "Use the equivalent resistance."
+        },
+        {
+          "id": "d",
+          "text": "$$4.44\\ \\mathrm{A}$$",
+          "why": "Include R₁."
+        }
+      ],
+      "answer": "b",
+      "explanation": "R_eq = 3 + 4.95 = 7.95 Ω; I = 2.77 A; I in 9 Ω = 1.52 A."
+    },
+    {
+      "id": "e34-q28",
+      "type": "mcq",
+      "topics": [
+        "magnetic-forces-on-current-carrying-wires"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Two long parallel wires 0.02 m apart carry 3 A and 12 A in the same direction. What is the force per meter between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$0.018\\ \\mathrm{N/m}$$, and the wires attract",
+          "why": "The force per length falls off as 1/d."
+        },
+        {
+          "id": "b",
+          "text": "$$3.6 \\times 10^{-4}\\ \\mathrm{N/m}$$, and the wires attract",
+          "why": "Correct. F/L = μ₀I₁I₂/(2πd); parallel currents attract."
+        },
+        {
+          "id": "c",
+          "text": "$$3.6 \\times 10^{-4}\\ \\mathrm{N/m}$$, and the wires repel",
+          "why": "Parallel currents attract; antiparallel currents repel."
+        },
+        {
+          "id": "d",
+          "text": "$$1.8 \\times 10^{-4}\\ \\mathrm{N/m}$$, and the wires attract",
+          "why": "F/L = μ₀I₁I₂/(2πd)."
+        }
+      ],
+      "answer": "b",
+      "explanation": "F/L = 3.6 \\times 10^{-4} N/m; the wires attract."
+    },
+    {
+      "id": "e34-q29",
+      "type": "mcq",
+      "topics": [
+        "resistor-inductor-lr-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "An ideal 22 V battery is connected at $$t = 0$$ to a 20 Ω resistor and a 1.5 H inductor in series. What is the current at $$t = 0.15$$ s?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.1\\ \\mathrm{A}$$",
+          "why": "The current has not reached its final value."
+        },
+        {
+          "id": "b",
+          "text": "$$0.149\\ \\mathrm{A}$$",
+          "why": "The current grows from zero."
+        },
+        {
+          "id": "c",
+          "text": "$$1.09\\ \\mathrm{A}$$",
+          "why": "τ = L/R."
+        },
+        {
+          "id": "d",
+          "text": "$$0.951\\ \\mathrm{A}$$",
+          "why": "Correct. τ = L/R = 0.075 s; I = (ε/R)(1 − e^(−t/τ))."
+        }
+      ],
+      "answer": "d",
+      "explanation": "I = (22/20)(1 − e^(−0.15/0.075)) = 0.951 A."
+    },
+    {
+      "id": "e34-q30",
+      "type": "mcq",
+      "topics": [
+        "kirchhoffs-loop-rule",
+        "kirchhoffs-junction-rule"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A single loop contains a 6 V battery and a 5 V battery connected so their emfs oppose each other, plus resistors of 1 Ω and 7 Ω. What is the current?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$1.38\\ \\mathrm{A}$$",
+          "why": "The batteries oppose each other."
+        },
+        {
+          "id": "b",
+          "text": "$$0.75\\ \\mathrm{A}$$",
+          "why": "Include the opposing battery."
+        },
+        {
+          "id": "c",
+          "text": "$$1\\ \\mathrm{A}$$",
+          "why": "Both resistors are in the loop."
+        },
+        {
+          "id": "d",
+          "text": "$$0.125\\ \\mathrm{A}$$",
+          "why": "Correct. Loop rule: ε₁ − ε₂ − I(R₁ + R₂) = 0."
+        }
+      ],
+      "answer": "d",
+      "explanation": "I = (6 − 5)/(1 + 7) = 0.125 A."
+    },
+    {
+      "id": "e34-q31",
+      "type": "mcq",
+      "topics": [
+        "redistribution-of-charge-between-conductors",
+        "electrostatics-with-conductors"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A conducting sphere of radius 4 cm carrying 99 nC is connected by a long thin wire to an uncharged conducting sphere of radius 5 cm far away. What charge ends up on the smaller sphere?",
+      "options": [
+        {
+          "id": "a",
+          "text": "38.6 nC",
+          "why": "Equal potential gives Q ∝ R, not R²."
+        },
+        {
+          "id": "b",
+          "text": "44 nC",
+          "why": "Correct. Connected spheres reach equal potential, so Q ∝ R."
+        },
+        {
+          "id": "c",
+          "text": "49.5 nC",
+          "why": "The spheres have different radii."
+        },
+        {
+          "id": "d",
+          "text": "55 nC",
+          "why": "That is the larger sphere's charge."
+        }
+      ],
+      "answer": "b",
+      "explanation": "kQ₁/R₁ = kQ₂/R₂ with Q₁ + Q₂ = 99: Q₁ = 44 nC."
+    },
+    {
+      "id": "e34-q32",
+      "type": "mcq",
+      "topics": [
+        "electric-fields-of-charge-distributions"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A ring of radius 0.18 m carries 2 µC spread uniformly. What is the field magnitude on its axis 0.06 m from the center?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$4.99 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "Only the axial components add; the others cancel."
+        },
+        {
+          "id": "b",
+          "text": "$$1.58 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "Correct. E = kQx/(x² + a²)^(3/2)."
+        },
+        {
+          "id": "c",
+          "text": "$$4.99 \\times 10^{6}\\ \\mathrm{N/C}$$",
+          "why": "The charge is not at the center."
+        },
+        {
+          "id": "d",
+          "text": "$$3 \\times 10^{4}\\ \\mathrm{N/C}$$",
+          "why": "The denominator has a 3/2 power."
+        }
+      ],
+      "answer": "b",
+      "explanation": "E = kQx/(x² + a²)^(3/2) = 1.58 \\times 10^{5} N/C."
+    },
+    {
+      "id": "e34-q33",
+      "type": "mcq",
+      "topics": [
+        "electric-potential-energy"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Charges of -2 µC, 4 µC, 1 µC sit at the corners of an equilateral triangle with sides 0.3 m. What is the system's electric potential energy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-0.599\\ \\mathrm{J}$$",
+          "why": "Potential energy uses 1/r."
+        },
+        {
+          "id": "b",
+          "text": "$$-0.12\\ \\mathrm{J}$$",
+          "why": "There are three pairs."
+        },
+        {
+          "id": "c",
+          "text": "$$-0.18\\ \\mathrm{J}$$",
+          "why": "Correct. Add kqᵢqⱼ/r for all three pairs."
+        },
+        {
+          "id": "d",
+          "text": "$$0.18\\ \\mathrm{J}$$",
+          "why": "Keep the signs of the charges."
+        }
+      ],
+      "answer": "c",
+      "explanation": "U = (k/s)(q₁q₂ + q₂q₃ + q₁q₃) = -0.18 J."
+    },
+    {
+      "id": "e34-q34",
+      "type": "mcq",
+      "topics": [
+        "equipotentials-and-the-electric-field"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "The electric potential along the x-axis is $$V(x) = 50x^2$$ V. What is the x-component of the electric field at $$x = 0.5$$ m?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$-2.08\\ \\mathrm{V/m}$$",
+          "why": "Differentiate, do not integrate."
+        },
+        {
+          "id": "b",
+          "text": "$$-12.5\\ \\mathrm{V/m}$$",
+          "why": "Differentiate V."
+        },
+        {
+          "id": "c",
+          "text": "$$50\\ \\mathrm{V/m}$$",
+          "why": "E = −dV/dx: include the minus sign."
+        },
+        {
+          "id": "d",
+          "text": "$$-50\\ \\mathrm{V/m}$$",
+          "why": "Correct. E_x = −dV/dx."
+        }
+      ],
+      "answer": "d",
+      "explanation": "E_x = −100x = -50 V/m."
+    },
+    {
+      "id": "e34-q35",
+      "type": "mcq",
+      "topics": [
+        "gausss-law"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A solid insulating sphere of radius 0.12 m has 8 µC distributed uniformly through its volume. What is the field magnitude 0.192 m from its center?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$7.99 \\times 10^{6}\\ \\mathrm{N/C}$$",
+          "why": "Outside, all the charge is enclosed."
+        },
+        {
+          "id": "b",
+          "text": "$$3.75 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "E falls off as 1/r²."
+        },
+        {
+          "id": "c",
+          "text": "$$1.95 \\times 10^{6}\\ \\mathrm{N/C}$$",
+          "why": "Correct. Outside, the sphere acts like a point charge."
+        },
+        {
+          "id": "d",
+          "text": "$$4.99 \\times 10^{6}\\ \\mathrm{N/C}$$",
+          "why": "Use the distance from the center, r."
+        }
+      ],
+      "answer": "c",
+      "explanation": "E = kQ/r² = 1.95 \\times 10^{6} N/C."
+    },
+    {
+      "id": "e34-q36",
+      "type": "mcq",
+      "topics": [
+        "inductor-capacitor-lc-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "An LC circuit has a 32 mH inductor and a 1 µF capacitor. What is its frequency f of oscillation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$5590\\ \\mathrm{Hz}$$",
+          "why": "That is ω; divide by 2π."
+        },
+        {
+          "id": "b",
+          "text": "$$890\\ \\mathrm{Hz}$$",
+          "why": "Correct. ω = 1/√(LC), f = ω/(2π)."
+        },
+        {
+          "id": "c",
+          "text": "$$0.9\\ \\mathrm{Hz}$$",
+          "why": "Convert mH and µF; ω = 1/√(LC)."
+        },
+        {
+          "id": "d",
+          "text": "$$4.97 \\times 10^{6}\\ \\mathrm{Hz}$$",
+          "why": "Take the square root of LC."
+        }
+      ],
+      "answer": "b",
+      "explanation": "ω = 1/√(LC) = 5590 rad/s; f = 890 Hz."
+    },
+    {
+      "id": "e34-q37",
+      "type": "mcq",
+      "topics": [
+        "resistor-capacitor-rc-circuits"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "A 2 µF capacitor starts uncharged and is charged through a 20 kΩ resistor by a 24 V battery. What is the capacitor's voltage after 0.02 s?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$14.6\\ \\mathrm{V}$$",
+          "why": "That is the charging resistor's voltage."
+        },
+        {
+          "id": "b",
+          "text": "$$9.44\\ \\mathrm{V}$$",
+          "why": "Correct. τ = RC = 0.04 s; V = ε(1 − e^(−t/τ))."
+        },
+        {
+          "id": "c",
+          "text": "$$12\\ \\mathrm{V}$$",
+          "why": "The change is exponential, not linear."
+        },
+        {
+          "id": "d",
+          "text": "$$0.012\\ \\mathrm{V}$$",
+          "why": "Convert kΩ and µF to Ω and F."
+        }
+      ],
+      "answer": "b",
+      "explanation": "τ = 0.04 s; V = 9.44 V."
+    },
+    {
+      "id": "e34-q38",
+      "type": "mcq",
+      "topics": [
+        "electric-charge-and-electric-force",
+        "electric-fields"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "Charges of +9 µC and +7 µC are 1 m apart. What is the magnitude of the electric field at the midpoint between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$7.19 \\times 10^{4}\\ \\mathrm{N/C}$$",
+          "why": "Correct. Like charges' fields point in opposite directions at the midpoint: subtract."
+        },
+        {
+          "id": "b",
+          "text": "$$1.44 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "Each charge is d/2 from the midpoint."
+        },
+        {
+          "id": "c",
+          "text": "$$5.75 \\times 10^{5}\\ \\mathrm{N/C}$$",
+          "why": "Check the directions of the two fields at the midpoint."
+        },
+        {
+          "id": "d",
+          "text": "$$1.8 \\times 10^{4}\\ \\mathrm{N/C}$$",
+          "why": "The distance is d/2, so r² = d²/4."
+        }
+      ],
+      "answer": "a",
+      "explanation": "Each field is k q/(d/2)²: 3.24 \\times 10^{5} and 2.52 \\times 10^{5} N/C, opposite, giving 7.19 \\times 10^{4} N/C."
+    },
+    {
+      "id": "e34-q39",
+      "type": "mcq",
+      "topics": [
+        "magnetic-flux"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 4,
+      "stem": "A rectangular loop of length 0.5 m lies in the plane of a long straight wire carrying 9 A, parallel to it. Its near and far sides are 0.06 m and 0.08 m from the wire. What is the magnetic flux through the loop?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$5.14 \\times 10^{-7}\\ \\mathrm{Wb}$$",
+          "why": "Integrate across the loop."
+        },
+        {
+          "id": "b",
+          "text": "$$2.59 \\times 10^{-7}\\ \\mathrm{Wb}$$",
+          "why": "Correct. Φ = ∫(μ₀I/2πr)L dr = (μ₀IL/2π) ln(b/a)."
+        },
+        {
+          "id": "c",
+          "text": "$$1.8 \\times 10^{-8}\\ \\mathrm{Wb}$$",
+          "why": "Integrate 1/r to get a logarithm."
+        },
+        {
+          "id": "d",
+          "text": "$$3 \\times 10^{-7}\\ \\mathrm{Wb}$$",
+          "why": "The field is not uniform across the loop."
+        }
+      ],
+      "answer": "b",
+      "explanation": "Φ = (μ₀IL/2π) ln(0.08/0.06) = 2.59 \\times 10^{-7} Wb."
+    },
+    {
+      "id": "e34-q40",
+      "type": "mcq",
+      "topics": [
+        "equipotentials-and-the-electric-field"
+      ],
+      "skills": [
+        "2"
+      ],
+      "difficulty": 3,
+      "stem": "The electric potential along the x-axis is $$V(x) = 40x^3$$ V. What is the x-component of the electric field at $$x = 1$$ m?",
+      "options": [
+        {
+          "id": "a",
+          "text": "$$120\\ \\mathrm{V/m}$$",
+          "why": "E = −dV/dx: include the minus sign."
+        },
+        {
+          "id": "b",
+          "text": "$$-120\\ \\mathrm{V/m}$$",
+          "why": "Correct. E_x = −dV/dx."
+        },
+        {
+          "id": "c",
+          "text": "$$-10\\ \\mathrm{V/m}$$",
+          "why": "Differentiate, do not integrate."
+        },
+        {
+          "id": "d",
+          "text": "$$-40\\ \\mathrm{V/m}$$",
+          "why": "Differentiate V."
+        }
+      ],
+      "answer": "b",
+      "explanation": "E_x = −120x² = -120 V/m."
+    },
+    {
+      "id": "e34-frq1",
+      "type": "frq",
+      "format": "mr",
+      "title": "A uniformly charged insulating sphere",
+      "topics": [
+        "gausss-law",
+        "electric-potential-of-charge-distributions",
+        "electric-potential"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 4,
+      "minutes": 25,
+      "stimuli": [
+        "e34-frq1-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Using Gauss's law, derive expressions for the electric field magnitude inside (r < R) and outside (r > R) the sphere.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Spherical Gaussian surface; enclosed charge inside is Q(r/R)³.",
+              "example": "$$E(4\\pi r^2) = \\frac{Q r^3}{\\varepsilon_0 R^3}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct inside expression.",
+              "example": "$$E = \\frac{Qr}{4\\pi\\varepsilon_0 R^3}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Correct outside expression.",
+              "example": "$$E = \\frac{Q}{4\\pi\\varepsilon_0 r^2}$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Calculate the field magnitude at r = 0.07 m and at r = 0.28 m.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Both values correct.",
+              "example": "459 N/C and 229 N/C"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Sketch (describe) a graph of E versus r from 0 to 3R.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Linear increase from 0 to a maximum at R, then 1/r² decrease.",
+              "example": "Peak value kQ/R² = 917 N/C at r = R."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Calculate the electric potential at the surface and at the center (V = 0 at infinity).",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Surface potential.",
+              "example": "V(R) = kQ/R = 128 V"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Center potential by integrating the inside field.",
+              "example": "$$V(0) = \\frac{3kQ}{2R}$$ = 193 V"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e34-frq2",
+      "type": "frq",
+      "format": "tbr",
+      "title": "Charging a capacitor",
+      "topics": [
+        "resistor-capacitor-rc-circuits",
+        "capacitors"
+      ],
+      "skills": [
+        "1",
+        "2"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e34-frq2-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Write the loop equation for the circuit and solve it to find q(t).",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Correct differential equation.",
+              "example": "$$\\varepsilon - R\\frac{dq}{dt} - \\frac{q}{C} = 0$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct solution.",
+              "example": "$$q(t) = C\\varepsilon\\left(1 - e^{-t/RC}\\right)$$"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Calculate the time constant, the initial current and the final charge on the capacitor.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Time constant.",
+              "example": "τ = RC = 0.38 s"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Initial current.",
+              "example": "I₀ = ε/R = 1.11 \\times 10^{-4} A"
+            },
+            {
+              "kind": "point",
+              "id": "p3",
+              "criterion": "Final charge.",
+              "example": "Q = Cε = 4.2 \\times 10^{-5} C"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Sketch (describe) graphs of the capacitor's voltage and the current versus time.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Capacitor voltage rises from 0 toward ε, concave down.",
+              "example": "Approaches 21 V."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Current decays exponentially from I₀ toward 0.",
+              "example": "About 37% of I₀ at t = τ."
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Calculate the energy stored in the capacitor after a long time, and compare it with the energy supplied by the battery.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Stored energy.",
+              "example": "U = ½Cε² = 4.41 \\times 10^{-4} J"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "The battery supplies Qε, twice as much; half is dissipated in the resistor.",
+              "example": "8.82 \\times 10^{-4} J supplied"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e34-frq3",
+      "type": "frq",
+      "format": "lab",
+      "title": "Measuring resistivity",
+      "topics": [
+        "resistance-resistivity-and-ohms-law",
+        "simple-circuits"
+      ],
+      "skills": [
+        "1",
+        "2",
+        "3"
+      ],
+      "difficulty": 3,
+      "minutes": 25,
+      "stimuli": [
+        "e34-frq3-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Describe (draw) how the ammeter and voltmeter should be connected, and how R is determined.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Ammeter in series with the wire; voltmeter in parallel across it.",
+              "example": "R = V/I for each length."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Keep the current small or brief so the wire does not heat up.",
+              "example": "Heating would change the resistivity."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Plot (describe) R versus L and draw a best-fit line. Calculate its slope.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Linear relationship through (near) the origin.",
+              "example": "R ∝ L"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Slope.",
+              "example": "about 7.87 Ω/m"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Use the slope to calculate the resistivity of the wire.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses slope = ρ/A with A = π(d/2)².",
+              "example": "A = 1.26 \\times 10^{-7} m²"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct resistivity.",
+              "example": "ρ ≈ 9.9 \\times 10^{-7} Ω·m"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "The students then use a wire of the same material with twice the diameter. Predict the new slope of R versus L and explain.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "The slope becomes one quarter as large because the area quadruples.",
+              "example": "about 1.97 Ω/m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e34-frq4",
+      "type": "frq",
+      "format": "qqt",
+      "title": "A sliding rod in a magnetic field",
+      "topics": [
+        "induced-currents-and-magnetic-forces",
+        "faradays-and-lenzs-laws"
+      ],
+      "skills": [
+        "2",
+        "3"
+      ],
+      "difficulty": 4,
+      "minutes": 25,
+      "stimuli": [
+        "e34-frq4-s"
+      ],
+      "parts": [
+        {
+          "id": "a",
+          "prompt": "Describe qualitatively how the rod's speed changes after it is released, and explain using Lenz's law.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "The rod slows down, approaching zero.",
+              "example": "Its speed decreases ever more slowly."
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "The induced current produces a magnetic force opposing the motion (Lenz's law).",
+              "example": "The force opposes the change in flux."
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "prompt": "Derive an expression for the magnetic force on the rod in terms of B, L, v and R.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Uses ε = BLv and I = ε/R.",
+              "example": "$$I = \\frac{BLv}{R}$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Correct force.",
+              "example": "$$F = ILB = \\frac{B^2L^2v}{R}$$"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "prompt": "Write and solve a differential equation for v(t).",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Newton's second law.",
+              "example": "$$m\\frac{dv}{dt} = -\\frac{B^2L^2}{R}v$$"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "Exponential solution.",
+              "example": "$$v = v_0e^{-t/\\tau}$$, $$\\tau = \\frac{mR}{B^2L^2}$$ = 4.54 s"
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "prompt": "Calculate the initial current, and explain where the rod's initial kinetic energy ends up.",
+          "rubric": [
+            {
+              "kind": "point",
+              "id": "p1",
+              "criterion": "Initial current.",
+              "example": "I₀ = BLv₀/R = 1.89 A"
+            },
+            {
+              "kind": "point",
+              "id": "p2",
+              "criterion": "All of the kinetic energy is dissipated as thermal energy in the resistor.",
+              "example": "16.2 J"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

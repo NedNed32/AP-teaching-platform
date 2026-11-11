@@ -1,0 +1,80 @@
+---
+objectives:
+  - State the Mean Value Theorem and verify its hypotheses.
+  - Find the value guaranteed by the theorem, and use it to justify claims about rates.
+keyTerms:
+  - term: Mean Value Theorem
+    definition: 'If $$f$$ is continuous on $$[a, b]$$ and differentiable on $$(a, b)$$, then $$f''(c) = \frac{f(b) - f(a)}{b - a}$$ for some $$c$$ in $$(a, b)$$.'
+  - term: Rolle's Theorem
+    definition: 'The special case $$f(a) = f(b)$$: then $$f''(c) = 0$$ for some $$c$$ in $$(a, b)$$.'
+checks:
+  - q: 'A car travels 120 miles in 2 hours. What does the MVT guarantee?'
+    a: 'At some instant its speed was exactly 60 miles per hour.'
+  - q: 'Does the MVT apply to $$|x|$$ on $$[-1, 1]$$?'
+    a: 'No. $$|x|$$ is not differentiable at 0, which is inside the interval.'
+sources:
+  - title: Calculus Volume 1, section 4.4 "The Mean Value Theorem"
+    publisher: OpenStax
+    url: https://openstax.org/details/books/calculus-volume-1
+  - title: AP Calculus AB course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-calculus-ab
+reviewed: false
+---
+
+If your average speed on a trip was 60 mph, then at some moment your speedometer read exactly 60. The Mean Value Theorem turns that intuition into a guarantee for any smooth function.
+
+<Figure src="assets/lessons/mvt.svg" alt="A downward parabola with a secant line joining two points, and a dashed tangent line parallel to the secant touching the curve at a point c between them." caption="Somewhere between a and b, the tangent is parallel to the secant." />
+
+## The theorem
+
+If $$f$$ is
+
+1. **continuous** on the closed interval $$[a, b]$$, and
+2. **differentiable** on the open interval $$(a, b)$$,
+
+then there is at least one $$c$$ in $$(a, b)$$ with
+
+$$
+f'(c) = \frac{f(b) - f(a)}{b - a}.
+$$
+
+Geometrically: some tangent line is parallel to the secant line through the endpoints. In words: the instantaneous rate equals the average rate at least once.
+
+## Typical exam use
+
+A table gives values of a differentiable function. "Must there be a time $$c$$ where $$f'(c) = 2$$?" Compute the average rate on an interval of the table; if it equals 2, the MVT says yes.
+
+<Note title="Name both conditions">
+A full justification says that $$f$$ is differentiable (so also continuous) on the interval, computes the average rate of change, and cites the Mean Value Theorem. If you are only told $$f$$ is continuous, the MVT cannot be used; consider the IVT instead.
+</Note>
+
+<WorkedExample title="Finding the guaranteed value">
+Find the value of $$c$$ guaranteed by the MVT for $$f(x) = x^3$$ on $$[0, 3]$$.
+
+1. $$f$$ is a polynomial, so the hypotheses hold.
+2. Average rate: $$\frac{27 - 0}{3} = 9$$.
+3. $$f'(c) = 3c^2 = 9$$ gives $$c^2 = 3$$, so $$c = \sqrt{3}$$ (the negative root is outside the interval).
+
+**Answer:** $$c = \sqrt{3} \approx 1.732$$.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Let $$f(x) = x^{2} - 4x$$. What value of $$c$$ satisfies the conclusion of the Mean Value Theorem for $$f$$ on the interval $$[0, 6]$$?
+
+**Answer:** $$3$$
+
+**Why:** The average rate of change is $$\frac{f(6) - f(0)}{6} = 2$$, and $$f'(c) = 2c - 4 = 2$$ gives $$c = 3$$.
+
+**Working:** $$\frac{f(6) - f(0)}{6 - 0} = 2$$. Set $$f'(c) = 2c - 4 = 2$$: $$c = 3$$, which lies in $$(0, 6)$$.
+
+**Mistakes to avoid**
+
+- $$0$$: The MVT guarantees a point strictly inside the interval, and this endpoint doesn't satisfy the equation.
+- $$6$$: The MVT guarantees a point strictly inside the interval, and this endpoint doesn't satisfy the equation.
+- $$2$$: This is where f′(c) = 0, the vertex, not where f′(c) equals the average rate of change.

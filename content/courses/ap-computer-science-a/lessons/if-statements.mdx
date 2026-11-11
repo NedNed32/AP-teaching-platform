@@ -1,0 +1,177 @@
+---
+objectives:
+  - Write and trace if and if-else statements.
+keyTerms:
+  - term: if statement
+    definition: 'Runs a block of code only when its condition is true.'
+  - term: if-else statement
+    definition: 'Runs one block when the condition is true and another when it is false.'
+checks:
+  - q: 'How many branches of an if-else run?'
+    a: 'Exactly one.'
+  - q: 'What runs when an if condition is false and there is no else?'
+    a: 'Nothing in the if block; execution continues after it.'
+sources:
+  - title: CSAwesome, "Boolean Expressions and if Statements"
+    publisher: Runestone Academy
+    url: https://runestone.academy/ns/books/published/csawesome/index.html
+  - title: AP Computer Science A course and exam description
+    publisher: College Board
+    url: https://apcentral.collegeboard.org/courses/ap-computer-science-a
+reviewed: false
+---
+
+An `if` statement lets a program choose what to do based on a condition.
+
+## One-way and two-way selection
+
+```java
+if (temp > 30) {
+    System.out.println("Hot");
+}
+
+if (score >= 60) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail");
+}
+```
+
+## Multi-way selection
+
+```java
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else {
+    grade = "F";
+}
+```
+
+Conditions are checked **top to bottom**, and only the **first** true branch runs.
+
+<Note title="Separate ifs are different">
+Three separate `if` statements can each run. An `if / else if` chain runs at most one branch. Exam questions often hinge on that difference.
+</Note>
+
+<WorkedExample title="Chain versus separate ifs">
+With `int n = 15;`, what does each segment print?
+
+```java
+// Segment A
+if (n % 3 == 0) System.out.print("Fizz");
+else if (n % 5 == 0) System.out.print("Buzz");
+
+// Segment B
+if (n % 3 == 0) System.out.print("Fizz");
+if (n % 5 == 0) System.out.print("Buzz");
+```
+
+1. A: the first condition is true, so only "Fizz" prints.
+2. B: both conditions are true and both run.
+
+**Answer:** A prints `Fizz`; B prints `FizzBuzz`.
+</WorkedExample>
+
+## On the practice exams
+
+These are the kinds of questions the practice exams ask about this topic. Each has a full answer, the reasoning, and the reason each wrong option is wrong. If you can do all of them without looking, you are ready for this topic on the exams.
+
+### Worked exam question 1
+
+Consider the following code segment.
+
+```java
+int n = 36;
+String r = "";
+if (n > 42) {
+    r += "X";
+}
+if (n > 22) {
+    r += "Y";
+} else if (n > 10) {
+    r += "Z";
+} else {
+    r += "W";
+}
+System.out.println(r);
+```
+
+What is printed as a result of executing the code segment?
+
+**Answer:** `Y`
+
+**Why:** The first if is separate; the second statement is a chain where only one branch runs.
+
+**Working:** n = 36: the first if adds nothing; in the chain n > 22 adds Y.
+
+**Mistakes to avoid**
+
+- `YZ`: In an if / else if chain, only the first true branch runs.
+- `XY`: Trace each condition with n = 36.
+- `XZ`: Trace each condition with n = 36.
+
+### Free-response practice: Parking fees
+
+A parking garage charges for each stay as follows.
+
+• Stays of 15 minutes or less are free.
+
+• Otherwise the fee is 4 dollars for each hour or part of an hour (so 61 minutes counts as 2 hours).
+
+• No stay costs more than 24 dollars.
+
+```java
+public class Garage {
+    /** Returns the fee, in dollars, for a stay of the given length. Precondition: 0 <= minutes <= 1440 */
+    public static int fee(int minutes) { /* part (a) */ }
+    /** Returns the longest stay, in minutes from 0 to 1440, whose fee is at most budget. */
+    public static int longestStay(int budget) { /* part (b) */ }
+}
+```
+
+Examples: `fee(15)` returns 0, `fee(22)` returns 4, `fee(163)` returns 12, `fee(840)` returns 24. `longestStay(16)` returns 240.
+
+**(a)** Write the method `fee`.
+
+To earn the point: Returns 0 for stays of 15 minutes or less. Model answer: `if (minutes <= 15) return 0;`
+
+To earn the point: Counts hours, rounding any partial hour up. Model answer: `int hours = (minutes + 59) / 60;`
+
+To earn the point: Applies the 24-dollar maximum and returns the fee. Model answer:
+
+```java
+public static int fee(int minutes) {
+    if (minutes <= 15) {
+        return 0;
+    }
+    int hours = (minutes + 59) / 60;
+    int cost = hours * 4;
+    if (cost > 24) {
+        cost = 24;
+    }
+    return cost;
+}
+```
+
+**(b)** Write the method `longestStay`. Assume `fee` works as specified, regardless of what you wrote in part (a).
+
+To earn the point: Examines stay lengths from 0 to 1440 (in either direction). Model answer: `for (int m = 1440; m >= 0; m--)`
+
+To earn the point: Calls fee and compares the result with budget. Model answer: `if (fee(m) <= budget)`
+
+To earn the point: Returns the longest qualifying length. Model answer:
+
+```java
+public static int longestStay(int budget) {
+    for (int m = 1440; m >= 0; m--) {
+        if (fee(m) <= budget) {
+            return m;
+        }
+    }
+    return 0;
+}
+```
