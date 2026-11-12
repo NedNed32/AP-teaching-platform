@@ -1,5 +1,5 @@
 /*
- * Writes lesson MDX files from the compact data in each course folder here (mech, em, cyber, biz, stats, cgov, chem).
+ * Writes lesson MDX files from the compact data in each course folder here (mech, em, cyber, biz, stats, cgov, chem, psych).
  * Run: node scripts/lesson-data/build.mjs
  */
 import fs from "node:fs";
@@ -49,6 +49,13 @@ const COURSES = {
     sources: [
       ["AP Comparative Government and Politics course and exam description", "College Board", "https://apcentral.collegeboard.org/courses/ap-comparative-government-and-politics"],
       ["Introduction to Political Science", "OpenStax", "https://openstax.org/details/books/introduction-political-science"],
+    ],
+  },
+  psych: {
+    id: "ap-psychology",
+    sources: [
+      ["AP Psychology course and exam description", "College Board", "https://apcentral.collegeboard.org/courses/ap-psychology"],
+      ["Psychology 2e", "OpenStax", "https://openstax.org/details/books/psychology-2e"],
     ],
   },
   chem: {

@@ -27,6 +27,57 @@ import { estimateApScore, type ExamData, type ExamSectionData, type FrqData, typ
 import { useIsClient } from "@/lib/hooks/use-is-client";
 import { letter, McqOptions, OptionReasons, StimulusView } from "./question-views";
 
+/** In-page confirmation. Native confirm() dialogs are blocked in some embedded browsers, which made sections impossible to finish. */
+function ConfirmDialog({ message, confirmLabel, onConfirm, onCancel }: { message: string; confirmLabel: string; onConfirm: () => void; onCancel: () => void }) {
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onCancel();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onCancel]);
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={onCancel}>
+      <div role="alertdialog" aria-modal="true" aria-label={message} className="w-full max-w-md" onClick={(event) => event.stopPropagation()}>
+        <GlassPanel className="space-y-5 p-6">
+          <p className="text-base text-fg">{message}</p>
+          <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+            <Button variant="ghost" onClick={onCancel}>
+              Cancel
+            </Button>
+            <Button autoFocus onClick={onConfirm}>
+              {confirmLabel}
+            </Button>
+          </div>
+        </GlassPanel>
+      </div>
+    </div>
+  );
+}
+
+/** A button that asks for confirmation in the page before acting. */
+function ConfirmButton({ message, confirmLabel, onConfirm, children, ...props }: { message: string; confirmLabel: string; onConfirm: () => void } & Omit<React.ComponentProps<typeof Button>, "onClick">) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Button {...props} onClick={() => setOpen(true)}>
+        {children}
+      </Button>
+      {open ? (
+        <ConfirmDialog
+          message={message}
+          confirmLabel={confirmLabel}
+          onCancel={() => setOpen(false)}
+          onConfirm={() => {
+            setOpen(false);
+            onConfirm();
+          }}
+        />
+      ) : null}
+    </>
+  );
+}
+
 export function ExamRunner({ exam }: { exam: ExamData }) {
   // Attempts live in localStorage, so render only on the client to avoid a hydration mismatch.
   const isClient = useIsClient();
@@ -247,15 +298,9 @@ function SectionBreak({ exam, attempt, onBegin, onRestart }: { exam: ExamData; a
         <Button size="lg" className="flex-1" onClick={onBegin}>
           Begin {section.label} <ArrowRight />
         </Button>
-        <Button
-          size="lg"
-          variant="ghost"
-          onClick={() => {
-            if (window.confirm("Discard this attempt and start over?")) onRestart();
-          }}
-        >
+        <ConfirmButton size="lg" variant="ghost" message="Discard this attempt and start over?" confirmLabel="Start over" onConfirm={onRestart}>
           <RotateCcw /> Start over
-        </Button>
+        </ConfirmButton>
       </div>
     </GlassPanel>
   );
@@ -335,15 +380,25 @@ function SectionView({
   const unanswered = section.questions.filter((q) => !answered(q)).length;
   const flagged = attempt.flags.includes(question.id);
 
-  const endSection = () => {
-    const message = unanswered
-      ? `You have ${unanswered} unanswered question${unanswered === 1 ? "" : "s"} in this section. End the section anyway?`
-      : "End this section? You can't return to it.";
-    if (window.confirm(message)) finishSection();
-  };
+  const [confirmingEnd, setConfirmingEnd] = useState(false);
+  const endMessage = unanswered
+    ? `You have ${unanswered} unanswered question${unanswered === 1 ? "" : "s"} in this section. End the section anyway?`
+    : "End this section? You can't return to it.";
+  const endSection = () => setConfirmingEnd(true);
 
   return (
     <div className="space-y-4">
+      {confirmingEnd ? (
+        <ConfirmDialog
+          message={endMessage}
+          confirmLabel="End section"
+          onCancel={() => setConfirmingEnd(false)}
+          onConfirm={() => {
+            setConfirmingEnd(false);
+            finishSection();
+          }}
+        />
+      ) : null}
       <GlassPanel className="sticky top-2 z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3">
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <span className="font-semibold text-fg">{section.label}</span>
@@ -601,14 +656,9 @@ function Results({ exam, attempt, setAttempt }: { exam: ExamData; attempt: Attem
           <ArrowLeft /> All practice exams
         </ButtonLink>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button
-            variant="secondary"
-            onClick={() => {
-              if (window.confirm("Retake this exam? Your answers and score will be cleared.")) setAttempt(null);
-            }}
-          >
+          <ConfirmButton variant="secondary" message="Retake this exam? Your answers and score will be cleared." confirmLabel="Retake" onConfirm={() => setAttempt(null)}>
             <RotateCcw /> Retake
-          </Button>
+          </ConfirmButton>
           {next ? (
             <ButtonLink href={`/${exam.courseId}/mock/${next}`}>
               Practice exam {next} <ArrowRight />
